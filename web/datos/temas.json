@@ -1,0 +1,25 @@
+{
+  "modulo": "0223",
+  "titulo": "Aplicaciones ofimáticas",
+  "curso": "2026/2027",
+  "temas": [
+    {
+      "ut": 0,
+      "titulo": "Presentación del módulo y evaluación inicial",
+      "ra": "",
+      "evaluacion": 0,
+      "horas": 2,
+      "estado": "publicado",
+      "actualizado": "2026-09-10"
+    },
+    {
+      "ut": 1,
+      "titulo": "Instalación y actualización de aplicaciones ofimáticas",
+      "ra": "RA1",
+      "evaluacion": 1,
+      "horas": 12,
+      "estado": "borrador",
+      "actualizado": "2026-09-10"
+    }
+  ]
+}
