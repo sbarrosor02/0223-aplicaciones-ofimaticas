@@ -74,7 +74,16 @@ plantillas (2.4), el índice y la tabla de contenido (2.4) y los manuales
 finales (2.7): sin estilos aplicados correctamente, esos tres bloques no
 funcionan.
 
+## Ejercicios guiados
+
+Además de las prácticas evaluables de cada subtema, hay una serie de
+ejercicios formativos cortos con un hilo conductor único para todo el Tema 2:
+construir el propio currículum vitae. Basados en la idea del PDF de
+ejercicios del curso 2025/26, pero redactados de cero (pasos y texto
+originales, no copiados). Ver `temario/ut02-ejercicios.md` y
+`web/temas/ut02-ejercicios.html`.
+
 ## Estado
 
-- 2.1: publicado.
-- 2.2 a 2.7: pendientes.
+- 2.0 y 2.1: publicados (con sus ejercicios guiados).
+- 2.2 a 2.7: pendientes (sus ejercicios guiados se redactan junto con cada subtema).

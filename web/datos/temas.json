@@ -95,6 +95,13 @@
           "estado": "borrador",
           "actualizado": "2026-09-14"
         }
+      ],
+      "recursos": [
+        {
+          "titulo": "Ejercicios guiados: currículum vitae paso a paso",
+          "url": "temas/ut02-ejercicios.html",
+          "nota": "formativo, no evaluable; bloques 2.0-2.1 redactados, 2.2-2.7 pendientes"
+        }
       ]
     }
   ]
