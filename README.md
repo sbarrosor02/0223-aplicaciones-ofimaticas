@@ -40,7 +40,10 @@ Al crear o modificar un tema en `temario/` hay que: (1) generar/actualizar
   más grande del módulo se reparte en **siete subtemas** (2.1 a 2.7), cada uno
   con su propio archivo en `temario/` y su propia página en `web/temas/`
   (`ut02-1.html`…`ut02-7.html`), enlazados desde una página índice de tema
-  (`web/temas/ut02.html`). Subtema 2.1 publicado; 2.2 a 2.7 pendientes.
+  (`web/temas/ut02.html`). Delante hay un subtema 2.0 de repaso (primer
+  documento, edición básica), no evaluable y con horas no oficiales, para
+  quien no llegue con ese nivel. Subtemas 2.0 y 2.1 publicados; 2.2 a 2.7
+  pendientes.
 - Resto de temas (3 a 9): pendientes.
 
 ## Web publicada

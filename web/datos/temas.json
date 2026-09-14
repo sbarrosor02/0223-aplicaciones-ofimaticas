@@ -31,6 +31,15 @@
       "actualizado": "2026-09-14",
       "subtemas": [
         {
+          "ut": "2.0",
+          "titulo": "Repaso: primer documento y edición básica",
+          "ce": [],
+          "horas": 3,
+          "nota": "repaso no evaluable, horas no oficiales (no cuentan en las 60h de RA2)",
+          "estado": "publicado",
+          "actualizado": "2026-09-14"
+        },
+        {
           "ut": "2.1",
           "titulo": "Entorno, edición avanzada y personalización de Word",
           "ce": ["RA2.a"],

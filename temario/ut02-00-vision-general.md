@@ -33,6 +33,14 @@ opciones avanzadas de procesadores de textos.
 Texto verificado literalmente contra el Decreto 272/2009 (DOE nº 1,
 04/01/2010).
 
+## Repaso previo (2.0)
+
+Antes de 2.1 hay un **subtema 2.0** de repaso (primer documento, edición
+básica, guardar y abrir), no evaluable y fuera de las 60 horas oficiales de
+RA2, igual que el Tema 0 lo es para el módulo completo. Existe porque el
+subtema 2.1 empieza directamente en edición avanzada y da por hecho ese nivel;
+ver `temario/ut02-0-repaso-edicion-basica.md`.
+
 ## Reparto en subtemas
 
 Contenidos tomados de la programación didáctica del módulo (`Programación/main_aof.pdf`,
