@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tema 1 · Instalación y actualización de aplicaciones ofimáticas · 0223 Aplicaciones ofimáticas</title>
+<link rel="stylesheet" href="../assets/estilo.css">
+</head>
+<body>
+<div class="envoltura">
+
+  <header class="cab">
+    <p class="modulo">0223 · Aplicaciones ofimáticas</p>
+    <h1>Tema 1 — Instalación y actualización de aplicaciones ofimáticas</h1>
+    <p class="meta">1.º SMR · Curso 2026/2027 · 1.ª evaluación · Duración: 12 h</p>
+  </header>
+
+  <div class="ra-ce">
+    <h2>Resultados de aprendizaje y criterios de evaluación</h2>
+    <p><strong>RA1.</strong> Instala y actualiza aplicaciones ofimáticas,
+    interpretando especificaciones y describiendo los pasos a seguir en el
+    proceso.</p>
+    <ul>
+      <li><strong>a)</strong> Se han identificado y establecido las fases del proceso de instalación.</li>
+      <li><strong>b)</strong> Se han respetado las especificaciones técnicas del proceso de instalación.</li>
+      <li><strong>c)</strong> Se han configurado las aplicaciones según los criterios establecidos.</li>
+      <li><strong>d)</strong> Se han documentado las incidencias.</li>
+      <li><strong>e)</strong> Se han solucionado problemas en la instalación o integración con el sistema informático.</li>
+      <li><strong>f)</strong> Se han eliminado y/o añadido componentes de la instalación en el equipo.</li>
+      <li><strong>g)</strong> Se han actualizado las aplicaciones.</li>
+      <li><strong>h)</strong> Se han respetado las licencias software.</li>
+      <li><strong>i)</strong> Se han propuesto soluciones software para entornos de aplicación.</li>
+    </ul>
+  </div>
+
+  <div class="aviso">
+    <strong>Todo el tema se trabaja sobre máquina virtual.</strong> Nunca vamos a
+    instalar ni desinstalar nada en el sistema real del aula. Si algo se rompe
+    dentro de la máquina virtual, se revierte y no pasa nada: precisamente por
+    eso se trabaja así.
+  </div>
+
+  <section>
+    <h2>1. Tipos de aplicaciones ofimáticas y entornos</h2>
+    <p>Una <strong>suite ofimática</strong> es un conjunto de programas que
+    comparten aspecto, formatos y forma de trabajar: procesador de textos, hoja
+    de cálculo, presentaciones y, según la suite, base de datos, dibujo o
+    correo.</p>
+    <p>Según dónde se ejecuta y dónde viven los archivos, distinguimos:</p>
+    <ul>
+      <li><strong>Monopuesto</strong>: se instala en cada equipo y los archivos
+      están en el disco local. Funciona sin conexión.</li>
+      <li><strong>En red</strong>: la aplicación o los datos están en un
+      servidor del centro o la empresa, con licencias gestionadas de forma
+      centralizada.</li>
+      <li><strong>En la nube</strong>: se usa desde el navegador y los archivos
+      se guardan en un servidor de internet. No se instala casi nada, pero sin
+      conexión no hay trabajo.</li>
+    </ul>
+    <p>Las suites que vas a ver este curso: <strong>LibreOffice</strong> (libre,
+    multiplataforma, formato ODF), <strong>Microsoft 365</strong> (privativa,
+    por suscripción), <strong>Google Workspace</strong> (en la nube) y
+    <strong>OnlyOffice</strong> (libre, muy compatible con los formatos de
+    Microsoft).</p>
+    <p>Elegir una u otra no es cuestión de gustos: depende del presupuesto, de
+    con quién intercambias archivos, de si hace falta trabajar sin conexión y de
+    qué equipos hay. Eso es lo que pide el criterio <em>i</em>: proponer una
+    solución software para un entorno concreto y saber defenderla.</p>
+  </section>
+
+  <section>
+    <h2>2. Licencias de software</h2>
+    <p>La licencia es el contrato que dice qué puedes hacer con el programa.
+    Instalar sin respetarla es ilegal, y en un centro o una empresa la
+    responsabilidad es de quien administra los equipos, o sea, de ti.</p>
+    <h3>Software libre y software privativo</h3>
+    <ul>
+      <li><strong>Libre</strong> (GPL, MPL, Apache…): permite usar, copiar,
+      estudiar, modificar y redistribuir el programa. LibreOffice se distribuye
+      bajo MPL. Libre no es lo mismo que gratis, aunque suela coincidir.</li>
+      <li><strong>Privativo</strong>: el código no se entrega y el uso está
+      limitado por el <strong>EULA</strong>, el contrato que aceptas al
+      instalar. Casi nadie lo lee; tú tienes que saber leerlo.</li>
+    </ul>
+    <h3>Formas de adquisición</h3>
+    <ul>
+      <li><strong>OEM</strong>: viene con el equipo y queda ligada a él; no se
+      puede pasar a otro ordenador.</li>
+      <li><strong>Retail</strong>: se compra por separado y normalmente sí se
+      puede trasladar de equipo.</li>
+      <li><strong>Por volumen</strong>: una sola clave para muchos puestos, es
+      lo habitual en centros y empresas.</li>
+      <li><strong>Suscripción</strong> (pago periódico, deja de funcionar si
+      dejas de pagar) frente a <strong>perpetua</strong> (pago único, esa
+      versión es tuya para siempre).</li>
+      <li><strong>Freeware</strong> (gratis pero privativo) y
+      <strong>shareware</strong> (gratis un tiempo o con funciones
+      limitadas).</li>
+    </ul>
+    <div class="tarjeta">
+      <p><strong>Ojo con esto:</strong> «lo he bajado de internet y es gratis»
+      no es una licencia. Las descargas de instaladores fuera del sitio oficial
+      son, además de ilegales en muchos casos, la vía de entrada de malware más
+      común en equipos de oficina.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>3. Requisitos y especificaciones técnicas</h2>
+    <p>Antes de instalar nada hay que comprobar que el equipo aguanta. En la
+    web del fabricante encontrarás:</p>
+    <ul>
+      <li><strong>Requisitos mínimos</strong>: con eso arranca, pero puede ir
+      mal.</li>
+      <li><strong>Requisitos recomendados</strong>: con eso funciona bien. Es
+      la referencia real.</li>
+    </ul>
+    <p>Qué mirar siempre: sistema operativo y versión soportada,
+    <strong>arquitectura</strong> (32 o 64 bits), memoria RAM, espacio libre en
+    disco, resolución de pantalla y si hacen falta
+    <strong>permisos de administrador</strong>. Instalar un paquete de 64 bits
+    en un sistema de 32 no funciona, y es un error de principiante que conviene
+    no cometer en la práctica evaluable.</p>
+  </section>
+
+  <section>
+    <h2>4. Fases del proceso de instalación</h2>
+    <p>Instalar bien no es pulsar «Siguiente» seis veces. El procedimiento que
+    vas a seguir siempre, y que tienes que saber describir, es este:</p>
+    <ol>
+      <li><strong>Planificar</strong>: qué se instala, en qué equipos, con qué
+      licencia y cuándo (sin interrumpir el trabajo de nadie).</li>
+      <li><strong>Comprobar requisitos</strong> sobre el equipo real.</li>
+      <li><strong>Obtener el software</strong> del sitio oficial o del
+      repositorio de la distribución.</li>
+      <li><strong>Verificar el instalador</strong>: comparar la
+      <strong>suma de comprobación</strong> (SHA-256) o la firma digital con la
+      que publica el fabricante. Si no coincide, el archivo está corrupto o
+      manipulado y no se instala.</li>
+      <li><strong>Instalar</strong>, eligiendo el tipo de instalación y los
+      componentes.</li>
+      <li><strong>Configurar</strong> según los criterios del cliente.</li>
+      <li><strong>Comprobar</strong> que funciona: abrir cada programa, crear y
+      guardar un archivo de prueba, imprimir si procede.</li>
+      <li><strong>Documentar</strong>: versión instalada, fecha, equipo, opciones
+      elegidas e incidencias.</li>
+    </ol>
+    <div class="tarjeta">
+      <p><strong>Comprobar el hash</strong></p>
+      <p>En Windows, desde PowerShell:
+      <code>Get-FileHash instalador.msi -Algorithm SHA256</code></p>
+      <p>En Linux: <code>sha256sum instalador.deb</code></p>
+      <p>El resultado se compara, carácter a carácter, con el que publica el
+      fabricante junto a la descarga.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>5. Tipos de instalación y componentes</h2>
+    <ul>
+      <li><strong>Típica</strong>: los componentes habituales, decididos por el
+      fabricante.</li>
+      <li><strong>Mínima</strong>: lo imprescindible. Útil en equipos con poco
+      disco.</li>
+      <li><strong>Personalizada</strong>: eliges tú qué se instala. Es la que se
+      usa en un entorno profesional, porque permite dejar fuera lo que nadie va
+      a usar y añadir idiomas o diccionarios.</li>
+    </ul>
+    <p>Los componentes se pueden <strong>añadir o quitar después</strong> sin
+    reinstalar todo, desde el propio instalador o desde el panel de aplicaciones
+    del sistema. Eso es el criterio <em>f</em>.</p>
+    <h3>Instalación desatendida y gestores de paquetes</h3>
+    <p>Cuando hay que instalar en treinta equipos, nadie va uno por uno. Se usa
+    la <strong>instalación desatendida</strong> (el instalador se ejecuta con
+    parámetros y sin preguntar nada) o un
+    <strong>gestor de paquetes</strong>:</p>
+    <ul>
+      <li>Windows: <code>winget install --id TheDocumentFoundation.LibreOffice</code></li>
+      <li>Debian/Ubuntu: <code>sudo apt install libreoffice</code></li>
+    </ul>
+    <p>El gestor de paquetes descarga desde un <strong>repositorio</strong>
+    firmado, resuelve las dependencias y deja la aplicación registrada para
+    poder actualizarla después con un solo comando. Existe además la
+    <strong>versión portable</strong>, que no se instala y se ejecuta desde una
+    memoria USB: cómoda, pero no es lo que se despliega en una empresa.</p>
+  </section>
+
+  <section>
+    <h2>6. Configuración según criterios</h2>
+    <p>Terminar la instalación no es terminar el trabajo. El cliente da unos
+    criterios y hay que dejar la aplicación como él la necesita, no como a ti te
+    gusta:</p>
+    <ul>
+      <li><strong>Formato de guardado por defecto</strong>: ODF
+      (<code>.odt</code>, <code>.ods</code>, <code>.odp</code>) u OOXML
+      (<code>.docx</code>, <code>.xlsx</code>, <code>.pptx</code>). En una
+      administración pública suele exigirse ODF; si el cliente intercambia
+      archivos a diario con gente que usa Microsoft Office, quizá convenga
+      OOXML.</li>
+      <li><strong>Rutas de guardado</strong> y carpeta de trabajo por defecto,
+      sobre todo si hay una unidad de red.</li>
+      <li><strong>Autoguardado y copias de recuperación</strong>, con su
+      intervalo.</li>
+      <li><strong>Idioma de interfaz y de corrección</strong>, diccionarios.</li>
+      <li><strong>Extensiones y plantillas</strong>: la plantilla con el
+      membrete del centro o de la empresa se instala aquí, no la hace cada
+      usuario por su cuenta.</li>
+      <li><strong>Interfaz</strong>: barras de herramientas y atajos, si el
+      criterio lo pide.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>7. Actualización y desinstalación</h2>
+    <p>Una aplicación sin actualizar es un agujero de seguridad y una fuente de
+    problemas de compatibilidad. Hay que distinguir:</p>
+    <ul>
+      <li><strong>Actualización menor</strong>: correcciones y parches de
+      seguridad dentro de la misma versión. Se aplica siempre.</li>
+      <li><strong>Actualización mayor</strong>: cambio de versión. Antes hay que
+      comprobar que las plantillas, macros y extensiones que usa el cliente
+      siguen funcionando.</li>
+    </ul>
+    <p>Antes de actualizar en un entorno real: <strong>copia de seguridad</strong>
+    de documentos y plantillas, y saber cómo volver atrás si algo falla.</p>
+    <h3>Desinstalación limpia</h3>
+    <p>Desinstalar no es solo quitar el programa. Una desinstalación limpia
+    comprueba además que no quedan restos: carpetas del perfil de usuario,
+    entradas en el sistema, extensiones instaladas aparte. Si vas a reinstalar
+    para resolver un problema, esos restos suelen ser justamente la causa de que
+    el problema vuelva.</p>
+  </section>
+
+  <section>
+    <h2>8. Diagnóstico e incidencias</h2>
+    <p>Las averías más frecuentes al instalar una suite ofimática:</p>
+    <ul>
+      <li><strong>Instalador corrupto</strong>: la descarga falló. Se detecta con
+      la suma de comprobación y se resuelve descargando de nuevo.</li>
+      <li><strong>Permisos insuficientes</strong>: la instalación necesita
+      administrador y el usuario no lo es.</li>
+      <li><strong>Requisitos no cumplidos</strong>: arquitectura o versión del
+      sistema operativo incompatible.</li>
+      <li><strong>Dependencias que faltan</strong>, típico en Linux cuando se
+      instala un paquete descargado a mano en vez de usar el repositorio.</li>
+      <li><strong>Convivencia de dos suites</strong>: se pelean por ser la
+      aplicación predeterminada de cada tipo de archivo.</li>
+      <li><strong>Perfil de usuario dañado</strong>: la aplicación arranca en
+      blanco o se cierra sola. Se comprueba arrancando en
+      <strong>modo seguro</strong> y, si ahí funciona, restableciendo el
+      perfil.</li>
+    </ul>
+    <h3>El parte de incidencias</h3>
+    <p>Toda incidencia se documenta. Es la parte que más se olvida y la que más
+    valor tiene en un trabajo real: sin registro, el compañero del turno
+    siguiente repite tu trabajo desde cero. Un parte tiene que recoger, como
+    mínimo:</p>
+    <div class="tarjeta">
+      <ul>
+        <li>Fecha, hora y persona que atiende.</li>
+        <li>Equipo y usuario afectados.</li>
+        <li>Síntoma descrito por el usuario y <strong>mensaje de error
+        literal</strong>.</li>
+        <li>Comprobaciones realizadas, en orden.</li>
+        <li>Causa identificada.</li>
+        <li>Solución aplicada y comprobación de que funciona.</li>
+        <li>Tiempo empleado y si queda algo pendiente.</li>
+      </ul>
+    </div>
+    <p>Esta misma plantilla se vuelve a usar en el Tema 9, cuando toque
+    soporte a usuarios. Guárdala bien.</p>
+  </section>
+
+  <section>
+    <h2>9. Prácticas del tema</h2>
+    <p>Son las que acreditan el RA1. Se entregan en el portafolio del módulo.</p>
+    <ul>
+      <li><strong>P1.1</strong> · Comparativa de suites y licencias para tres
+      escenarios (aula de un centro público, PYME de cinco puestos, uso
+      doméstico) con una recomendación razonada para cada uno.</li>
+      <li><strong>P1.2</strong> · Instalación personalizada de LibreOffice en
+      Windows, verificando antes la suma de comprobación del instalador.</li>
+      <li><strong>P1.3</strong> · Instalación de la misma suite en Linux desde
+      el repositorio y comparación de los dos procedimientos.</li>
+      <li><strong>P1.4</strong> · Configuración según unos criterios dados:
+      formato por defecto, rutas, autoguardado y una extensión.</li>
+      <li><strong>P1.5</strong> · Actualización de versión y desinstalación
+      limpia, documentando el estado antes y después.</li>
+      <li><strong>P1.6</strong> · Resolución de tres incidencias provocadas, con
+      su parte cumplimentado.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>10. Comprueba lo que has entendido</h2>
+    <p>Ocho preguntas. No cuentan para la nota: sirven para que veas si el tema
+    te ha quedado claro antes de las prácticas.</p>
+
+    <form id="ei">
+
+      <div class="pregunta" data-correcta="b">
+        <p class="enunciado"><span class="num">1.</span> ¿Cuál es el orden
+        correcto de las fases del proceso de instalación?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p1" value="a"> Instalar, comprobar requisitos, documentar</label></li>
+          <li><label><input type="radio" name="p1" value="b"> Planificar, comprobar requisitos, obtener y verificar, instalar, configurar, comprobar y documentar</label></li>
+          <li><label><input type="radio" name="p1" value="c"> Descargar de cualquier web, instalar y empezar a usarlo</label></li>
+          <li><label><input type="radio" name="p1" value="d"> Configurar, instalar, verificar</label></li>
+        </ul>
+        <span class="marca"></span>
+      </div>
+
+      <div class="pregunta" data-correcta="c">
+        <p class="enunciado"><span class="num">2.</span> Comparar la suma de
+        comprobación SHA-256 de un instalador con la que publica el fabricante
+        sirve para…</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p2" value="a"> Acelerar la instalación</label></li>
+          <li><label><input type="radio" name="p2" value="b"> Saber cuánto espacio ocupará el programa</label></li>
+          <li><label><input type="radio" name="p2" value="c"> Confirmar que el archivo no está corrupto ni ha sido manipulado</label></li>
+          <li><label><input type="radio" name="p2" value="d"> Activar la licencia</label></li>
+        </ul>
+        <span class="marca"></span>
+      </div>
+
+      <div class="pregunta" data-correcta="b">
+        <p class="enunciado"><span class="num">3.</span> La instalación
+        <em>personalizada</em> se caracteriza porque…</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p3" value="a"> Instala siempre menos componentes que la mínima</label></li>
+          <li><label><input type="radio" name="p3" value="b"> Permite elegir qué componentes, idiomas y funciones se instalan</label></li>
+          <li><label><input type="radio" name="p3" value="c"> Solo está disponible en Linux</label></li>
+          <li><label><input type="radio" name="p3" value="d"> No requiere permisos de administrador</label></li>
+        </ul>
+        <span class="marca"></span>
+      </div>
+
+      <div class="pregunta" data-correcta="d">
+        <p class="enunciado"><span class="num">4.</span> Una licencia
+        <strong>OEM</strong> se caracteriza porque…</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p4" value="a"> Permite modificar el código fuente</label></li>
+          <li><label><input type="radio" name="p4" value="b"> Caduca al año</label></li>
+          <li><label><input type="radio" name="p4" value="c"> Sirve para instalar en un número ilimitado de equipos</label></li>
+          <li><label><input type="radio" name="p4" value="d"> Va ligada al equipo con el que se adquirió y no se puede trasladar a otro</label></li>
+        </ul>
+        <span class="marca"></span>
+      </div>
+
+      <div class="pregunta" data-correcta="a">
+        <p class="enunciado"><span class="num">5.</span> ¿Qué hacen
+        <code>winget</code> y <code>apt</code>?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p5" value="a"> Instalan y actualizan aplicaciones desde repositorios, resolviendo las dependencias</label></li>
+          <li><label><input type="radio" name="p5" value="b"> Comprimen archivos para ahorrar espacio</label></li>
+          <li><label><input type="radio" name="p5" value="c"> Convierten documentos a PDF</label></li>
+          <li><label><input type="radio" name="p5" value="d"> Son antivirus</label></li>
+        </ul>
+        <span class="marca"></span>
+      </div>
+
+      <div class="pregunta" data-correcta="c">
+        <p class="enunciado"><span class="num">6.</span> Un cliente exige que
+        todos los documentos se guarden en formato ODF por defecto. Eso se
+        resuelve…</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p6" value="a"> Pidiendo a cada usuario que se acuerde de cambiar el formato al guardar</label></li>
+          <li><label><input type="radio" name="p6" value="b"> Reinstalando la suite cada vez que alguien guarde en otro formato</label></li>
+          <li><label><input type="radio" name="p6" value="c"> Configurando el formato de guardado por defecto en la aplicación durante la fase de configuración</label></li>
+          <li><label><input type="radio" name="p6" value="d"> Desinstalando el resto de programas del equipo</label></li>
+        </ul>
+        <span class="marca"></span>
+      </div>
+
+      <div class="pregunta" data-correcta="b">
+        <p class="enunciado"><span class="num">7.</span> Una aplicación
+        ofimática arranca en blanco y se cierra sola. Antes de reinstalar, la
+        comprobación más razonable es…</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p7" value="a"> Formatear el equipo</label></li>
+          <li><label><input type="radio" name="p7" value="b"> Arrancarla en modo seguro para descartar que el perfil de usuario esté dañado</label></li>
+          <li><label><input type="radio" name="p7" value="c"> Cambiar el monitor</label></li>
+          <li><label><input type="radio" name="p7" value="d"> Comprar otra licencia</label></li>
+        </ul>
+        <span class="marca"></span>
+      </div>
+
+      <div class="pregunta" data-correcta="d">
+        <p class="enunciado"><span class="num">8.</span> ¿Qué no puede faltar
+        nunca en un parte de incidencias?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p8" value="a"> La marca del teclado del usuario</label></li>
+          <li><label><input type="radio" name="p8" value="b"> Una captura de pantalla del escritorio</label></li>
+          <li><label><input type="radio" name="p8" value="c"> El precio de la licencia</label></li>
+          <li><label><input type="radio" name="p8" value="d"> Equipo afectado, mensaje de error literal, comprobaciones hechas y solución aplicada</label></li>
+        </ul>
+        <span class="marca"></span>
+      </div>
+
+      <div class="acciones">
+        <button type="button" id="corregir">Corregir test</button>
+        <button type="button" class="sec" id="reiniciar">Reiniciar</button>
+      </div>
+      <p class="resultado oculto" id="resultado"></p>
+    </form>
+  </section>
+
+  <section>
+    <h2>11. Antes de pasar al Tema 2</h2>
+    <p>Marca lo que ya sabrías hacer tú solo. Si algo se queda sin marcar,
+    díselo al profesor antes de empezar el procesador de textos.</p>
+    <ul class="checklist">
+      <li><label><input type="checkbox"> Enumerar las fases de una instalación y explicar para qué sirve cada una</label></li>
+      <li><label><input type="checkbox"> Comprobar los requisitos de una aplicación contra un equipo concreto</label></li>
+      <li><label><input type="checkbox"> Verificar la suma de comprobación de un instalador</label></li>
+      <li><label><input type="checkbox"> Hacer una instalación personalizada eligiendo componentes e idiomas</label></li>
+      <li><label><input type="checkbox"> Instalar la misma suite en Linux desde el repositorio</label></li>
+      <li><label><input type="checkbox"> Añadir o quitar componentes sin reinstalar</label></li>
+      <li><label><input type="checkbox"> Configurar formato por defecto, rutas, autoguardado y una extensión</label></li>
+      <li><label><input type="checkbox"> Actualizar la suite y desinstalarla sin dejar restos</label></li>
+      <li><label><input type="checkbox"> Distinguir software libre y privativo, y las formas de licencia</label></li>
+      <li><label><input type="checkbox"> Rellenar un parte de incidencias completo</label></li>
+    </ul>
+  </section>
+
+  <nav class="nav-temas">
+    <a href="ut00.html">&laquo; Tema 0</a>
+    <a href="../index.html">Índice del módulo</a>
+    <span>Siguiente &raquo; (Tema 2, próximamente)</span>
+  </nav>
+
+  <footer class="pie">
+    <p>0223 Aplicaciones ofimáticas · Material de consulta del alumnado.
+    Currículo: Decreto 272/2009 (Extremadura).</p>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  var form = document.getElementById('ei');
+  var preguntas = form.querySelectorAll('.pregunta');
+  var salida = document.getElementById('resultado');
+
+  document.getElementById('corregir').addEventListener('click', function () {
+    var aciertos = 0, contestadas = 0;
+    preguntas.forEach(function (p) {
+      var correcta = p.getAttribute('data-correcta');
+      var elegida = p.querySelector('input:checked');
+      var marca = p.querySelector('.marca');
+      p.classList.remove('acierto', 'fallo');
+      if (!elegida) { marca.textContent = ''; return; }
+      contestadas++;
+      if (elegida.value === correcta) {
+        aciertos++;
+        p.classList.add('acierto');
+        marca.textContent = '✓ correcto';
+      } else {
+        p.classList.add('fallo');
+        marca.textContent = '✗ la correcta era la opción ' + correcta.toUpperCase();
+      }
+    });
+    var total = preguntas.length;
+    salida.classList.remove('oculto');
+    salida.textContent = 'Aciertos: ' + aciertos + ' de ' + total +
+      '  ·  Contestadas: ' + contestadas + '/' + total +
+      '  ·  Nota orientativa: ' + (Math.round(aciertos / total * 100) / 10) + ' / 10' +
+      '   (recuerda: esta autocomprobación no cuenta para la evaluación)';
+    salida.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+
+  document.getElementById('reiniciar').addEventListener('click', function () {
+    form.reset();
+    preguntas.forEach(function (p) {
+      p.classList.remove('acierto', 'fallo');
+      p.querySelector('.marca').textContent = '';
+    });
+    salida.classList.add('oculto');
+    salida.textContent = '';
+  });
+})();
+</script>
+
+</body>
+</html>
