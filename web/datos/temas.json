@@ -20,6 +20,73 @@
       "horas": 12,
       "estado": "publicado",
       "actualizado": "2026-09-14"
+    },
+    {
+      "ut": 2,
+      "titulo": "Procesadores de texto: documentos, plantillas y macros",
+      "ra": "RA2",
+      "evaluacion": 1,
+      "horas": 60,
+      "estado": "en progreso",
+      "actualizado": "2026-09-14",
+      "subtemas": [
+        {
+          "ut": "2.1",
+          "titulo": "Entorno, edición avanzada y personalización de Word",
+          "ce": ["RA2.a"],
+          "horas": 8,
+          "estado": "publicado",
+          "actualizado": "2026-09-14"
+        },
+        {
+          "ut": "2.2",
+          "titulo": "Formato de documento y estilos",
+          "ce": [],
+          "horas": 10,
+          "estado": "borrador",
+          "actualizado": "2026-09-14"
+        },
+        {
+          "ut": "2.3",
+          "titulo": "Tablas, imágenes y elementos gráficos",
+          "ce": ["RA2.c"],
+          "horas": 10,
+          "estado": "borrador",
+          "actualizado": "2026-09-14"
+        },
+        {
+          "ut": "2.4",
+          "titulo": "Plantillas y documentos estructurados",
+          "ce": ["RA2.b"],
+          "horas": 8,
+          "estado": "borrador",
+          "actualizado": "2026-09-14"
+        },
+        {
+          "ut": "2.5",
+          "titulo": "Importación, exportación y combinación de correspondencia",
+          "ce": ["RA2.d"],
+          "horas": 10,
+          "estado": "borrador",
+          "actualizado": "2026-09-14"
+        },
+        {
+          "ut": "2.6",
+          "titulo": "Trabajo colaborativo y seguridad documental",
+          "ce": [],
+          "horas": 6,
+          "estado": "borrador",
+          "actualizado": "2026-09-14"
+        },
+        {
+          "ut": "2.7",
+          "titulo": "Macros y elaboración de manuales (proyecto final)",
+          "ce": ["RA2.e", "RA2.f"],
+          "horas": 8,
+          "estado": "borrador",
+          "actualizado": "2026-09-14"
+        }
+      ]
     }
   ]
 }

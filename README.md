@@ -35,7 +35,13 @@ Al crear o modificar un tema en `temario/` hay que: (1) generar/actualizar
 - **Tema 0 — Presentación y evaluación inicial**: publicado.
   Prueba diagnóstica autocorregible en `web/temas/ut00.html`. No evalúa RA ni CE
   y no cuenta para la nota.
-- Resto de temas: pendientes.
+- **Tema 1 — Instalación y actualización (RA1)**: publicado.
+- **Tema 2 — Procesadores de texto (RA2, 60 h)**: en progreso. Al ser el bloque
+  más grande del módulo se reparte en **siete subtemas** (2.1 a 2.7), cada uno
+  con su propio archivo en `temario/` y su propia página en `web/temas/`
+  (`ut02-1.html`…`ut02-7.html`), enlazados desde una página índice de tema
+  (`web/temas/ut02.html`). Subtema 2.1 publicado; 2.2 a 2.7 pendientes.
+- Resto de temas (3 a 9): pendientes.
 
 ## Web publicada
 
