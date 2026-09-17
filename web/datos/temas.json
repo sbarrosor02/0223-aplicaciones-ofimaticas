@@ -51,9 +51,10 @@
           "ut": "2.2",
           "titulo": "Formato de documento y estilos",
           "ce": [],
+          "base_de": ["RA2.b", "RA2.e", "RA2.f"],
           "horas": 10,
-          "estado": "borrador",
-          "actualizado": "2026-09-14"
+          "estado": "publicado",
+          "actualizado": "2026-09-17"
         },
         {
           "ut": "2.3",
