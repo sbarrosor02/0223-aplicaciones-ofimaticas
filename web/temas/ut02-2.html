@@ -55,6 +55,16 @@
     carácter y de párrafo <em>y además</em> dan estructura. Esa distinción entre
     carácter y párrafo parece un detalle, pero reaparece al final del subtema
     cuando dos formatos entran en conflicto.</p>
+    <div class="tarjeta">
+      <p><strong>La idea de fondo: contenido y presentación son cosas
+      distintas.</strong> El <em>contenido</em> es lo que dices (tu nombre, tus
+      estudios); la <em>presentación</em> es cómo se ve (la fuente, el color, la
+      sangría). Dar formato «a mano» mezcla las dos: si luego quieres otro aspecto,
+      tienes que repasar el documento entero. Los <strong>estilos</strong> las
+      separan, así que cambias la presentación de una vez sin tocar el contenido.
+      Es la misma idea que en las páginas web, donde el contenido va en HTML y la
+      presentación en una hoja de estilos aparte (CSS).</p>
+    </div>
   </section>
 
   <section>
@@ -122,10 +132,19 @@
     eligiendo el tipo en el cuadradito del extremo izquierdo: izquierda, centrada,
     derecha, decimal o barra. Afectan solo al párrafo donde se definen.</p>
     <div class="tarjeta">
-      <p><strong>Un párrafo que no se parta entre páginas.</strong> Si no quieres
-      que un párrafo quede cortado con la mitad en una página y la otra mitad en
-      la siguiente, activa <em>Conservar líneas juntas</em> en el cuadro de
-      diálogo <code>Párrafo &gt; Líneas y saltos de página</code>.</p>
+      <p><strong>Controlar cómo se reparte el texto entre páginas.</strong> En el
+      cuadro <code>Párrafo &gt; Líneas y saltos de página</code> hay tres opciones
+      que marcan la diferencia entre un documento amateur y uno profesional:</p>
+      <ul>
+        <li><strong>Conservar líneas juntas</strong>: un párrafo no se parte con
+        media parte en una página y media en la siguiente.</li>
+        <li><strong>Conservar con el siguiente</strong>: evita que un
+        <em>título</em> se quede solo al pie de una página con su texto empezando
+        en la siguiente. Imprescindible en manuales (criterio <em>f</em>).</li>
+        <li><strong>Control de líneas viudas y huérfanas</strong>: impide que una
+        sola línea de un párrafo quede aislada al principio o al final de una
+        página.</li>
+      </ul>
     </div>
   </section>
 
@@ -174,6 +193,19 @@
       Título 2, Título 3… no son decoración, marcan una <strong>jerarquía</strong>
       (título principal, subtítulo, sub-subtítulo).</li>
     </ul>
+    <h3>Tres tipos de estilo</h3>
+    <p>En el panel de estilos, cada estilo lleva un pequeño símbolo que indica a
+    qué afecta. Saber distinguirlos evita muchos líos al crearlos:</p>
+    <ul>
+      <li><strong>De párrafo</strong> (símbolo <code>¶</code>): cambia el párrafo
+      entero (Título 1, Normal…).</li>
+      <li><strong>De carácter</strong> (símbolo <code>a</code>): solo afecta a las
+      letras que selecciones dentro de un párrafo (por ejemplo, un estilo
+      «Énfasis»).</li>
+      <li><strong>Vinculado</strong> (símbolo <code>¶a</code>): actúa como uno u
+      otro según lo que tengas seleccionado. La mayoría de los estilos de Word son
+      de este tipo.</li>
+    </ul>
     <h3>Aplicar y quitar</h3>
     <p>Selecciona el texto y pulsa el estilo en <code>Inicio &gt; Estilos</code>
     (o abre el panel completo con <code>Ctrl+Alt+Mayús+S</code>). Para dejar un
@@ -183,6 +215,12 @@
     <strong>partir de un estilo que ya tenga el nivel jerárquico</strong> que
     quieres (por ejemplo, crear tu estilo a partir de Título 1) para que herede
     ese nivel y no sea solo «un formato suelto».</p>
+    <p><strong>Modificar un estilo por el ejemplo.</strong> La forma más rápida de
+    cambiar un estilo no es editarlo en un cuadro de diálogo, sino dar el formato
+    que quieres a un texto que ya lo use, hacer clic derecho sobre el estilo en la
+    galería y elegir <em>Actualizar [nombre] para que coincida con la
+    selección</em>. Todos los textos del documento que usen ese estilo se
+    actualizan de golpe.</p>
     <div class="tarjeta">
       <p><strong>El truco que ahorra horas.</strong> Aplica una <em>lista
       multinivel</em> al estilo <strong>Título 1</strong>. A partir de ese
@@ -250,7 +288,7 @@
 
   <section>
     <h2>8. Comprueba lo que has entendido</h2>
-    <p>Ocho preguntas. No cuentan para la nota: sirven para que veas si el
+    <p>Nueve preguntas. No cuentan para la nota: sirven para que veas si el
     subtema te ha quedado claro antes de las prácticas.</p>
 
     <form id="ei">
@@ -351,6 +389,19 @@
         <span class="marca"></span>
       </div>
 
+      <div class="pregunta" data-correcta="b">
+        <p class="enunciado"><span class="num">9.</span> Un estilo que, según lo
+        que tengas seleccionado, da formato al párrafo entero o solo a unas letras
+        es de tipo…</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p9" value="a"> Solo de párrafo</label></li>
+          <li><label><input type="radio" name="p9" value="b"> Vinculado</label></li>
+          <li><label><input type="radio" name="p9" value="c"> Solo de carácter</label></li>
+          <li><label><input type="radio" name="p9" value="d"> De página</label></li>
+        </ul>
+        <span class="marca"></span>
+      </div>
+
       <div class="acciones">
         <button type="button" id="corregir">Corregir test</button>
         <button type="button" class="sec" id="reiniciar">Reiniciar</button>
@@ -371,7 +422,9 @@
       <li><label><input type="checkbox"> Usar un salto de sección para cambiar el formato a partir de un punto</label></li>
       <li><label><input type="checkbox"> Aplicar y quitar estilos, y entender la jerarquía Título 1/2/3</label></li>
       <li><label><input type="checkbox"> Crear un estilo propio y numerar apartados con lista multinivel en Título 1</label></li>
-      <li><label><input type="checkbox"> Explicar por qué los estilos son la base de plantillas, índices y manuales</label></li>
+      <li><label><input type="checkbox"> Distinguir estilo de párrafo, de carácter y vinculado, y modificar uno con «Actualizar para que coincida con la selección»</label></li>
+      <li><label><input type="checkbox"> Evitar que un título quede huérfano al pie de página con «Conservar con el siguiente»</label></li>
+      <li><label><input type="checkbox"> Explicar por qué los estilos son la base de plantillas, índices y manuales (separar contenido de presentación)</label></li>
     </ul>
   </section>
 
