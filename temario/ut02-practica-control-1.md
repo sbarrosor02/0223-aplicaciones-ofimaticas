@@ -32,26 +32,33 @@ El alumno recibe un texto en bruto (`pc1-material-partida.docx`) con la
 información de un equipo de sobremesa y debe convertirlo en una **ficha técnica y
 guía de montaje** con aspecto profesional.
 
-## Requisitos técnicos (lo que debe aparecer)
+## Especificaciones a aplicar (pliego cerrado, valores exactos)
 
-1. **Estilos y estructura** (2.2): Título 1/2 y Normal aplicados; el panel de
-   navegación debe reflejar la estructura.
-2. **Formato de carácter y párrafo** (2.2): tipografía y tamaño coherentes,
-   alineación, interlineado y espaciado; las especificaciones y los pasos como
-   listas o tabla según convenga.
-3. **Tabla de especificaciones** (2.3): convertir la lista de especificaciones en
-   una tabla (Componente | Característica) con estilo, encabezado y contenido
-   alineado.
-4. **Imagen** (2.3): insertar una imagen del equipo (foto, imagen en línea con
-   licencia o captura de pantalla), con el **Ajuste de texto** correcto y
-   **texto alternativo**.
-5. **Diagrama SmartArt** (2.3): representar los pasos de montaje como un
-   diagrama de proceso.
-6. **Página** (2.2): portada con título/autor/fecha y encabezado o pie con
-   numeración *Página X de Y*.
-7. **Ortografía** (2.0/2.1): corregir las erratas del texto de partida (hay
-   varias a propósito) y revisar el conjunto.
-8. **Entrega**: guardar en `.docx` **y** exportar a `.pdf`.
+Prescriptivo a propósito: en 1.º CFGM, dejar el formato «a su gusto» hace que el
+alumnado no se esfuerce y no se puede corregir de forma objetiva. Se piden valores
+concretos para que tengan que localizar y aplicar cada control.
+
+**Página**: A4 vertical, márgenes 2,5 cm; portada integrada (título/autor/fecha);
+numeración *Página X de Y* en el pie a la derecha, con la portada sin número
+(«Primera página diferente»); marca de agua «BORRADOR» durante el trabajo.
+
+**Estilos y texto**: Título 1 en los cuatro apartados, modificado a **Calibri
+Light 16 pt, color azul**; título principal centrado, Calibri Light 24, negrita;
+cuerpo (Normal) **Calibri 11, justificado, interlineado 1,15, espaciado posterior
+6 pt**; «Notas de seguridad» como lista con viñetas.
+
+**Tabla**: especificaciones en tabla de 2 columnas (Componente | Característica)
+con fila de encabezado; estilo con encabezado de color (p. ej. «Tabla de cuadrícula
+4 – Énfasis 1») en negrita; contenido a la izquierda y tabla centrada.
+
+**Imagen**: imagen de un sobremesa, ancho 6 cm, Ajuste de texto *Cuadrado* a la
+derecha de «Descripción», estilo de imagen con marco y **texto alternativo**.
+
+**Diagrama**: los seis pasos de montaje como SmartArt de tipo Proceso.
+
+**Revisión y entrega**: corregir todas las faltas (ver lista); quitar la marca de
+agua en la versión final; guardar como `pc1_apellido_nombre.docx` y exportar a PDF
+con el mismo nombre.
 
 ## Erratas plantadas en el material (para corrección)
 
@@ -67,15 +74,15 @@ para que la revisión ortográfica sea real y comprobable:
 
 ## Rúbrica (10 puntos)
 
-| Criterio | Puntos |
+| Criterio (se comprueba el valor exacto: aplicado o no) | Puntos |
 |---|---|
-| Estilos y estructura correctos (Título 1/2, Normal) | 2,0 |
-| Formato de carácter y párrafo coherente | 1,5 |
-| Tabla de especificaciones bien construida | 2,0 |
-| Imagen ajustada al texto y con texto alternativo | 1,5 |
-| Diagrama SmartArt del proceso de montaje | 1,5 |
-| Portada + numeración de página | 1,0 |
-| Ortografía corregida + entrega en .docx y .pdf | 0,5 |
+| Estilos y texto (Título 1 Calibri Light 16 azul, título 24 centrado, Normal Calibri 11 justificado 1,15) | 2,0 |
+| Tabla 2 columnas, encabezado de color en negrita, centrada | 2,0 |
+| Imagen 6 cm, ajuste Cuadrado, con marco y texto alternativo | 1,5 |
+| SmartArt de proceso con los seis pasos | 1,5 |
+| Página: A4 y márgenes 2,5; portada; numeración X de Y con portada sin número | 1,5 |
+| Ortografía corregida y marca de agua quitada | 1,0 |
+| Entrega en .docx y .pdf con nombre correcto | 0,5 |
 
 ## Solución esperada (referencia del profesor)
 
