@@ -102,6 +102,12 @@
           "titulo": "Ejercicios guiados: currículum vitae paso a paso",
           "url": "temas/ut02-ejercicios.html",
           "nota": "formativo, no evaluable; bloques 2.0-2.2 redactados, 2.3-2.7 pendientes; incluye descarga cv-datos-sin-formato.docx"
+        },
+        {
+          "titulo": "Prácticas de control (puntos de control integradores)",
+          "url": "temas/ut02-practicas.html",
+          "evaluable": true,
+          "nota": "PC1 publicada (integra 2.0-2.3), con rúbrica y material descargable pc1-material-partida.docx; PC2 tras 2.5 y proyecto final en 2.7"
         }
       ]
     }
