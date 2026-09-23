@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mapa de la cinta de Word · 0223 Aplicaciones ofimáticas</title>
+<link rel="stylesheet" href="../assets/estilo.css">
+<style>
+  .envoltura { max-width: 64rem; }
+  .buscador { display: flex; gap: 0.6rem; align-items: center; margin: 1.2rem 0 0.4rem; }
+  .buscador input {
+    flex: 1; padding: 0.55rem 0.8rem; font: inherit; color: var(--tinta);
+    border: 1px solid var(--linea); border-radius: var(--radio); background: var(--fondo);
+  }
+  .buscador input:focus { outline: 2px solid var(--acento); outline-offset: 1px; }
+  .sin-resultados { color: var(--tinta-suave); font-style: italic; margin: 1rem 0; }
+
+  .pestanas { display: flex; flex-wrap: wrap; gap: 0.3rem; margin: 1rem 0 0;
+    border-bottom: 2px solid var(--acento); padding-bottom: 0.3rem; }
+  .pestanas button {
+    font: 600 0.92rem/1 inherit; color: var(--tinta-suave); cursor: pointer;
+    background: transparent; border: 1px solid transparent; border-radius: 6px 6px 0 0;
+    padding: 0.5rem 0.75rem;
+  }
+  .pestanas button:hover { background: var(--acento-claro); color: var(--acento); }
+  .pestanas button[aria-selected="true"] {
+    background: var(--fondo); color: var(--acento);
+    border-color: var(--linea); border-bottom-color: var(--fondo);
+  }
+
+  .panel[hidden] { display: none; }
+  .grupos { margin-top: 1.1rem; }
+  @media (min-width: 46rem) { .grupos { columns: 2; column-gap: 0.9rem; } }
+
+  .grupo {
+    background: var(--fondo); border: 1px solid var(--linea);
+    border-radius: var(--radio); padding: 0.8rem 0.9rem;
+    margin: 0 0 0.9rem; break-inside: avoid;
+  }
+  .grupo[hidden] { display: none; }
+  .grupo h3 {
+    margin: 0 0 0.5rem; font-size: 0.82rem; text-transform: uppercase;
+    letter-spacing: 0.05em; color: var(--acento);
+  }
+  .grupo ul { list-style: none; margin: 0; padding: 0; }
+  .opcion {
+    display: flex; gap: 0.6rem; align-items: flex-start;
+    padding: 0.4rem 0; border-top: 1px solid var(--fondo-suave); font-size: 0.93rem;
+  }
+  .opcion:first-child { border-top: none; }
+  .opcion[hidden] { display: none; }
+  .ic { flex: 0 0 22px; width: 22px; height: 22px; margin-top: 1px; color: var(--tinta); }
+  .op-nombre { font-weight: 600; }
+  .op-desc { color: var(--tinta-suave); }
+  .atajo {
+    display: inline-block; font-family: ui-monospace, Consolas, monospace;
+    font-size: 0.8rem; background: var(--fondo-suave); color: var(--acento);
+    border: 1px solid var(--linea); border-radius: 4px; padding: 0 0.3rem; margin-left: 0.2rem;
+  }
+</style>
+</head>
+<body>
+<div class="envoltura">
+
+  <!-- ============ ICONOS ============ -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <style>
+        symbol { fill: none; stroke: currentColor; stroke-width: 1.7;
+                 stroke-linecap: round; stroke-linejoin: round; }
+        symbol text { fill: currentColor; stroke: none; font-family: system-ui, sans-serif; }
+      </style>
+      <!-- Portapapeles -->
+      <symbol id="i-pegar" viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><rect x="9" y="2" width="6" height="4" rx="1"/></symbol>
+      <symbol id="i-cortar" viewBox="0 0 24 24"><circle cx="6" cy="19" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8 17 18 3M16 17 6 3"/></symbol>
+      <symbol id="i-copiar" viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M15 5H5a2 2 0 0 0-2 2v10"/></symbol>
+      <symbol id="i-brocha" viewBox="0 0 24 24"><path d="M4 4h12v6H4zM10 10v4M8 14h4v7H8z"/></symbol>
+      <!-- Fuente -->
+      <symbol id="i-negrita" viewBox="0 0 24 24"><text x="12" y="18" text-anchor="middle" font-size="16" font-weight="800">N</text></symbol>
+      <symbol id="i-cursiva" viewBox="0 0 24 24"><text x="12" y="18" text-anchor="middle" font-size="16" font-weight="700" font-style="italic">K</text></symbol>
+      <symbol id="i-subrayado" viewBox="0 0 24 24"><text x="12" y="16" text-anchor="middle" font-size="14" font-weight="700">S</text><path d="M6 20h12"/></symbol>
+      <symbol id="i-tachado" viewBox="0 0 24 24"><text x="12" y="17" text-anchor="middle" font-size="13" font-weight="600">ab</text><path d="M4 12h16"/></symbol>
+      <symbol id="i-subindice" viewBox="0 0 24 24"><text x="9" y="16" text-anchor="middle" font-size="13" font-weight="600">x</text><text x="17" y="20" text-anchor="middle" font-size="9" font-weight="600">2</text></symbol>
+      <symbol id="i-superindice" viewBox="0 0 24 24"><text x="9" y="18" text-anchor="middle" font-size="13" font-weight="600">x</text><text x="17" y="10" text-anchor="middle" font-size="9" font-weight="600">2</text></symbol>
+      <symbol id="i-mayus" viewBox="0 0 24 24"><text x="12" y="17" text-anchor="middle" font-size="13" font-weight="700">Aa</text></symbol>
+      <symbol id="i-tipografia" viewBox="0 0 24 24"><text x="10" y="17" text-anchor="middle" font-size="14" font-weight="700">A</text><path d="M16 12l3 3 3-3"/></symbol>
+      <symbol id="i-tamano" viewBox="0 0 24 24"><text x="8" y="18" text-anchor="middle" font-size="16" font-weight="700">A</text><text x="18" y="18" text-anchor="middle" font-size="10" font-weight="700">A</text></symbol>
+      <symbol id="i-agrandar" viewBox="0 0 24 24"><text x="9" y="19" text-anchor="middle" font-size="15" font-weight="700">A</text><path d="M18 16V7M15 10l3-3 3 3"/></symbol>
+      <symbol id="i-reducir" viewBox="0 0 24 24"><text x="9" y="19" text-anchor="middle" font-size="15" font-weight="700">A</text><path d="M18 7v9M15 13l3 3 3-3"/></symbol>
+      <symbol id="i-borrar-formato" viewBox="0 0 24 24"><text x="9" y="17" text-anchor="middle" font-size="14" font-weight="700">A</text><path d="M15 9l6 6M21 9l-6 6"/></symbol>
+      <symbol id="i-efectos" viewBox="0 0 24 24"><text x="14" y="20" text-anchor="middle" font-size="15" font-weight="700" opacity=".35">A</text><text x="10" y="17" text-anchor="middle" font-size="15" font-weight="700">A</text></symbol>
+      <symbol id="i-resaltado" viewBox="0 0 24 24"><rect x="3" y="17" width="18" height="4" rx="1" fill="#f2c200" stroke="none"/><path d="M7 15l6-11 4 2-6 11z"/></symbol>
+      <symbol id="i-color-fuente" viewBox="0 0 24 24"><text x="12" y="15" text-anchor="middle" font-size="13" font-weight="700">A</text><rect x="4" y="18" width="16" height="4" rx="1" fill="#b4232c" stroke="none"/></symbol>
+      <!-- Parrafo -->
+      <symbol id="i-vinetas" viewBox="0 0 24 24"><circle cx="4" cy="7" r="1.4" fill="currentColor"/><circle cx="4" cy="12" r="1.4" fill="currentColor"/><circle cx="4" cy="17" r="1.4" fill="currentColor"/><path d="M9 7h12M9 12h12M9 17h12"/></symbol>
+      <symbol id="i-numerada" viewBox="0 0 24 24"><text x="4" y="9" font-size="7" font-weight="700">1</text><text x="4" y="14.5" font-size="7" font-weight="700">2</text><text x="4" y="20" font-size="7" font-weight="700">3</text><path d="M10 7h11M10 12h11M10 17h11"/></symbol>
+      <symbol id="i-multinivel" viewBox="0 0 24 24"><path d="M3 6h18M7 11h14M11 16h10M3 21h18"/></symbol>
+      <symbol id="i-sangria-mas" viewBox="0 0 24 24"><path d="M3 5h18M11 10h10M11 14h10M3 19h18M3 9l4 3-4 3z"/></symbol>
+      <symbol id="i-sangria-menos" viewBox="0 0 24 24"><path d="M3 5h18M11 10h10M11 14h10M3 19h18M7 9l-4 3 4 3z"/></symbol>
+      <symbol id="i-ordenar" viewBox="0 0 24 24"><path d="M6 4v16M3 17l3 3 3-3"/><text x="16" y="10" text-anchor="middle" font-size="8" font-weight="700">A</text><text x="16" y="20" text-anchor="middle" font-size="8" font-weight="700">Z</text></symbol>
+      <symbol id="i-marcas" viewBox="0 0 24 24"><text x="12" y="19" text-anchor="middle" font-size="18" font-weight="700">¶</text></symbol>
+      <symbol id="i-alinear-izq" viewBox="0 0 24 24"><path d="M3 6h18M3 11h11M3 16h18M3 21h11"/></symbol>
+      <symbol id="i-alinear-centro" viewBox="0 0 24 24"><path d="M3 6h18M7 11h10M3 16h18M7 21h10"/></symbol>
+      <symbol id="i-alinear-dcha" viewBox="0 0 24 24"><path d="M3 6h18M10 11h11M3 16h18M10 21h11"/></symbol>
+      <symbol id="i-justificar" viewBox="0 0 24 24"><path d="M3 6h18M3 11h18M3 16h18M3 21h18"/></symbol>
+      <symbol id="i-interlineado" viewBox="0 0 24 24"><path d="M9 6h12M9 12h12M9 18h12M4 4v16M2 7l2-3 2 3M2 17l2 3 2-3"/></symbol>
+      <symbol id="i-sombreado" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="11" rx="1" fill="#dce8f4"/><rect x="4" y="17" width="16" height="4" rx="1" fill="#1f5c8f" stroke="none"/></symbol>
+      <symbol id="i-bordes" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 12h18M12 3v18"/></symbol>
+      <!-- Estilos y edicion -->
+      <symbol id="i-estilos" viewBox="0 0 24 24"><text x="12" y="16" text-anchor="middle" font-size="10" font-weight="700">AaBb</text><path d="M5 20h14"/></symbol>
+      <symbol id="i-buscar" viewBox="0 0 24 24"><circle cx="10" cy="10" r="6"/><path d="M15 15l6 6"/></symbol>
+      <symbol id="i-reemplazar" viewBox="0 0 24 24"><circle cx="9" cy="9" r="5"/><path d="M13 13l4 4M13 20h8M18 17l3 3-3 3"/></symbol>
+      <symbol id="i-seleccionar" viewBox="0 0 24 24"><path d="M3 5h4M11 5h4M19 5h2v3M21 12v3M21 19h-2M13 19H9M5 19H3v-3M3 10V7" stroke-dasharray="3 2"/><path d="M11 10l7 7-3 1 2 3-2 1-2-3-2 2z" fill="currentColor" stroke="none"/></symbol>
+      <!-- Insertar -->
+      <symbol id="i-portada" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1"/><rect x="8" y="6" width="8" height="5" rx="1" fill="currentColor" stroke="none"/><path d="M8 15h8M8 18h5"/></symbol>
+      <symbol id="i-pagina" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1"/></symbol>
+      <symbol id="i-salto" viewBox="0 0 24 24"><path d="M5 4h14M5 20h14"/><path d="M3 12h18" stroke-dasharray="3 2"/></symbol>
+      <symbol id="i-tabla" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="1"/><path d="M3 9h18M3 14.5h18M9 4v16M15 4v16"/></symbol>
+      <symbol id="i-imagen" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.8"/><path d="M4 18l5-5 4 4 3-3 4 4"/></symbol>
+      <symbol id="i-formas" viewBox="0 0 24 24"><rect x="3" y="3" width="10" height="10" rx="1"/><circle cx="16" cy="16" r="5"/></symbol>
+      <symbol id="i-iconos" viewBox="0 0 24 24"><path d="M12 3l2.6 5.6 6 .8-4.4 4.2 1.1 6-5.3-2.9-5.3 2.9 1.1-6L3.4 9.4l6-.8z"/></symbol>
+      <symbol id="i-3d" viewBox="0 0 24 24"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9zM4 7.5l8 4.5 8-4.5M12 12v9"/></symbol>
+      <symbol id="i-smartart" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="5" rx="1"/><rect x="2" y="16" width="6" height="5" rx="1"/><rect x="16" y="16" width="6" height="5" rx="1"/><path d="M12 8v4M5 16v-2h14v2"/></symbol>
+      <symbol id="i-grafico" viewBox="0 0 24 24"><path d="M4 20V4"/><path d="M4 20h16"/><rect x="7" y="12" width="3" height="8"/><rect x="12" y="8" width="3" height="12"/><rect x="17" y="14" width="3" height="6"/></symbol>
+      <symbol id="i-captura" viewBox="0 0 24 24"><path d="M3 8V4h4M17 4h4v4M21 16v4h-4M7 20H3v-4"/><rect x="8" y="9" width="8" height="6" rx="1"/></symbol>
+      <symbol id="i-vinculo" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 6 .5l2-2a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-6-.5l-2 2a4 4 0 0 0 5.7 5.7l1-1"/></symbol>
+      <symbol id="i-comentario" viewBox="0 0 24 24"><path d="M21 12a8 7 0 0 1-8 7H9l-5 3 1.5-4A7 7 0 0 1 3 12a8 7 0 0 1 8-7h2a8 7 0 0 1 8 7z"/></symbol>
+      <symbol id="i-encabezado" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1"/><rect x="5" y="3" width="14" height="5" fill="currentColor" stroke="none"/><path d="M8 12h8M8 16h5"/></symbol>
+      <symbol id="i-pie" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1"/><rect x="5" y="16" width="14" height="5" fill="currentColor" stroke="none"/><path d="M8 7h8M8 11h5"/></symbol>
+      <symbol id="i-num-pagina" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1"/><text x="12" y="17" text-anchor="middle" font-size="9" font-weight="700">1</text><path d="M8 8h8"/></symbol>
+      <symbol id="i-cuadro-texto" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="1"/><text x="12" y="16" text-anchor="middle" font-size="9" font-weight="700">A</text></symbol>
+      <symbol id="i-wordart" viewBox="0 0 24 24"><text x="12" y="18" text-anchor="middle" font-size="16" font-weight="800" font-style="italic">A</text></symbol>
+      <symbol id="i-simbolo" viewBox="0 0 24 24"><text x="12" y="18" text-anchor="middle" font-size="16" font-weight="700">Ω</text></symbol>
+      <symbol id="i-ecuacion" viewBox="0 0 24 24"><text x="12" y="18" text-anchor="middle" font-size="17" font-weight="700">π</text></symbol>
+      <symbol id="i-fecha" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+      <!-- Diseno / Disposicion -->
+      <symbol id="i-temas" viewBox="0 0 24 24"><text x="8" y="15" text-anchor="middle" font-size="11" font-weight="700">Aa</text><circle cx="16" cy="8" r="2" fill="#b4232c" stroke="none"/><circle cx="20" cy="13" r="2" fill="#1f5c8f" stroke="none"/><circle cx="15" cy="17" r="2" fill="#1a7f43" stroke="none"/></symbol>
+      <symbol id="i-colores" viewBox="0 0 24 24"><rect x="3" y="6" width="4" height="12" fill="#b4232c" stroke="none"/><rect x="8" y="6" width="4" height="12" fill="#f2c200" stroke="none"/><rect x="13" y="6" width="4" height="12" fill="#1a7f43" stroke="none"/><rect x="18" y="6" width="3" height="12" fill="#1f5c8f" stroke="none"/></symbol>
+      <symbol id="i-marca-agua" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M7 16L17 8" stroke-dasharray="2 2"/><path d="M8 7h4"/></symbol>
+      <symbol id="i-color-pagina" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1" fill="#dce8f4" stroke="currentColor"/></symbol>
+      <symbol id="i-bordes-pagina" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1" stroke-width="2.6"/><path d="M8 9h8M8 13h8"/></symbol>
+      <symbol id="i-margenes" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1"/><rect x="8" y="7" width="8" height="10" stroke-dasharray="2 2"/></symbol>
+      <symbol id="i-orientacion" viewBox="0 0 24 24"><rect x="2" y="3" width="9" height="13" rx="1"/><rect x="12" y="11" width="10" height="7" rx="1"/></symbol>
+      <symbol id="i-tamano-papel" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="1"/><path d="M8 4v3M12 4v3M16 4v3M4 8h3M4 12h3M4 16h3"/></symbol>
+      <symbol id="i-columnas" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="1"/><path d="M12 4v16"/></symbol>
+      <symbol id="i-posicion" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><rect x="5" y="5" width="7" height="6" fill="currentColor" stroke="none"/></symbol>
+      <symbol id="i-ajustar-texto" viewBox="0 0 24 24"><rect x="8" y="8" width="8" height="8" rx="1" fill="currentColor" stroke="none"/><path d="M3 5h18M3 20h18M3 10h3M3 14h3M18 10h3M18 14h3"/></symbol>
+      <symbol id="i-traer" viewBox="0 0 24 24"><rect x="7" y="3" width="12" height="12" rx="1" fill="currentColor" stroke="none"/><rect x="4" y="9" width="12" height="12" rx="1"/></symbol>
+      <symbol id="i-enviar" viewBox="0 0 24 24"><rect x="7" y="3" width="12" height="12" rx="1"/><rect x="4" y="9" width="12" height="12" rx="1" fill="currentColor" stroke="none"/></symbol>
+      <symbol id="i-girar" viewBox="0 0 24 24"><path d="M12 5a7 7 0 1 1-7 7"/><path d="M5 5v4h4"/></symbol>
+      <!-- Referencias / Correspondencia -->
+      <symbol id="i-tdc" viewBox="0 0 24 24"><path d="M3 5h10M3 10h14M3 15h10M3 20h14"/><path d="M15 5h6M19 10h2M15 15h6M19 20h2" stroke-dasharray="1 2"/></symbol>
+      <symbol id="i-nota-pie" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M8 7h8M8 11h8"/><text x="12" y="19" text-anchor="middle" font-size="7" font-weight="700">1</text></symbol>
+      <symbol id="i-cita" viewBox="0 0 24 24"><text x="12" y="18" text-anchor="middle" font-size="18" font-weight="800">"</text><path d="M4 20h16"/></symbol>
+      <symbol id="i-indice" viewBox="0 0 24 24"><path d="M4 6h16M4 11h16M4 16h10"/><text x="18" y="20" text-anchor="middle" font-size="8" font-weight="700">A</text></symbol>
+      <symbol id="i-sobre" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 7l10 7 10-7"/></symbol>
+      <symbol id="i-etiquetas" viewBox="0 0 24 24"><rect x="3" y="4" width="8" height="6" rx="1"/><rect x="13" y="4" width="8" height="6" rx="1"/><rect x="3" y="14" width="8" height="6" rx="1"/><rect x="13" y="14" width="8" height="6" rx="1"/></symbol>
+      <symbol id="i-destinatarios" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><circle cx="17" cy="9" r="2.5"/><path d="M15 20a5 5 0 0 1 7-4"/></symbol>
+      <symbol id="i-campo" viewBox="0 0 24 24"><text x="12" y="17" text-anchor="middle" font-size="12" font-weight="700">«»</text></symbol>
+      <symbol id="i-vista-previa" viewBox="0 0 24 24"><path d="M2 12s4-6 10-6 10 6 10 6-4 6-10 6-10-6-10-6z"/><circle cx="12" cy="12" r="2.5"/></symbol>
+      <symbol id="i-finalizar" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M8 13l3 3 5-6"/></symbol>
+      <!-- Revisar -->
+      <symbol id="i-ortografia" viewBox="0 0 24 24"><text x="9" y="14" text-anchor="middle" font-size="10" font-weight="700">ABC</text><path d="M6 19l3 3 6-6"/></symbol>
+      <symbol id="i-sinonimos" viewBox="0 0 24 24"><path d="M4 5h7a2 2 0 0 1 2 2v13a2 2 0 0 0-2-2H4zM20 5h-7a2 2 0 0 0-2 2v13a2 2 0 0 1 2-2h7z"/></symbol>
+      <symbol id="i-traducir" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></symbol>
+      <symbol id="i-contar" viewBox="0 0 24 24"><text x="12" y="17" text-anchor="middle" font-size="11" font-weight="700">123</text></symbol>
+      <symbol id="i-control-cambios" viewBox="0 0 24 24"><rect x="4" y="3" width="12" height="18" rx="1"/><path d="M7 8h6M7 12h4"/><path d="M19 11l2 2-6 6-3 1 1-3z"/></symbol>
+      <symbol id="i-aceptar" viewBox="0 0 24 24"><path d="M4 13l5 5 11-12"/></symbol>
+      <symbol id="i-rechazar" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+      <symbol id="i-comparar" viewBox="0 0 24 24"><rect x="2" y="4" width="9" height="16" rx="1"/><rect x="13" y="4" width="9" height="16" rx="1"/></symbol>
+      <symbol id="i-proteger" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></symbol>
+      <!-- Vista -->
+      <symbol id="i-lectura" viewBox="0 0 24 24"><path d="M3 5h7a2 2 0 0 1 2 2v13a2 2 0 0 0-2-2H3zM21 5h-7a2 2 0 0 0-2 2v13a2 2 0 0 1 2-2h7z"/></symbol>
+      <symbol id="i-impresion" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M8 8h8M8 12h8M8 16h5"/></symbol>
+      <symbol id="i-web" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M2 8h20M8 22h8"/></symbol>
+      <symbol id="i-esquema" viewBox="0 0 24 24"><path d="M3 6h18M7 11h14M11 16h10"/><circle cx="4" cy="11" r="1.3" fill="currentColor"/><circle cx="8" cy="16" r="1.3" fill="currentColor"/></symbol>
+      <symbol id="i-regla" viewBox="0 0 24 24"><rect x="2" y="8" width="20" height="8" rx="1"/><path d="M6 8v4M10 8v3M14 8v4M18 8v3"/></symbol>
+      <symbol id="i-cuadricula" viewBox="0 0 24 24"><path d="M3 8h18M3 13h18M3 18h18" stroke-dasharray="2 2"/></symbol>
+      <symbol id="i-navegacion" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="1"/><path d="M9 4v16M5 9h2M5 13h2"/></symbol>
+      <symbol id="i-zoom" viewBox="0 0 24 24"><circle cx="10" cy="10" r="6"/><path d="M15 15l6 6M8 10h4M10 8v4"/></symbol>
+      <symbol id="i-una-pagina" viewBox="0 0 24 24"><rect x="7" y="3" width="10" height="18" rx="1"/></symbol>
+      <symbol id="i-varias-paginas" viewBox="0 0 24 24"><rect x="2" y="4" width="8" height="16" rx="1"/><rect x="14" y="4" width="8" height="16" rx="1"/></symbol>
+      <symbol id="i-ventana" viewBox="0 0 24 24"><rect x="2" y="4" width="14" height="12" rx="1"/><rect x="8" y="8" width="14" height="12" rx="1"/></symbol>
+      <symbol id="i-dividir" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 12h18" stroke-width="2.6"/></symbol>
+      <symbol id="i-macro" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></symbol>
+      <symbol id="i-generico" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/></symbol>
+    </defs>
+  </svg>
+
+  <header class="cab">
+    <p class="modulo">0223 · Aplicaciones ofimáticas · Recurso de consulta</p>
+    <h1>Mapa de la cinta de Word</h1>
+    <p class="meta">¿Dónde está cada cosa? · Todas las pestañas, grupo a grupo</p>
+  </header>
+
+  <div class="aviso">
+    <strong>Cómo se usa.</strong> Elige arriba una <strong>pestaña</strong> de la
+    cinta y verás sus <strong>grupos</strong> con todas las opciones, qué hace
+    cada una y su atajo de teclado. Si sabes cómo se llama lo que buscas pero no
+    dónde está, escríbelo en el <strong>buscador</strong>: se filtran las opciones
+    de la pestaña que tengas abierta.
+  </div>
+
+  <div class="buscador">
+    <label for="q" class="op-nombre">Buscar:</label>
+    <input type="search" id="q" placeholder="negrita, tabla, sangría, portada…" autocomplete="off">
+  </div>
+
+  <div class="pestanas" role="tablist" aria-label="Pestañas de la cinta de Word">
+    <button role="tab" aria-selected="true" data-panel="t-inicio">Inicio</button>
+    <button role="tab" aria-selected="false" data-panel="t-insertar">Insertar</button>
+    <button role="tab" aria-selected="false" data-panel="t-diseno">Diseño</button>
+    <button role="tab" aria-selected="false" data-panel="t-disposicion">Disposición</button>
+    <button role="tab" aria-selected="false" data-panel="t-referencias">Referencias</button>
+    <button role="tab" aria-selected="false" data-panel="t-correspondencia">Correspondencia</button>
+    <button role="tab" aria-selected="false" data-panel="t-revisar">Revisar</button>
+    <button role="tab" aria-selected="false" data-panel="t-vista">Vista</button>
+  </div>
+
+  <p class="sin-resultados" id="vacio" hidden>No hay ninguna opción con ese nombre
+  en esta pestaña. Prueba en otra.</p>
+
+  <!-- ============ INICIO ============ -->
+  <div class="panel" id="t-inicio">
+    <div class="grupos">
+      <div class="grupo">
+        <h3>Portapapeles</h3>
+        <ul>
+          <li class="opcion"><svg class="ic"><use href="#i-pegar"/></svg><span><span class="op-nombre">Pegar</span> <span class="atajo">Ctrl+V</span><br><span class="op-desc">Pega lo copiado. Su flecha abre las opciones de pegado.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-cortar"/></svg><span><span class="op-nombre">Cortar</span> <span class="atajo">Ctrl+X</span><br><span class="op-desc">Quita la selección y la lleva al portapapeles.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-copiar"/></svg><span><span class="op-nombre">Copiar</span> <span class="atajo">Ctrl+C</span><br><span class="op-desc">Copia la selección sin quitarla.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-brocha"/></svg><span><span class="op-nombre">Copiar formato</span><br><span class="op-desc">La brocha: copia solo el formato. Doble clic para aplicarlo varias veces.</span></span></li>
+        </ul>
+      </div>
+
+      <div class="grupo">
+        <h3>Fuente</h3>
+        <ul>
+          <li class="opcion"><svg class="ic"><use href="#i-tipografia"/></svg><span><span class="op-nombre">Fuente</span><br><span class="op-desc">Elige la tipografía (Calibri, Arial…).</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-tamano"/></svg><span><span class="op-nombre">Tamaño de fuente</span><br><span class="op-desc">El tamaño en puntos. Lo normal, 11 o 12.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-agrandar"/></svg><span><span class="op-nombre">Agrandar fuente</span> <span class="atajo">Ctrl+&gt;</span><br><span class="op-desc">Sube el tamaño un paso.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-reducir"/></svg><span><span class="op-nombre">Reducir fuente</span> <span class="atajo">Ctrl+&lt;</span><br><span class="op-desc">Baja el tamaño un paso.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-mayus"/></svg><span><span class="op-nombre">Cambiar mayúsculas y minúsculas</span> <span class="atajo">Mayús+F3</span><br><span class="op-desc">Tipo oración, MAYÚSCULAS, minúsculas…</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-borrar-formato"/></svg><span><span class="op-nombre">Borrar todo el formato</span><br><span class="op-desc">Deja el texto en Normal, sin formato manual.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-negrita"/></svg><span><span class="op-nombre">Negrita</span> <span class="atajo">Ctrl+N</span><br><span class="op-desc">Engrosa el trazo de las letras.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-cursiva"/></svg><span><span class="op-nombre">Cursiva</span> <span class="atajo">Ctrl+K</span><br><span class="op-desc">Inclina el texto hacia la derecha.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-subrayado"/></svg><span><span class="op-nombre">Subrayado</span> <span class="atajo">Ctrl+S</span><br><span class="op-desc">Línea bajo el texto. La flecha cambia el estilo de línea.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-tachado"/></svg><span><span class="op-nombre">Tachado</span><br><span class="op-desc">Dibuja una línea sobre el texto.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-subindice"/></svg><span><span class="op-nombre">Subíndice</span> <span class="atajo">Ctrl+=</span><br><span class="op-desc">Texto pequeño y abajo (H₂O).</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-superindice"/></svg><span><span class="op-nombre">Superíndice</span> <span class="atajo">Ctrl++</span><br><span class="op-desc">Texto pequeño y arriba (m²).</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-efectos"/></svg><span><span class="op-nombre">Efectos de texto</span><br><span class="op-desc">Sombras, reflejos, contornos y rellenos.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-resaltado"/></svg><span><span class="op-nombre">Color de resaltado</span><br><span class="op-desc">El rotulador: colorea el fondo del texto.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-color-fuente"/></svg><span><span class="op-nombre">Color de fuente</span><br><span class="op-desc">El color de las letras.</span></span></li>
+        </ul>
+      </div>
+
+      <div class="grupo">
+        <h3>Párrafo</h3>
+        <ul>
+          <li class="opcion"><svg class="ic"><use href="#i-vinetas"/></svg><span><span class="op-nombre">Viñetas</span><br><span class="op-desc">Lista sin orden, con puntos o símbolos.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-numerada"/></svg><span><span class="op-nombre">Numeración</span><br><span class="op-desc">Lista ordenada 1, 2, 3…</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-multinivel"/></svg><span><span class="op-nombre">Lista multinivel</span><br><span class="op-desc">Lista jerárquica. Aplicada a Título 1 numera los apartados sola.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-sangria-menos"/></svg><span><span class="op-nombre">Disminuir sangría</span><br><span class="op-desc">Saca el párrafo hacia la izquierda.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-sangria-mas"/></svg><span><span class="op-nombre">Aumentar sangría</span><br><span class="op-desc">Mete el párrafo 1,25 cm a la derecha.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-ordenar"/></svg><span><span class="op-nombre">Ordenar</span><br><span class="op-desc">Ordena párrafos o filas de tabla de la A a la Z.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-marcas"/></svg><span><span class="op-nombre">Mostrar todo</span> <span class="atajo">Ctrl+(</span><br><span class="op-desc">Enseña las marcas ocultas: ¶ de párrafo, espacios, saltos…</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-alinear-izq"/></svg><span><span class="op-nombre">Alinear a la izquierda</span> <span class="atajo">Ctrl+Q</span><br><span class="op-desc">Texto pegado al margen izquierdo.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-alinear-centro"/></svg><span><span class="op-nombre">Centrar</span> <span class="atajo">Ctrl+T</span><br><span class="op-desc">Texto centrado entre los márgenes.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-alinear-dcha"/></svg><span><span class="op-nombre">Alinear a la derecha</span> <span class="atajo">Ctrl+D</span><br><span class="op-desc">Texto pegado al margen derecho.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-justificar"/></svg><span><span class="op-nombre">Justificar</span> <span class="atajo">Ctrl+J</span><br><span class="op-desc">Reparte el texto de margen a margen.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-interlineado"/></svg><span><span class="op-nombre">Espaciado entre líneas y párrafos</span><br><span class="op-desc">Interlineado y espacio antes y después del párrafo.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-sombreado"/></svg><span><span class="op-nombre">Sombreado</span><br><span class="op-desc">Color de fondo del párrafo o de la celda.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-bordes"/></svg><span><span class="op-nombre">Bordes</span><br><span class="op-desc">Líneas alrededor del párrafo o de la tabla.</span></span></li>
+        </ul>
+      </div>
+
+      <div class="grupo">
+        <h3>Estilos y Edición</h3>
+        <ul>
+          <li class="opcion"><svg class="ic"><use href="#i-estilos"/></svg><span><span class="op-nombre">Galería de estilos</span><br><span class="op-desc">Normal, Título 1, Título 2, Cita… Dan formato y estructura a la vez.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-estilos"/></svg><span><span class="op-nombre">Panel de estilos</span> <span class="atajo">Ctrl+Alt+Mayús+S</span><br><span class="op-desc">Lista completa, con el tipo de cada estilo (¶, a o ¶a).</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-buscar"/></svg><span><span class="op-nombre">Buscar</span> <span class="atajo">Ctrl+B</span><br><span class="op-desc">Abre el panel de navegación para buscar texto.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-reemplazar"/></svg><span><span class="op-nombre">Reemplazar</span> <span class="atajo">Ctrl+L</span><br><span class="op-desc">Sustituye texto. Admite formato y comodines.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-seleccionar"/></svg><span><span class="op-nombre">Seleccionar</span><br><span class="op-desc">Seleccionar todo, objetos, o todo el texto con un formato igual.</span></span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ INSERTAR ============ -->
+  <div class="panel" id="t-insertar" hidden>
+    <div class="grupos">
+      <div class="grupo">
+        <h3>Páginas y Tablas</h3>
+        <ul>
+          <li class="opcion"><svg class="ic"><use href="#i-portada"/></svg><span><span class="op-nombre">Portada</span><br><span class="op-desc">Añade una portada prediseñada al principio del documento.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-pagina"/></svg><span><span class="op-nombre">Página en blanco</span><br><span class="op-desc">Inserta una hoja vacía donde esté el cursor.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-salto"/></svg><span><span class="op-nombre">Salto de página</span> <span class="atajo">Ctrl+Intro</span><br><span class="op-desc">Pasa a la página siguiente sin dar Intro veinte veces.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-tabla"/></svg><span><span class="op-nombre">Tabla</span><br><span class="op-desc">Cuadrícula, Insertar tabla o Dibujar tabla.</span></span></li>
+        </ul>
+      </div>
+
+      <div class="grupo">
+        <h3>Ilustraciones</h3>
+        <ul>
+          <li class="opcion"><svg class="ic"><use href="#i-imagen"/></svg><span><span class="op-nombre">Imágenes</span><br><span class="op-desc">Desde un archivo del equipo: foto del móvil, cámara o escáner.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-imagen"/></svg><span><span class="op-nombre">Imágenes en línea</span><br><span class="op-desc">Búsqueda en internet. Cuidado con los derechos de autor.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-formas"/></svg><span><span class="op-nombre">Formas</span><br><span class="op-desc">Líneas, flechas, rectángulos, cuadros de texto…</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-iconos"/></svg><span><span class="op-nombre">Iconos</span><br><span class="op-desc">Biblioteca de símbolos vectoriales.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-3d"/></svg><span><span class="op-nombre">Modelos 3D</span><br><span class="op-desc">Objetos tridimensionales que se pueden girar.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-smartart"/></svg><span><span class="op-nombre">SmartArt</span><br><span class="op-desc">Organigramas y diagramas de proceso, ciclo o jerarquía.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-grafico"/></svg><span><span class="op-nombre">Gráfico</span><br><span class="op-desc">Gráficos de datos; abre una minihoja de Excel.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-captura"/></svg><span><span class="op-nombre">Captura</span><br><span class="op-desc">Captura una ventana abierta o recorta una zona de la pantalla.</span></span></li>
+        </ul>
+      </div>
+
+      <div class="grupo">
+        <h3>Vínculos y Comentarios</h3>
+        <ul>
+          <li class="opcion"><svg class="ic"><use href="#i-vinculo"/></svg><span><span class="op-nombre">Vínculo</span> <span class="atajo">Ctrl+Alt+K</span><br><span class="op-desc">Enlace a una web, a un archivo o a otro punto del documento.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-generico"/></svg><span><span class="op-nombre">Marcador</span><br><span class="op-desc">Pone un nombre a un punto del texto para referirse a él después.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-generico"/></svg><span><span class="op-nombre">Referencia cruzada</span><br><span class="op-desc">«Ver la figura 3»: se actualiza sola si cambia de página.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-comentario"/></svg><span><span class="op-nombre">Comentario</span><br><span class="op-desc">Nota al margen que no se imprime salvo que lo pidas.</span></span></li>
+        </ul>
+      </div>
+
+      <div class="grupo">
+        <h3>Encabezado, Texto y Símbolos</h3>
+        <ul>
+          <li class="opcion"><svg class="ic"><use href="#i-encabezado"/></svg><span><span class="op-nombre">Encabezado</span><br><span class="op-desc">Texto que se repite arriba en todas las páginas.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-pie"/></svg><span><span class="op-nombre">Pie de página</span><br><span class="op-desc">Lo mismo, abajo. Suele llevar el número de página.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-num-pagina"/></svg><span><span class="op-nombre">Número de página</span><br><span class="op-desc">Numeración automática, incluida «Página X de Y».</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-cuadro-texto"/></svg><span><span class="op-nombre">Cuadro de texto</span><br><span class="op-desc">Caja con texto que se coloca donde quieras. Sí lo revisa el corrector.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-wordart"/></svg><span><span class="op-nombre">WordArt</span><br><span class="op-desc">Rótulos decorativos. El corrector no los revisa.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-fecha"/></svg><span><span class="op-nombre">Fecha y hora</span><br><span class="op-desc">Inserta la fecha, opcionalmente actualizable sola.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-ecuacion"/></svg><span><span class="op-nombre">Ecuación</span><br><span class="op-desc">Editor de fórmulas matemáticas.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-simbolo"/></svg><span><span class="op-nombre">Símbolo</span><br><span class="op-desc">Caracteres que no están en el teclado: ©, €, Ω, ±…</span></span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ DISEÑO ============ -->
+  <div class="panel" id="t-diseno" hidden>
+    <div class="grupos">
+      <div class="grupo">
+        <h3>Formato del documento</h3>
+        <ul>
+          <li class="opcion"><svg class="ic"><use href="#i-temas"/></svg><span><span class="op-nombre">Temas</span><br><span class="op-desc">Cambia colores, fuentes y efectos de todo el documento de golpe. Solo funciona si has usado estilos.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-estilos"/></svg><span><span class="op-nombre">Conjuntos de estilos</span><br><span class="op-desc">Combinaciones de formato para todos los estilos a la vez.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-colores"/></svg><span><span class="op-nombre">Colores</span><br><span class="op-desc">Cambia solo la paleta de colores del tema.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-tipografia"/></svg><span><span class="op-nombre">Fuentes</span><br><span class="op-desc">Cambia solo la pareja de tipografías del tema.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-interlineado"/></svg><span><span class="op-nombre">Espaciado entre párrafos</span><br><span class="op-desc">Ajusta de una vez el aire entre todos los párrafos.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-generico"/></svg><span><span class="op-nombre">Establecer como predeterminado</span><br><span class="op-desc">Guarda este aspecto para los documentos nuevos.</span></span></li>
+        </ul>
+      </div>
+
+      <div class="grupo">
+        <h3>Fondo de página</h3>
+        <ul>
+          <li class="opcion"><svg class="ic"><use href="#i-marca-agua"/></svg><span><span class="op-nombre">Marca de agua</span><br><span class="op-desc">Texto de fondo tipo BORRADOR o CONFIDENCIAL.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-color-pagina"/></svg><span><span class="op-nombre">Color de página</span><br><span class="op-desc">Color, degradado o textura de fondo de la hoja.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-bordes-pagina"/></svg><span><span class="op-nombre">Bordes de página</span><br><span class="op-desc">Marco alrededor de la página, de línea o artístico.</span></span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ DISPOSICIÓN ============ -->
+  <div class="panel" id="t-disposicion" hidden>
+    <div class="grupos">
+      <div class="grupo">
+        <h3>Configurar página</h3>
+        <ul>
+          <li class="opcion"><svg class="ic"><use href="#i-margenes"/></svg><span><span class="op-nombre">Márgenes</span><br><span class="op-desc">El espacio en blanco del borde. Lo normal, 2,5 cm.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-orientacion"/></svg><span><span class="op-nombre">Orientación</span><br><span class="op-desc">Vertical u horizontal.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-tamano-papel"/></svg><span><span class="op-nombre">Tamaño</span><br><span class="op-desc">Tamaño del papel: A4, A5, oficio…</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-columnas"/></svg><span><span class="op-nombre">Columnas</span><br><span class="op-desc">Reparte el texto en varias columnas, como un periódico.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-salto"/></svg><span><span class="op-nombre">Saltos</span><br><span class="op-desc">De página, de columna y <strong>de sección</strong>, que permiten cambiar el formato a partir de un punto.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-numerada"/></svg><span><span class="op-nombre">Números de línea</span><br><span class="op-desc">Numera las líneas en el margen.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-generico"/></svg><span><span class="op-nombre">Guiones</span><br><span class="op-desc">Partir palabras a final de línea.</span></span></li>
+        </ul>
+      </div>
+
+      <div class="grupo">
+        <h3>Párrafo y Organizar</h3>
+        <ul>
+          <li class="opcion"><svg class="ic"><use href="#i-sangria-mas"/></svg><span><span class="op-nombre">Sangría</span><br><span class="op-desc">Sangría izquierda y derecha con valores exactos.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-interlineado"/></svg><span><span class="op-nombre">Espaciado</span><br><span class="op-desc">Espacio antes y después del párrafo, en puntos.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-posicion"/></svg><span><span class="op-nombre">Posición</span><br><span class="op-desc">Coloca la imagen en un sitio fijo de la página.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-ajustar-texto"/></svg><span><span class="op-nombre">Ajustar texto</span><br><span class="op-desc">Cómo rodea el texto a la imagen. Si no puedes moverla, está «en línea con el texto».</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-traer"/></svg><span><span class="op-nombre">Traer adelante</span><br><span class="op-desc">Pone el objeto por encima de los demás.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-enviar"/></svg><span><span class="op-nombre">Enviar atrás</span><br><span class="op-desc">Lo manda al fondo, por ejemplo detrás del texto.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-alinear-centro"/></svg><span><span class="op-nombre">Alinear</span><br><span class="op-desc">Alinea y distribuye varios objetos entre sí.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-girar"/></svg><span><span class="op-nombre">Girar</span><br><span class="op-desc">Gira o voltea la imagen o la forma.</span></span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ REFERENCIAS ============ -->
+  <div class="panel" id="t-referencias" hidden>
+    <div class="grupos">
+      <div class="grupo">
+        <h3>Tabla de contenido</h3>
+        <ul>
+          <li class="opcion"><svg class="ic"><use href="#i-tdc"/></svg><span><span class="op-nombre">Tabla de contenido</span><br><span class="op-desc">El índice del principio. Se genera solo a partir de los estilos de título.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-generico"/></svg><span><span class="op-nombre">Actualizar tabla</span><br><span class="op-desc">Refresca el índice tras cambiar títulos o páginas.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-generico"/></svg><span><span class="op-nombre">Agregar texto</span><br><span class="op-desc">Marca un párrafo para que aparezca en el índice.</span></span></li>
+        </ul>
+      </div>
+      <div class="grupo">
+        <h3>Notas al pie</h3>
+        <ul>
+          <li class="opcion"><svg class="ic"><use href="#i-nota-pie"/></svg><span><span class="op-nombre">Insertar nota al pie</span> <span class="atajo">Alt+Ctrl+O</span><br><span class="op-desc">Aclaración numerada al final de la página.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-nota-pie"/></svg><span><span class="op-nombre">Insertar nota al final</span><br><span class="op-desc">Igual, pero al final del documento o de la sección.</span></span></li>
+        </ul>
+      </div>
+      <div class="grupo">
+        <h3>Citas y Títulos</h3>
+        <ul>
+          <li class="opcion"><svg class="ic"><use href="#i-cita"/></svg><span><span class="op-nombre">Insertar cita</span><br><span class="op-desc">Cita bibliográfica con su estilo (APA…).</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-generico"/></svg><span><span class="op-nombre">Bibliografía</span><br><span class="op-desc">Genera la lista de fuentes citadas.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-generico"/></svg><span><span class="op-nombre">Insertar título</span><br><span class="op-desc">Rótulo numerado de una imagen o tabla («Figura 1»).</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-tdc"/></svg><span><span class="op-nombre">Tabla de ilustraciones</span><br><span class="op-desc">Índice de las figuras y tablas del documento.</span></span></li>
+        </ul>
+      </div>
+      <div class="grupo">
+        <h3>Índice</h3>
+        <ul>
+          <li class="opcion"><svg class="ic"><use href="#i-generico"/></svg><span><span class="op-nombre">Marcar entrada</span> <span class="atajo">Alt+Mayús+X</span><br><span class="op-desc">Marca una palabra para el índice alfabético.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-indice"/></svg><span><span class="op-nombre">Insertar índice</span><br><span class="op-desc">El índice alfabético del final, con sus páginas.</span></span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ CORRESPONDENCIA ============ -->
+  <div class="panel" id="t-correspondencia" hidden>
+    <div class="grupos">
+      <div class="grupo">
+        <h3>Crear e iniciar</h3>
+        <ul>
+          <li class="opcion"><svg class="ic"><use href="#i-sobre"/></svg><span><span class="op-nombre">Sobres</span><br><span class="op-desc">Imprime la dirección en un sobre.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-etiquetas"/></svg><span><span class="op-nombre">Etiquetas</span><br><span class="op-desc">Hojas de etiquetas adhesivas, por marca y modelo.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-generico"/></svg><span><span class="op-nombre">Iniciar combinación</span><br><span class="op-desc">Elige qué vas a generar: cartas, correos, sobres o etiquetas.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-destinatarios"/></svg><span><span class="op-nombre">Seleccionar destinatarios</span><br><span class="op-desc">El origen de datos: Excel, Access, contactos o una lista nueva.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-destinatarios"/></svg><span><span class="op-nombre">Editar lista de destinatarios</span><br><span class="op-desc">Filtra, ordena y descarta destinatarios.</span></span></li>
+        </ul>
+      </div>
+      <div class="grupo">
+        <h3>Escribir e insertar campos</h3>
+        <ul>
+          <li class="opcion"><svg class="ic"><use href="#i-campo"/></svg><span><span class="op-nombre">Bloque de direcciones</span><br><span class="op-desc">Inserta la dirección completa del destinatario.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-campo"/></svg><span><span class="op-nombre">Línea de saludo</span><br><span class="op-desc">«Estimado/a …» con el nombre de cada uno.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-campo"/></svg><span><span class="op-nombre">Insertar campo combinado</span><br><span class="op-desc">Un dato suelto del origen, que aparece entre « ».</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-resaltado"/></svg><span><span class="op-nombre">Resaltar campos</span><br><span class="op-desc">Marca los campos para verlos dentro del texto.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-generico"/></svg><span><span class="op-nombre">Asignar campos</span><br><span class="op-desc">Dice a Word qué columna tuya es el nombre, la dirección…</span></span></li>
+        </ul>
+      </div>
+      <div class="grupo">
+        <h3>Vista previa y Finalizar</h3>
+        <ul>
+          <li class="opcion"><svg class="ic"><use href="#i-vista-previa"/></svg><span><span class="op-nombre">Vista previa de resultados</span><br><span class="op-desc">Muestra la carta con los datos reales en vez de los campos.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-buscar"/></svg><span><span class="op-nombre">Buscar destinatario</span><br><span class="op-desc">Salta al registro que busques.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-generico"/></svg><span><span class="op-nombre">Comprobación de errores</span><br><span class="op-desc">Simula la combinación y avisa de fallos.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-finalizar"/></svg><span><span class="op-nombre">Finalizar y combinar</span><br><span class="op-desc">Genera los documentos, los imprime o los manda por correo.</span></span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ REVISAR ============ -->
+  <div class="panel" id="t-revisar" hidden>
+    <div class="grupos">
+      <div class="grupo">
+        <h3>Revisión e Idioma</h3>
+        <ul>
+          <li class="opcion"><svg class="ic"><use href="#i-ortografia"/></svg><span><span class="op-nombre">Ortografía y gramática</span> <span class="atajo">F7</span><br><span class="op-desc">Revisa todo el documento de una vez.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-sinonimos"/></svg><span><span class="op-nombre">Sinónimos</span> <span class="atajo">Mayús+F7</span><br><span class="op-desc">Alternativas para no repetir una palabra.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-contar"/></svg><span><span class="op-nombre">Contar palabras</span><br><span class="op-desc">Palabras, caracteres, párrafos y páginas.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-traducir"/></svg><span><span class="op-nombre">Traducir</span><br><span class="op-desc">Traduce la selección o el documento entero.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-generico"/></svg><span><span class="op-nombre">Idioma</span><br><span class="op-desc">Idioma de revisión del texto seleccionado.</span></span></li>
+        </ul>
+      </div>
+      <div class="grupo">
+        <h3>Comentarios</h3>
+        <ul>
+          <li class="opcion"><svg class="ic"><use href="#i-comentario"/></svg><span><span class="op-nombre">Nuevo comentario</span><br><span class="op-desc">Añade una nota al margen sin tocar el texto.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-rechazar"/></svg><span><span class="op-nombre">Eliminar</span><br><span class="op-desc">Borra un comentario o todos.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-generico"/></svg><span><span class="op-nombre">Anterior / Siguiente</span><br><span class="op-desc">Salta de un comentario a otro.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-vista-previa"/></svg><span><span class="op-nombre">Mostrar comentarios</span><br><span class="op-desc">Enseña u oculta el panel lateral de comentarios.</span></span></li>
+        </ul>
+      </div>
+      <div class="grupo">
+        <h3>Seguimiento y Cambios</h3>
+        <ul>
+          <li class="opcion"><svg class="ic"><use href="#i-control-cambios"/></svg><span><span class="op-nombre">Control de cambios</span> <span class="atajo">Ctrl+Mayús+E</span><br><span class="op-desc">Guarda quién cambia qué, para poder aceptarlo o rechazarlo.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-generico"/></svg><span><span class="op-nombre">Mostrar marcas</span><br><span class="op-desc">Elige qué revisiones se ven: formato, comentarios, autores…</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-navegacion"/></svg><span><span class="op-nombre">Panel de revisiones</span><br><span class="op-desc">Lista de todos los cambios hechos.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-aceptar"/></svg><span><span class="op-nombre">Aceptar</span><br><span class="op-desc">Aplica el cambio propuesto.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-rechazar"/></svg><span><span class="op-nombre">Rechazar</span><br><span class="op-desc">Descarta el cambio y deja el texto como estaba.</span></span></li>
+        </ul>
+      </div>
+      <div class="grupo">
+        <h3>Comparar y Proteger</h3>
+        <ul>
+          <li class="opcion"><svg class="ic"><use href="#i-comparar"/></svg><span><span class="op-nombre">Comparar</span><br><span class="op-desc">Enfrenta dos versiones y marca las diferencias automáticamente.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-proteger"/></svg><span><span class="op-nombre">Restringir edición</span><br><span class="op-desc">Limita qué se puede tocar: solo comentarios, solo formularios…</span></span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ VISTA ============ -->
+  <div class="panel" id="t-vista" hidden>
+    <div class="grupos">
+      <div class="grupo">
+        <h3>Vistas</h3>
+        <ul>
+          <li class="opcion"><svg class="ic"><use href="#i-lectura"/></svg><span><span class="op-nombre">Modo lectura</span><br><span class="op-desc">Pantalla limpia para leer, sin encabezados ni pies.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-impresion"/></svg><span><span class="op-nombre">Diseño de impresión</span><br><span class="op-desc">La vista normal: se ve tal y como se imprimirá.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-web"/></svg><span><span class="op-nombre">Diseño web</span><br><span class="op-desc">Como se vería en un navegador.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-esquema"/></svg><span><span class="op-nombre">Esquema</span><br><span class="op-desc">Solo la jerarquía de apartados, para reordenar el documento.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-generico"/></svg><span><span class="op-nombre">Borrador</span><br><span class="op-desc">Texto sin imágenes ni encabezados, para escribir rápido.</span></span></li>
+        </ul>
+      </div>
+      <div class="grupo">
+        <h3>Mostrar</h3>
+        <ul>
+          <li class="opcion"><svg class="ic"><use href="#i-regla"/></svg><span><span class="op-nombre">Regla</span><br><span class="op-desc">Imprescindible para poner tabulaciones y sangrías.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-cuadricula"/></svg><span><span class="op-nombre">Líneas de cuadrícula</span><br><span class="op-desc">Rejilla de ayuda para alinear objetos.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-navegacion"/></svg><span><span class="op-nombre">Panel de navegación</span><br><span class="op-desc">Lista de apartados y buscador. Solo se llena si usas estilos de título.</span></span></li>
+        </ul>
+      </div>
+      <div class="grupo">
+        <h3>Zoom</h3>
+        <ul>
+          <li class="opcion"><svg class="ic"><use href="#i-zoom"/></svg><span><span class="op-nombre">Zoom</span><br><span class="op-desc">Porcentaje de aumento a tu gusto.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-una-pagina"/></svg><span><span class="op-nombre">Una página</span><br><span class="op-desc">Encaja una hoja entera en la pantalla.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-varias-paginas"/></svg><span><span class="op-nombre">Varias páginas</span><br><span class="op-desc">Ver varias hojas a la vez.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-generico"/></svg><span><span class="op-nombre">Ancho de página</span><br><span class="op-desc">Ajusta el ancho de la hoja a la ventana.</span></span></li>
+        </ul>
+      </div>
+      <div class="grupo">
+        <h3>Ventana y Macros</h3>
+        <ul>
+          <li class="opcion"><svg class="ic"><use href="#i-ventana"/></svg><span><span class="op-nombre">Nueva ventana</span><br><span class="op-desc">Otra ventana del mismo documento.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-ventana"/></svg><span><span class="op-nombre">Organizar todo</span><br><span class="op-desc">Coloca todas las ventanas abiertas a la vez.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-dividir"/></svg><span><span class="op-nombre">Dividir</span><br><span class="op-desc">Parte la ventana para ver dos puntos del mismo documento.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-comparar"/></svg><span><span class="op-nombre">Ver en paralelo</span><br><span class="op-desc">Dos documentos lado a lado, con scroll sincronizado.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-generico"/></svg><span><span class="op-nombre">Cambiar ventanas</span><br><span class="op-desc">Salta a otro documento abierto.</span></span></li>
+          <li class="opcion"><svg class="ic"><use href="#i-macro"/></svg><span><span class="op-nombre">Macros</span> <span class="atajo">Alt+F8</span><br><span class="op-desc">Ver, grabar y ejecutar macros.</span></span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="tarjeta">
+    <p><strong>Nota sobre los iconos.</strong> Son dibujos propios hechos para
+    esta web, parecidos a los de Word para que los reconozcas, pero no son los
+    iconos originales de Microsoft. Word también cambia de sitio alguna opción
+    entre versiones: si no la encuentras, usa el buscador de la propia cinta
+    (la lupa <em>Buscar</em> de la barra superior de Word).</p>
+  </div>
+
+  <nav class="nav-temas">
+    <a href="ut02.html">&laquo; Tema 2</a>
+    <a href="../index.html">Índice del módulo</a>
+    <a href="ut02-2.html">Formato y estilos &raquo;</a>
+  </nav>
+
+  <footer class="pie">
+    <p>0223 Aplicaciones ofimáticas · Material de consulta del alumnado.
+    Currículo: Decreto 272/2009 (Extremadura).</p>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  var botones = Array.prototype.slice.call(document.querySelectorAll('.pestanas button'));
+  var paneles = Array.prototype.slice.call(document.querySelectorAll('.panel'));
+  var caja = document.getElementById('q');
+  var vacio = document.getElementById('vacio');
+
+  function panelActivo() {
+    for (var i = 0; i < paneles.length; i++) {
+      if (!paneles[i].hidden) return paneles[i];
+    }
+    return paneles[0];
+  }
+
+  function filtrar() {
+    var q = caja.value.trim().toLowerCase();
+    var panel = panelActivo();
+    var visibles = 0;
+
+    panel.querySelectorAll('.grupo').forEach(function (grupo) {
+      var vistasEnGrupo = 0;
+      grupo.querySelectorAll('.opcion').forEach(function (op) {
+        var coincide = !q || op.textContent.toLowerCase().indexOf(q) !== -1;
+        op.hidden = !coincide;
+        if (coincide) { vistasEnGrupo++; visibles++; }
+      });
+      grupo.hidden = (vistasEnGrupo === 0);
+    });
+
+    vacio.hidden = (visibles !== 0);
+  }
+
+  botones.forEach(function (b) {
+    b.addEventListener('click', function () {
+      botones.forEach(function (o) { o.setAttribute('aria-selected', 'false'); });
+      b.setAttribute('aria-selected', 'true');
+      paneles.forEach(function (p) { p.hidden = (p.id !== b.dataset.panel); });
+      filtrar();
+    });
+  });
+
+  caja.addEventListener('input', filtrar);
+})();
+</script>
+
+</body>
+</html>
