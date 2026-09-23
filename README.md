@@ -42,13 +42,26 @@ Al crear o modificar un tema en `temario/` hay que: (1) generar/actualizar
   (`ut02-1.html`…`ut02-7.html`), enlazados desde una página índice de tema
   (`web/temas/ut02.html`). Delante hay un subtema 2.0 de repaso (primer
   documento, edición básica), no evaluable y con horas no oficiales, para
-  quien no llegue con ese nivel. Subtemas 2.0 y 2.1 publicados; 2.2 a 2.7
+  quien no llegue con ese nivel. Subtemas 2.0 a 2.3 publicados; 2.4 a 2.7
   pendientes. Además hay una página de ejercicios guiados formativos
   (`web/temas/ut02-ejercicios.html`), con un hilo conductor único (construir
   el propio currículum vitae) para todo el tema.
+- Ejercicios guiados: bloques 2.0–2.3 disponibles. Práctica de control PC1
+  publicada con especificaciones concretas y material descargable. Mapa de la
+  cinta de Word disponible como recurso de consulta.
 - Resto de temas (3 a 9): pendientes.
 
-## Web publicada
+## Navegación del aula
+
+La portada ofrece accesos a apuntes, ejercicios y prácticas. El catálogo
+`web/recursos.html` reúne el material y las descargas con filtros y búsqueda.
+Las lecciones incluyen un índice de apartados adaptable a móvil.
+
+Después de añadir o modificar páginas, ejecutar
+`python scripts/actualizar_aula.py` para actualizar portada, catálogo e índices.
+Consulta [la organización y el mantenimiento](docs/organizacion-aula.md).
+
+### Dirección publicada
 
 <https://sbarrosor02.github.io/0223-aplicaciones-ofimaticas/>
 
