@@ -89,9 +89,12 @@ existen los estilos. Conviene dejar que ocurra y luego explicarla, no evitarla.
   al pie.
 - **Reto (opcional)**: documento maestro con tres subdocumentos y TDC común.
 
-Nota: la P2.4.2 necesita **un documento largo de partida** que aún hay que
-preparar y subir a `web/descargas/`. Mientras tanto el enunciado dice "el
-documento que te dé el profesor".
+Documento de partida: `web/descargas/dossier-proyectos-sin-estructurar.docx`,
+generado con `scripts/generar_dossier.js`. Seis páginas, 72 párrafos, **todo en
+estilo Normal** (cero `pStyle`, cero negritas) y con marcas `[FIGURA: …]` y
+`[TABLA: …]`. Lo usan tanto la P2.4.2 como los ejercicios 2.4.4 a 2.4.6.
+Si hay que retocar el texto, se edita el script y se vuelve a generar: no se
+edita el .docx a mano.
 
 ## Enlaces con el resto del tema
 
