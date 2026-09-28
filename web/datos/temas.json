@@ -28,7 +28,7 @@
       "evaluacion": 1,
       "horas": 60,
       "estado": "en progreso",
-      "actualizado": "2026-09-14",
+      "actualizado": "2026-09-28",
       "subtemas": [
         {
           "ut": "2.0",
@@ -42,7 +42,9 @@
         {
           "ut": "2.1",
           "titulo": "Entorno, edición avanzada y personalización de Word",
-          "ce": ["RA2.a"],
+          "ce": [
+            "RA2.a"
+          ],
           "horas": 8,
           "estado": "publicado",
           "actualizado": "2026-09-14"
@@ -51,7 +53,11 @@
           "ut": "2.2",
           "titulo": "Formato de documento y estilos",
           "ce": [],
-          "base_de": ["RA2.b", "RA2.e", "RA2.f"],
+          "base_de": [
+            "RA2.b",
+            "RA2.e",
+            "RA2.f"
+          ],
           "horas": 10,
           "estado": "publicado",
           "actualizado": "2026-09-17"
@@ -59,7 +65,9 @@
         {
           "ut": "2.3",
           "titulo": "Tablas, imágenes y elementos gráficos",
-          "ce": ["RA2.c"],
+          "ce": [
+            "RA2.c"
+          ],
           "horas": 10,
           "estado": "publicado",
           "actualizado": "2026-09-21"
@@ -67,15 +75,19 @@
         {
           "ut": "2.4",
           "titulo": "Plantillas y documentos estructurados",
-          "ce": ["RA2.b"],
+          "ce": [
+            "RA2.b"
+          ],
           "horas": 8,
-          "estado": "borrador",
-          "actualizado": "2026-09-14"
+          "estado": "publicado",
+          "actualizado": "2026-09-28"
         },
         {
           "ut": "2.5",
           "titulo": "Importación, exportación y combinación de correspondencia",
-          "ce": ["RA2.d"],
+          "ce": [
+            "RA2.d"
+          ],
           "horas": 10,
           "estado": "borrador",
           "actualizado": "2026-09-14"
@@ -91,7 +103,10 @@
         {
           "ut": "2.7",
           "titulo": "Macros y elaboración de manuales (proyecto final)",
-          "ce": ["RA2.e", "RA2.f"],
+          "ce": [
+            "RA2.e",
+            "RA2.f"
+          ],
           "horas": 8,
           "estado": "borrador",
           "actualizado": "2026-09-14"

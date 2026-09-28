@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tema 2.4 · Plantillas y documentos estructurados · 0223 Aplicaciones ofimáticas</title>
+<link rel="stylesheet" href="../assets/estilo.css">
+<link rel="stylesheet" href="../assets/aula.css">
+<script defer src="../assets/aula.js"></script>
+</head>
+<body data-modulo="0223">
+<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0223 / Aplicaciones ofimáticas</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-1-que-es-una-plantilla">1. Qué es una plantilla</a></li><li><a href="#apartado-2-la-plantilla-que-usas-sin-saberlo-normal-dotm">2. La plantilla que usas sin saberlo: Normal.dotm</a></li><li><a href="#apartado-3-usar-y-crear-plantillas">3. Usar y crear plantillas</a></li><li><a href="#apartado-4-documentos-estructurados-los-niveles-de-esquema">4. Documentos estructurados: los niveles de esquema</a></li><li><a href="#apartado-5-la-tabla-de-contenido">5. La tabla de contenido</a></li><li><a href="#apartado-6-indice-alfabetico-y-tabla-de-ilustraciones">6. Índice alfabético y tabla de ilustraciones</a></li><li><a href="#apartado-7-marcadores-referencias-cruzadas-y-notas-al-pie">7. Marcadores, referencias cruzadas y notas al pie</a></li><li><a href="#apartado-8-documentos-maestros-para-documentos-muy-largos">8. Documentos maestros (para documentos muy largos)</a></li><li><a href="#apartado-9-practicas-del-subtema">9. Prácticas del subtema</a></li><li><a href="#apartado-10-comprueba-lo-que-has-entendido">10. Comprueba lo que has entendido</a></li><li><a href="#apartado-11-antes-de-pasar-al-subtema-2-5">11. Antes de pasar al subtema 2.5</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1">
+
+  <header class="cab">
+    <p class="modulo">0223 · Aplicaciones ofimáticas · Tema 2 (4 de 7)</p>
+    <h1>Tema 2.4 — Plantillas y documentos estructurados</h1>
+    <p class="meta">1.º SMR · Curso 2026/2027 · 1.ª evaluación · Duración: 8 h</p>
+  </header>
+<div class="aula-herramientas"><button type="button" data-imprimir hidden>Imprimir / guardar PDF</button></div>
+<nav class="subnav" aria-label="Apartados del tema 2"><a href="ut02.html">Portada del tema</a><a href="ut02.html#apartado-subtemas">Apuntes</a><a href="ut02-ejercicios.html">Ejercicios guiados</a><a href="ut02-practicas.html">Prácticas de control</a><a href="mapa-cinta.html">Mapa de Word</a></nav>
+
+  <details class="ra-ce"><summary>Qué se evalúa · RA y criterios</summary>
+    <h2 id="apartado-resultado-de-aprendizaje-y-criterio-de-evaluacion">Resultado de aprendizaje y criterio de evaluación</h2>
+    <p><strong>RA2.</strong> Elabora documentos y plantillas, describiendo y
+    aplicando las opciones avanzadas de procesadores de textos.</p>
+    <ul>
+      <li><strong>b)</strong> Se han diseñado plantillas.</li>
+    </ul>
+  </details>
+
+  <div class="aviso">
+    <strong>Aquí se cobra lo del subtema 2.2.</strong> Todo lo de esta página
+    —la tabla de contenido, el índice, las referencias cruzadas— se genera
+    <em>solo</em>, pero únicamente si aplicaste <strong>estilos de título</strong>
+    de verdad. Si maquetaste los títulos a mano con negrita y tamaño 16, Word no
+    sabe que son títulos y la tabla de contenido te saldrá vacía. No es mala
+    suerte: es la razón por la que insistimos tanto con los estilos.
+  </div>
+
+  <section>
+    <h2 id="apartado-1-que-es-una-plantilla">1. Qué es una plantilla</h2>
+    <p>Una <strong>plantilla</strong> es un modelo o patrón para crear documentos
+    nuevos, donde ya vienen establecidos la estructura y el formato: estilos y
+    tamaño de fuente, tablas, numeración de páginas, encabezados y pies…</p>
+    <p>Es útil cuando vas a generar <strong>documentos idénticos en los que solo
+    cambian los datos</strong>: un fax, un currículum, una factura, un parte de
+    incidencias.</p>
+
+    <h3>La diferencia con un documento normal</h3>
+    <p>Está en el <strong>tipo de archivo</strong>:</p>
+    <ul>
+      <li><code>.docx</code> — documento ordinario de Word.</li>
+      <li><code>.dotx</code> — plantilla.</li>
+      <li><code>.dotm</code> — plantilla que además contiene <strong>macros</strong>
+      (lo verás en el subtema 2.7).</li>
+    </ul>
+    <div class="tarjeta">
+      <p><strong>Lo importante:</strong> al crear un documento a partir de una
+      plantilla, los datos que escribas y los cambios que hagas se guardan en un
+      <code>.docx</code> normal, <strong>sin alterar la plantilla</strong>. La
+      plantilla es el molde; el documento es la pieza. El molde queda intacto y
+      puedes usarlo mil veces.</p>
+    </div>
+
+    <h3>En una plantilla se guarda un entorno de trabajo</h3>
+    <p>No solo estilos y formatos. Una plantilla conserva también:</p>
+    <ul>
+      <li>Las modificaciones que hayas hecho en las barras de herramientas.</li>
+      <li>Las entradas de <strong>Autotexto</strong> que crees o modifiques.</li>
+      <li>Las <strong>macros</strong>.</li>
+    </ul>
+    <p>Es decir, en una plantilla se guarda un <em>entorno de trabajo de Word</em>
+    entero. De ahí su potencia para trabajar de forma más eficiente.</p>
+  </section>
+
+  <section>
+    <h2 id="apartado-2-la-plantilla-que-usas-sin-saberlo-normal-dotm">2. La plantilla que usas sin saberlo: Normal.dotm</h2>
+    <p>En realidad <strong>siempre</strong> usas una plantilla, aunque no seas
+    consciente. Cuando creas un documento en blanco, aparece con unos márgenes ya
+    puestos, y con una fuente y unos estilos predeterminados. Todo eso está
+    definido en una plantilla llamada <code>Normal.dotm</code> que se aplica por
+    defecto.</p>
+    <p>Por eso, cuando en algún cuadro de diálogo pulsas el botón
+    <strong>Predeterminar</strong> para que Word use otros valores a partir de
+    ahora, lo que el sistema hace en realidad es <strong>modificar
+    Normal.dotm</strong>.</p>
+
+    <h3>Dónde está</h3>
+    <p>Puedes abrirla y editarla como cualquier documento, pero primero hay que
+    saber dónde vive:</p>
+    <ol>
+      <li>Ve a <code>Archivo &gt; Opciones &gt; Avanzadas</code>.</li>
+      <li>Baja hasta el final: botón <strong>Ubicaciones de archivos…</strong></li>
+      <li>Se abre una ventana con las rutas. La que interesa es la de
+      <strong>Plantillas personales</strong>. Copia esa ruta.</li>
+      <li>Ahora <code>Archivo &gt; Abrir</code> y busca la plantilla en esa ruta.</li>
+    </ol>
+    <p>Normalmente será algo parecido a
+    <code>C:\Users\TuUsuario\AppData\Roaming\Microsoft\Templates</code>.</p>
+    <div class="aviso">
+      <strong>Cuidado con tocar Normal.dotm.</strong> Todo lo que cambies ahí
+      afectará a <em>todos</em> los documentos nuevos que crees a partir de ese
+      momento. En el aula, mejor practica creando plantillas propias.
+    </div>
+  </section>
+
+  <section>
+    <h2 id="apartado-3-usar-y-crear-plantillas">3. Usar y crear plantillas</h2>
+
+    <h3>Usar una que ya existe</h3>
+    <p>Desde <code>Archivo &gt; Nuevo</code>. Hasta ahora pulsabas siempre
+    <em>Documento en blanco</em>; las demás opciones son plantillas:</p>
+    <ul>
+      <li><strong>Plantillas prediseñadas</strong>: las que trae Microsoft, en la
+      sección <em>DESTACADA</em>. Las que crees tú aparecerán en
+      <strong>PERSONAL</strong>.</li>
+      <li><strong>Buscar plantillas en línea</strong>: busca en Office.com si tienes
+      internet. Se descargan gratis desde el propio Word, sin ir a la página web.
+      Hay búsquedas sugeridas (Cartas, Currículo, Fax…).</li>
+    </ul>
+    <p>El proceso es siempre el mismo: <strong>localizarla, hacer clic sobre ella y
+    pulsar Crear</strong>.</p>
+    <p class="pie-fig"><em>Las plantillas en línea dependen de la web de Microsoft,
+    así que pueden aparecer y desaparecer categorías sin previo aviso.</em></p>
+
+    <h3>Rellenar la plantilla</h3>
+    <p>Al pulsar Crear verás un documento nuevo normal, pero con la estructura de
+    la plantilla. Lo habitual es que el <strong>texto que debes cambiar se
+    distinga</strong> del que no: al hacer clic sobre él aparece dentro de un fondo
+    gris etiquetado, en modo edición. Cuando termines, guardas el documento con su
+    nombre y <strong>la plantilla no se ve afectada</strong>.</p>
+
+    <h3>Crear tu propia plantilla a partir de un documento</h3>
+    <p>Como plantilla y documento solo se diferencian en el tipo de archivo, basta
+    con cambiar el tipo:</p>
+    <ol>
+      <li><strong>Diseña el documento.</strong> Dale el aspecto que quieres que
+      tenga la plantilla: estilos, encabezado, pie, tablas, logotipo. Puedes partir
+      de un documento que ya tengas o de uno en blanco.</li>
+      <li><strong>Guarda como plantilla.</strong> <code>Archivo &gt; Guardar
+      como</code> y en el campo <em>Tipo</em> selecciona <strong>Plantilla de Word
+      (*.dotx)</strong>. Word te propondrá automáticamente la carpeta de
+      plantillas.</li>
+    </ol>
+    <div class="tarjeta">
+      <p><strong>Guárdala donde te propone.</strong> Si la guardas en otra carpeta
+      funcionará como archivo, pero <strong>no aparecerá en la sección
+      PERSONAL</strong> de <code>Archivo &gt; Nuevo</code>, que es justo lo que la
+      hace cómoda de usar.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 id="apartado-4-documentos-estructurados-los-niveles-de-esquema">4. Documentos estructurados: los niveles de esquema</h2>
+    <p>Un <strong>esquema</strong> es un resumen bien estructurado de un documento.
+    Para poder aplicarlo, el documento debe estar organizado en
+    <strong>niveles</strong>: dividido en puntos y, dentro de esos puntos, puntos
+    secundarios, terciarios… Cuanto más extenso sea el documento, más rentable
+    resulta.</p>
+
+    <h3>Dos conceptos que hay que tener claros</h3>
+    <ul>
+      <li><strong>Nivel de esquema.</strong> Es una característica de formato que se
+      asigna a un párrafo, igual que se le asigna una alineación. Hay
+      <strong>nueve niveles</strong> (Nivel 1 a Nivel 9).</li>
+      <li><strong>Estilo de título.</strong> Word tiene nueve (Título 1 … Título 9).
+      Cada uno tiene su formato <em>y además</em> un nivel de esquema asociado:
+      <strong>Título 1 → nivel 1, Título 2 → nivel 2</strong>, y así sucesivamente.
+      Por eso, al aplicar un estilo de título estás asignando el nivel de esquema
+      sin darte cuenta.</li>
+    </ul>
+
+    <h3>No lo confundas con…</h3>
+    <ul>
+      <li><strong>El mapa del documento</strong> (el <em>Panel de navegación</em> de
+      la pestaña Vista). Es un esquema rudimentario que Word crea con criterios
+      internos y que <strong>no puedes modificar</strong>. Si el documento está bien
+      estructurado sale bien; si no, sirve de poco. Vale para desplazarte, no para
+      organizar.</li>
+      <li><strong>La tabla de contenido</strong>, que es una lista de los puntos
+      <em>con su número de página</em> y que sí se imprime. El esquema es solo una
+      vista: existe en la versión digital, no en el papel.</li>
+    </ul>
+
+    <h3>Crear el esquema</h3>
+    <p>Se entra por <code>Vista &gt; Esquema</code>, y aparece la pestaña
+    <strong>Esquema</strong>. Hay dos estrategias:</p>
+    <ol>
+      <li><strong>Antes de redactar.</strong> Escribes los títulos y los usas como
+      guía para ir rellenando. Al escribir el primero, Word le asigna Título 1 y
+      Nivel 1. <code>Intro</code> crea el siguiente al mismo nivel; con las flechas
+      de la pestaña lo subes o lo bajas. Para escribir el texto normal del
+      documento, en el desplegable de nivel eliges <strong>Texto
+      independiente</strong>.</li>
+      <li><strong>Después de tenerlo redactado.</strong> Asignas a cada punto el
+      nivel que le corresponda. Es lo más habitual.</li>
+    </ol>
+
+    <h3>Tres formas de asignar los niveles</h3>
+    <ul>
+      <li><strong>Con los estilos de título de Word</strong> (Título 1…9). Lo más
+      rápido. Inconveniente: traen su propio formato (Título 1 es Cambria 14 azul) y
+      puede que no pegue con tu documento.</li>
+      <li><strong>Con estilos propios.</strong> En el cuadro <em>Nuevo estilo</em>,
+      botón <strong>Formato</strong> (abajo a la izquierda) → <em>Párrafo</em> →
+      arriba está <strong>Nivel de esquema</strong>. Así tienes tu formato y el
+      nivel correcto a la vez. <strong>Es la opción recomendable.</strong></li>
+      <li><strong>Con los botones de la pestaña Esquema</strong>, directamente.</li>
+    </ul>
+    <p>También puedes aplicar un nivel a un párrafo suelto sin crear estilo
+    (<em>Párrafo &gt; Nivel de esquema</em>), pero es mucho más difícil de
+    mantener.</p>
+
+    <h3>Los botones de la pestaña Esquema</h3>
+    <ul>
+      <li><strong>Flechas izquierda / derecha</strong>: cambian el nivel del texto
+      seleccionado.</li>
+      <li><strong>Flechas arriba / abajo</strong>: trasladan el título
+      <em>y todo lo que contiene</em> una línea arriba o abajo. Esto es lo que
+      convierte la vista Esquema en la mejor forma de reordenar un documento
+      largo.</li>
+      <li><strong>Expandir (+) y Contraer (−)</strong>: muestran u ocultan el texto
+      de un nivel.</li>
+      <li><strong>Mostrar nivel</strong>: eliges hasta qué nivel quieres ver.</li>
+      <li><strong>Mostrar solo la primera línea</strong> de cada párrafo.</li>
+      <li><strong>Mostrar formato de texto</strong>: ver el texto con su formato
+      real.</li>
+      <li><strong>Mostrar documento</strong>: saca los botones de documentos
+      maestros (apartado 8).</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 id="apartado-5-la-tabla-de-contenido">5. La tabla de contenido</h2>
+    <div class="aviso">
+      <strong>Ojo con los nombres.</strong> Word llama <strong>tabla de
+      contenido</strong> a lo que en España llamamos simplemente <em>índice</em> (el
+      del principio, con los apartados y sus páginas). Y llama
+      <strong>índice</strong> a lo que nosotros llamamos <em>índice alfabético</em> o
+      glosario (el del final). Usaremos los nombres de Word para que encuentres los
+      botones.
+    </div>
+
+    <h3>Dos pasos</h3>
+    <ol>
+      <li><strong>Preparar</strong>: marcar qué títulos deben aparecer.</li>
+      <li><strong>Generar</strong> la tabla (TDC).</li>
+    </ol>
+    <p>Para preparar hay tres caminos, y los tres acaban en lo mismo: que los
+    títulos tengan nivel de esquema.</p>
+    <ul>
+      <li>Usar los <strong>estilos de título predefinidos</strong> de Word.</li>
+      <li>Construir el documento en <strong>vista Esquema</strong>: Word aplica solo
+      el estilo de título adecuado.</li>
+      <li>Usar <strong>estilos de título personalizados</strong> y decirle a Word que
+      los tenga en cuenta: <code>Referencias &gt; Tabla de contenido &gt; Tabla de
+      contenido personalizada &gt; Opciones…</code> y ahí asignas a tu estilo el
+      <em>Nivel de TDC</em> que quieras. Si no quieres que un estilo aparezca, dejas
+      su casilla en blanco.</li>
+    </ul>
+
+    <h3>Generarla</h3>
+    <p>Colócate donde quieras la tabla (normalmente al principio) y ve a
+    <code>Referencias &gt; Tabla de contenido</code>:</p>
+    <ul>
+      <li><strong>Tablas automáticas</strong>: dos modelos. Se genera al instante con
+      su estilo predefinido.</li>
+      <li><strong>Tabla manual</strong>: genera una con datos de muestra que tienes
+      que sustituir a mano. Aprovechas la estructura, pero pierdes lo mejor: que se
+      actualice sola.</li>
+      <li><strong>Tabla de contenido personalizada</strong>: abre un cuadro donde
+      eliges formato y puedes marcar <em>Mostrar números de página</em>,
+      <em>Alinear números de página a la derecha</em> o <em>Usar hipervínculos en
+      lugar de número de página</em>.</li>
+    </ul>
+    <p>Con el botón <strong>Opciones…</strong> estableces la relación entre estilos y
+    niveles de la TDC. Por ejemplo, si solo quieres tres niveles, asignas el nivel 3
+    a Título 4 y Título 5. Si te lías, <strong>Restablecer</strong> deja los valores
+    por defecto.</p>
+
+    <h3>Actualizarla: esto es lo que la hace útil</h3>
+    <p>Si añades o quitas apartados, o el documento crece y cambian las páginas, la
+    tabla se actualiza con dos clics:</p>
+    <ul>
+      <li>Desde <code>Referencias &gt; Actualizar tabla</code>.</li>
+      <li>O con <strong>clic derecho sobre la tabla &gt; Actualizar campos</strong>.</li>
+    </ul>
+    <p>Word preguntará si quieres actualizar <strong>solo los números de
+    página</strong> o <strong>toda la tabla</strong>. Si has cambiado títulos, elige
+    toda la tabla.</p>
+    <div class="tarjeta">
+      <p><strong>Truco de entrega.</strong> Antes de exportar a PDF o imprimir,
+      actualiza siempre la tabla de contenido. Es el fallo más típico: se entrega un
+      trabajo con un índice que apunta a páginas que ya no existen.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 id="apartado-6-indice-alfabetico-y-tabla-de-ilustraciones">6. Índice alfabético y tabla de ilustraciones</h2>
+
+    <h3>El índice alfabético</h3>
+    <p>Es la lista de términos importantes con la página donde aparecen, ordenada
+    alfabéticamente. Suele ir al final. Primero se <strong>marcan las
+    entradas</strong> y después se genera.</p>
+    <p><strong>De forma manual:</strong></p>
+    <ol>
+      <li>Selecciona la palabra o frase, o colócate donde quieras la marca.</li>
+      <li><code>Referencias &gt; Marcar entrada</code>, o
+      <code>Alt+Mayús+X</code>.</li>
+      <li>En el cuadro <em>Marcar entrada de índice</em>, el texto seleccionado
+      aparece ya en <em>Entrada</em>. Puedes crear <strong>subentradas</strong>, que
+      salen debajo y sangradas.</li>
+      <li>Pulsa <strong>Marcar</strong>. <strong>No cierres el cuadro</strong>: haz
+      clic en el documento, selecciona la siguiente palabra y el cuadro se actualiza
+      solo. Así con todas. Al terminar, <em>Cerrar</em>.</li>
+    </ol>
+    <p><strong>De forma automática:</strong> creas otro documento con una tabla de
+    <strong>2 columnas</strong> y tantas filas como términos. En la primera, el texto
+    <strong>exacto</strong> tal y como aparece en el original; en la segunda, cómo
+    quieres que salga en el índice. Los dos puntos <code>:</code> indican subentrada.
+    Luego, en el documento original,
+    <code>Referencias &gt; Insertar índice &gt; Automarcar…</code> y seleccionas ese
+    fichero.</p>
+    <div class="aviso">
+      <strong>El texto tiene que coincidir carácter a carácter.</strong> Si en el
+      documento pone <em>Capítulo 2. Tipos de vehículos</em> y en la tabla escribes
+      <em>capitulo 2. Tipos de vehículos</em>, Word no lo reconoce: la <em>c</em>
+      está en minúscula y la <em>i</em> sin tilde, así que para él es otra frase
+      distinta.
+    </div>
+    <p>Con las marcas puestas,
+    <code>Referencias &gt; Insertar índice</code>. Puedes elegir el tipo
+    <em>Con sangría</em> o <em>Continuo</em> y el formato.</p>
+
+    <h3>La tabla de ilustraciones</h3>
+    <p>Funciona igual: primero marcar, después generar.</p>
+    <ol>
+      <li>Selecciona la imagen, tabla, gráfico o ecuación y ve a
+      <code>Referencias &gt; Insertar título</code>. Word detecta el tipo y le asigna
+      el rótulo (<em>Ilustración 1</em>, <em>Tabla 1</em>…). Puedes colocarlo encima
+      o debajo del elemento.</li>
+      <li>Con todos los títulos puestos:
+      <code>Referencias &gt; Insertar tabla de ilustraciones</code>. En
+      <em>Etiqueta de título</em> eliges qué tipo quieres listar (Tabla,
+      Ilustración…).</li>
+    </ol>
+    <p>El botón <strong>Nuevo rótulo</strong> crea etiquetas propias, y
+    <strong>Autotítulo</strong> hace que se numeren solas las imágenes que vayas
+    insertando.</p>
+  </section>
+
+  <section>
+    <h2 id="apartado-7-marcadores-referencias-cruzadas-y-notas-al-pie">7. Marcadores, referencias cruzadas y notas al pie</h2>
+    <p>Son las herramientas para <strong>relacionar información</strong> dentro del
+    documento y para <strong>hacer aclaraciones</strong>. Con ellas un documento pasa
+    a parecer profesional.</p>
+
+    <h3>El problema que resuelven</h3>
+    <p>Cuando escribes «como vimos en el gráfico del apartado anterior», estaría bien
+    enlazar a esa página. Si escribes «véase la página 12» a mano, corres el riesgo
+    de que el documento cambie, el gráfico acabe en la 14 y nadie se acuerde de
+    corregirlo. Las referencias cruzadas resuelven esto: <strong>se actualizan
+    solas</strong>.</p>
+
+    <h3>Marcadores</h3>
+    <p>Un marcador identifica una posición o una selección de texto a la que se da un
+    nombre, para referirse a ella después. Es el post-it de toda la vida, en
+    digital. Además, son <strong>la base para crear referencias cruzadas</strong>.</p>
+    <ol>
+      <li>Colócate donde quieras la marca o selecciona el texto.</li>
+      <li><code>Insertar &gt; Vínculos &gt; Marcador</code>, o
+      <code>Ctrl+Mayús+F5</code>.</li>
+      <li>Escribe el nombre y pulsa <strong>Agregar</strong>.</li>
+    </ol>
+    <p>Reglas del nombre: <strong>sin espacios en blanco</strong>, debe
+    <strong>empezar por una letra</strong> (luego puede llevar números) y
+    <strong>máximo 40 caracteres</strong>.</p>
+    <p>Los marcadores están <strong>ocultos</strong>. Para verlos:
+    <code>Archivo &gt; Opciones &gt; Avanzadas</code>, apartado <em>Mostrar contenido
+    de documento</em>, casilla <strong>Mostrar marcadores</strong>. Aparecerán entre
+    corchetes <code>[ ]</code>. Para saltar a uno: <em>Ir a</em>
+    (<code>Ctrl+I</code>) y eliges <em>Marcador</em>.</p>
+
+    <h3>Referencias cruzadas</h3>
+    <p>Colócate donde quieras la referencia y ve a <code>Insertar &gt; Vínculos &gt;
+    Referencia cruzada</code>. En el cuadro eliges:</p>
+    <ul>
+      <li><strong>Tipo</strong>: a qué te refieres (Marcador, Título, Ilustración,
+      Tabla, Nota al pie, Elemento numerado…).</li>
+      <li><strong>Referencia a</strong>: qué texto aparecerá (el texto del título, el
+      número de página, solo el rótulo y el número, «más adelante / más atrás»…).</li>
+    </ul>
+    <div class="aviso">
+      <strong>El elemento tiene que existir antes.</strong> Para hacer una referencia
+      a una tabla no basta con que haya una tabla: hace falta haberle puesto un
+      <strong>título</strong> con <em>Insertar título</em>. Y para referenciar un
+      apartado, ese apartado tiene que tener aplicado un <strong>estilo de
+      título</strong>. Si el desplegable te sale vacío, es por esto.
+    </div>
+    <p>Sobre la referencia ya insertada, <code>Ctrl</code> + clic te lleva al
+    sitio.</p>
+
+    <h3>Notas al pie y notas al final</h3>
+    <p>Sirven para añadir una aclaración sin cortar el texto: por ejemplo, quién es
+    el autor de una cita. Se tratan igual y la diferencia está en dónde se
+    colocan:</p>
+    <ul>
+      <li><strong>Nota al pie</strong>: al final de la página, o justo debajo de la
+      selección.</li>
+      <li><strong>Nota al final</strong>: al final del documento o al final de la
+      sección.</li>
+    </ul>
+    <p>Se insertan desde <code>Referencias &gt; Insertar nota al pie</code>. Si
+    quieres configurarlas, abre el cuadro con la <strong>flechita de la esquina
+    inferior derecha</strong> del grupo <em>Notas al pie</em>: ahí eliges el formato
+    del número, una marca personal con <em>Símbolo…</em>, desde qué número empieza y
+    si la numeración es continua o se reinicia en cada sección o en cada página.</p>
+    <p>Al pasar el ratón por encima del superíndice aparece un bocadillo con el
+    texto; con doble clic saltas a la nota.</p>
+  </section>
+
+  <section>
+    <h2 id="apartado-8-documentos-maestros-para-documentos-muy-largos">8. Documentos maestros (para documentos muy largos)</h2>
+    <p>Un <strong>documento maestro</strong> es un documento que, además de contenido
+    normal, contiene <strong>enlaces a otros archivos</strong> llamados
+    <strong>subdocumentos</strong>, que se pueden abrir y trabajar por separado. Lo
+    que cambies en un subdocumento se refleja automáticamente en el maestro, porque
+    lo que el maestro guarda son enlaces.</p>
+    <p>Sirve para organizar algo previsiblemente muy extenso —un libro con varios
+    capítulos, un manual largo— y es especialmente útil en <strong>trabajo en
+    grupo</strong>: cada miembro escribe su capítulo y al final se fusionan,
+    manteniendo un único índice, una numeración de páginas y unos encabezados
+    comunes. También va mejor en ordenadores poco potentes, porque trabajar con un
+    documento enorme los ralentiza.</p>
+
+    <h3>Cómo se trabaja</h3>
+    <p>Se usa la <strong>vista Esquema</strong>: <code>Vista &gt; Esquema</code> y
+    luego el botón <strong>Mostrar documento</strong>, que saca estos botones:</p>
+    <ul>
+      <li><strong>Crear</strong>: convierte un título del esquema en subdocumento.</li>
+      <li><strong>Insertar</strong>: mete un documento ya existente como
+      subdocumento.</li>
+      <li><strong>Desvincular</strong>: el subdocumento pasa a formar parte del
+      maestro y deja de ser un enlace. El archivo no se borra del disco.</li>
+      <li><strong>Combinar</strong> / <strong>Dividir</strong>: junta varios
+      subdocumentos en uno, o parte uno en varios.</li>
+      <li><strong>Bloquear</strong>: deja un subdocumento en solo lectura para que
+      nadie lo toque mientras trabajas.</li>
+      <li><strong>Contraer / expandir</strong>: al contraer no se ve el contenido,
+      sino la ruta del archivo en el disco.</li>
+    </ul>
+    <p>Al guardar el maestro, Word guarda además <strong>un archivo por cada
+    subdocumento</strong>, en la misma carpeta, usando como nombre el primer título
+    (<code>Capitulo 1.docx</code>, <code>Capitulo 2.docx</code>…).</p>
+    <p class="pie-fig"><em>Si dos personas abren el mismo subdocumento, Word lo
+    bloquea automáticamente y el segundo solo tendrá acceso de lectura. Aparece un
+    candado a la izquierda del subdocumento.</em></p>
+  </section>
+
+  <section>
+    <h2 id="apartado-9-practicas-del-subtema">9. Prácticas del subtema</h2>
+    <p>Acreditan el criterio <em>b</em> de RA2. Se entregan en el portafolio del
+    módulo.</p>
+    <ul>
+      <li><strong>P2.4.1</strong> · <strong>Tu CV como plantilla</strong>: parte del
+      <code>cv_v3.docx</code> del subtema anterior, quita tus datos personales
+      dejando los rótulos, y guárdalo como <strong>plantilla
+      <code>cv_plantilla.dotx</code></strong> en la carpeta de plantillas. Comprueba
+      que aparece en <code>Archivo &gt; Nuevo &gt; PERSONAL</code> y crea un
+      documento nuevo a partir de ella.</li>
+      <li><strong>P2.4.2</strong> · <strong>Estructurar un documento largo</strong>:
+      con el documento que te dé el profesor, asigna niveles de esquema a todos los
+      apartados. Entra en <code>Vista &gt; Esquema</code> y usa las flechas
+      <em>arriba/abajo</em> para <strong>reordenar dos apartados enteros</strong> sin
+      cortar y pegar.</li>
+      <li><strong>P2.4.3</strong> · <strong>Tabla de contenido</strong>: insértale una
+      tabla de contenido automática al principio. Después <strong>añade un apartado
+      nuevo</strong> en mitad del documento y <strong>actualiza la tabla</strong>
+      (toda la tabla, no solo los números).</li>
+      <li><strong>P2.4.4</strong> · <strong>Títulos y tabla de ilustraciones</strong>:
+      pon título con <em>Insertar título</em> a todas las imágenes y tablas del
+      documento y genera al final una tabla de ilustraciones.</li>
+      <li><strong>P2.4.5</strong> · <strong>Referencias y notas</strong>: crea al
+      menos <strong>un marcador</strong>, una <strong>referencia cruzada</strong> a un
+      apartado (que muestre el número de página) y una <strong>nota al pie</strong>
+      con la fuente de algún dato.</li>
+    </ul>
+    <div class="tarjeta">
+      <p><strong>Reto de ampliación (opcional).</strong> Monta un <strong>documento
+      maestro</strong>: crea tres documentos cortos (<em>Capítulo 1</em>,
+      <em>2</em> y <em>3</em>), crea un maestro nuevo en vista Esquema e insértalos
+      como subdocumentos. Comprueba que al modificar uno de los capítulos el cambio
+      aparece en el maestro, y genera una tabla de contenido que recorra los
+      tres.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 id="apartado-10-comprueba-lo-que-has-entendido">10. Comprueba lo que has entendido</h2>
+    <p>Nueve preguntas. No cuenta para la nota: es para que veas si puedes seguir.</p>
+
+    <form id="ei">
+
+      <div class="pregunta" data-correcta="b">
+        <p class="enunciado"><span class="num">1.</span> ¿En qué formato se guarda
+        una plantilla de Word que no contiene macros?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p1" value="a"> .docx</label></li>
+          <li><label><input type="radio" name="p1" value="b"> .dotx</label></li>
+          <li><label><input type="radio" name="p1" value="c"> .dotm</label></li>
+          <li><label><input type="radio" name="p1" value="d"> .pdf</label></li>
+        </ul>
+        <span class="marca"></span>
+      </div>
+
+      <div class="pregunta" data-correcta="c">
+        <p class="enunciado"><span class="num">2.</span> ¿Qué es
+        <code>Normal.dotm</code>?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p2" value="a"> Un documento de ejemplo que trae Word</label></li>
+          <li><label><input type="radio" name="p2" value="b"> La carpeta donde se guardan las plantillas</label></li>
+          <li><label><input type="radio" name="p2" value="c"> La plantilla que Word aplica por defecto a todo documento en blanco</label></li>
+          <li><label><input type="radio" name="p2" value="d"> Una macro que se ejecuta al arrancar Word</label></li>
+        </ul>
+        <span class="marca"></span>
+      </div>
+
+      <div class="pregunta" data-correcta="a">
+        <p class="enunciado"><span class="num">3.</span> Creas un documento a partir
+        de una plantilla, lo rellenas y lo guardas. ¿Qué le pasa a la plantilla?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p3" value="a"> Nada: se guarda un .docx aparte y la plantilla queda intacta</label></li>
+          <li><label><input type="radio" name="p3" value="b"> Se sobrescribe con los datos nuevos</label></li>
+          <li><label><input type="radio" name="p3" value="c"> Se borra automáticamente</label></li>
+          <li><label><input type="radio" name="p3" value="d"> Se convierte en un .docx</label></li>
+        </ul>
+        <span class="marca"></span>
+      </div>
+
+      <div class="pregunta" data-correcta="c">
+        <p class="enunciado"><span class="num">4.</span> ¿Qué nivel de esquema tiene
+        el estilo <em>Título 3</em>?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p4" value="a"> Ninguno, hay que asignárselo a mano</label></li>
+          <li><label><input type="radio" name="p4" value="b"> Nivel 1</label></li>
+          <li><label><input type="radio" name="p4" value="c"> Nivel 3</label></li>
+          <li><label><input type="radio" name="p4" value="d"> Depende del tamaño de letra que tenga</label></li>
+        </ul>
+        <span class="marca"></span>
+      </div>
+
+      <div class="pregunta" data-correcta="b">
+        <p class="enunciado"><span class="num">5.</span> En Word, lo que en España
+        llamamos «el índice del principio, con los apartados y sus páginas» se
+        llama…</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p5" value="a"> Índice</label></li>
+          <li><label><input type="radio" name="p5" value="b"> Tabla de contenido</label></li>
+          <li><label><input type="radio" name="p5" value="c"> Esquema</label></li>
+          <li><label><input type="radio" name="p5" value="d"> Mapa del documento</label></li>
+        </ul>
+        <span class="marca"></span>
+      </div>
+
+      <div class="pregunta" data-correcta="d">
+        <p class="enunciado"><span class="num">6.</span> Insertas una tabla de
+        contenido automática y sale vacía. La causa más probable es…</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p6" value="a"> Que el documento es demasiado corto</label></li>
+          <li><label><input type="radio" name="p6" value="b"> Que falta insertar los números de página</label></li>
+          <li><label><input type="radio" name="p6" value="c"> Que hay que guardar el documento primero</label></li>
+          <li><label><input type="radio" name="p6" value="d"> Que los títulos no tienen aplicado un estilo de título ni un nivel de esquema</label></li>
+        </ul>
+        <span class="marca"></span>
+      </div>
+
+      <div class="pregunta" data-correcta="b">
+        <p class="enunciado"><span class="num">7.</span> Has añadido apartados y han
+        cambiado las páginas. ¿Qué haces con la tabla de contenido?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p7" value="a"> Borrarla y volver a escribirla a mano</label></li>
+          <li><label><input type="radio" name="p7" value="b"> Actualizar tabla, eligiendo actualizar toda la tabla</label></li>
+          <li><label><input type="radio" name="p7" value="c"> Nada, se actualiza sola al guardar</label></li>
+          <li><label><input type="radio" name="p7" value="d"> Cambiar los números de página a mano</label></li>
+        </ul>
+        <span class="marca"></span>
+      </div>
+
+      <div class="pregunta" data-correcta="a">
+        <p class="enunciado"><span class="num">8.</span> ¿Cuál es la ventaja de una
+        referencia cruzada frente a escribir «véase la página 12»?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p8" value="a"> Que se actualiza sola si el elemento cambia de página</label></li>
+          <li><label><input type="radio" name="p8" value="b"> Que ocupa menos espacio en el archivo</label></li>
+          <li><label><input type="radio" name="p8" value="c"> Que se puede imprimir en color</label></li>
+          <li><label><input type="radio" name="p8" value="d"> Que no necesita que exista el elemento referenciado</label></li>
+        </ul>
+        <span class="marca"></span>
+      </div>
+
+      <div class="pregunta" data-correcta="c">
+        <p class="enunciado"><span class="num">9.</span> Un documento maestro
+        contiene…</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p9" value="a"> Una copia del texto de todos los capítulos</label></li>
+          <li><label><input type="radio" name="p9" value="b"> Solo la tabla de contenido del proyecto</label></li>
+          <li><label><input type="radio" name="p9" value="c"> Enlaces a subdocumentos que se pueden editar por separado</label></li>
+          <li><label><input type="radio" name="p9" value="d"> Únicamente las macros del documento</label></li>
+        </ul>
+        <span class="marca"></span>
+      </div>
+
+      <div class="acciones">
+        <button type="button" id="corregir">Corregir</button>
+        <button type="button" id="reiniciar">Reiniciar</button>
+      </div>
+      <p class="resultado oculto" id="resultado"></p>
+    </form>
+  </section>
+
+  <section>
+    <h2 id="apartado-11-antes-de-pasar-al-subtema-2-5">11. Antes de pasar al subtema 2.5</h2>
+    <p>Marca lo que ya sabrías hacer tú solo. Si algo se queda sin marcar, díselo al
+    profesor antes de empezar con combinar correspondencia.</p>
+    <ul class="checklist">
+      <li><label><input type="checkbox"> Explicar qué es una plantilla y en qué se diferencia de un documento (.dotx frente a .docx)</label></li>
+      <li><label><input type="checkbox"> Saber qué es Normal.dotm y por qué el botón Predeterminar la modifica</label></li>
+      <li><label><input type="checkbox"> Crear un documento a partir de una plantilla y guardar mi propia plantilla en PERSONAL</label></li>
+      <li><label><input type="checkbox"> Asignar niveles de esquema con estilos de título y con estilos propios</label></li>
+      <li><label><input type="checkbox"> Usar la vista Esquema para contraer, expandir y reordenar apartados enteros</label></li>
+      <li><label><input type="checkbox"> Insertar una tabla de contenido automática y actualizarla tras cambiar el documento</label></li>
+      <li><label><input type="checkbox"> Distinguir tabla de contenido, índice alfabético y mapa del documento</label></li>
+      <li><label><input type="checkbox"> Poner título a imágenes y tablas y generar una tabla de ilustraciones</label></li>
+      <li><label><input type="checkbox"> Crear marcadores y referencias cruzadas que se actualicen solas</label></li>
+      <li><label><input type="checkbox"> Insertar notas al pie y saber en qué se diferencian de las notas al final</label></li>
+    </ul>
+  </section>
+
+  <nav class="nav-temas">
+    <a href="ut02-3.html">&laquo; Tema 2.3</a>
+    <a href="../index.html">Índice del módulo</a>
+    <span>Siguiente &raquo; (Tema 2.5, próximamente)</span>
+  </nav>
+
+  <footer class="pie">
+    <p>0223 Aplicaciones ofimáticas · Material de consulta del alumnado.
+    Currículo: Decreto 272/2009 (Extremadura).</p>
+  </footer>
+
+<script>
+(function () {
+  var form = document.getElementById('ei');
+  var preguntas = form.querySelectorAll('.pregunta');
+  var salida = document.getElementById('resultado');
+
+  document.getElementById('corregir').addEventListener('click', function () {
+    var aciertos = 0, contestadas = 0;
+    preguntas.forEach(function (p) {
+      var correcta = p.getAttribute('data-correcta');
+      var elegida = p.querySelector('input:checked');
+      var marca = p.querySelector('.marca');
+      p.classList.remove('acierto', 'fallo');
+      if (!elegida) { marca.textContent = ''; return; }
+      contestadas++;
+      if (elegida.value === correcta) {
+        aciertos++;
+        p.classList.add('acierto');
+        marca.textContent = '✓ correcto';
+      } else {
+        p.classList.add('fallo');
+        marca.textContent = '✗ la correcta era la opción ' + correcta.toUpperCase();
+      }
+    });
+    var total = preguntas.length;
+    salida.classList.remove('oculto');
+    salida.textContent = 'Aciertos: ' + aciertos + ' de ' + total +
+      '  ·  Contestadas: ' + contestadas + '/' + total +
+      '  ·  Nota orientativa: ' + (Math.round(aciertos / total * 100) / 10) + ' / 10' +
+      '   (recuerda: esta autocomprobación no cuenta para la evaluación)';
+    salida.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+
+  document.getElementById('reiniciar').addEventListener('click', function () {
+    form.reset();
+    preguntas.forEach(function (p) {
+      p.classList.remove('acierto', 'fallo');
+      p.querySelector('.marca').textContent = '';
+    });
+    salida.classList.add('oculto');
+    salida.textContent = '';
+  });
+})();
+</script>
+
+</main></div>
+</body>
+</html>
