@@ -28,7 +28,7 @@
       "evaluacion": 1,
       "horas": 60,
       "estado": "en progreso",
-      "actualizado": "2026-09-28",
+      "actualizado": "2026-09-29",
       "subtemas": [
         {
           "ut": "2.0",
@@ -89,8 +89,8 @@
             "RA2.d"
           ],
           "horas": 10,
-          "estado": "borrador",
-          "actualizado": "2026-09-14"
+          "estado": "publicado",
+          "actualizado": "2026-09-29"
         },
         {
           "ut": "2.6",

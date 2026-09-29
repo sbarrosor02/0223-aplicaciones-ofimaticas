@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tema 2.5 · Importación, exportación y combinar correspondencia · 0223 Aplicaciones ofimáticas</title>
+<link rel="stylesheet" href="../assets/estilo.css">
+<link rel="stylesheet" href="../assets/aula.css">
+<script defer src="../assets/aula.js"></script>
+</head>
+<body data-modulo="0223">
+<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0223 / Aplicaciones ofimáticas</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-1-formatos-de-archivo-cual-es-cual">1. Formatos de archivo: cuál es cuál</a></li><li><a href="#apartado-2-exportar-guardar-en-otro-formato">2. Exportar: guardar en otro formato</a></li><li><a href="#apartado-3-importar-abrir-documentos-de-otras-aplicaciones">3. Importar: abrir documentos de otras aplicaciones</a></li><li><a href="#apartado-4-traer-contenido-de-otra-aplicacion-a-tu-documento">4. Traer contenido de otra aplicación a tu documento</a></li><li><a href="#apartado-5-combinar-correspondencia-los-dos-elementos">5. Combinar correspondencia: los dos elementos</a></li><li><a href="#apartado-6-el-asistente-paso-a-paso">6. El asistente, paso a paso</a></li><li><a href="#apartado-7-sin-asistente-la-pestana-correspondencia">7. Sin asistente: la pestaña Correspondencia</a></li><li><a href="#apartado-8-elegir-bien-los-destinatarios">8. Elegir bien los destinatarios</a></li><li><a href="#apartado-9-sobres-y-etiquetas">9. Sobres y etiquetas</a></li><li><a href="#apartado-10-practicas-del-subtema">10. Prácticas del subtema</a></li><li><a href="#apartado-11-comprueba-lo-que-has-entendido">11. Comprueba lo que has entendido</a></li><li><a href="#apartado-12-antes-de-pasar-al-subtema-2-6">12. Antes de pasar al subtema 2.6</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1">
+
+  <header class="cab">
+    <p class="modulo">0223 · Aplicaciones ofimáticas · Tema 2 (5 de 7)</p>
+    <h1>Tema 2.5 — Importación, exportación y combinar correspondencia</h1>
+    <p class="meta">1.º SMR · Curso 2026/2027 · 1.ª evaluación · Duración: 10 h</p>
+  </header>
+<div class="aula-herramientas"><button type="button" data-imprimir hidden>Imprimir / guardar PDF</button></div>
+<nav class="subnav" aria-label="Apartados del tema 2"><a href="ut02.html">Portada del tema</a><a href="ut02.html#apartado-subtemas">Apuntes</a><a href="ut02-ejercicios.html">Ejercicios guiados</a><a href="ut02-practicas.html">Prácticas de control</a><a href="mapa-cinta.html">Mapa de Word</a></nav>
+
+  <details class="ra-ce"><summary>Qué se evalúa · RA y criterios</summary>
+    <h2 id="apartado-resultado-de-aprendizaje-y-criterio-de-evaluacion">Resultado de aprendizaje y criterio de evaluación</h2>
+    <p><strong>RA2.</strong> Elabora documentos y plantillas, describiendo y
+    aplicando las opciones avanzadas de procesadores de textos.</p>
+    <ul>
+      <li><strong>d)</strong> Se han importado y exportado documentos creados con
+      otras aplicaciones y en otros formatos.</li>
+    </ul>
+  </details>
+
+  <div class="aviso">
+    <strong>El subtema tiene dos mitades.</strong> La primera va de
+    <strong>mover documentos entre formatos y aplicaciones</strong>: guardar en
+    PDF, abrir un <code>.odt</code> de LibreOffice, saber qué se pierde por el
+    camino. La segunda va de <strong>traer datos de otra aplicación</strong> —una
+    hoja de Excel, una base de datos— para generar decenas de documentos
+    personalizados de una vez. Las dos son el mismo criterio <em>d</em>: hacer que
+    Word se entienda con el resto del mundo.
+  </div>
+
+  <section>
+    <h2 id="apartado-1-formatos-de-archivo-cual-es-cual">1. Formatos de archivo: cuál es cuál</h2>
+    <p>Un documento no es «un Word». Es un archivo guardado en un
+    <strong>formato</strong> concreto, y de ese formato depende quién puede abrirlo
+    y qué se conserva.</p>
+
+    <h3>Los que vas a manejar</h3>
+    <ul>
+      <li><code>.docx</code> — el formato actual de Word. Por dentro es en realidad
+      un <strong>archivo comprimido con XML</strong> (si le cambias la extensión a
+      <code>.zip</code> y lo abres, verás las carpetas). Es el que usas por
+      defecto.</li>
+      <li><code>.doc</code> — el formato antiguo de Word, anterior a 2007. Te lo
+      encontrarás en documentos viejos.</li>
+      <li><code>.odt</code> — <strong>OpenDocument</strong>, el formato de
+      LibreOffice y OpenOffice. Es un estándar abierto, y es el que suele pedirse en
+      la Administración pública.</li>
+      <li><code>.rtf</code> — texto enriquecido. Formato antiguo pero universal:
+      conserva negritas y tamaños, y lo abre casi cualquier procesador.</li>
+      <li><code>.txt</code> — texto plano. <strong>Sin ningún formato</strong>: ni
+      negritas, ni imágenes, ni estilos. Solo caracteres.</li>
+      <li><code>.pdf</code> — documento final. Se ve igual en cualquier ordenador,
+      pero <strong>no está pensado para editarse</strong>.</li>
+      <li><code>.html</code> — página web.</li>
+      <li><code>.dotx</code> — plantilla, que ya viste en el
+      <a href="ut02-4.html">subtema 2.4</a>.</li>
+    </ul>
+
+    <div class="tarjeta">
+      <p><strong>La regla práctica.</strong> ¿Lo vas a <em>entregar</em> y quieres
+      que se vea exactamente igual? <strong>PDF</strong>. ¿Alguien tiene que
+      <em>seguir editándolo</em>? <strong>.docx</strong>, o <strong>.odt</strong> si
+      no sabes qué programa usa. ¿Solo necesitas el texto, sin formato, para
+      procesarlo? <strong>.txt</strong>.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 id="apartado-2-exportar-guardar-en-otro-formato">2. Exportar: guardar en otro formato</h2>
+    <p>Exportar es sacar tu documento a un formato distinto del propio de Word.</p>
+
+    <h3>Guardar como</h3>
+    <p>Desde <code>Archivo &gt; Guardar como</code> eliges tres cosas: el
+    <strong>dispositivo</strong> (Este PC, OneDrive…), la <strong>carpeta</strong> y
+    —lo que aquí importa— el <strong>Tipo</strong>. Ese desplegable <em>Tipo</em> es
+    la clave del criterio <em>d</em>: ahí están todos los formatos anteriores.</p>
+    <p>Recuerda la diferencia con <code>Guardar</code> (<code>Ctrl+G</code>), que no
+    abre ningún cuadro y simplemente guarda los cambios donde ya estaba. Con
+    <em>Guardar como</em> conservas el original y creas una copia aparte.</p>
+    <div class="tarjeta">
+      <p><strong>Atajos que ahorran tiempo:</strong> <code>F12</code> abre
+      directamente el cuadro <em>Guardar como</em>, y <code>Ctrl+F12</code> abre el
+      cuadro <em>Abrir</em>.</p>
+    </div>
+
+    <h3>Exportar a PDF</h3>
+    <p>Además del desplegable <em>Tipo</em>, tienes
+    <code>Archivo &gt; Exportar &gt; Crear documento PDF/XPS</code>. Es la forma
+    normal de entregar un trabajo: el destinatario lo ve con tus fuentes, tus
+    márgenes y tus imágenes, aunque no tenga Word.</p>
+    <div class="aviso">
+      <strong>Antes de exportar a PDF, actualiza la tabla de contenido.</strong>
+      El PDF congela el documento tal y como esté en ese momento: si el índice
+      apuntaba a páginas antiguas, se queda mal para siempre. Es el error de
+      entrega más repetido.
+    </div>
+  </section>
+
+  <section>
+    <h2 id="apartado-3-importar-abrir-documentos-de-otras-aplicaciones">3. Importar: abrir documentos de otras aplicaciones</h2>
+    <p>Word abre bastante más que sus propios archivos. Desde
+    <code>Archivo &gt; Abrir</code> puedes cargar <code>.odt</code>,
+    <code>.rtf</code>, <code>.txt</code>, <code>.html</code> e incluso
+    <code>.pdf</code>.</p>
+
+    <h3>El modo de compatibilidad</h3>
+    <p>Si abres un <code>.doc</code> antiguo, Word lo abre en <strong>modo de
+    compatibilidad</strong> y lo avisa en la barra de título. Significa que
+    desactiva las funciones modernas para que el archivo siga siendo válido en
+    versiones viejas. Si ya no te hace falta esa compatibilidad, puedes pasarlo al
+    formato actual con <code>Archivo &gt; Información &gt; Convertir</code>.</p>
+
+    <h3>Abrir un PDF en Word</h3>
+    <p>Word <strong>intenta</strong> reconstruir un PDF como documento editable. A
+    veces sale razonable y a veces sale un desastre, sobre todo si el PDF tiene
+    muchas columnas, tablas o imágenes.</p>
+    <div class="aviso">
+      <strong>Convertir siempre pierde algo.</strong> Cada formato guarda cosas
+      distintas, así que al pasar de uno a otro lo que el destino no sabe
+      representar, se pierde o se aproxima. Un <code>.txt</code> tira todo el
+      formato. Un <code>.odt</code> puede mover ligeramente los saltos de página.
+      Un PDF convertido a Word suele perder la maquetación fina.
+      <strong>Regla de oro: guarda siempre el original en su formato</strong> y
+      trabaja sobre copias.
+    </div>
+  </section>
+
+  <section>
+    <h2 id="apartado-4-traer-contenido-de-otra-aplicacion-a-tu-documento">4. Traer contenido de otra aplicación a tu documento</h2>
+    <p>Además de abrir archivos enteros, puedes meter contenido ajeno
+    <em>dentro</em> de un documento que ya tienes.</p>
+
+    <h3>Insertar un documento completo</h3>
+    <p>Con <code>Insertar &gt; Texto &gt; Objeto &gt; Texto de archivo…</code>
+    vuelcas otro documento entero en la posición del cursor. Es lo que usarías para
+    juntar capítulos sueltos, como alternativa sencilla al documento maestro
+    del subtema anterior.</p>
+
+    <h3>Pegar desde Excel: copia o vínculo</h3>
+    <p>Si copias unas celdas de Excel y las pegas en Word con
+    <code>Ctrl+V</code>, se pegan como tabla y ahí se quedan: si el Excel cambia,
+    tu tabla no se entera.</p>
+    <p>Pero con <code>Inicio &gt; Pegar &gt; Pegado especial</code> puedes elegir
+    <strong>Pegar vínculo</strong>. Entonces la tabla queda
+    <strong>enlazada</strong> al archivo de Excel y se actualiza cuando el original
+    cambia.</p>
+    <div class="tarjeta">
+      <p><strong>El vínculo se rompe si mueves el archivo.</strong> Word guarda la
+      ruta del Excel original. Si cambias el libro de carpeta, o le mandas el
+      documento a alguien sin mandarle también el Excel, el vínculo deja de
+      funcionar. Para entregar, muchas veces conviene romperlo a propósito y dejar
+      los datos fijos.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 id="apartado-5-combinar-correspondencia-los-dos-elementos">5. Combinar correspondencia: los dos elementos</h2>
+    <p>Combinar correspondencia permite <strong>generar muchos documentos a partir
+    de uno solo</strong>, donde cada copia se diferencia por los datos que vienen de
+    una fuente externa.</p>
+    <p>El ejemplo típico son las cartas personalizadas: tú escribes una sola vez el
+    <strong>texto fijo</strong> (el que se repite) y Word se encarga de rellenar los
+    <strong>datos variables</strong> (los que cambian en cada carta). Sirve
+    igualmente para etiquetas, recibos o sobres.</p>
+
+    <h3>Siempre intervienen dos cosas</h3>
+    <ul>
+      <li><strong>El documento principal.</strong> El documento de Word que contiene
+      el texto fijo y los campos variables.</li>
+      <li><strong>El origen de datos.</strong> Donde están los datos: una tabla de
+      Access, un libro de Excel, los contactos de Outlook, una tabla de Word, o una
+      lista que escribes en ese mismo momento.</li>
+    </ul>
+    <p>El origen de datos es siempre una lista de <strong>registros</strong>
+    compuestos por <strong>campos</strong>. Si el origen es una tabla de clientes, el
+    <em>registro</em> es la fila de un cliente y los <em>campos</em> son su nombre,
+    su dirección, su población…</p>
+    <div class="tarjeta">
+      <p><strong>Aquí conecta con la primera mitad del subtema.</strong> Combinar
+      correspondencia es, literalmente, <em>importar datos creados con otra
+      aplicación</em>. Por eso las dos mitades están en el mismo criterio.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 id="apartado-6-el-asistente-paso-a-paso">6. El asistente, paso a paso</h2>
+    <p>La forma guiada de hacerlo:
+    <code>Correspondencia &gt; Iniciar combinación de correspondencia &gt; Paso a
+    paso por el Asistente para combinar correspondencia</code>. Se abre un panel a
+    la derecha que va indicando en qué paso estás, de 6.</p>
+    <ol>
+      <li><strong>Tipo de documento.</strong> Cartas, mensajes de correo
+      electrónico, sobres, etiquetas o directorio. Para empezar, <em>Cartas</em>.</li>
+      <li><strong>Documento inicial.</strong> El que contiene la parte fija. Lo
+      normal es usar el documento actual.</li>
+      <li><strong>Seleccionar destinatarios.</strong> Aquí eliges el origen:
+        <ul>
+          <li><em>Utilizar una lista existente</em> → <strong>Examinar…</strong> para
+          buscar el archivo.</li>
+          <li><em>Seleccionar de los contactos de Outlook</em> → <strong>Elegir la
+          carpeta de contactos</strong>.</li>
+          <li><em>Escribir una lista nueva</em> → <strong>Crear…</strong> e
+          introduces los datos a mano.</li>
+        </ul>
+        Si el origen es un libro de Excel, Word te preguntará <strong>en qué
+        hoja</strong> están los datos; si es una base de datos con varias tablas, en
+        qué tabla. Después se abre el cuadro <em>Destinatarios de combinar
+        correspondencia</em>.
+      </li>
+      <li><strong>Escribir la carta.</strong> Redactas el texto fijo y colocas los
+      campos: sitúas el cursor donde quieres el dato y eliges en el panel
+      <em>Bloque de direcciones…</em>, <em>Línea de saludo…</em> o
+      <strong>Más elementos…</strong>, que despliega la lista completa de campos de
+      tu origen.</li>
+      <li><strong>Vista previa.</strong> Ves las cartas ya con los datos reales.
+      Puedes pasar de un destinatario a otro con <code>&lt;&lt;</code> y
+      <code>&gt;&gt;</code>, <em>Buscar un destinatario…</em>, <em>Excluir al
+      destinatario</em> que estés viendo o <em>Editar lista de destinatarios…</em>
+      si detectas un error.</li>
+      <li><strong>Completar la combinación.</strong> Dos salidas:
+        <ul>
+          <li><strong>Imprimir…</strong> manda las cartas directamente a la
+          impresora.</li>
+          <li><strong>Editar cartas individuales…</strong> genera un
+          <strong>documento nuevo</strong> con todas las cartas, una detrás de otra.
+          Puedes elegir combinar todos los registros, solo el actual o un intervalo.</li>
+        </ul>
+      </li>
+    </ol>
+    <div class="aviso">
+      <strong>El documento que genera «Editar cartas individuales» ya no está
+      combinado.</strong> Es un documento normal y corriente, sin campos y sin
+      conexión con el origen de datos. Por eso es el que puedes retocar a mano o
+      mandarle a otra persona. El documento principal, en cambio, sigue enlazado al
+      origen y lo puedes reutilizar cuando los datos cambien.
+    </div>
+  </section>
+
+  <section>
+    <h2 id="apartado-7-sin-asistente-la-pestana-correspondencia">7. Sin asistente: la pestaña Correspondencia</h2>
+    <p>El asistente está bien para aprender, pero cuando ya sabes lo que haces es
+    más rápido ir directamente a los botones de la pestaña
+    <strong>Correspondencia</strong>:</p>
+    <ul>
+      <li><strong>Editar lista de destinatarios</strong> — abre el cuadro para
+      elegir, ordenar y filtrar quién entra en la combinación.</li>
+      <li><strong>Bloque de direcciones</strong> — inserta la dirección completa
+      del destinatario.</li>
+      <li><strong>Línea de saludo</strong> — «Estimado/a …» con el nombre de cada
+      uno.</li>
+      <li><strong>Insertar campo combinado</strong> — inserta un campo suelto de tu
+      origen de datos.</li>
+      <li><strong>Resaltar campos de combinación</strong> — los pinta con fondo
+      para que los distingas dentro del texto.</li>
+      <li><strong>Asignar campos</strong> — lo vemos en el apartado siguiente.</li>
+      <li><strong>Vista previa de resultados</strong> — alterna entre ver los
+      nombres de los campos y ver los datos reales.</li>
+      <li><strong>Comprobación de errores</strong> — simula la combinación y avisa
+      de problemas antes de imprimir cien cartas mal.</li>
+      <li><strong>Finalizar y combinar</strong> — la salida final.</li>
+    </ul>
+    <p>Los campos aparecen en el documento entre <strong><code>&lt;&lt;</code> y
+    <code>&gt;&gt;</code></strong>, por ejemplo <code>&lt;&lt;Nombre&gt;&gt;</code>.
+    Eso te indica que ahí no hay texto, hay un hueco que se rellenará al
+    combinar.</p>
+
+    <h3>Moverte por los registros</h3>
+    <p>Con la vista previa activada, las flechas te llevan de un destinatario a
+    otro. El cuadro del medio te dice en qué registro estás y, si escribes un
+    número, salta directamente a él: cambia el <code>1</code> por un <code>4</code>
+    y verás la carta del cuarto destinatario.</p>
+  </section>
+
+  <section>
+    <h2 id="apartado-8-elegir-bien-los-destinatarios">8. Elegir bien los destinatarios</h2>
+    <p>Casi nunca quieres mandar la carta a <em>todos</em> los registros, ni en
+    cualquier orden. Todo esto está en
+    <code>Correspondencia &gt; Editar lista de destinatarios</code>.</p>
+
+    <h3>Seleccionar y filtrar</h3>
+    <p>En el cuadro de destinatarios cada fila tiene una casilla: desmarca la de
+    quien no quieras. Para algo más fino, haz clic en el
+    <strong>encabezado de un campo</strong> y se despliega:</p>
+    <ul>
+      <li><strong>(Todos)</strong> — sin filtro.</li>
+      <li><strong>Los valores sin paréntesis</strong> — son los valores que existen
+      en ese campo. Si eliges <em>Cáceres</em> en el campo Provincia, solo se
+      combinarán los de Cáceres.</li>
+      <li><strong>(Espacios)</strong> — los registros que <em>no</em> tienen valor en
+      ese campo.</li>
+      <li><strong>(Sin espacios)</strong> — los que sí lo tienen.</li>
+      <li><strong>(Avanzado…)</strong> — abre <em>Filtrar y ordenar</em>, para
+      condiciones de verdad.</li>
+    </ul>
+    <p>En <em>Filtrar registros</em>, cada línea es una condición: eliges un
+    <strong>Campo</strong>, un tipo de <strong>Comparación</strong> y el valor en
+    <strong>Comparar con</strong>. Puedes encadenar varias con <strong>Y</strong> u
+    <strong>O</strong>. Por ejemplo: <em>Provincia igual a Badajoz</em> Y
+    <em>Email No está vacío</em>.</p>
+    <div class="tarjeta">
+      <p><strong>Dos detalles que despistan.</strong> Con comparaciones del tipo
+      <em>No está vacío</em>, el campo <em>Comparar con</em> se
+      <strong>deshabilita</strong>: es normal, no hay nada con lo que comparar. Y
+      cuando un campo tiene filtro aplicado, <strong>su flecha deja de ser negra y
+      se vuelve azulada</strong>: es la pista de que estás viendo solo una parte de
+      los registros. Para quitarlo todo, <em>Borrar todo</em>.</p>
+    </div>
+
+    <h3>Ordenar</h3>
+    <p>Un clic en el nombre de una columna ordena por ese campo; otro clic, al
+    revés. Para ordenar por <strong>varios campos a la vez</strong> —por provincia,
+    y dentro de cada provincia por apellidos— hay que ir a <em>Filtrar y ordenar
+    &gt; Ordenar registros</em> y rellenar <strong>Ordenar por</strong> y
+    <strong>Luego por</strong>, indicando si es ascendente o descendente.</p>
+
+    <h3>Buscar un destinatario</h3>
+    <p>Con muchos registros, ir pasando uno a uno es absurdo. El botón
+    <strong>Buscar destinatario</strong> abre un cuadro donde pones el valor en
+    <em>Buscar</em> y el campo donde debe mirar en <em>Buscar en</em>.</p>
+    <p class="pie-fig"><em>La búsqueda empieza en el registro donde estás, no al
+    principio. Si llega al final sin encontrarlo, Word te pregunta si quiere seguir
+    buscando desde el principio.</em></p>
+
+    <h3>Asignar campos</h3>
+    <p>Word tiene unos <strong>campos estándar</strong> propios (Nombre, Dirección,
+    Población…) que usa para construir el <em>Bloque de direcciones</em> y la
+    <em>Línea de saludo</em>. Pero los campos de tu origen de datos se llaman como
+    tú los hayas llamado.</p>
+    <p>Cuando los nombres coinciden, Word hace la asociación solo. Cuando no —si tu
+    columna se llama <code>Ciudad</code> en vez de <code>Población</code>— hay que
+    decírselo con <strong>Asignar campos</strong>: a la izquierda están los campos
+    estándar de Word y a la derecha eliges con qué campo tuyo se corresponde cada
+    uno.</p>
+    <div class="aviso">
+      <strong>¿Sale el bloque de direcciones incompleto o con huecos?</strong> Es
+      casi siempre esto: Word no ha sabido con qué columna tuya corresponde cada
+      campo estándar. Abre <em>Asignar campos</em> y complétalo. Si no piensas usar
+      el bloque de direcciones ni la línea de saludo, no necesitas asignar nada.
+    </div>
+  </section>
+
+  <section>
+    <h2 id="apartado-9-sobres-y-etiquetas">9. Sobres y etiquetas</h2>
+    <p>Las cartas no son la única salida. En el mundo comercial se imprimen
+    constantemente <strong>sobres</strong> y <strong>etiquetas</strong> para pegar
+    en paquetes.</p>
+    <p>Para hacerlo <strong>en masa</strong>, el proceso es el mismo que con las
+    cartas: <code>Correspondencia &gt; Iniciar combinación de correspondencia</code>
+    y eliges <em>Sobres</em> o <em>Etiquetas</em> en lugar de <em>Cartas</em>.</p>
+
+    <h3>Sobres</h3>
+    <p>Se abre un cuadro donde defines el <strong>tamaño del sobre</strong>, la
+    fuente y la posición del texto, en <em>Opciones de sobre</em>. Merece la pena
+    mirar el dibujo de vista previa. En <em>Opciones de impresión</em> indicas cómo
+    hay que meter el sobre en la bandeja.</p>
+
+    <h3>Etiquetas</h3>
+    <p>Lo esencial es decirle <strong>qué papel de etiquetas</strong> tienes: eliges
+    la <strong>Marca</strong> en el desplegable y luego el modelo concreto. Word ya
+    conoce sus medidas y ajusta el texto. Si tu papel no aparece, puedes crear una
+    <strong>Nueva etiqueta</strong> con sus dimensiones.</p>
+    <div class="tarjeta">
+      <p><strong>Las etiquetas son una tabla.</strong> Al aceptar, la hoja pasa a
+      contener una tabla que dibuja los límites de cada etiqueta —por eso aparecen
+      las <em>Herramientas de tabla</em>—, aunque a simple vista no se vean los
+      bordes. Puedes activarlos para colocar bien el contenido, pero
+      <strong>quítalos antes de imprimir</strong> o saldrán las rayas en el
+      papel.</p>
+    </div>
+    <p>Para un <strong>sobre o etiqueta suelta</strong>, sin combinación, es más
+    rápido ir a <code>Correspondencia &gt; grupo Crear &gt; Sobres</code> o
+    <code>Etiquetas</code>: abren el mismo cuadro, solo que en pestañas distintas.
+    Ahí hay un botón con forma de agenda que importa un contacto de Outlook.</p>
+    <p class="pie-fig"><em>La opción de «Agregar franqueo electrónico» necesita un
+    programa externo y solo está disponible en algunos países.</em></p>
+  </section>
+
+  <section>
+    <h2 id="apartado-10-practicas-del-subtema">10. Prácticas del subtema</h2>
+    <p>Acreditan el criterio <em>d</em> de RA2. Se entregan en el portafolio del
+    módulo.</p>
+    <div class="tarjeta">
+      <p><strong>Origen de datos (descarga).</strong> Para las prácticas de
+      combinación necesitas una lista de destinatarios:</p>
+      <p><a href="../descargas/empresas-destinatarias.xlsx" download>⬇ Descargar
+      <code>empresas-destinatarias.xlsx</code></a> — 12 empresas ficticias del
+      sector informático, con 12 campos cada una. Ojo: las columnas
+      <strong>no se llaman igual</strong> que los campos estándar de Word, así que
+      vas a tener que usar <em>Asignar campos</em>.</p>
+    </div>
+    <ul>
+      <li><strong>P2.5.1</strong> · <strong>Exportar</strong>: guarda tu CV en
+      <code>.pdf</code>, en <code>.odt</code> y en <code>.txt</code>. Abre los tres y
+      escribe un párrafo comparando <strong>qué se ha perdido</strong> en cada
+      uno.</li>
+      <li><strong>P2.5.2</strong> · <strong>Importar</strong>: abre con Word el PDF
+      que acabas de generar y compáralo con el original. Señala al menos tres
+      diferencias de maquetación.</li>
+      <li><strong>P2.5.3</strong> · <strong>Carta combinada</strong>: redacta una
+      carta de presentación dirigida a las empresas del archivo y combínala,
+      insertando un <em>Bloque de direcciones</em>, una <em>Línea de saludo</em> y al
+      menos dos campos sueltos. Tendrás que usar <strong>Asignar campos</strong>.</li>
+      <li><strong>P2.5.4</strong> · <strong>Filtrar y ordenar</strong>: genera solo
+      las cartas de una provincia, descartando además las empresas sin correo
+      electrónico, y ordenadas por apellidos. Entrega el documento resultante de
+      <em>Editar cartas individuales</em>.</li>
+      <li><strong>P2.5.5</strong> · <strong>Etiquetas</strong>: crea una hoja de
+      etiquetas con las direcciones de todas las empresas, eligiendo un modelo de
+      papel comercial y dejando la tabla sin bordes.</li>
+    </ul>
+    <div class="tarjeta">
+      <p><strong>Reto de ampliación (opcional).</strong> Crea en Excel una pequeña
+      tabla con tus gastos de material y pégala en un documento de Word con
+      <em>Pegado especial &gt; Pegar vínculo</em>. Cambia después un número en el
+      Excel y comprueba que la tabla de Word se actualiza. Luego rompe el vínculo y
+      explica en qué caso conviene cada opción.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 id="apartado-11-comprueba-lo-que-has-entendido">11. Comprueba lo que has entendido</h2>
+    <p>Nueve preguntas. No cuenta para la nota: es para que veas si puedes seguir.</p>
+
+    <form id="ei">
+
+      <div class="pregunta" data-correcta="c">
+        <p class="enunciado"><span class="num">1.</span> Quieres entregar un trabajo
+        y que se vea exactamente igual en cualquier ordenador. ¿En qué formato lo
+        guardas?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p1" value="a"> .txt</label></li>
+          <li><label><input type="radio" name="p1" value="b"> .docx</label></li>
+          <li><label><input type="radio" name="p1" value="c"> .pdf</label></li>
+          <li><label><input type="radio" name="p1" value="d"> .rtf</label></li>
+        </ul>
+        <span class="marca"></span>
+      </div>
+
+      <div class="pregunta" data-correcta="b">
+        <p class="enunciado"><span class="num">2.</span> El formato
+        <code>.odt</code> es el propio de…</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p2" value="a"> Word 2003</label></li>
+          <li><label><input type="radio" name="p2" value="b"> LibreOffice y OpenOffice</label></li>
+          <li><label><input type="radio" name="p2" value="c"> Adobe Acrobat</label></li>
+          <li><label><input type="radio" name="p2" value="d"> Las plantillas de Word</label></li>
+        </ul>
+        <span class="marca"></span>
+      </div>
+
+      <div class="pregunta" data-correcta="d">
+        <p class="enunciado"><span class="num">3.</span> Guardas tu documento como
+        <code>.txt</code>. ¿Qué pasa con las negritas, las imágenes y los
+        estilos?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p3" value="a"> Se conservan igual</label></li>
+          <li><label><input type="radio" name="p3" value="b"> Se conservan las negritas, no las imágenes</label></li>
+          <li><label><input type="radio" name="p3" value="c"> Se convierten en código HTML</label></li>
+          <li><label><input type="radio" name="p3" value="d"> Se pierden: el texto plano no guarda ningún formato</label></li>
+        </ul>
+        <span class="marca"></span>
+      </div>
+
+      <div class="pregunta" data-correcta="b">
+        <p class="enunciado"><span class="num">4.</span> En combinar
+        correspondencia, ¿qué es el <em>origen de datos</em>?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p4" value="a"> El documento con el texto que se repite en todas las cartas</label></li>
+          <li><label><input type="radio" name="p4" value="b"> El sitio donde están los registros y campos: un Excel, una tabla de Access, los contactos…</label></li>
+          <li><label><input type="radio" name="p4" value="c"> La impresora configurada por defecto</label></li>
+          <li><label><input type="radio" name="p4" value="d"> La carpeta donde se guardan las cartas generadas</label></li>
+        </ul>
+        <span class="marca"></span>
+      </div>
+
+      <div class="pregunta" data-correcta="a">
+        <p class="enunciado"><span class="num">5.</span> En el documento principal
+        ves <code>&lt;&lt;Nombre&gt;&gt;</code>. ¿Qué significa?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p5" value="a"> Es un campo de combinación: se sustituirá por el dato de cada registro</label></li>
+          <li><label><input type="radio" name="p5" value="b"> Es un error de codificación del archivo</label></li>
+          <li><label><input type="radio" name="p5" value="c"> Es un comentario que no se imprime</label></li>
+          <li><label><input type="radio" name="p5" value="d"> Es un marcador para referencias cruzadas</label></li>
+        </ul>
+        <span class="marca"></span>
+      </div>
+
+      <div class="pregunta" data-correcta="c">
+        <p class="enunciado"><span class="num">6.</span> Tu columna se llama
+        <code>Ciudad</code> y el <em>Bloque de direcciones</em> sale incompleto.
+        ¿Qué usas?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p6" value="a"> Comprobación de errores</label></li>
+          <li><label><input type="radio" name="p6" value="b"> Resaltar campos de combinación</label></li>
+          <li><label><input type="radio" name="p6" value="c"> Asignar campos</label></li>
+          <li><label><input type="radio" name="p6" value="d"> Buscar destinatario</label></li>
+        </ul>
+        <span class="marca"></span>
+      </div>
+
+      <div class="pregunta" data-correcta="b">
+        <p class="enunciado"><span class="num">7.</span> Quieres mandar la carta solo
+        a las empresas de Badajoz. ¿Dónde lo haces?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p7" value="a"> Borrando a mano los registros del Excel</label></li>
+          <li><label><input type="radio" name="p7" value="b"> Filtrando en Editar lista de destinatarios</label></li>
+          <li><label><input type="radio" name="p7" value="c"> En Opciones de impresión</label></li>
+          <li><label><input type="radio" name="p7" value="d"> No se puede: se combinan siempre todos</label></li>
+        </ul>
+        <span class="marca"></span>
+      </div>
+
+      <div class="pregunta" data-correcta="d">
+        <p class="enunciado"><span class="num">8.</span> Pulsas <em>Editar cartas
+        individuales</em>. ¿Qué obtienes?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p8" value="a"> Una vista previa que no se puede guardar</label></li>
+          <li><label><input type="radio" name="p8" value="b"> El origen de datos actualizado</label></li>
+          <li><label><input type="radio" name="p8" value="c"> Un PDF por cada destinatario</label></li>
+          <li><label><input type="radio" name="p8" value="d"> Un documento nuevo y normal, con todas las cartas y ya sin campos</label></li>
+        </ul>
+        <span class="marca"></span>
+      </div>
+
+      <div class="pregunta" data-correcta="a">
+        <p class="enunciado"><span class="num">9.</span> Pegas una tabla de Excel con
+        <em>Pegado especial &gt; Pegar vínculo</em>. Después cambias un dato en el
+        Excel. ¿Qué ocurre en Word?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p9" value="a"> La tabla se actualiza, porque está enlazada al archivo original</label></li>
+          <li><label><input type="radio" name="p9" value="b"> No ocurre nada nunca: la tabla es una copia fija</label></li>
+          <li><label><input type="radio" name="p9" value="c"> Word borra la tabla por seguridad</label></li>
+          <li><label><input type="radio" name="p9" value="d"> Se abre Excel automáticamente para confirmar</label></li>
+        </ul>
+        <span class="marca"></span>
+      </div>
+
+      <div class="acciones">
+        <button type="button" id="corregir">Corregir</button>
+        <button type="button" id="reiniciar">Reiniciar</button>
+      </div>
+      <p class="resultado oculto" id="resultado"></p>
+    </form>
+  </section>
+
+  <section>
+    <h2 id="apartado-12-antes-de-pasar-al-subtema-2-6">12. Antes de pasar al subtema 2.6</h2>
+    <p>Marca lo que ya sabrías hacer tú solo. Si algo se queda sin marcar, díselo al
+    profesor antes de empezar con trabajo colaborativo y seguridad.</p>
+    <ul class="checklist">
+      <li><label><input type="checkbox"> Distinguir .docx, .doc, .odt, .rtf, .txt y .pdf y saber cuándo usar cada uno</label></li>
+      <li><label><input type="checkbox"> Guardar un documento en otro formato con Guardar como &gt; Tipo</label></li>
+      <li><label><input type="checkbox"> Exportar a PDF y saber por qué hay que actualizar el índice antes</label></li>
+      <li><label><input type="checkbox"> Abrir en Word un .odt o un PDF y explicar qué se pierde al convertir</label></li>
+      <li><label><input type="checkbox"> Reconocer el modo de compatibilidad y convertir un .doc antiguo</label></li>
+      <li><label><input type="checkbox"> Insertar un documento dentro de otro y pegar datos de Excel con y sin vínculo</label></li>
+      <li><label><input type="checkbox"> Explicar qué son el documento principal y el origen de datos</label></li>
+      <li><label><input type="checkbox"> Combinar una carta con un origen de datos, con bloque de direcciones y línea de saludo</label></li>
+      <li><label><input type="checkbox"> Usar Asignar campos cuando mis columnas no se llaman como las de Word</label></li>
+      <li><label><input type="checkbox"> Filtrar, ordenar y buscar destinatarios antes de combinar</label></li>
+      <li><label><input type="checkbox"> Generar la salida con Editar cartas individuales y saber que ya no lleva campos</label></li>
+      <li><label><input type="checkbox"> Crear una hoja de etiquetas eligiendo el modelo de papel</label></li>
+    </ul>
+  </section>
+
+  <nav class="nav-temas">
+    <a href="ut02-4.html">&laquo; Tema 2.4</a>
+    <a href="../index.html">Índice del módulo</a>
+    <span>Siguiente &raquo; (Tema 2.6, próximamente)</span>
+  </nav>
+
+  <footer class="pie">
+    <p>0223 Aplicaciones ofimáticas · Material de consulta del alumnado.
+    Currículo: Decreto 272/2009 (Extremadura).</p>
+  </footer>
+
+<script>
+(function () {
+  var form = document.getElementById('ei');
+  var preguntas = form.querySelectorAll('.pregunta');
+  var salida = document.getElementById('resultado');
+
+  document.getElementById('corregir').addEventListener('click', function () {
+    var aciertos = 0, contestadas = 0;
+    preguntas.forEach(function (p) {
+      var correcta = p.getAttribute('data-correcta');
+      var elegida = p.querySelector('input:checked');
+      var marca = p.querySelector('.marca');
+      p.classList.remove('acierto', 'fallo');
+      if (!elegida) { marca.textContent = ''; return; }
+      contestadas++;
+      if (elegida.value === correcta) {
+        aciertos++;
+        p.classList.add('acierto');
+        marca.textContent = '✓ correcto';
+      } else {
+        p.classList.add('fallo');
+        marca.textContent = '✗ la correcta era la opción ' + correcta.toUpperCase();
+      }
+    });
+    var total = preguntas.length;
+    salida.classList.remove('oculto');
+    salida.textContent = 'Aciertos: ' + aciertos + ' de ' + total +
+      '  ·  Contestadas: ' + contestadas + '/' + total +
+      '  ·  Nota orientativa: ' + (Math.round(aciertos / total * 100) / 10) + ' / 10' +
+      '   (recuerda: esta autocomprobación no cuenta para la evaluación)';
+    salida.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+
+  document.getElementById('reiniciar').addEventListener('click', function () {
+    form.reset();
+    preguntas.forEach(function (p) {
+      p.classList.remove('acierto', 'fallo');
+      p.querySelector('.marca').textContent = '';
+    });
+    salida.classList.add('oculto');
+    salida.textContent = '';
+  });
+})();
+</script>
+
+</main></div>
+</body>
+</html>
