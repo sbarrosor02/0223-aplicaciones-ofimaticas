@@ -28,7 +28,7 @@
       "evaluacion": 1,
       "horas": 60,
       "estado": "en progreso",
-      "actualizado": "2026-09-29",
+      "actualizado": "2026-10-01",
       "subtemas": [
         {
           "ut": "2.0",
@@ -97,8 +97,11 @@
           "titulo": "Trabajo colaborativo y seguridad documental",
           "ce": [],
           "horas": 6,
-          "estado": "borrador",
-          "actualizado": "2026-09-14"
+          "estado": "publicado",
+          "actualizado": "2026-10-01",
+          "apoya": [
+            "RA2.f"
+          ]
         },
         {
           "ut": "2.7",
