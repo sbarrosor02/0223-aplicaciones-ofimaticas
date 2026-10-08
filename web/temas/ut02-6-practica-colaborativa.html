@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Práctica colaborativa · Dossier en Google Docs · 0223 Aplicaciones ofimáticas</title>
+<link rel="stylesheet" href="../assets/estilo.css">
+<style>
+  .equiv { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 1rem 0; }
+  .equiv th, .equiv td { border: 1px solid var(--linea); padding: 0.45rem 0.6rem;
+    text-align: left; vertical-align: top; }
+  .equiv th { background: var(--acento-claro); color: var(--acento); }
+  .equiv td:first-child { width: 34%; }
+  .rol { background: var(--fondo); border: 1px solid var(--linea);
+    border-radius: var(--radio); padding: 0.7rem 0.9rem; margin: 0.6rem 0; }
+  .rol strong { color: var(--acento); }
+  .fase { border-left: 3px solid var(--acento); padding-left: 0.9rem; margin: 1.4rem 0; }
+  .fase h3 { margin-top: 0; }
+</style>
+<link rel="stylesheet" href="../assets/aula.css">
+<script defer src="../assets/aula.js"></script>
+</head>
+<body data-modulo="0223">
+<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0223 / Aplicaciones ofimáticas</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-que-se-evalua">Qué se evalúa</a></li><li><a href="#apartado-1-el-encargo">1. El encargo</a></li><li><a href="#apartado-2-los-equipos-y-el-reparto">2. Los equipos y el reparto</a></li><li><a href="#apartado-3-lo-que-ya-sabes-de-word-donde-esta-en-google-docs">3. Lo que ya sabes de Word, dónde está en Google Docs</a></li><li><a href="#apartado-4-desarrollo-de-la-practica">4. Desarrollo de la práctica</a></li><li><a href="#apartado-5-que-se-entrega">5. Qué se entrega</a></li><li><a href="#apartado-6-como-se-evalua-rubrica-10-puntos">6. Cómo se evalúa (rúbrica, 10 puntos)</a></li><li><a href="#apartado-7-si-no-tienes-cuenta-de-google">7. Si no tienes cuenta de Google</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1">
+
+  <header class="cab">
+    <p class="modulo">0223 · Aplicaciones ofimáticas · Tema 2.6</p>
+    <h1>Práctica colaborativa — Un dossier a seis manos en Google Docs</h1>
+    <p class="meta">1.º SMR · Curso 2026/2027 · 1.ª evaluación · Equipos de 3 · 3 sesiones</p>
+  </header>
+<div class="aula-herramientas"><button type="button" data-imprimir hidden>Imprimir / guardar PDF</button></div>
+<nav class="subnav" aria-label="Apartados del tema 2"><a href="ut02.html">Portada del tema</a><a href="ut02.html#apartado-subtemas">Apuntes</a><a href="ut02-ejercicios.html">Ejercicios guiados</a><a href="ut02-practicas.html">Prácticas de control</a><a href="mapa-cinta.html">Mapa de Word</a></nav>
+
+  <details class="ra-ce"><summary>Qué se evalúa · RA y criterios</summary>
+    <h2 id="apartado-que-se-evalua">Qué se evalúa</h2>
+    <p><strong>RA2.</strong> Elabora documentos y plantillas, describiendo y
+    aplicando las opciones avanzadas de procesadores de textos.</p>
+    <ul>
+      <li><strong>d)</strong> Se han importado y exportado documentos creados con
+      otras aplicaciones y en otros formatos.</li>
+    </ul>
+    <p>Además da soporte al criterio <strong>f)</strong> y consolida todo el
+    <a href="ut02-6.html">subtema 2.6</a>: comentarios, control de cambios,
+    revisión y permisos, pero <strong>en otra herramienta</strong>.</p>
+  </details>
+
+  <div class="aviso">
+    <strong>Por qué salimos de Word.</strong> Todo lo del subtema 2.6 —comentar,
+    proponer cambios, revisar, controlar quién puede tocar qué— lo hace Word
+    pasándose el archivo de mano en mano. Google Docs lo hace
+    <strong>en tiempo real y sobre el mismo documento</strong>. Las ideas son las
+    mismas; los botones, no. Esta práctica va de que sepas reconocerlas en los dos
+    sitios, que es exactamente lo que te van a pedir en una empresa.
+  </div>
+
+  <section>
+    <h2 id="apartado-1-el-encargo">1. El encargo</h2>
+    <p>La revista digital del ciclo os encarga un <strong>dossier de análisis</strong>
+    sobre un videojuego de gran repercusión: <strong>GTA VI</strong>. No es una
+    reseña de si mola o no: es un <strong>análisis técnico y de industria</strong>,
+    del tipo que firmaría un departamento de sistemas.</p>
+    <p class="pie-fig"><em>No hace falta haberlo jugado ni tenerlo. Todo lo que se
+    pide se investiga y se cita.</em></p>
+
+    <h3>Qué tiene que contener el dossier</h3>
+    <ol>
+      <li><strong>Portada</strong> con el título, los tres nombres y la fecha.</li>
+      <li><strong>Índice</strong> automático.</li>
+      <li><strong>Ficha técnica y contexto</strong> — desarrolladora, distribuidora,
+      saga, plataformas anunciadas, fecha prevista, motor gráfico si lo habéis
+      encontrado.</li>
+      <li><strong>Requisitos técnicos y plataformas</strong> — qué hardware pide y
+      qué significa eso. <strong>Aquí recuperáis el Tema 1</strong>: distinguid
+      <em>requisitos mínimos</em> de <em>recomendados</em> y explicad qué implica la
+      diferencia para alguien que va a comprarse un equipo.</li>
+      <li><strong>Impacto e industria</strong> — presupuesto, expectativas de
+      ventas, repercusión en el sector, comparación con otros lanzamientos.</li>
+      <li><strong>Conclusiones</strong> del equipo.</li>
+      <li><strong>Fuentes consultadas</strong>, con enlace y
+      <strong>fecha de consulta</strong>.</li>
+    </ol>
+    <div class="aviso">
+      <strong>La fecha de consulta no es un capricho.</strong> Sobre un juego que
+      todavía está en desarrollo, los datos cambian cada pocas semanas: se retrasan
+      fechas, se anuncian plataformas, se desmienten filtraciones. Un dossier sin
+      fechar es papel mojado. Y si dos fuentes se contradicen, <strong>decidlo en el
+      texto</strong> en lugar de elegir la que más os guste.
+    </div>
+  </section>
+
+  <section>
+    <h2 id="apartado-2-los-equipos-y-el-reparto">2. Los equipos y el reparto</h2>
+    <p>Equipos de <strong>tres</strong>. Cada miembro es <strong>responsable</strong>
+    de una sección y <strong>revisor</strong> de otra, de forma circular: A revisa a
+    B, B revisa a C y C revisa a A.</p>
+
+    <div class="rol">
+      <p><strong>Miembro A</strong> — redacta <em>Ficha técnica y contexto</em>.
+      Revisa a B. Responsable de la <strong>portada</strong>.</p>
+    </div>
+    <div class="rol">
+      <p><strong>Miembro B</strong> — redacta <em>Requisitos técnicos y
+      plataformas</em>. Revisa a C. Responsable del <strong>índice</strong> y de que
+      los estilos de título estén bien puestos.</p>
+    </div>
+    <div class="rol">
+      <p><strong>Miembro C</strong> — redacta <em>Impacto e industria</em>. Revisa a
+      A. Responsable de las <strong>fuentes</strong> y de que todas estén fechadas.</p>
+    </div>
+    <p>Las <em>Conclusiones</em> se escriben entre los tres, a la vez, en la última
+    sesión. Es el momento de ver el trabajo simultáneo de verdad: tres cursores
+    moviéndose en el mismo párrafo.</p>
+  </section>
+
+  <section>
+    <h2 id="apartado-3-lo-que-ya-sabes-de-word-donde-esta-en-google-docs">3. Lo que ya sabes de Word, dónde está en Google Docs</h2>
+    <p>Esta tabla es el corazón de la práctica. Tenla delante mientras trabajas.</p>
+
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="equiv">
+      <tr><th>En Word</th><th>En Google Docs</th></tr>
+      <tr>
+        <td>Estilos <strong>Título 1 / Título 2</strong></td>
+        <td>El desplegable de estilos (donde pone <em>Texto normal</em>) →
+        <strong>Título 1</strong>, <strong>Título 2</strong>. Mismo concepto, misma
+        consecuencia.</td>
+      </tr>
+      <tr>
+        <td><strong>Tabla de contenido</strong>
+        (<code>Referencias &gt; Tabla de contenido</code>)</td>
+        <td><code>Insertar &gt; Índice</code>. Igual que en Word,
+        <strong>solo recoge lo que tenga estilo de título</strong>, y hay que
+        <strong>actualizarlo</strong> con el botón de recargar que aparece al pulsar
+        sobre él.</td>
+      </tr>
+      <tr>
+        <td><strong>Panel de navegación</strong></td>
+        <td><code>Ver &gt; Mostrar esquema del documento</code>. Se llena solo si
+        los títulos llevan estilo.</td>
+      </tr>
+      <tr>
+        <td><strong>Control de cambios</strong>
+        (<code>Ctrl+Mayús+E</code>)</td>
+        <td>Modo <strong>Sugerencias</strong>: el desplegable de la esquina superior
+        derecha, donde pone <em>Edición</em>. Lo que escribas sale en tu color y como
+        propuesta, no como texto definitivo.</td>
+      </tr>
+      <tr>
+        <td><strong>Aceptar / Rechazar</strong> cambios</td>
+        <td>El <strong>✓</strong> y la <strong>✗</strong> de cada tarjeta de
+        sugerencia, en el margen derecho.</td>
+      </tr>
+      <tr>
+        <td><strong>Nuevo comentario</strong></td>
+        <td><code>Ctrl+Alt+M</code>, o el icono de bocadillo. <strong>Además</strong>
+        puedes escribir <code>@</code> y el nombre de alguien para
+        <strong>asignarle</strong> el comentario como tarea: le llega un aviso.</td>
+      </tr>
+      <tr>
+        <td><strong>Comparar</strong> dos versiones</td>
+        <td><code>Archivo &gt; Historial de versiones &gt; Ver el historial</code>.
+        No hace falta guardar copias: Docs las guarda <strong>todas</strong>, y puedes
+        ver quién escribió cada cosa y en qué momento.</td>
+      </tr>
+      <tr>
+        <td><strong>Restringir edición</strong></td>
+        <td>El botón <strong>Compartir</strong>: cada persona se añade como
+        <strong>Lector</strong>, <strong>Comentador</strong> o
+        <strong>Editor</strong>. Es el mismo concepto que las restricciones de
+        edición, pero por persona.</td>
+      </tr>
+      <tr>
+        <td><code>Guardar como &gt; Tipo</code></td>
+        <td><code>Archivo &gt; Descargar</code> → Word (.docx), PDF, ODT, texto sin
+        formato…</td>
+      </tr>
+      <tr>
+        <td>Abrir un <code>.odt</code> o un <code>.docx</code></td>
+        <td>Subirlo a Drive y <em>Abrir con &gt; Documentos de Google</em>.</td>
+      </tr>
+      <tr>
+        <td><strong>Inspeccionar documento</strong> para limpiar el historial</td>
+        <td><strong>No existe equivalente.</strong> Lo veremos en la fase 5: es la
+        diferencia más importante entre las dos herramientas.</td>
+      </tr>
+    </table></div>
+  </section>
+
+  <section>
+    <h2 id="apartado-4-desarrollo-de-la-practica">4. Desarrollo de la práctica</h2>
+
+    <div class="fase">
+      <h3>Fase 0 · Crear y compartir <span class="etq">(20 min)</span></h3>
+      <ol>
+        <li><strong>Solo el miembro A</strong> crea el documento: en Drive,
+        <code>Nuevo &gt; Documentos de Google</code>. Nómbralo
+        <code>Dossier GTA VI — Equipo [vuestro número]</code>.</li>
+        <li>Pulsa <strong>Compartir</strong> y añade a los otros dos como
+        <strong>Editores</strong>.</li>
+        <li>Añade también al profesor, de momento como
+        <strong>Comentador</strong>.</li>
+        <li>Los tres: abrid el documento a la vez y comprobad que veis los
+        <strong>cursores de colores</strong> de los demás con su nombre.</li>
+      </ol>
+      <div class="tarjeta">
+        <p><strong>Fijaos en una cosa.</strong> No hay botón de guardar, y no hace
+        falta: cada pulsación se guarda sola. Eso es lo que hace posible que tres
+        personas escriban a la vez sin pisarse, y es también la razón de que el
+        historial lo recuerde todo.</p>
+      </div>
+    </div>
+
+    <div class="fase">
+      <h3>Fase 1 · La estructura, antes que el contenido <span class="etq">(25 min)</span></h3>
+      <p>Igual que en Word: primero el esqueleto.</p>
+      <ol>
+        <li><strong>Miembro B</strong> escribe los siete títulos del apartado 1 de
+        esta página, cada uno en una línea.</li>
+        <li>Aplícales <strong>Título 1</strong> desde el desplegable de estilos
+        (el que pone <em>Texto normal</em>).</li>
+        <li>Dentro de cada sección, añade dos o tres subapartados con
+        <strong>Título 2</strong>.</li>
+        <li>Abre <code>Ver &gt; Mostrar esquema del documento</code>: debe aparecer
+        el índice a la izquierda. Si está vacío, los títulos no tienen estilo.</li>
+        <li>Coloca el cursor debajo de la portada e inserta el índice con
+        <code>Insertar &gt; Índice</code>.</li>
+        <li>Añade un título más y comprueba que el índice <strong>no se
+        actualiza solo</strong>: hay que pulsar sobre él y darle al botón de
+        recargar.</li>
+      </ol>
+    </div>
+
+    <div class="fase">
+      <h3>Fase 2 · Cada uno lo suyo <span class="etq">(1 sesión)</span></h3>
+      <ol>
+        <li>Cada miembro redacta <strong>su</strong> sección. Trabajad a la vez:
+        no hay turnos.</li>
+        <li>Cada sección debe llevar como mínimo:
+          <ul>
+            <li>unas 250 palabras,</li>
+            <li>una <strong>imagen</strong> con su pie explicativo
+            (<code>Insertar &gt; Imagen</code>, y el pie como texto debajo),</li>
+            <li>y, en la de <em>Requisitos técnicos</em>, una
+            <strong>tabla</strong> comparando mínimos y recomendados.</li>
+          </ul>
+        </li>
+        <li>Las fuentes se van anotando <strong>sobre la marcha</strong> en el último
+        apartado, con enlace y fecha. Dejarlo para el final siempre acaba mal.</li>
+      </ol>
+      <div class="aviso">
+        <strong>Nada de copiar y pegar de una web.</strong> Además de ser plagio, se
+        detecta solo: el historial de versiones muestra un párrafo entero apareciendo
+        de golpe en un segundo. Escribid con vuestras palabras y citad la fuente.
+      </div>
+    </div>
+
+    <div class="fase">
+      <h3>Fase 3 · Revisión cruzada en modo Sugerencias <span class="etq">(40 min)</span></h3>
+      <p>Aquí es donde esto se parece al control de cambios de Word.</p>
+      <ol>
+        <li>Cambia el desplegable de la esquina superior derecha de
+        <strong>Edición</strong> a <strong>Sugerencias</strong>.
+        <strong>Compruébalo antes de escribir nada.</strong></li>
+        <li>Ve a la sección que te toca revisar (A→B, B→C, C→A) y haz al menos
+        <strong>cuatro sugerencias</strong>: alguna que añada texto, alguna que
+        borre y alguna que sustituya.</li>
+        <li>Observa que lo tuyo aparece en <strong>tu color</strong> y que a la
+        derecha sale una tarjeta por cada sugerencia, con tu nombre.</li>
+        <li>Añade <strong>dos comentarios asignados</strong>: selecciona texto,
+        <code>Ctrl+Alt+M</code>, escribe <code>@</code> y el nombre del
+        responsable de esa sección, y marca la casilla de
+        <strong>asignar</strong>. Le llegará como tarea pendiente.</li>
+      </ol>
+    </div>
+
+    <div class="fase">
+      <h3>Fase 4 · Resolver <span class="etq">(30 min)</span></h3>
+      <ol>
+        <li>Vuelve el desplegable a <strong>Edición</strong>.</li>
+        <li>Recorre las sugerencias que te han hecho y
+        <strong>acepta o rechaza cada una</strong> con el ✓ o la ✗.
+        <strong>Rechaza al menos una</strong> y explica por qué respondiendo en su
+        tarjeta.</li>
+        <li>Responde a los comentarios asignados y, cuando estén atendidos, pulsa
+        <strong>Resolver</strong>. Fíjate en que no se borran: se archivan, y se
+        pueden volver a ver.</li>
+        <li>Actualizad el índice.</li>
+        <li>Id a <code>Archivo &gt; Historial de versiones &gt; Ver el
+        historial</code>, buscad el momento en que quedó terminado y
+        <strong>ponedle nombre a esa versión</strong>:
+        <code>Versión entregada</code>.</li>
+      </ol>
+      <div class="tarjeta">
+        <p><strong>El historial responde a «¿quién ha hecho qué?».</strong> En el
+        panel de la derecha, cada bloque indica la hora y los autores, y al pulsarlo
+        se ve el documento tal y como estaba, con lo añadido por cada persona en su
+        color. Es la respuesta de Google Docs a la pregunta que en Word solo se
+        podía contestar comparando dos archivos.</p>
+      </div>
+    </div>
+
+    <div class="fase">
+      <h3>Fase 5 · Sacarlo de Google Docs <span class="etq">(25 min)</span></h3>
+      <p>Un documento que solo existe en la nube no se puede entregar en todas
+      partes. Toca exportar, y ver qué se pierde.</p>
+      <ol>
+        <li><code>Archivo &gt; Descargar &gt; Microsoft Word (.docx)</code>.</li>
+        <li><strong>Abridlo en Word</strong> y comparad con el original en el
+        navegador. Mirad en concreto:
+          <ul>
+            <li>¿Se mantiene el <strong>índice</strong>? ¿Sigue siendo
+            automático?</li>
+            <li>¿Aparecen los títulos en el <strong>panel de navegación</strong> de
+            Word?</li>
+            <li>¿Qué ha pasado con las <strong>fuentes</strong> y con la posición de
+            las <strong>imágenes</strong>?</li>
+            <li>¿Han viajado los <strong>comentarios</strong> resueltos?</li>
+          </ul>
+        </li>
+        <li>Descargad también el <strong>PDF</strong>, que es lo que se entrega.</li>
+        <li>Escribid al final del dossier, en un apartado titulado
+        <strong>Anexo: qué cambió al exportar</strong>, un párrafo con lo que habéis
+        observado. <strong>Esto se evalúa.</strong></li>
+      </ol>
+      <div class="aviso">
+        <strong>La diferencia que más importa.</strong> En Word, antes de entregar,
+        pasas <em>Inspeccionar documento</em> y limpias comentarios, revisiones y
+        datos del autor. En Google Docs <strong>eso no se puede hacer</strong>: el
+        historial de versiones guarda todo lo que habéis escrito y borrado desde el
+        primer día, y cualquiera con permiso de edición puede verlo. No es un fallo,
+        es cómo funciona; pero significa que <strong>un documento de Docs no es el
+        sitio para escribir nada que no quieras que se vea</strong>. Si el documento
+        va a salir fuera, se descarga, se limpia en Word y se envía esa copia.
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 id="apartado-5-que-se-entrega">5. Qué se entrega</h2>
+    <ul>
+      <li>El <strong>enlace</strong> al documento de Google Docs, con el profesor
+      cambiado de <em>Comentador</em> a <strong>Editor</strong> (hace falta permiso
+      de edición para poder consultar el historial de versiones).</li>
+      <li>El <strong>.docx</strong> descargado.</li>
+      <li>El <strong>PDF</strong>.</li>
+      <li>Todo nombrado <code>EquipoN_DossierGTAVI</code>.</li>
+    </ul>
+    <div class="aviso">
+      <strong>Plazo y honestidad.</strong> Se corrige por el historial, así que el
+      reparto del trabajo se ve. Si un miembro del equipo no ha podido participar por
+      un motivo justificado, decidlo antes de la entrega y se reorganiza; lo que no
+      vale es repartirse tres nombres y que escriba uno.
+    </div>
+  </section>
+
+  <section>
+    <h2 id="apartado-6-como-se-evalua-rubrica-10-puntos">6. Cómo se evalúa (rúbrica, 10 puntos)</h2>
+    <ul>
+      <li><strong>Estructura e índice (1,5)</strong> — los siete apartados con
+      estilos de título correctos y el índice automático generado y actualizado.</li>
+      <li><strong>Contenido de las tres secciones (2,0)</strong> — extensión,
+      imagen con pie en cada una y la tabla de requisitos mínimos frente a
+      recomendados.</li>
+      <li><strong>Modo Sugerencias (2,0)</strong> — cada miembro ha hecho al menos
+      cuatro sugerencias reales en la sección que le tocaba revisar, y se ve en el
+      historial.</li>
+      <li><strong>Comentarios asignados y resueltos (1,5)</strong> — dos por
+      revisor, asignados con <code>@</code>, respondidos y resueltos.</li>
+      <li><strong>Permisos de compartición (1,0)</strong> — los tres como editores,
+      el profesor con el permiso que toca en cada momento.</li>
+      <li><strong>Anexo sobre la exportación (1,5)</strong> — observaciones
+      concretas, no genéricas. «Se ve distinto» no puntúa; «el índice deja de
+      actualizarse solo y hay que insertarlo de nuevo en Word» sí.</li>
+      <li><strong>Fuentes fechadas (0,5)</strong> — todas con enlace y fecha de
+      consulta.</li>
+    </ul>
+    <div class="tarjeta">
+      <p><strong>Nota sobre el reparto.</strong> Los apartados de <em>Modo
+      Sugerencias</em> y <em>Comentarios</em> se califican
+      <strong>individualmente</strong> a partir del historial: si tú has hecho tu
+      parte y otro no, eso no te perjudica. El resto de la nota es común al
+      equipo.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 id="apartado-7-si-no-tienes-cuenta-de-google">7. Si no tienes cuenta de Google</h2>
+    <p>Habla con el profesor antes de la primera sesión. Alternativas equivalentes
+    para hacer la misma práctica:</p>
+    <ul>
+      <li><strong>Microsoft 365 en línea</strong> (si el centro tiene cuentas):
+      Word para web tiene coautoría en tiempo real, comentarios y control de
+      cambios reales.</li>
+      <li><strong>OnlyOffice</strong> o <strong>Nextcloud Office</strong>, si el
+      centro los tiene instalados: mismas funciones, software libre.</li>
+    </ul>
+    <p>Lo que se evalúa es que sepas <strong>trabajar en equipo sobre un documento
+    vivo</strong> y mover el resultado entre formatos, no la marca de la
+    herramienta.</p>
+  </section>
+
+  <nav class="nav-temas">
+    <a href="ut02-6.html">&laquo; Tema 2.6</a>
+    <a href="../index.html">Índice del módulo</a>
+    <a href="ut02-ejercicios.html">Ejercicios guiados &raquo;</a>
+  </nav>
+
+  <footer class="pie">
+    <p>0223 Aplicaciones ofimáticas · Material de consulta del alumnado.
+    Currículo: Decreto 272/2009 (Extremadura).</p>
+  </footer>
+
+</main></div>
+</body>
+</html>

@@ -28,7 +28,7 @@
       "evaluacion": 1,
       "horas": 60,
       "estado": "en progreso",
-      "actualizado": "2026-10-01",
+      "actualizado": "2026-10-08",
       "subtemas": [
         {
           "ut": "2.0",
@@ -119,7 +119,7 @@
         {
           "titulo": "Ejercicios guiados: currículum vitae paso a paso",
           "url": "temas/ut02-ejercicios.html",
-          "nota": "formativo, no evaluable; bloques 2.0-2.5 redactados, 2.6-2.7 pendientes; incluye las descargas cv-datos-sin-formato.docx, dossier-proyectos-sin-estructurar.docx y empresas-destinatarias.xlsx"
+          "nota": "formativo, no evaluable; bloques 2.0-2.6 redactados, 2.7 pendiente; incluye las descargas cv-datos-sin-formato.docx, dossier-proyectos-sin-estructurar.docx y empresas-destinatarias.xlsx"
         },
         {
           "titulo": "Prácticas de control (puntos de control integradores)",
@@ -131,6 +131,12 @@
           "titulo": "Mapa de la cinta de Word (referencia)",
           "url": "temas/mapa-cinta.html",
           "nota": "consulta transversal a petición del alumnado: 8 pestañas, 27 grupos y 145 opciones con iconos propios, descripción, atajo y buscador"
+        },
+        {
+          "titulo": "Práctica colaborativa en equipo: dossier en Google Docs",
+          "url": "temas/ut02-6-practica-colaborativa.html",
+          "evaluable": true,
+          "nota": "equipos de 3, 3 sesiones; traslada el subtema 2.6 a Google Docs (sugerencias, comentarios asignados, historial de versiones, permisos) y cierra con exportación a .docx y PDF para el CE d"
         }
       ]
     }
