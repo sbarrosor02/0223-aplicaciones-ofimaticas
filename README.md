@@ -46,6 +46,9 @@ Al crear o modificar un tema en `temario/` hay que: (1) generar/actualizar
   enunciado del proyecto final (PC3). Además hay una página de ejercicios guiados formativos
   (`web/temas/ut02-ejercicios.html`), con un hilo conductor único (construir
   el propio currículum vitae) para todo el tema.
+- Taller de maquetación (T1–T5, trabajo diario) y caso práctico de la carta
+  de un restaurante, con entrega en Moodle. Guía en
+  `temario/ut02-taller-maquetacion.md`.
 - Ejercicios guiados: bloques 2.0–2.7 disponibles. Reto en equipo «El documento
   saboteado» (formativo, 1 sesión; solucionario en `temario/soluciones/`). Práctica de control PC1
   publicada con especificaciones concretas y material descargable. Mapa de la

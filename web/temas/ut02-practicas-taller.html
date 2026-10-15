@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Taller de maquetación · 0223 Aplicaciones ofimáticas</title>
+<link rel="stylesheet" href="../assets/estilo.css">
+<style>
+  .tt { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 1rem 0; }
+  .tt th, .tt td { border: 1px solid var(--linea); padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+  .tt th { background: var(--acento-claro); color: var(--acento); }
+  .tt td.num { text-align: right; white-space: nowrap; }
+  .tt.tt-corta { min-width: 0; max-width: 22rem; }
+  .practica { border-top: 3px solid var(--acento); margin-top: 2.2rem; padding-top: 0.4rem; }
+  .ficha { display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; font-size: 0.9rem; margin: 0.3rem 0 0.9rem; color: var(--texto-suave, #555); }
+  .ficha span { white-space: nowrap; }
+  .ficha strong { color: var(--acento); }
+  figure.ref { border: 1px solid var(--linea); border-radius: var(--radio); padding: 0.6rem; background: #fff; margin: 1rem 0; }
+  figure.ref img { display: block; margin: 0 auto; }
+  figure.ref figcaption { font-size: 0.85rem; color: #555; margin-top: 0.4rem; text-align: center; }
+  .carta-ej { border: 1px solid var(--linea); border-left: 4px solid var(--acento); border-radius: var(--radio);
+    background: #fff; padding: 0.7rem 1rem; margin: 0.6rem 0; font-family: Calibri, Carlito, sans-serif; }
+  .carta-ej p { margin: 0.35rem 0; }
+  .carta-ej .etq-ej { display: block; font-family: inherit; font-size: 0.78rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.04em; color: var(--acento); margin-bottom: 0.3rem; }
+  .entrega { background: var(--acento-claro); border-radius: var(--radio); padding: 0.6rem 0.9rem; margin: 0.9rem 0; }
+  .entrega p { margin: 0.25rem 0; }
+</style>
+<link rel="stylesheet" href="../assets/aula.css">
+<script defer src="../assets/aula.js"></script>
+</head>
+<body data-modulo="0223">
+<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0223 / Aplicaciones ofimáticas</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-que-se-evalua">Qué se evalúa</a></li><li><a href="#apartado-como-se-entrega">Cómo se entrega</a></li><li><a href="#apartado-t1-tabulaciones-pedidos-y-autorizacion">T1 · Tabulaciones: pedidos y autorización</a></li><li><a href="#apartado-t2-una-tabla-con-celdas-combinadas">T2 · Una tabla con celdas combinadas</a></li><li><a href="#apartado-t3-portada-con-formas-y-wordart">T3 · Portada con formas y WordArt</a></li><li><a href="#apartado-t4-grafico-de-anillo">T4 · Gráfico de anillo</a></li><li><a href="#apartado-t5-cartas-que-cambian-segun-el-destinatario">T5 · Cartas que cambian según el destinatario</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1">
+
+  <header class="cab">
+    <p class="modulo">0223 · Aplicaciones ofimáticas · Tema 2</p>
+    <h1>Taller de maquetación — Cinco prácticas cortas</h1>
+    <p class="meta">1.º SMR · Curso 2026/2027 · 1.ª evaluación · Individuales · Entrega en Moodle</p>
+  </header>
+<nav class="subnav" aria-label="Apartados del tema 2"><a href="ut02.html">Portada del tema</a><a href="ut02.html#apartado-subtemas">Apuntes</a><a href="ut02-ejercicios.html">Ejercicios guiados</a><a href="ut02-ejercicios-reto-saboteado.html">Reto en equipo</a><a href="ut02-practicas.html">Prácticas de control</a><a href="mapa-cinta.html">Mapa de Word</a></nav>
+<div class="aula-herramientas"><button type="button" data-imprimir hidden>Imprimir / guardar PDF</button></div>
+
+  <details class="ra-ce"><summary>Qué se evalúa · RA y criterios</summary>
+    <h2 id="apartado-que-se-evalua">Qué se evalúa</h2>
+    <p><strong>RA2.</strong> Elabora documentos y plantillas, describiendo y
+    aplicando las opciones avanzadas de procesadores de textos.</p>
+    <ul>
+      <li><strong>b)</strong> Se han diseñado plantillas. <em>(T1)</em></li>
+      <li><strong>c)</strong> Se han utilizado aplicaciones y periféricos para introducir textos e imágenes. <em>(T2, T3 y T4)</em></li>
+      <li><strong>d)</strong> Se han importado y exportado documentos creados con otras aplicaciones y en otros formatos. <em>(T5)</em></li>
+    </ul>
+    <p>Cuentan como <strong>trabajo diario</strong> de cada criterio. Son obligatorias:
+    una práctica sin entregar cuenta como no hecha.</p>
+  </details>
+
+  <div class="aviso">
+    <strong>Qué es esto.</strong> Cinco prácticas cortas, de una sesión o menos cada
+    una, para entrenar cosas que en el CV casi no aparecen: tabulaciones exactas,
+    tablas con celdas combinadas, formas superpuestas, gráficos y cartas que cambian
+    según el destinatario. Se cierran con un caso práctico más grande, la
+    <a href="ut02-practicas-carta.html">carta de un restaurante</a>.
+  </div>
+
+  <section>
+    <h2 id="apartado-como-se-entrega">Cómo se entrega</h2>
+    <ul>
+      <li>Cada práctica tiene su propia <strong>tarea en el curso de Moodle</strong>
+      del módulo, con su fecha límite.</li>
+      <li>Se entrega el <strong>archivo editable</strong> (<code>.docx</code> o
+      <code>.dotx</code>), nunca un PDF ni una captura: hay que poder comprobar cómo
+      está hecho, no solo cómo se ve.</li>
+      <li>Nombre del archivo: <code>T1_Apellido_Nombre.docx</code>, con tu primer
+      apellido y tu nombre, <strong>sin tildes, sin eñes y sin espacios</strong>.
+      Por ejemplo: <code>T2_Nunez_Maria.docx</code>.</li>
+      <li>Antes de subirla, repasa la <strong>lista de comprobación</strong> de cada
+      práctica. Si todo está marcado, está completa.</li>
+    </ul>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tt">
+      <thead><tr><th>Práctica</th><th>Se apoya en</th><th>Criterio</th><th>Se entrega</th></tr></thead>
+      <tbody>
+        <tr><td><a href="#apartado-t1-tabulaciones-pedidos-y-autorizacion">T1 · Tabulaciones</a></td><td>Subtemas 2.2 y 2.4</td><td>b</td><td><code>.docx</code> + <code>.dotx</code></td></tr>
+        <tr><td><a href="#apartado-t2-una-tabla-con-celdas-combinadas">T2 · Tabla con celdas combinadas</a></td><td>Subtema 2.3</td><td>c</td><td><code>.docx</code></td></tr>
+        <tr><td><a href="#apartado-t3-portada-con-formas-y-wordart">T3 · Portada con formas y WordArt</a></td><td>Subtema 2.3</td><td>c</td><td><code>.docx</code></td></tr>
+        <tr><td><a href="#apartado-t4-grafico-de-anillo">T4 · Gráfico de anillo</a></td><td>Subtema 2.3</td><td>c</td><td><code>.docx</code></td></tr>
+        <tr><td><a href="#apartado-t5-cartas-que-cambian-segun-el-destinatario">T5 · Combinar con reglas</a></td><td>Subtema 2.5</td><td>d</td><td>2 × <code>.docx</code></td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section class="practica">
+    <h2 id="apartado-t1-tabulaciones-pedidos-y-autorizacion">T1 · Tabulaciones: pedidos y autorización</h2>
+    <p class="ficha"><span><strong>Duración:</strong> 1 sesión</span><span><strong>Se apoya en:</strong> <a href="ut02-2.html">2.2</a> y <a href="ut02-4.html">2.4</a></span><span><strong>Criterio:</strong> b</span></p>
+    <p>Las tabulaciones sirven para alinear texto en columnas sin usar una tabla. La
+    regla de oro: <strong>nunca alinees con espacios</strong>, porque en cuanto cambia la
+    fuente o el tamaño, todo se descoloca.</p>
+
+    <h3>Parte A · La lista de pedidos</h3>
+    <p><a href="../descargas/t1-pedidos.docx" download>⬇ Descargar <code>t1-pedidos.docx</code></a>.
+    Las columnas ya están separadas con una tabulación cada una, pero no hay ninguna
+    tabulación fijada, así que no se alinean.</p>
+    <ol>
+      <li>Selecciona <strong>todas</strong> las líneas de la lista, desde «Cód.
+      producto» hasta la última fila. El título no.</li>
+      <li>Abre <code>Inicio &gt; Párrafo</code> (el iniciador del grupo, la flechita
+      de la esquina) y pulsa <strong>Tabulaciones…</strong> abajo a la izquierda.</li>
+      <li>Fija estas cuatro tabulaciones. Para cada una: escribe la posición, elige
+      alineación y relleno y pulsa <strong>Fijar</strong>. Al terminar las cuatro,
+      <strong>Aceptar</strong>.</li>
+    </ol>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tt">
+      <thead><tr><th>Columna</th><th>Posición</th><th>Alineación</th><th>Relleno</th></tr></thead>
+      <tbody>
+        <tr><td>Cód. producto</td><td class="num">1 cm</td><td>Izquierda</td><td>Ninguno</td></tr>
+        <tr><td>Fecha de pedido</td><td class="num">10 cm</td><td>Derecha</td><td>Puntos (2 ……)</td></tr>
+        <tr><td>Precio</td><td class="num">12,5 cm</td><td>Decimal</td><td>Ninguno</td></tr>
+        <tr><td>Unidades</td><td class="num">14,5 cm</td><td>Centrada</td><td>Ninguno</td></tr>
+      </tbody>
+    </table></div>
+    <p>Fíjate en lo que hace cada tipo: la <strong>decimal</strong> alinea los precios
+    por la coma, aunque unos tengan más cifras que otros; la <strong>centrada</strong>
+    coloca las unidades en el centro de la columna; la <strong>derecha</strong> con
+    puntos une el código con la fecha, como en un índice.</p>
+
+    <h3>Parte B · Un modelo de autorización como plantilla</h3>
+    <p>Desde un documento en blanco, reproduce este modelo. Todas las líneas para
+    rellenar a mano se hacen con <strong>tabulaciones con relleno de línea</strong>
+    (el relleno 4, <code>____</code>), no escribiendo guiones bajos.</p>
+    <figure class="ref">
+      <img src="../assets/img/taller/t1-autorizacion.png" width="774" height="605"
+        alt="Modelo de autorización con título centrado, subtítulo entre paréntesis, líneas para rellenar el nombre, el DNI, de quién es tutor y la actividad, una línea con lugar y fecha, un recuadro para la firma y la nota final sobre la copia del DNI.">
+      <figcaption>Aspecto que debe tener la parte B.</figcaption>
+    </figure>
+    <ul>
+      <li>Para que una línea llegue hasta el final, fija una tabulación izquierda con
+      relleno de línea en el margen derecho (unos 16 cm) y pulsa <kbd>Tab</kbd>.</li>
+      <li>En «En ____, a ___ de _____ de 20___» hay <strong>cuatro</strong>
+      tabulaciones en el mismo párrafo.</li>
+      <li>El recuadro de la firma es una forma <em>Rectángulo</em> sin relleno, o una
+      tabla de una sola celda de 6 cm de ancho.</li>
+      <li>Guárdalo como <strong>plantilla</strong>: <code>Archivo &gt; Guardar como</code>
+      y en <em>Tipo</em> elige <em>Plantilla de Word (*.dotx)</em>.</li>
+    </ul>
+
+    <div class="entrega">
+      <p><strong>Entrega en Moodle (tarea T1):</strong> <code>T1_Apellido_Nombre.docx</code>
+      (pedidos) y <code>T1_Apellido_Nombre.dotx</code> (autorización).</p>
+    </div>
+    <ul class="checklist">
+      <li><label><input type="checkbox"> Los precios están alineados por la coma</label></li>
+      <li><label><input type="checkbox"> Si cambio la fuente de la lista a Arial 12, las columnas siguen en su sitio</label></li>
+      <li><label><input type="checkbox"> Con Mostrar todo (¶) se ven flechas de tabulación y ningún espacio repetido</label></li>
+      <li><label><input type="checkbox"> En la autorización no hay ni un guion bajo escrito a mano</label></li>
+      <li><label><input type="checkbox"> Al hacer doble clic en el .dotx se abre un documento nuevo, no la plantilla</label></li>
+    </ul>
+  </section>
+
+  <section class="practica">
+    <h2 id="apartado-t2-una-tabla-con-celdas-combinadas">T2 · Una tabla con celdas combinadas</h2>
+    <p class="ficha"><span><strong>Duración:</strong> 1 sesión</span><span><strong>Se apoya en:</strong> <a href="ut02-3.html">2.3</a></span><span><strong>Criterio:</strong> c</span></p>
+    <p>Reproduce en Word esta tabla de indicadores. No es una tabla de las que salen
+    con un clic: tiene filas combinadas, columnas de anchos distintos, celdas con dos
+    líneas y una columna destacada.</p>
+    <figure class="ref">
+      <img src="../assets/img/taller/t2-tabla.png" width="805" height="323"
+        alt="Tabla de cinco columnas titulada Indicadores de la temporada de la cereza. Fila de título combinada en verde oscuro, dos filas de cabecera en verde claro con Real 2024, Objetivo 2025 y Real 2025, y cinco filas de datos numeradas con el valor y su variación en dos líneas. La columna Objetivo 2025 tiene fondo verde.">
+      <figcaption>La tabla que hay que reproducir. Los datos son inventados.</figcaption>
+    </figure>
+    <h3>Especificaciones</h3>
+    <ul>
+      <li><strong>Cinco columnas</strong> con estos anchos exactos (<code>Propiedades de
+      tabla &gt; Columna &gt; Ancho preferido</code>): 1 cm · 8,2 cm · 2,6 cm · 2,6 cm ·
+      2,6 cm.</li>
+      <li><strong>Fila de título:</strong> las cinco celdas combinadas
+      (<code>Disposición &gt; Combinar celdas</code>), texto blanco en negrita
+      centrado, sombreado verde oscuro <code>RGB(55, 86, 35)</code>.</li>
+      <li><strong>Filas 2 y 3:</strong> las dos primeras celdas combinadas en cada una,
+      texto en negrita y sombreado verde claro <code>RGB(226, 239, 218)</code>.</li>
+      <li><strong>Datos:</strong> el número de fila centrado; los valores alineados a
+      la derecha, con la cifra y la variación en <strong>dos líneas dentro de la misma
+      celda</strong> (<kbd>Intro</kbd> dentro de la celda, no dos filas).</li>
+      <li><strong>Columna Objetivo 2025</strong> sombreada en verde
+      <code>RGB(169, 208, 142)</code>.</li>
+      <li>Todo el texto <strong>centrado en vertical</strong> en su celda
+      (<code>Disposición &gt; Alineación</code>).</li>
+      <li>Debajo, la nota «t: toneladas · m €: millones de euros…» en cursiva, 9 pt.</li>
+    </ul>
+    <div class="aviso">
+      <strong>Combina antes de escribir.</strong> Si escribes y luego combinas, Word
+      junta el texto de todas las celdas en una y tendrás que limpiarlo.
+    </div>
+    <div class="entrega">
+      <p><strong>Entrega en Moodle (tarea T2):</strong> <code>T2_Apellido_Nombre.docx</code>.</p>
+    </div>
+    <ul class="checklist">
+      <li><label><input type="checkbox"> Las filas 1, 2 y 3 tienen celdas combinadas de verdad, no bordes borrados</label></li>
+      <li><label><input type="checkbox"> Los anchos de columna coinciden con los indicados</label></li>
+      <li><label><input type="checkbox"> Cada valor y su variación están en la misma celda</label></li>
+      <li><label><input type="checkbox"> Los tres colores de sombreado son los del enunciado</label></li>
+    </ul>
+  </section>
+
+  <section class="practica">
+    <h2 id="apartado-t3-portada-con-formas-y-wordart">T3 · Portada con formas y WordArt</h2>
+    <p class="ficha"><span><strong>Duración:</strong> 1 sesión</span><span><strong>Se apoya en:</strong> <a href="ut02-3.html">2.3</a></span><span><strong>Criterio:</strong> c</span></p>
+    <p>Diseña esta portada con <strong>cuatro triángulos, dos pentágonos y un
+    WordArt</strong>. Es la práctica de colocar objetos: superponerlos, ordenarlos y
+    sacarlos por los bordes de la página.</p>
+    <figure class="ref">
+      <img src="../assets/img/taller/t3-portada.svg" width="234" height="321" style="width:min(320px,100%)"
+        alt="Portada A4 vertical con triángulos granates y rosados arriba y abajo, dos pentágonos verdes semitransparentes que se salen por dos esquinas y el texto PROYECTO curvado en arco en el centro.">
+      <figcaption>Portada de referencia. El gris es lo que queda fuera de la hoja.</figcaption>
+    </figure>
+    <h3>Especificaciones</h3>
+    <ul>
+      <li><strong>Triángulos</strong> (<code>Insertar &gt; Formas &gt; Triángulo
+      rectángulo</code>): dos granates <code>RGB(123, 20, 32)</code> y dos rosados
+      <code>RGB(244, 199, 204)</code>, sin contorno. Para orientarlos usa
+      <code>Formato de forma &gt; Girar &gt; Voltear horizontalmente</code> o
+      <em>verticalmente</em>.</li>
+      <li><strong>Pentágonos</strong>: verdes <code>RGB(58, 125, 68)</code>, sin
+      contorno y con <strong>transparencia del 40 %</strong>
+      (<code>Formato de forma &gt; Relleno &gt; Transparencia</code>).</li>
+      <li><strong>Orden de las capas</strong>: los rosados al fondo, los granates encima
+      y los pentágonos por delante de todo (<code>Traer adelante</code> /
+      <code>Enviar atrás</code>).</li>
+      <li><strong>WordArt</strong> «PROYECTO» con efecto
+      <code>Formato de forma &gt; Efectos de texto &gt; Transformar &gt; Arco</code> y
+      relleno degradado del rojo al granate.</li>
+      <li>Subtítulo en un <strong>cuadro de texto sin borde ni relleno</strong>.</li>
+    </ul>
+    <div class="tarjeta">
+      <p><strong>Para sacar una forma por el borde de la página</strong> ponle el
+      ajuste <em>Delante del texto</em>, llévala hasta el borde con el ratón y
+      termina de moverla con las <strong>flechas del teclado</strong>; con
+      <kbd>Ctrl</kbd>+flecha se mueve en pasos muy pequeños. Lo que quede fuera de la
+      hoja no se imprime: es lo que da el efecto de «sangrado».</p>
+    </div>
+    <div class="entrega">
+      <p><strong>Entrega en Moodle (tarea T3):</strong> <code>T3_Apellido_Nombre.docx</code>.</p>
+    </div>
+    <ul class="checklist">
+      <li><label><input type="checkbox"> Hay cuatro triángulos y dos pentágonos, y ninguno tiene contorno</label></li>
+      <li><label><input type="checkbox"> A través de los pentágonos se ven las formas de detrás</label></li>
+      <li><label><input type="checkbox"> Dos formas se salen por los bordes de la hoja</label></li>
+      <li><label><input type="checkbox"> «PROYECTO» es WordArt editable (puedo cambiar una letra), no una imagen</label></li>
+    </ul>
+  </section>
+
+  <section class="practica">
+    <h2 id="apartado-t4-grafico-de-anillo">T4 · Gráfico de anillo</h2>
+    <p class="ficha"><span><strong>Duración:</strong> media sesión</span><span><strong>Se apoya en:</strong> <a href="ut02-3.html">2.3</a></span><span><strong>Criterio:</strong> c</span></p>
+    <p>La tienda <em>Jerte Digital</em> (inventada) quiere ver de un vistazo por dónde
+    vende. Con estos datos, haz una tabla y debajo un gráfico de anillo como el de la
+    imagen.</p>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tt tt-corta">
+      <thead><tr><th>Canal de venta</th><th>Ventas 2025</th></tr></thead>
+      <tbody>
+        <tr><td>Tienda física</td><td class="num">38,50 %</td></tr>
+        <tr><td>Web propia</td><td class="num">27,20 %</td></tr>
+        <tr><td>Marketplaces</td><td class="num">21,60 %</td></tr>
+        <tr><td>Teléfono</td><td class="num">12,70 %</td></tr>
+      </tbody>
+    </table></div>
+    <figure class="ref">
+      <img src="../assets/img/taller/t4-grafico.png" width="752" height="438" style="width:min(560px,100%)"
+        alt="Gráfico de anillo titulado Ventas por canal 2025 con cuatro sectores: Tienda física 38,50 %, Web propia 27,20 %, Marketplaces 21,60 % y Teléfono 12,70 %. Las etiquetas están fuera del anillo unidas con líneas guía y la leyenda está a la derecha.">
+      <figcaption>Gráfico de referencia. Los colores pueden ser otros.</figcaption>
+    </figure>
+    <ol>
+      <li>Haz la tabla de datos en Word, con bordes y los porcentajes alineados a la
+      derecha.</li>
+      <li><code>Insertar &gt; Gráfico &gt; Circular &gt; Anillo</code>. Se abre una
+      pequeña hoja de Excel: escribe ahí las cuatro filas (los valores, sin el
+      símbolo %) y ajusta el rango arrastrando la esquina azul. Cierra la hoja.</li>
+      <li>Título del gráfico: <em>Ventas por canal · 2025</em>.</li>
+      <li>Cambia los colores con <code>Diseño de gráfico &gt; Cambiar colores</code>:
+      cualquier paleta distinta de la que sale por defecto.</li>
+      <li>Haz clic derecho <strong>sobre el anillo</strong> (no sobre el gráfico
+      entero) &gt; <code>Dar formato a serie de datos &gt; Opciones de serie</code> y
+      pon el <strong>tamaño del agujero del anillo al 60 %</strong>.</li>
+      <li>Leyenda a la derecha: <code>Agregar elemento de gráfico &gt; Leyenda &gt;
+      Derecha</code>.</li>
+      <li>Etiquetas: <code>Agregar elemento de gráfico &gt; Etiquetas de datos</code>.
+      En <em>Más opciones</em> deja solo <em>Valor</em> y, en <em>Número</em>, dos
+      decimales y el símbolo % (código de formato <code>0,00" %"</code>).</li>
+      <li>El gráfico de anillo no permite colocar las etiquetas fuera con una opción:
+      <strong>arrástralas una a una</strong> fuera del anillo. Con <em>Mostrar líneas
+      guía</em> marcado, Word dibuja la línea que las une a su sector.</li>
+    </ol>
+    <div class="entrega">
+      <p><strong>Entrega en Moodle (tarea T4):</strong> <code>T4_Apellido_Nombre.docx</code>.</p>
+    </div>
+    <ul class="checklist">
+      <li><label><input type="checkbox"> Es un gráfico de Word editable (puedo abrir sus datos), no una imagen pegada</label></li>
+      <li><label><input type="checkbox"> El agujero está al 60 % y las etiquetas fuera con línea guía</label></li>
+      <li><label><input type="checkbox"> Las etiquetas muestran dos decimales y el %</label></li>
+      <li><label><input type="checkbox"> La tabla y el gráfico tienen los mismos datos</label></li>
+    </ul>
+  </section>
+
+  <section class="practica">
+    <h2 id="apartado-t5-cartas-que-cambian-segun-el-destinatario">T5 · Cartas que cambian según el destinatario</h2>
+    <p class="ficha"><span><strong>Duración:</strong> 1 sesión</span><span><strong>Se apoya en:</strong> <a href="ut02-5.html">2.5</a></span><span><strong>Criterio:</strong> d</span></p>
+    <p>Marta organiza la fiesta sorpresa de cumpleaños de Lola y tiene la lista de
+    invitados en Excel. Quiere mandar un recordatorio <strong>solo a quien ha
+    confirmado</strong> y, además, decirles el importe del regalo común
+    <strong>solo a quienes se apuntaron</strong>. Una sola carta, dos versiones.</p>
+    <p><a href="../descargas/t5-invitados.xlsx" download>⬇ Descargar <code>t5-invitados.xlsx</code></a>
+    — doce invitados con las columnas <em>Nombre</em>, <em>Apellidos</em>,
+    <em>Correo</em>, <em>Asiste</em> (Sí, No o Pendiente) y <em>Regalo</em> (Sí o No).</p>
+
+    <h3>Las dos versiones de la carta</h3>
+    <div class="carta-ej">
+      <span class="etq-ej">Confirmado, sin regalo</span>
+      <p>Hola, Bruno:</p>
+      <p>Recuerda que la fiesta sorpresa de cumpleaños de Lola es el <strong>sábado 12
+      de diciembre a las 21:00</strong>. Será en el local de la peña, en la
+      <strong>C/ Real, 14</strong>.</p>
+      <p>¡Nos vemos allí!</p>
+      <p>Marta</p>
+    </div>
+    <div class="carta-ej">
+      <span class="etq-ej">Confirmado y apuntado al regalo</span>
+      <p>Hola, Ana:</p>
+      <p>Recuerda que la fiesta sorpresa de cumpleaños de Lola es el <strong>sábado 12
+      de diciembre a las 21:00</strong>. Será en el local de la peña, en la
+      <strong>C/ Real, 14</strong>. Como te apuntaste al regalo común, te tocan
+      <strong>7 €</strong>: puedes traérmelos el viernes 11 a las 17:00 a mi casa o
+      dármelos en la fiesta.</p>
+      <p>¡Nos vemos allí!</p>
+      <p>Marta</p>
+    </div>
+
+    <h3>Pasos</h3>
+    <ol>
+      <li>Documento nuevo. <code>Correspondencia &gt; Iniciar combinación de
+      correspondencia &gt; Cartas</code>.</li>
+      <li><code>Seleccionar destinatarios &gt; Usar una lista existente</code> y elige
+      <code>t5-invitados.xlsx</code>, hoja <em>Invitados</em>.</li>
+      <li><code>Editar lista de destinatarios &gt; Filtrar</code>: <em>Asiste</em>
+      <em>Igual a</em> <code>Sí</code>.</li>
+      <li>Escribe la carta común e inserta el campo <em>Nombre</em> en el saludo con
+      <code>Insertar campo combinado</code>.</li>
+      <li>Coloca el cursor al final del párrafo de la fecha y el lugar y usa
+      <code>Reglas &gt; Si… Entonces… Sino…</code>: <em>Nombre del campo</em>
+      Regalo, <em>Comparación</em> Igual a, <em>Comparar con</em> <code>Sí</code>. En
+      <em>Insertar este texto</em> escribe el texto del regalo y deja vacío
+      <em>De lo contrario, insertar este texto</em>.</li>
+      <li>Revisa con <code>Vista previa de resultados</code> varios destinatarios:
+      unos deben tener el párrafo y otros no.</li>
+      <li><code>Finalizar y combinar &gt; Editar documentos individuales &gt;
+      Todos</code> y guarda el resultado.</li>
+    </ol>
+    <div class="aviso">
+      <strong>«Si» compara letra a letra.</strong> <code>Sí</code> con tilde y
+      <code>Si</code> sin tilde son textos distintos para Word. Escribe en la regla
+      exactamente lo que pone en el Excel.
+    </div>
+    <div class="tarjeta">
+      <p><strong>Por qué el texto del regalo va en el mismo párrafo.</strong> Si pones
+      la regla sola en una línea, en las cartas sin regalo ese párrafo queda vacío y
+      aparece una línea en blanco de más. Colócala al final del párrafo de la fecha,
+      justo después del punto, y empieza el texto de la regla con un espacio.</p>
+    </div>
+    <p>Al final del documento principal, debajo de la carta y separado por un salto
+    de página, responde en dos o tres líneas: <strong>¿cuántas cartas salen, cuántas
+    llevan el párrafo del regalo y por qué Carmen, que se apuntó al regalo, no recibe
+    ninguna?</strong></p>
+    <div class="entrega">
+      <p><strong>Entrega en Moodle (tarea T5):</strong> <code>T5_Apellido_Nombre.docx</code>
+      (el documento principal, con la regla y tu respuesta) y
+      <code>T5_Apellido_Nombre_cartas.docx</code> (las cartas combinadas).</p>
+    </div>
+    <ul class="checklist">
+      <li><label><input type="checkbox"> Solo reciben carta quienes tienen «Sí» en Asiste</label></li>
+      <li><label><input type="checkbox"> El párrafo del regalo es un campo de regla, no texto escrito en cada carta</label></li>
+      <li><label><input type="checkbox"> Las cartas sin regalo no tienen una línea en blanco de más</label></li>
+      <li><label><input type="checkbox"> He respondido a la pregunta del final</label></li>
+    </ul>
+  </section>
+
+  <nav class="nav-temas">
+    <a href="ut02-practicas.html">&laquo; Prácticas de control</a>
+    <a href="ut02.html">Índice del Tema 2</a>
+    <a href="ut02-practicas-carta.html">Caso práctico: la carta &raquo;</a>
+  </nav>
+
+  <footer class="pie">
+    <p>0223 Aplicaciones ofimáticas · Material de consulta del alumnado.
+    Currículo: Decreto 272/2009 (Extremadura).</p>
+  </footer>
+
+</main></div>
+</body>
+</html>
