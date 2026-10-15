@@ -100,8 +100,9 @@ Regla que se repite en clase: **si haces lo mismo más de tres veces, grábalo**
   plantilla, con revisión cruzada en control de cambios y entregado en PDF con
   marcadores.
 
-El **proyecto final (PC3)** integra el tema completo y se publica con
-enunciado y rúbrica propios en la página de prácticas de control.
+El **proyecto final (PC3)** integra el tema completo: manual de usuario de
+tres procedimientos con una plantilla `.dotm` y tres macros, revisión cruzada
+y entrega en Moodle. Ver `temario/ut02-practica-control-3.md`.
 
 ## Nota de montaje
 

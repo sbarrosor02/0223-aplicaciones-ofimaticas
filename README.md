@@ -42,8 +42,8 @@ Al crear o modificar un tema en `temario/` hay que: (1) generar/actualizar
   (`ut02-1.html`…`ut02-7.html`), enlazados desde una página índice de tema
   (`web/temas/ut02.html`). Delante hay un subtema 2.0 de repaso (primer
   documento, edición básica), no evaluable y con horas no oficiales, para
-  quien no llegue con ese nivel. Subtemas 2.0 a 2.7 publicados; pendiente el
-  enunciado del proyecto final (PC3). Además hay una página de ejercicios guiados formativos
+  quien no llegue con ese nivel. Subtemas 2.0 a 2.7 publicados, con
+  sus tres prácticas de control (PC3: proyecto final, manual con macros). Además hay una página de ejercicios guiados formativos
   (`web/temas/ut02-ejercicios.html`), con un hilo conductor único (construir
   el propio currículum vitae) para todo el tema.
 - Taller de maquetación (T1–T5, trabajo diario) y caso práctico de la carta

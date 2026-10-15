@@ -86,4 +86,4 @@ originales, no copiados). Ver `temario/ut02-ejercicios.md` y
 ## Estado
 
 - 2.0 a 2.7: publicados, con sus ejercicios guiados.
-- Pendiente: enunciado y rúbrica del proyecto final (PC3).
+- Prácticas de control PC1, PC2 y PC3 (proyecto final) publicadas.
