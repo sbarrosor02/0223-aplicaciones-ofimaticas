@@ -141,7 +141,7 @@
         {
           "titulo": "Reto en equipo: el documento saboteado",
           "url": "temas/ut02-ejercicios-reto-saboteado.html",
-          "nota": "formativo, no evaluable; equipos de 3 con roles rotatorios, 1 sesión; repasa 2.0-2.6 detectando y arreglando 15 trampas de formato manual; descarga reto-documento-saboteado.docx (scripts/generar_saboteado.js); solucionario y pruebas de estrés en temario/soluciones/"
+          "nota": "formativo, no evaluable; equipos de 3 con roles rotatorios, 1 sesión; documento: bases de un torneo de EA Sports FC; repasa 2.0-2.6 detectando y arreglando 15 trampas de formato manual; descarga reto-documento-saboteado.docx (scripts/generar_saboteado.js); solucionario y pruebas de estrés en temario/soluciones/"
         }
       ]
     }
