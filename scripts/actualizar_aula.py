@@ -71,9 +71,10 @@ for repo in REPOS:
     pages = {}
     for path in sorted((web / 'temas').glob('*.html')):
         source = path.read_text(encoding='utf-8')
-        if code == '0223' and path.name.startswith('ut02') and 'class="subnav"' not in source:
+        if code == '0223' and path.name.startswith('ut02'):
+            source = re.sub(r'\n?<nav class="subnav"[^>]*>.*?</nav>', '', source, count=1, flags=re.S)
             nav = '<nav class="subnav" aria-label="Apartados del tema 2">'
-            for label, target in [('Portada del tema', 'ut02.html'), ('Apuntes', 'ut02.html#apartado-subtemas'), ('Ejercicios guiados', 'ut02-ejercicios.html'), ('Prácticas de control', 'ut02-practicas.html'), ('Mapa de Word', 'mapa-cinta.html')]:
+            for label, target in [('Portada del tema', 'ut02.html'), ('Apuntes', 'ut02.html#apartado-subtemas'), ('Ejercicios guiados', 'ut02-ejercicios.html'), ('Reto en equipo', 'ut02-ejercicios-reto-saboteado.html'), ('Prácticas de control', 'ut02-practicas.html'), ('Mapa de Word', 'mapa-cinta.html')]:
                 active = ' aria-current="page"' if target == path.name else ''
                 nav += '<a href="' + target + '"' + active + '>' + label + '</a>'
             nav += '</nav>'
@@ -99,7 +100,7 @@ for repo in REPOS:
         elif name == ('ut01.html' if code == '0221' else 'ut02.html'):
             continue
         filtered = [(target, label) for target, label in section_list if not any(word in label.lower() for word in ['criterio', 'resultado de aprendizaje', 'pendiente', 'próximos', 'en esta página'])]
-        shortcuts = '<div class="aula-atajos">' + ''.join('<a href="temas/' + name + '#' + target + '">' + escape(label) + '</a>' for target, label in filtered[:5]) + '</div>'
+        shortcuts = '<div class="aula-atajos">' + ''.join('<a href="temas/' + name + '#' + target + '">' + escape(label) + '</a>' for target, label in (filtered if category == 'ejercicios' else filtered[:5])) + '</div>'
         description = 'Material de consulta para seguir las sesiones.'
         if category == 'ejercicios':
             description = 'Practica y comprueba lo aprendido. Actividades formativas; no cuentan para la nota.'

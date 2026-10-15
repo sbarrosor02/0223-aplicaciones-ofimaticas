@@ -42,11 +42,12 @@ Al crear o modificar un tema en `temario/` hay que: (1) generar/actualizar
   (`ut02-1.html`…`ut02-7.html`), enlazados desde una página índice de tema
   (`web/temas/ut02.html`). Delante hay un subtema 2.0 de repaso (primer
   documento, edición básica), no evaluable y con horas no oficiales, para
-  quien no llegue con ese nivel. Subtemas 2.0 a 2.3 publicados; 2.4 a 2.7
-  pendientes. Además hay una página de ejercicios guiados formativos
+  quien no llegue con ese nivel. Subtemas 2.0 a 2.6 publicados; 2.7
+  pendiente. Además hay una página de ejercicios guiados formativos
   (`web/temas/ut02-ejercicios.html`), con un hilo conductor único (construir
   el propio currículum vitae) para todo el tema.
-- Ejercicios guiados: bloques 2.0–2.3 disponibles. Práctica de control PC1
+- Ejercicios guiados: bloques 2.0–2.6 disponibles. Reto en equipo «El documento
+  saboteado» (formativo, 1 sesión; solucionario en `temario/soluciones/`). Práctica de control PC1
   publicada con especificaciones concretas y material descargable. Mapa de la
   cinta de Word disponible como recurso de consulta.
 - Resto de temas (3 a 9): pendientes.
