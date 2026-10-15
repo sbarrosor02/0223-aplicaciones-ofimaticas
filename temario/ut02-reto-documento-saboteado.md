@@ -32,6 +32,19 @@ se ve bien puede estar mal hecho, y se nota en cuanto alguien lo modifica*. Es
 la razón de fondo de los estilos (2.2), los campos (2.4) y la limpieza antes de
 entregar (2.6), y la base de las plantillas (CE b) y los manuales (CE f).
 
+## El tema
+
+Las bases de un **torneo de EA Sports FC** del instituto, escritas por un
+capitán eliminado el año anterior que se venga saboteándolas. Se eligió fútbol
+y videojuego a la vez porque engancha a la mayoría, y EA Sports FC es PEGI 3,
+así que no plantea el problema de edad del GTA VI de la práctica colaborativa.
+El alumnado hace de «VAR». No hace falta haber jugado: el documento solo trata
+de normas, calendario y material.
+
+Como en la práctica de Google Docs, todo el reto descansa en la estructura del
+documento y no en el tema: cambiar de temática es reescribir los textos de
+`scripts/generar_saboteado.js` y la columna «Dónde» del solucionario.
+
 ## Dinámica
 
 - Equipos de 3 con **un solo ordenador para arreglar** (piloto). El detective
