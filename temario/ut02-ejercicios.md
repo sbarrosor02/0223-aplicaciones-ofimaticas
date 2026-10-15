@@ -34,8 +34,8 @@ con todas las técnicas del tema, no un archivo de pruebas desechable.
 | 2.3 | Tabla de competencias, fotografía, captura de pantalla, SmartArt, gráfico | Publicado |
 | 2.4 | CV como plantilla `.dotx`, vista Esquema, tabla de contenido, ilustraciones, referencias cruzadas y notas al pie | Publicado · descarga `dossier-proyectos-sin-estructurar.docx` |
 | 2.5 | Exportar a PDF/ODT/TXT, abrir un PDF en Word, y carta de presentación combinada (asignar campos, filtrar, ordenar) | Publicado · descarga `empresas-destinatarias.xlsx` |
-| 2.6 | Proteger el CV con contraseña; revisión colaborativa simulada (comentarios, control de cambios) | Pendiente (con el subtema 2.6) |
-| 2.7 | Macro de formato automático; manual/parte de incidencias como proyecto final | Pendiente (con el subtema 2.7) |
+| 2.6 | Resaltado y comentarios, revisión cruzada con control de cambios, vistas, comparar versiones, proteger y cifrar | Publicado |
+| 2.7 | Plantilla `.dotm`, macro `NuevaExperiencia` que aplica estilos, botón, retoque del código y manual breve «cómo añadir una experiencia» | Publicado |
 
 ## Cadena de archivos del CV
 
@@ -44,7 +44,8 @@ pueda volver atrás si estropea algo:
 
 `cv_borrador.docx` (2.0-2.1) → `cv_v2.docx` (2.2) → `cv_v3.docx` (2.3) →
 `cv_plantilla.dotx` + `cv_v4.docx` (2.4) → `cv.pdf` / `cv.odt` / `cv.txt` +
-`carta_presentacion.docx` + `cartas_combinadas.docx` (2.5).
+`carta_presentacion.docx` + `cartas_combinadas.docx` (2.5) → `cv_v5.docx` +
+`cv_final.docx` (2.6) → `cv_plantilla.dotm` + `cv_v6.docx` + `manual_cv.pdf` (2.7).
 
 Aparte del CV, el bloque 2.4 trabaja sobre `dossier_v1.docx`, que es donde se
 hacen el esquema y la tabla de contenido: el CV es demasiado corto para eso.

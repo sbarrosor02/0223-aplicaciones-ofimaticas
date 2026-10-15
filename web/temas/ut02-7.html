@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tema 2.7 · Macros y elaboración de manuales · 0223 Aplicaciones ofimáticas</title>
+<link rel="stylesheet" href="../assets/estilo.css">
+<style>
+  .codigo { background: var(--fondo); border: 1px solid var(--linea); border-radius: var(--radio);
+    padding: 0.8rem 1rem; overflow-x: auto; font-size: 0.88rem; line-height: 1.5; margin: 0.8rem 0; }
+  .codigo code { overflow-wrap: normal; white-space: pre; }
+  .codigo .com { color: #2e7d32; }
+  .t27 { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 1rem 0; }
+  .t27 th, .t27 td { border: 1px solid var(--linea); padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+  .t27 th { background: var(--acento-claro); color: var(--acento); }
+  .mal-bien { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin: 0.8rem 0; }
+  .mal-bien > div { border: 1px solid var(--linea); border-radius: var(--radio); padding: 0.6rem 0.8rem; background: var(--fondo); }
+  .mal-bien .et { display: block; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.3rem; }
+  .mal-bien .mal .et { color: #a33; }
+  .mal-bien .bien .et { color: #2e7d32; }
+  .mal-bien p { margin: 0.2rem 0; }
+  @media (max-width: 560px) { .mal-bien { grid-template-columns: 1fr; } }
+</style>
+<link rel="stylesheet" href="../assets/aula.css">
+<script defer src="../assets/aula.js"></script>
+</head>
+<body data-modulo="0223">
+<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0223 / Aplicaciones ofimáticas</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-1-que-es-una-macro">1. Qué es una macro</a></li><li><a href="#apartado-2-antes-de-grabar-donde-se-guarda-la-macro">2. Antes de grabar: dónde se guarda la macro</a></li><li><a href="#apartado-3-grabar-una-macro-paso-a-paso">3. Grabar una macro paso a paso</a></li><li><a href="#apartado-4-ejecutar-y-organizar-tus-macros">4. Ejecutar y organizar tus macros</a></li><li><a href="#apartado-5-mirar-y-retocar-el-codigo">5. Mirar (y retocar) el código</a></li><li><a href="#apartado-6-macros-y-seguridad">6. Macros y seguridad</a></li><li><a href="#apartado-7-que-es-un-manual-especifico">7. Qué es un manual específico</a></li><li><a href="#apartado-8-como-se-escribe-un-paso">8. Cómo se escribe un paso</a></li><li><a href="#apartado-9-del-borrador-a-la-entrega">9. Del borrador a la entrega</a></li><li><a href="#apartado-10-practicas-del-subtema">10. Prácticas del subtema</a></li><li><a href="#apartado-11-comprueba-lo-que-has-entendido">11. Comprueba lo que has entendido</a></li><li><a href="#apartado-12-cierre-del-tema-2">12. Cierre del Tema 2</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1">
+
+  <header class="cab">
+    <p class="modulo">0223 · Aplicaciones ofimáticas · Tema 2 (7 de 7)</p>
+    <h1>Tema 2.7 — Macros y elaboración de manuales</h1>
+    <p class="meta">1.º SMR · Curso 2026/2027 · 1.ª evaluación · Duración: 8 h</p>
+  </header>
+<div class="aula-herramientas"><button type="button" data-imprimir hidden>Imprimir / guardar PDF</button></div>
+<nav class="subnav" aria-label="Apartados del tema 2"><a href="ut02.html">Portada del tema</a><a href="ut02.html#apartado-subtemas">Apuntes</a><a href="ut02-ejercicios.html">Ejercicios guiados</a><a href="ut02-ejercicios-reto-saboteado.html">Reto en equipo</a><a href="ut02-practicas.html">Prácticas de control</a><a href="mapa-cinta.html">Mapa de Word</a></nav>
+
+  <details class="ra-ce"><summary>Qué se evalúa · RA y criterios</summary>
+    <h2 id="apartado-resultado-de-aprendizaje">Resultado de aprendizaje</h2>
+    <p><strong>RA2.</strong> Elabora documentos y plantillas, describiendo y
+    aplicando las opciones avanzadas de procesadores de textos.</p>
+    <p>Criterios de evaluación que trabaja este subtema:</p>
+    <ul>
+      <li><strong>e)</strong> Se han creado y utilizado macros en la realización de documentos.</li>
+      <li><strong>f)</strong> Se han elaborado manuales específicos.</li>
+    </ul>
+    <p>Es el último subtema del Tema 2 y el que lo junta todo: el manual se
+    construye con los estilos del 2.2, las capturas del 2.3, la plantilla y la
+    tabla de contenido del 2.4, la exportación del 2.5 y la revisión del 2.6.</p>
+  </details>
+
+  <div class="aviso">
+    <strong>Dos cosas que van juntas.</strong> Un manual repite las mismas piezas
+    una y otra vez: un aviso aquí, una captura con su título allá, otro paso
+    numerado… Las <strong>macros</strong> sirven precisamente para eso: hacer en
+    un clic lo que repites. En este subtema aprenderás a grabarlas y las usarás
+    para escribir tu propio manual.
+  </div>
+
+  <section>
+    <h2 id="apartado-1-que-es-una-macro">1. Qué es una macro</h2>
+    <p>Una <strong>macro</strong> es una secuencia de acciones que Word
+    <strong>graba</strong> mientras las haces y luego
+    <strong>repite</strong> cuando se lo pides, con un botón o un atajo de
+    teclado. Por dentro, Word la guarda como un pequeño programa escrito en
+    <strong>VBA</strong> (Visual Basic para Aplicaciones).</p>
+
+    <h3>Cuándo merece la pena</h3>
+    <p>La regla práctica: <strong>si haces lo mismo más de tres veces, grábalo</strong>.
+    Algunos ejemplos reales:</p>
+    <ul>
+      <li>Insertar un recuadro de <em>Importante</em> o <em>Atención</em> en un manual.</li>
+      <li>Dar a cada captura de pantalla el mismo formato: centrada, con borde y con
+      su título debajo.</li>
+      <li>Limpiar un texto pegado de una web: quitar dobles espacios y saltos de
+      línea manuales.</li>
+      <li>Insertar el bloque de firma de un informe técnico.</li>
+    </ul>
+
+    <h3>Cuándo no</h3>
+    <ul>
+      <li>Si ya existe una herramienta que lo hace: para dar formato a títulos está el
+      <strong>estilo</strong>; para un texto que se repite siempre igual, el <strong>Autotexto</strong>
+      (<code>Insertar &gt; Elementos rápidos</code>), que también se guarda en las plantillas (2.4).</li>
+      <li>Si lo vas a hacer una sola vez: grabar, probar y corregir la macro lleva
+      más tiempo que hacerlo a mano.</li>
+    </ul>
+
+    <div class="tarjeta">
+      <p><strong>Una macro buena aplica estilos.</strong> Si tu macro pone negrita,
+      16 puntos y azul a mano, estás fabricando documentos saboteados más deprisa
+      (¿te acuerdas del <a href="ut02-ejercicios-reto-saboteado.html">reto del
+      torneo</a>?). Si en lugar de eso aplica el estilo <em>Título 3</em>, el día que
+      cambies el estilo cambiará todo lo que insertó la macro.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 id="apartado-2-antes-de-grabar-donde-se-guarda-la-macro">2. Antes de grabar: dónde se guarda la macro</h2>
+    <p>Al grabar, Word te pregunta dónde guardarla. La decisión importa más que
+    la propia macro:</p>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="t27">
+      <thead><tr><th>Dónde</th><th>Disponible en</th><th>Cuándo usarlo</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Todos los documentos (Normal.dotm)</strong></td><td>Cualquier documento que abras en ese ordenador, con tu usuario</td><td>Macros personales que usas siempre. Es la opción por defecto</td></tr>
+        <tr><td><strong>El documento actual</strong></td><td>Solo ese documento</td><td>Macros que solo tienen sentido en ese archivo. Obliga a guardarlo como <code>.docm</code></td></tr>
+        <tr><td><strong>Una plantilla abierta</strong> (<code>.dotm</code>)</td><td>Los documentos creados a partir de esa plantilla</td><td>Macros de un tipo de documento: <strong>la plantilla del manual</strong></td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>Los formatos que guardan macros</h3>
+    <ul>
+      <li><code>.docx</code> — documento <strong>sin</strong> macros. Si guardas
+      así un documento que las tiene, Word te avisa y <strong>las pierdes</strong>.</li>
+      <li><code>.docm</code> — documento con macros (la <em>m</em> es de macro).</li>
+      <li><code>.dotx</code> — plantilla sin macros (la del 2.4).</li>
+      <li><code>.dotm</code> — plantilla con macros.</li>
+    </ul>
+
+    <div class="aviso">
+      <strong>Comprueba que tienes la ficha Programador.</strong> La activaste en el
+      2.6 para los formularios. Si no la ves: <code>Archivo &gt; Opciones &gt;
+      Personalizar cinta</code> y marca <em>Programador</em>. La grabadora también
+      está en <code>Vista &gt; Macros</code>, pero el editor de código solo está en
+      Programador.
+    </div>
+  </section>
+
+  <section>
+    <h2 id="apartado-3-grabar-una-macro-paso-a-paso">3. Grabar una macro paso a paso</h2>
+
+    <h3>El nombre</h3>
+    <p>Empieza por una letra y no lleva espacios ni guiones. Para separar palabras
+    se usan mayúsculas: <code>FormatoCaptura</code>, <code>AvisoImportante</code>.
+    Añade una descripción corta: dentro de un mes no recordarás qué hacía.</p>
+
+    <h3>La limitación del ratón</h3>
+    <p>Mientras grabas, el ratón <strong>solo sirve para pulsar botones de la
+    cinta</strong>. No puedes hacer clic en el texto ni seleccionar arrastrando.
+    Para moverte y seleccionar usa el teclado:</p>
+    <ul>
+      <li><kbd>Mayús</kbd>+<kbd>←</kbd>/<kbd>→</kbd> — seleccionar letra a letra.</li>
+      <li><kbd>Ctrl</kbd>+<kbd>Mayús</kbd>+<kbd>←</kbd>/<kbd>→</kbd> — seleccionar palabra a palabra.</li>
+      <li><kbd>Inicio</kbd> / <kbd>Fin</kbd> — principio o final de la línea.</li>
+      <li><kbd>Mayús</kbd>+<kbd>Fin</kbd> — seleccionar hasta el final de la línea.</li>
+    </ul>
+    <p>Por eso conviene <strong>preparar la situación antes</strong> de grabar:
+    coloca el cursor o selecciona la imagen y, después, empieza a grabar.</p>
+
+    <h3>Ejemplo guiado: la macro <em>Aviso</em></h3>
+    <p>Inserta un recuadro sombreado que empieza por «Importante:», listo para
+    escribir. Es la pieza que más se repite en un manual.</p>
+    <ol>
+      <li>Coloca el cursor en una <strong>línea vacía</strong> de un documento de
+      prueba.</li>
+      <li><code>Programador &gt; Código &gt; Grabar macro</code>.</li>
+      <li>Nombre: <code>Aviso</code>. Guardar macro en: <em>Todos los documentos
+      (Normal.dotm)</em>. Descripción: <em>Recuadro de aviso para manuales</em>.</li>
+      <li>Pulsa <strong>Botón</strong> para colocarla en la barra de herramientas de
+      acceso rápido (lo verás en el apartado 4) y <strong>Aceptar</strong>. A partir
+      de aquí todo se graba: el puntero muestra un casete.</li>
+      <li><code>Insertar &gt; Tabla</code> y elige <strong>1 × 1</strong>.</li>
+      <li><code>Diseño de tabla &gt; Sombreado</code> y elige un amarillo claro.</li>
+      <li>Pulsa <kbd>Ctrl</kbd>+<kbd>N</kbd>, escribe <code>Importante: </code> y
+      vuelve a pulsar <kbd>Ctrl</kbd>+<kbd>N</kbd> para quitar la negrita.</li>
+      <li><code>Programador &gt; Código &gt; Detener grabación</code>.</li>
+    </ol>
+    <p>Prueba: coloca el cursor en otra línea vacía y ejecútala. Si el recuadro sale
+    igual, ya tienes tu primera macro.</p>
+    <p class="pie-fig"><em>Si te equivocas grabando, no pasa nada: detén la grabación
+    y vuelve a grabarla con el mismo nombre. Word te pregunta si quieres sustituir
+    la anterior.</em></p>
+  </section>
+
+  <section>
+    <h2 id="apartado-4-ejecutar-y-organizar-tus-macros">4. Ejecutar y organizar tus macros</h2>
+
+    <h3>Desde la lista</h3>
+    <p><kbd>Alt</kbd>+<kbd>F8</kbd> abre la lista de macros (también en
+    <code>Vista &gt; Macros</code>). Desde ahí se ejecutan, se eliminan y se abre su
+    código con <strong>Modificar</strong>. En <em>Macros en</em> eliges si ver las
+    de Normal.dotm, las del documento o las de todas las plantillas abiertas.</p>
+
+    <h3>Con un botón</h3>
+    <p><code>Archivo &gt; Opciones &gt; Barra de herramientas de acceso
+    rápido</code>. En <em>Comandos disponibles en</em> elige <em>Macros</em>, pasa la
+    tuya a la derecha y pulsa <strong>Modificar</strong> para darle un icono y un
+    nombre visible. Es lo mismo que hiciste en el 2.1 con los comandos de Word.</p>
+
+    <h3>Con el teclado</h3>
+    <p><code>Archivo &gt; Opciones &gt; Personalizar cinta &gt; Métodos abreviados
+    de teclado: Personalizar</code>. En <em>Categorías</em> elige <em>Macros</em>,
+    selecciona la tuya y pulsa la combinación en <em>Nueva tecla de método
+    abreviado</em>.</p>
+    <div class="aviso">
+      <strong>Mira la línea «Asignado actualmente a».</strong> Si pone algo, esa
+      combinación ya la usa Word y la vas a sustituir. Asignar tu macro a
+      <kbd>Ctrl</kbd>+<kbd>G</kbd> significa quedarte sin «Guardar». Busca una
+      combinación que ponga <em>[sin asignar]</em>; las de
+      <kbd>Alt</kbd>+<kbd>Ctrl</kbd>+letra suelen estar libres.
+    </div>
+  </section>
+
+  <section>
+    <h2 id="apartado-5-mirar-y-retocar-el-codigo">5. Mirar (y retocar) el código</h2>
+    <p><kbd>Alt</kbd>+<kbd>F11</kbd> abre el <strong>editor de Visual Basic</strong>.
+    No vas a programar: vas a <strong>leer</strong> lo que Word ha grabado, porque
+    entenderlo explica qué es una macro y por qué puede ser peligrosa. A la
+    izquierda, en el explorador de proyectos, tus macros de Normal.dotm están en
+    <code>Normal &gt; Módulos &gt; NewMacros</code>.</p>
+    <p>La macro <em>Aviso</em> se parece a esto (Word graba bastantes más líneas
+    sobre el estilo de la tabla; aquí están las importantes):</p>
+<pre class="codigo"><code>Sub Aviso()
+<span class="com">'
+' Aviso Macro
+' Recuadro de aviso para manuales
+'</span>
+    ActiveDocument.Tables.Add Range:=Selection.Range, NumRows:=1, NumColumns:=1
+    Selection.Tables(1).Shading.BackgroundPatternColor = RGB(255, 242, 204)
+    Selection.Font.Bold = True
+    Selection.TypeText Text:="Importante: "
+    Selection.Font.Bold = False
+End Sub</code></pre>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="t27">
+      <thead><tr><th>Línea</th><th>Qué significa</th></tr></thead>
+      <tbody>
+        <tr><td><code>Sub Aviso()</code> … <code>End Sub</code></td><td>Principio y final de la macro. Lo de dentro es lo que se ejecuta</td></tr>
+        <tr><td>Líneas que empiezan por <code>'</code></td><td>Comentarios: Word no los ejecuta. Ahí está la descripción que escribiste</td></tr>
+        <tr><td><code>Tables.Add … NumRows:=1, NumColumns:=1</code></td><td>Inserta una tabla de una fila y una columna donde está el cursor</td></tr>
+        <tr><td><code>Shading.BackgroundPatternColor = RGB(…)</code></td><td>El color del sombreado, en rojo, verde y azul (de 0 a 255)</td></tr>
+        <tr><td><code>Selection.Font.Bold = True</code></td><td>Activa la negrita, como <kbd>Ctrl</kbd>+<kbd>N</kbd></td></tr>
+        <tr><td><code>Selection.TypeText Text:="…"</code></td><td>Escribe el texto que hay entre comillas</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>Retoques seguros</h3>
+    <ul>
+      <li>Cambiar el texto entre comillas: <code>"Atención: "</code>.</li>
+      <li>Cambiar el color: <code>RGB(221, 235, 247)</code> es un azul claro.</li>
+    </ul>
+    <p>Guarda con el icono del disquete del propio editor y vuelve a Word para
+    probarla. Si al ejecutar aparece un <strong>error de compilación</strong>, casi
+    siempre es una comilla o un paréntesis que se ha borrado: compara con el código
+    de arriba.</p>
+  </section>
+
+  <section>
+    <h2 id="apartado-6-macros-y-seguridad">6. Macros y seguridad</h2>
+    <p>Lo viste en el 2.6: una macro es código que se ejecuta en tu ordenador, y el
+    código lo puede escribir cualquiera. Durante años, los documentos de Office con
+    macros fueron una de las formas más habituales de colar <em>malware</em> en una
+    empresa: un adjunto que parece una factura y que, al habilitar el contenido,
+    descarga e instala otra cosa.</p>
+    <ul>
+      <li><strong>Barra amarilla</strong> «Las macros se han deshabilitado» con el
+      botón <em>Habilitar contenido</em>: es el nivel recomendado
+      (<em>Deshabilitar todas las macros con notificación</em>). Habilita solo si
+      sabes quién ha hecho el documento y para qué lleva macros.</li>
+      <li><strong>Barra roja</strong> «Riesgo de seguridad: Microsoft ha bloqueado la
+      ejecución de macros porque el origen de este archivo no es de confianza»: el
+      archivo viene de Internet o de un correo y Windows lo ha marcado. No hay botón
+      para habilitarlo, a propósito. Si el archivo es de confianza de verdad, se
+      desbloquea en el Explorador: clic derecho &gt; <em>Propiedades</em> &gt; marcar
+      <em>Desbloquear</em>.</li>
+    </ul>
+    <div class="aviso">
+      <strong>Como técnico de soporte, vas a oír «es que no me deja habilitar el
+      contenido».</strong> La respuesta correcta no es desbloquear el archivo: es
+      preguntar de dónde ha salido. Si nadie sabe explicar por qué un documento
+      necesita macros, no las necesita.
+    </div>
+    <p class="pie-fig"><em>En LibreOffice Writer también se pueden grabar macros
+    (<code>Herramientas &gt; Macros &gt; Grabar macro</code>, después de activar
+    <em>Habilitar grabación de macros</em> en <code>Herramientas &gt; Opciones &gt;
+    LibreOffice &gt; Avanzado</code>), pero usa su propio lenguaje, LibreOffice
+    Basic. Las macros de Word en VBA, en general, no funcionan en LibreOffice.</em></p>
+  </section>
+
+  <section>
+    <h2 id="apartado-7-que-es-un-manual-especifico">7. Qué es un manual específico</h2>
+    <p>Un <strong>manual</strong> explica a alguien concreto cómo hacer algo
+    concreto. «Específico» quiere decir eso: no es un libro sobre Word, es «cómo
+    conectar tu portátil a la wifi del instituto» o «cómo dar de alta un usuario
+    en el dominio». En tu trabajo vas a escribir muchos, porque lo que no está
+    documentado se pierde cuando la persona que lo sabía cambia de puesto.</p>
+
+    <h3>Tipos que vas a encontrar</h3>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="t27">
+      <thead><tr><th>Tipo</th><th>Para quién</th><th>Ejemplo</th></tr></thead>
+      <tbody>
+        <tr><td>Manual de usuario</td><td>Quien usa un programa o un equipo</td><td>Cómo enviar una impresión a la impresora de la sala de profesores</td></tr>
+        <tr><td>Procedimiento técnico</td><td>Otro técnico</td><td>Cómo clonar la imagen de un equipo del aula</td></tr>
+        <tr><td>Guía rápida</td><td>Quien ya sabe, pero necesita recordarlo</td><td>Una página con los atajos y pasos esenciales</td></tr>
+        <tr><td>Manual de instalación</td><td>Quien instala o configura</td><td>Instalar y activar el paquete ofimático (Tema 1)</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>Las partes de un manual</h3>
+    <ol>
+      <li><strong>Portada</strong>: título, a quién va dirigido, autor y fecha.</li>
+      <li><strong>Control de versiones</strong>: tabla con versión, fecha, autor y
+      qué cambió. Un manual se actualiza; sin esta tabla no se sabe cuál es el
+      bueno.</li>
+      <li><strong>Índice</strong>: tabla de contenido automática.</li>
+      <li><strong>Introducción</strong>: qué se consigue al terminar, para quién es
+      y qué hace falta antes de empezar (requisitos, permisos, material).</li>
+      <li><strong>Procedimientos</strong>: un apartado por tarea, con pasos
+      numerados y capturas.</li>
+      <li><strong>Solución de problemas</strong>: los fallos típicos y qué hacer.
+      Suele ser la parte más leída.</li>
+      <li><strong>Glosario y anexos</strong>, si hacen falta.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2 id="apartado-8-como-se-escribe-un-paso">8. Cómo se escribe un paso</h2>
+    <p>Quien lee un manual lo hace con el programa abierto al lado, alternando la
+    vista entre las dos cosas. Cada paso tiene que poder hacerse sin releer.</p>
+    <ul>
+      <li><strong>Una acción por paso.</strong> Si un paso tiene dos «y», son dos pasos.</li>
+      <li><strong>Empieza por el verbo</strong> y mantén la misma forma en todo el
+      manual: <em>Pulsa</em>, <em>Abre</em>, <em>Escribe</em>.</li>
+      <li><strong>Nombra los elementos tal y como aparecen en pantalla</strong> y en
+      negrita: <strong>Aceptar</strong>, no «el botón de confirmar».</li>
+      <li><strong>Di dónde está</strong> antes de decir qué hacer:
+      «En la pestaña <strong>Inicio</strong>, pulsa…».</li>
+      <li><strong>Di qué tiene que pasar</strong> cuando no sea evidente: así el
+      lector sabe si va bien.</li>
+      <li><strong>Captura cuando haya que buscar algo</strong>, recortada a la zona
+      que importa, con su título (<em>Figura 3</em>) y citada en el texto.</li>
+    </ul>
+
+    <div class="mal-bien">
+      <div class="mal"><span class="et">Mal</span>
+        <p>Vete a la configuración y pon lo de la red que te dijeron y dale a
+        guardar, si no funciona reinicia.</p>
+      </div>
+      <div class="bien"><span class="et">Bien</span>
+        <p>1. Abre <strong>Configuración</strong> &gt; <strong>Red e Internet</strong>.</p>
+        <p>2. Pulsa <strong>Wi-Fi</strong> y elige la red <strong>IES-ALUMNADO</strong>.</p>
+        <p>3. Escribe tu usuario del instituto y pulsa <strong>Conectar</strong>. Debe
+        aparecer «Conectado» (figura 2).</p>
+      </div>
+    </div>
+    <div class="mal-bien">
+      <div class="mal"><span class="et">Mal</span>
+        <p>Se procederá a la realización de la copia de seguridad de los datos.</p>
+      </div>
+      <div class="bien"><span class="et">Bien</span>
+        <p>Haz una copia de seguridad de la carpeta <strong>Documentos</strong>
+        antes de seguir.</p>
+      </div>
+    </div>
+    <p class="pie-fig"><em>La red y los nombres del ejemplo son inventados.</em></p>
+  </section>
+
+  <section>
+    <h2 id="apartado-9-del-borrador-a-la-entrega">9. Del borrador a la entrega</h2>
+    <p>Un manual es el documento que más técnicas del tema reúne. Este es el orden
+    de trabajo; cada paso remite al subtema donde lo aprendiste:</p>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="t27">
+      <thead><tr><th>Paso</th><th>Qué haces</th><th>Dónde se vio</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Parte de una <strong>plantilla de manual</strong> con estilos (<em>Título 1-3</em>, <em>Aviso</em>, <em>Paso</em>) y tus macros: un <code>.dotm</code></td><td>2.2, 2.4 y 2.7</td></tr>
+        <tr><td>2</td><td>Escribe primero la <strong>estructura</strong> en vista Esquema: solo los títulos</td><td>2.4</td></tr>
+        <tr><td>3</td><td>Redacta cada procedimiento con pasos numerados automáticos</td><td>2.2 y apartado 8</td></tr>
+        <tr><td>4</td><td>Haz las <strong>capturas</strong>, recórtalas y aplícales tu macro <em>FormatoCaptura</em></td><td>2.3 y 2.7</td></tr>
+        <tr><td>5</td><td>Inserta <strong>títulos</strong> de figura y <strong>referencias cruzadas</strong> («ver figura 3»)</td><td>2.4</td></tr>
+        <tr><td>6</td><td>Pásalo a otra persona para que lo revise con <strong>control de cambios</strong>; sigue tú los pasos de otro manual</td><td>2.6</td></tr>
+        <tr><td>7</td><td>Resuelve la revisión, actualiza la <strong>tabla de contenido</strong> y anota la versión</td><td>2.4 y 2.6</td></tr>
+        <tr><td>8</td><td><strong>Inspecciona</strong> el documento y expórtalo a <strong>PDF con marcadores</strong></td><td>2.5 y 2.6</td></tr>
+      </tbody>
+    </table></div>
+    <div class="tarjeta">
+      <p><strong>La mejor prueba de un manual</strong> es dárselo a alguien que no
+      sabe hacerlo y mirar, sin ayudarle, dónde se atasca. Cada vez que te pregunte
+      algo, al manual le falta un paso.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 id="apartado-10-practicas-del-subtema">10. Prácticas del subtema</h2>
+    <p>Acreditan los criterios <em>e</em> (macros) y <em>f</em> (manuales). Se
+    entregan en el portafolio del módulo.</p>
+    <ul>
+      <li><strong>P2.7.1</strong> · <strong>Macro Aviso</strong>: grábala en
+      Normal.dotm, ponle un botón con icono en la barra de herramientas de acceso
+      rápido y entrega una captura de la barra y un documento con tres avisos
+      insertados con ella.</li>
+      <li><strong>P2.7.2</strong> · <strong>Macro FormatoCaptura</strong>: con una
+      imagen seleccionada, la macro la centra, le pone un borde gris fino e inserta
+      debajo el título «Figura N». Asígnale una combinación de teclado <em>[sin
+      asignar]</em> e indica cuál has elegido.</li>
+      <li><strong>P2.7.3</strong> · <strong>Retocar el código</strong>: en el editor
+      VBA, cambia el texto y el color de <em>Aviso</em>. Entrega una captura del
+      código modificado y un documento de prueba guardado como <code>.docm</code>.
+      Explica en dos líneas qué pasaría si lo guardaras como <code>.docx</code>.</li>
+      <li><strong>P2.7.4</strong> · <strong>Plantilla de manual</strong>: crea
+      <code>manual.dotm</code> con portada, tabla de control de versiones, tabla de
+      contenido y estilos <em>Aviso</em> y <em>Paso</em>, y guarda dentro tus dos
+      macros (grábalas con la plantilla abierta o arrastra el módulo en el editor
+      VBA).</li>
+      <li><strong>P2.7.5</strong> · <strong>Manual breve</strong>: con tu plantilla,
+      escribe un manual de <strong>dos procedimientos</strong> sobre algo que sepas
+      hacer en un ordenador (4 a 6 páginas, con capturas). Antes de entregarlo,
+      intercámbialo con un compañero para revisarlo con control de cambios.
+      Entrega el PDF con marcadores y el <code>.docx</code> revisado.</li>
+    </ul>
+    <div class="tarjeta">
+      <p><strong>Proyecto final del Tema 2.</strong> El tercer punto de control
+      integra todo el tema en un manual completo, con macros y revisión en equipo.
+      Su enunciado y su rúbrica se publican en
+      <a href="ut02-practicas.html">Prácticas de control</a>.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 id="apartado-11-comprueba-lo-que-has-entendido">11. Comprueba lo que has entendido</h2>
+    <p>Nueve preguntas. No cuenta para la nota: es para que veas si puedes seguir.</p>
+
+    <form id="ei">
+
+      <div class="pregunta" data-correcta="b">
+        <p class="enunciado"><span class="num">1.</span> Quieres que tu macro esté
+        disponible en <strong>todos</strong> los documentos que abras en tu
+        ordenador. ¿Dónde la guardas?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p1" value="a"> En el documento actual</label></li>
+          <li><label><input type="radio" name="p1" value="b"> En Normal.dotm</label></li>
+          <li><label><input type="radio" name="p1" value="c"> En un archivo .docx aparte</label></li>
+          <li><label><input type="radio" name="p1" value="d"> En la barra de herramientas de acceso rápido</label></li>
+        </ul>
+        <span class="marca"></span>
+      </div>
+
+      <div class="pregunta" data-correcta="c">
+        <p class="enunciado"><span class="num">2.</span> Guardas como
+        <code>.docx</code> un documento que tiene macros dentro. ¿Qué pasa?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p2" value="a"> Nada, el .docx admite macros</label></li>
+          <li><label><input type="radio" name="p2" value="b"> Las macros pasan automáticamente a Normal.dotm</label></li>
+          <li><label><input type="radio" name="p2" value="c"> Word avisa y, si sigues, las macros se pierden</label></li>
+          <li><label><input type="radio" name="p2" value="d"> El documento queda protegido con contraseña</label></li>
+        </ul>
+        <span class="marca"></span>
+      </div>
+
+      <div class="pregunta" data-correcta="a">
+        <p class="enunciado"><span class="num">3.</span> Mientras grabas una macro
+        necesitas seleccionar una palabra. ¿Cómo lo haces?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p3" value="a"> Con el teclado: Ctrl+Mayús+flecha</label></li>
+          <li><label><input type="radio" name="p3" value="b"> Con doble clic sobre la palabra</label></li>
+          <li><label><input type="radio" name="p3" value="c"> Arrastrando con el ratón</label></li>
+          <li><label><input type="radio" name="p3" value="d"> No se puede seleccionar texto en una macro</label></li>
+        </ul>
+        <span class="marca"></span>
+      </div>
+
+      <div class="pregunta" data-correcta="d">
+        <p class="enunciado"><span class="num">4.</span> ¿Cuál de estos nombres de
+        macro es válido?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p4" value="a"> Formato captura</label></li>
+          <li><label><input type="radio" name="p4" value="b"> 1Captura</label></li>
+          <li><label><input type="radio" name="p4" value="c"> Formato-captura</label></li>
+          <li><label><input type="radio" name="p4" value="d"> FormatoCaptura</label></li>
+        </ul>
+        <span class="marca"></span>
+      </div>
+
+      <div class="pregunta" data-correcta="b">
+        <p class="enunciado"><span class="num">5.</span> ¿Qué atajo abre el
+        <strong>editor de Visual Basic</strong> para ver el código de tus macros?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p5" value="a"> Alt+F8</label></li>
+          <li><label><input type="radio" name="p5" value="b"> Alt+F11</label></li>
+          <li><label><input type="radio" name="p5" value="c"> Ctrl+F11</label></li>
+          <li><label><input type="radio" name="p5" value="d"> F7</label></li>
+        </ul>
+        <span class="marca"></span>
+      </div>
+
+      <div class="pregunta" data-correcta="c">
+        <p class="enunciado"><span class="num">6.</span> Asignas tu macro a una
+        combinación y desde entonces <kbd>Ctrl</kbd>+<kbd>G</kbd> ya no guarda. ¿Qué
+        ha pasado?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p6" value="a"> La macro tiene un error de compilación</label></li>
+          <li><label><input type="radio" name="p6" value="b"> Las macros desactivan los atajos de Word</label></li>
+          <li><label><input type="radio" name="p6" value="c"> Elegiste Ctrl+G sin mirar que ya estaba asignado a Guardar</label></li>
+          <li><label><input type="radio" name="p6" value="d"> Hay que guardar la macro como .docm</label></li>
+        </ul>
+        <span class="marca"></span>
+      </div>
+
+      <div class="pregunta" data-correcta="a">
+        <p class="enunciado"><span class="num">7.</span> Un usuario te enseña un
+        adjunto con la barra roja «Riesgo de seguridad» y te pide que lo
+        desbloquees. ¿Qué haces primero?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p7" value="a"> Preguntar de dónde viene y para qué necesita macros</label></li>
+          <li><label><input type="radio" name="p7" value="b"> Marcar Desbloquear en sus propiedades</label></li>
+          <li><label><input type="radio" name="p7" value="c"> Poner el nivel «Habilitar todas las macros»</label></li>
+          <li><label><input type="radio" name="p7" value="d"> Guardarlo como .docx para quitar el aviso</label></li>
+        </ul>
+        <span class="marca"></span>
+      </div>
+
+      <div class="pregunta" data-correcta="d">
+        <p class="enunciado"><span class="num">8.</span> ¿Por qué es mejor una macro
+        que aplica el estilo <em>Título 3</em> que una que pone negrita y 14 pt a
+        mano?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p8" value="a"> Porque se ejecuta más rápido</label></li>
+          <li><label><input type="radio" name="p8" value="b"> Porque las macros no pueden dar formato directo</label></li>
+          <li><label><input type="radio" name="p8" value="c"> Porque así la macro ocupa menos</label></li>
+          <li><label><input type="radio" name="p8" value="d"> Porque si cambias el estilo, cambia todo lo que insertó la macro y aparece en el índice</label></li>
+        </ul>
+        <span class="marca"></span>
+      </div>
+
+      <div class="pregunta" data-correcta="b">
+        <p class="enunciado"><span class="num">9.</span> ¿Cuál de estos pasos de un
+        manual está mejor escrito?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p9" value="a"> Se procederá a guardar el archivo y cerrar el programa.</label></li>
+          <li><label><input type="radio" name="p9" value="b"> En la pestaña <strong>Archivo</strong>, pulsa <strong>Guardar como</strong>.</label></li>
+          <li><label><input type="radio" name="p9" value="c"> Guarda y cierra y luego vuelve a abrirlo para ver si está.</label></li>
+          <li><label><input type="radio" name="p9" value="d"> Dale al botón de arriba que sirve para guardar.</label></li>
+        </ul>
+        <span class="marca"></span>
+      </div>
+
+      <div class="acciones">
+        <button type="button" id="corregir">Corregir</button>
+        <button type="button" id="reiniciar">Reiniciar</button>
+      </div>
+      <p class="resultado oculto" id="resultado"></p>
+    </form>
+  </section>
+
+  <section>
+    <h2 id="apartado-12-cierre-del-tema-2">12. Cierre del Tema 2</h2>
+    <p>Marca lo que ya sabrías hacer tú solo. Si algo se queda sin marcar, díselo al
+    profesor antes del proyecto final.</p>
+    <ul class="checklist">
+      <li><label><input type="checkbox"> Decidir si algo merece una macro o si basta con un estilo o un Autotexto</label></li>
+      <li><label><input type="checkbox"> Grabar una macro en Normal.dotm, en un documento o en una plantilla, sabiendo qué implica cada opción</label></li>
+      <li><label><input type="checkbox"> Distinguir .docx, .docm, .dotx y .dotm</label></li>
+      <li><label><input type="checkbox"> Moverme y seleccionar con el teclado mientras grabo</label></li>
+      <li><label><input type="checkbox"> Ejecutar una macro desde Alt+F8, desde un botón y con un atajo que no pise los de Word</label></li>
+      <li><label><input type="checkbox"> Abrir el editor VBA, localizar mi macro y cambiar un texto o un color</label></li>
+      <li><label><input type="checkbox"> Explicar las barras amarilla y roja de las macros y qué hacer con cada una</label></li>
+      <li><label><input type="checkbox"> Enumerar las partes de un manual y para qué sirve el control de versiones</label></li>
+      <li><label><input type="checkbox"> Escribir pasos con una acción, verbo al principio y el nombre exacto de cada botón</label></li>
+      <li><label><input type="checkbox"> Llevar un manual del borrador al PDF: plantilla, capturas, referencias, revisión e inspección</label></li>
+    </ul>
+  </section>
+
+  <nav class="nav-temas">
+    <a href="ut02-6.html">&laquo; Tema 2.6</a>
+    <a href="ut02.html">Índice del Tema 2</a>
+    <span>Siguiente &raquo; (Tema 3, próximamente)</span>
+  </nav>
+
+  <footer class="pie">
+    <p>0223 Aplicaciones ofimáticas · Material de consulta del alumnado.
+    Currículo: Decreto 272/2009 (Extremadura).</p>
+  </footer>
+
+<script>
+(function () {
+  var form = document.getElementById('ei');
+  var preguntas = form.querySelectorAll('.pregunta');
+  var salida = document.getElementById('resultado');
+
+  document.getElementById('corregir').addEventListener('click', function () {
+    var aciertos = 0, contestadas = 0;
+    preguntas.forEach(function (p) {
+      var correcta = p.getAttribute('data-correcta');
+      var elegida = p.querySelector('input:checked');
+      var marca = p.querySelector('.marca');
+      p.classList.remove('acierto', 'fallo');
+      if (!elegida) { marca.textContent = ''; return; }
+      contestadas++;
+      if (elegida.value === correcta) {
+        aciertos++;
+        p.classList.add('acierto');
+        marca.textContent = '✓ correcto';
+      } else {
+        p.classList.add('fallo');
+        marca.textContent = '✗ la correcta era la opción ' + correcta.toUpperCase();
+      }
+    });
+    var total = preguntas.length;
+    salida.classList.remove('oculto');
+    salida.textContent = 'Aciertos: ' + aciertos + ' de ' + total +
+      '  ·  Contestadas: ' + contestadas + '/' + total +
+      '  ·  Nota orientativa: ' + (Math.round(aciertos / total * 100) / 10) + ' / 10' +
+      '   (recuerda: esta autocomprobación no cuenta para la evaluación)';
+    salida.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+
+  document.getElementById('reiniciar').addEventListener('click', function () {
+    form.reset();
+    preguntas.forEach(function (p) {
+      p.classList.remove('acierto', 'fallo');
+      p.querySelector('.marca').textContent = '';
+    });
+    salida.classList.add('oculto');
+    salida.textContent = '';
+  });
+})();
+</script>
+
+</main></div>
+</body>
+</html>
