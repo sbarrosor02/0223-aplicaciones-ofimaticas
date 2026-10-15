@@ -85,5 +85,5 @@ originales, no copiados). Ver `temario/ut02-ejercicios.md` y
 
 ## Estado
 
-- 2.0 y 2.1: publicados (con sus ejercicios guiados).
-- 2.2 a 2.7: pendientes (sus ejercicios guiados se redactan junto con cada subtema).
+- 2.0 a 2.7: publicados, con sus ejercicios guiados.
+- Pendiente: enunciado y rúbrica del proyecto final (PC3).
