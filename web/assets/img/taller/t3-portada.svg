@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-12 -12 234 321" role="img"
+  aria-labelledby="t3t t3d">
+<title id="t3t">Portada de referencia para la práctica T3</title>
+<desc id="t3d">Página A4 vertical con dos triángulos granates y dos rosados arriba y abajo, dos pentágonos
+verdes semitransparentes que se salen por las esquinas superior izquierda e inferior derecha, y en el centro
+el texto PROYECTO curvado en arco con degradado, con el subtítulo Ciclo de SMR, curso 2026/2027.</desc>
+<defs>
+  <clipPath id="hoja"><rect x="0" y="0" width="210" height="297"/></clipPath>
+  <linearGradient id="deg" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#C0392B"/><stop offset="1" stop-color="#5B0E14"/>
+  </linearGradient>
+  <path id="arco" d="M 8 172 Q 105 92 202 172"/>
+</defs>
+<rect x="-12" y="-12" width="234" height="321" fill="#B7B7B7"/>
+<rect x="0" y="0" width="210" height="297" fill="#FFFFFF"/>
+<g clip-path="url(#hoja)">
+  <polygon points="0,0 210,0 0,105" fill="#F4C7CC"/>
+  <polygon points="45,0 210,0 150,62" fill="#7B1420"/>
+  <polygon points="210,297 0,297 210,192" fill="#F4C7CC"/>
+  <polygon points="165,297 0,297 60,235" fill="#7B1420"/>
+  <polygon points="31.1,-15.0 65.8,23.4 39.9,68.2 -10.7,57.4 -16.1,6.0" fill="#3A7D44" fill-opacity="0.6"/>
+  <polygon points="212.0,233.9 233.0,281.1 194.6,315.8 149.8,289.9 160.6,239.3" fill="#3A7D44" fill-opacity="0.6"/>
+</g>
+<rect x="0" y="0" width="210" height="297" fill="none" stroke="#222" stroke-width="0.8"/>
+<text font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="31" fill="url(#deg)"
+  text-anchor="middle"><textPath href="#arco" startOffset="50%">PROYECTO</textPath></text>
+<text x="105" y="190" font-family="Arial, sans-serif" font-size="9" fill="#5B0E14" text-anchor="middle">Ciclo de SMR · Curso 2026/2027</text>
+</svg>
