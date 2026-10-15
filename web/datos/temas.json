@@ -142,6 +142,18 @@
           "titulo": "Reto en equipo: el documento saboteado",
           "url": "temas/ut02-ejercicios-reto-saboteado.html",
           "nota": "formativo, no evaluable; equipos de 3 con roles rotatorios, 1 sesión; documento: bases de un torneo de EA Sports FC; repasa 2.0-2.6 detectando y arreglando 15 trampas de formato manual; descarga reto-documento-saboteado.docx (scripts/generar_saboteado.js); solucionario y pruebas de estrés en temario/soluciones/"
+        },
+        {
+          "titulo": "Taller de maquetación (T1-T5)",
+          "url": "temas/ut02-practicas-taller.html",
+          "evaluable": true,
+          "nota": "trabajo diario; tabulaciones y plantilla (b), tabla combinada, portada con formas y gráfico de anillo (c), combinación con reglas (d); entrega en Moodle; descargas t1-pedidos.docx y t5-invitados.xlsx; materiales de scripts/generar_taller_maquetacion.py"
+        },
+        {
+          "titulo": "Caso práctico: la carta de un restaurante",
+          "url": "temas/ut02-practicas-carta.html",
+          "evaluable": true,
+          "nota": "caso práctico del CE c, 4 sesiones, rúbrica de 10; restaurante inventado La Cereza Brava; descarga carta-contenido.docx; entrega .docx + .pdf en Moodle"
         }
       ]
     }

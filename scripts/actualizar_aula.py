@@ -55,7 +55,7 @@ def shell(source, code, current, short_name):
     if last < 0:
         raise ValueError(current)
     source = source[:last] + '\n</main></div>' + source[last + len('\n</div>'):]
-    source = re.sub(r'(<header class="cab">.*?</header>)', r'\1\n<div class="aula-herramientas"><button type="button" data-imprimir hidden>Imprimir / guardar PDF</button></div>', source, count=1, flags=re.S)
+    source = re.sub(r'(<header class="cab">.*?</header>(?:\s*<nav class="subnav".*?</nav>)?)', r'\1\n<div class="aula-herramientas"><button type="button" data-imprimir hidden>Imprimir / guardar PDF</button></div>', source, count=1, flags=re.S)
     source = re.sub(r'<div class="ra-ce">(.*?)</div>', lambda match: '<details class="ra-ce"><summary>Qué se evalúa · RA y criterios</summary>' + match[1] + '</details>', source, flags=re.S)
     source = re.sub(r'(<table\b.*?</table>)', r'<div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0">\1</div>', source, flags=re.S)
     return source
