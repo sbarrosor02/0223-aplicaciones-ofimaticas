@@ -28,7 +28,7 @@
       "evaluacion": 1,
       "horas": 60,
       "estado": "en progreso",
-      "actualizado": "2026-10-08",
+      "actualizado": "2026-10-15",
       "subtemas": [
         {
           "ut": "2.0",
@@ -137,6 +137,11 @@
           "url": "temas/ut02-6-practica-colaborativa.html",
           "evaluable": true,
           "nota": "equipos de 3, 3 sesiones; traslada el subtema 2.6 a Google Docs (sugerencias, comentarios asignados, historial de versiones, permisos) y cierra con exportación a .docx y PDF para el CE d"
+        },
+        {
+          "titulo": "Reto en equipo: el documento saboteado",
+          "url": "temas/ut02-ejercicios-reto-saboteado.html",
+          "nota": "formativo, no evaluable; equipos de 3 con roles rotatorios, 1 sesión; repasa 2.0-2.6 detectando y arreglando 15 trampas de formato manual; descarga reto-documento-saboteado.docx (scripts/generar_saboteado.js); solucionario y pruebas de estrés en temario/soluciones/"
         }
       ]
     }
