@@ -10,7 +10,7 @@
 </head>
 <body data-modulo="0223">
 <a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0223 / Aplicaciones ofimáticas</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
-<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-pc1-documento-profesional-integrador">PC1 · Documento profesional integrador</a></li><li><a href="#apartado-pc2-dossier-corporativo-y-mailing-comercial">PC2 · Dossier corporativo y mailing comercial</a></li><li><a href="#apartado-taller-de-maquetacion-y-caso-practico">Taller de maquetación y caso práctico</a></li><li><a href="#apartado-proximos-puntos-de-control">Próximos puntos de control</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1">
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-pc1-documento-profesional-integrador">PC1 · Documento profesional integrador</a></li><li><a href="#apartado-pc2-dossier-corporativo-y-mailing-comercial">PC2 · Dossier corporativo y mailing comercial</a></li><li><a href="#apartado-pc3-proyecto-final-manual-de-usuario-con-macros">PC3 · Proyecto final: manual de usuario con macros</a></li><li><a href="#apartado-taller-de-maquetacion-y-caso-practico">Taller de maquetación y caso práctico</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1">
 
   <header class="cab">
     <p class="modulo">0223 · Aplicaciones ofimáticas · Tema 2</p>
@@ -334,6 +334,217 @@
   </section>
 
   <section>
+    <h2 id="apartado-pc3-proyecto-final-manual-de-usuario-con-macros">PC3 · Proyecto final: manual de usuario con macros</h2>
+    <p class="meta"><strong>Integra todo el Tema 2</strong> (subtemas 2.0 a 2.7) ·
+    evaluable · criterios <strong>e</strong> y <strong>f</strong> · unas 6 sesiones ·
+    se entrega en Moodle</p>
+
+    <h3>El encargo</h3>
+    <p>Sigues en <strong>Soporte Integral Jerte</strong>. Un cliente, una oficina
+    con diez empleados, pide a la empresa un <strong>manual de usuario</strong> con
+    las tareas que más dudas generan en el día a día. Tu responsable quiere además
+    que dejes preparada una <strong>plantilla de manuales con macros</strong>, para
+    que el próximo manual de la empresa se haga en la mitad de tiempo.</p>
+    <p>Como en los otros puntos de control, no hay pasos guiados: hay un pliego de
+    especificaciones. Todo lo que se pide está en los apuntes del
+    <a href="ut02-7.html">subtema 2.7</a> y en los anteriores.</p>
+
+    <div class="tarjeta">
+      <p><strong>Elige tres procedimientos</strong> de esta lista. Tienen que poder
+      hacerse en los ordenadores del aula, porque cada paso lleva su captura; si
+      alguno no se puede, el profesor te lo dirá.</p>
+      <ol>
+        <li>Conectar un portátil a una red wifi con contraseña.</li>
+        <li>Añadir una impresora de red y establecerla como predeterminada.</li>
+        <li>Hacer una copia de seguridad de una carpeta en un pendrive.</li>
+        <li>Comprimir y descomprimir una carpeta con 7-Zip.</li>
+        <li>Cambiar la contraseña de la cuenta de Windows y configurar un PIN.</li>
+        <li>Instalar LibreOffice desde su web oficial y comprobar la versión.</li>
+        <li>Pausar y reanudar las actualizaciones de Windows.</li>
+        <li>Hacer una captura de una zona de la pantalla con Recortes, señalarla y
+        guardarla.</li>
+      </ol>
+    </div>
+
+    <h3>Especificaciones a aplicar</h3>
+    <p>Se comprueban una a una: se aplicaron o no se aplicaron.</p>
+
+    <p><strong>Parte A · La plantilla de manuales</strong></p>
+    <ul>
+      <li>Documento nuevo en blanco. A4 vertical, márgenes <strong>2,5 cm</strong>.</li>
+      <li><strong>Normal</strong>: Calibri 11, interlineado 1,15, espaciado posterior
+      6 pt.</li>
+      <li><strong>Título 1</strong>: 16 pt, en color, con <strong>Salto de página
+      anterior</strong>. <strong>Título 2</strong>: 13 pt. Los dos numerados con una
+      <strong>lista multinivel</strong> vinculada a los estilos (1, 1.1, 1.2…).</li>
+      <li>Tres <strong>estilos nuevos</strong>:
+        <ul>
+          <li><strong>Paso</strong>: basado en Normal, con <strong>numeración
+          automática</strong> (1., 2., 3.).</li>
+          <li><strong>Aviso</strong>: basado en Normal, sombreado
+          <code>RGB(255, 242, 204)</code>, borde izquierdo naranja de 3 pt y sangría
+          izquierda de 0,5 cm.</li>
+          <li><strong>Captura</strong>: centrado y con <strong>Conservar con el
+          siguiente</strong> activado, para que una imagen no se separe nunca de su
+          título.</li>
+        </ul>
+      </li>
+      <li><strong>Encabezado</strong>: <code>Soporte Integral Jerte · Manual de
+      usuario</code>, a la derecha, 9 pt. <strong>Pie</strong>: Página X de Y,
+      centrado.</li>
+      <li><strong>Contenido fijo</strong> en la plantilla: una portada (título,
+      destinatarios, autor y fecha), una tabla <strong>Control de versiones</strong>
+      con las columnas Versión · Fecha · Autor · Cambios, y una página con la palabra
+      <code>Índice</code> en Normal.</li>
+      <li><strong>Tres macros</strong>, guardadas <strong>en la plantilla</strong>, no
+      en Normal.dotm:
+        <ul>
+          <li><code>InsertarAviso</code>: aplica el estilo Aviso y escribe
+          «Importante: » en negrita.</li>
+          <li><code>FormatoCaptura</code>: con una imagen seleccionada, le aplica el
+          estilo Captura, le pone un borde gris de 0,75 pt e inserta debajo un título
+          con el rótulo <strong>Figura</strong>.</li>
+          <li><code>ActualizarCampos</code>: selecciona todo el documento, actualiza
+          los campos (<kbd>F9</kbd>; si pregunta por la tabla de contenido,
+          <em>Actualizar toda la tabla</em>) y vuelve al principio.</li>
+        </ul>
+      </li>
+      <li>Cada macro con un <strong>botón</strong> en la barra de herramientas de
+      acceso rápido guardada <strong>para la plantilla</strong> (en el desplegable
+      <em>Personalizar barra de herramientas de acceso rápido</em> elige tu
+      <code>.dotm</code>, no <em>Para todos los documentos</em>) y con un
+      <strong>atajo de teclado</strong> que esté <em>[sin asignar]</em>.</li>
+      <li>En el editor VBA, añade al principio de cada macro una línea de comentario
+      con tu nombre y la fecha.</li>
+      <li>Guárdala como <strong>Plantilla de Word habilitada para macros
+      (*.dotm)</strong> con el nombre <code>pc3-plantilla.dotm</code>, en la carpeta
+      que te propone Word.</li>
+    </ul>
+
+    <p><strong>Parte B · El manual</strong></p>
+    <ul>
+      <li>Créalo <strong>desde tu plantilla</strong> (<code>Archivo &gt; Nuevo &gt;
+      PERSONAL</code>) y guárdalo como <code>pc3-manual.docx</code>. Las macros
+      siguen funcionando porque viven en la plantilla.</li>
+      <li>Rellena la portada y la primera fila del control de versiones:
+      <strong>0.1 · borrador</strong>.</li>
+      <li>Tabla de contenido automática en la página del índice.</li>
+      <li>Apartados con Título 1:
+        <ol>
+          <li><strong>Introducción</strong>: para qué sirve el manual, para quién es y
+          qué hace falta antes de empezar.</li>
+          <li>Uno por cada <strong>procedimiento</strong> elegido (tres en total).</li>
+          <li><strong>Solución de problemas</strong>: una tabla Síntoma · Causa ·
+          Qué hacer, con al menos <strong>cinco filas</strong>.</li>
+          <li><strong>Glosario</strong>: al menos <strong>seis términos</strong>.</li>
+          <li><strong>Anexo: macros de la plantilla</strong>: tabla con el nombre de
+          cada macro, qué hace y cómo se ejecuta (botón y atajo), y una captura del
+          editor VBA con una de ellas.</li>
+        </ol>
+      </li>
+      <li>Cada procedimiento:
+        <ul>
+          <li>Entre <strong>6 y 12 pasos</strong> con el estilo Paso, escritos como
+          en el <a href="ut02-7.html#apartado-8-como-se-escribe-un-paso">apartado 8
+          del 2.7</a>: una acción por paso, el verbo al principio y los botones en
+          negrita. La numeración vuelve a 1 en cada procedimiento
+          (<em>clic derecho &gt; Reiniciar en 1</em>).</li>
+          <li>Al menos <strong>tres capturas</strong> recortadas, formateadas con
+          <code>FormatoCaptura</code>, con texto alternativo.</li>
+          <li>Al menos <strong>un aviso</strong> insertado con
+          <code>InsertarAviso</code>.</li>
+          <li>Al menos <strong>una referencia cruzada</strong> a una de sus figuras
+          («como se ve en la Figura 4»).</li>
+        </ul>
+      </li>
+      <li>Antes del anexo, <code>Índice de figuras</code> en Normal y debajo una
+      <strong>tabla de ilustraciones</strong>.</li>
+      <li>Extensión orientativa: <strong>10 a 16 páginas</strong>.</li>
+    </ul>
+
+    <p><strong>Parte C · Revisión cruzada</strong></p>
+    <ul>
+      <li>El profesor te asigna una pareja. Os intercambiáis la versión 0.1.</li>
+      <li>Como <strong>revisor</strong>: guarda la copia como
+      <code>pc3-revision-de-NOMBRE.docx</code> (el nombre de tu compañero), activa
+      el <strong>control de cambios</strong> y haz al menos <strong>cinco cambios
+      reales</strong> y <strong>tres comentarios</strong>. Además, haz la
+      <strong>prueba del usuario</strong>: sigue en el ordenador uno de sus
+      procedimientos sin preguntarle nada y comenta cada sitio donde te atasques.</li>
+      <li>Como <strong>autor</strong>: resuelve la revisión que recibes. Acepta o
+      rechaza todos los cambios; al menos un rechazo tiene que ir
+      <strong>justificado</strong> respondiendo al comentario. Añade al control de
+      versiones la fila <strong>1.0 · revisado por NOMBRE</strong>.</li>
+    </ul>
+
+    <p><strong>Parte D · Cierre y entrega</strong></p>
+    <ul>
+      <li>Ejecuta <code>ActualizarCampos</code> como último paso de edición.</li>
+      <li>Pasa la ortografía y después <code>Archivo &gt; Información &gt;
+      Comprobar si hay problemas &gt; Inspeccionar documento</code>: no puede quedar
+      ningún comentario ni ninguna marca de revisión.</li>
+      <li>Exporta a <code>pc3-manual.pdf</code> con <strong>marcadores</strong>
+      (<code>Opciones &gt; Crear marcadores usando: Títulos</code>).</li>
+      <li>Entrega en la tarea <strong>PC3</strong> de Moodle
+      <strong>cuatro archivos</strong> comprimidos en
+      <code>Apellido_Nombre_PC3.zip</code>: <code>pc3-plantilla.dotm</code>,
+      <code>pc3-manual.docx</code>, <code>pc3-manual.pdf</code> y la
+      <code>pc3-revision-de-NOMBRE.docx</code> que hiciste tú, con sus marcas.</li>
+    </ul>
+
+    <div class="aviso">
+      <strong>Comprobación que puedes hacer tú mismo.</strong> Copia tu
+      <code>.dotm</code> a otro ordenador del aula, guárdala en su carpeta de
+      plantillas y crea un documento desde ella. Si aparecen los tres botones y las
+      macros funcionan, están en la plantilla. Si solo funcionan en tu ordenador, las
+      grabaste en Normal.dotm y no se entregan con el trabajo.
+    </div>
+    <div class="aviso">
+      <strong>Si te llevas el trabajo a casa.</strong> Al descargar tu propia
+      plantilla de Moodle o del correo, Word bloqueará las macros con la barra roja
+      de <em>Riesgo de seguridad</em>. Como sabes de dónde sale el archivo,
+      desbloquéalo en <em>Propiedades &gt; Desbloquear</em> (apartado 6 del 2.7). Y
+      las macros de Word no funcionan en LibreOffice: esa parte, hazla en el aula.
+    </div>
+
+    <h3>Cómo se evalúa (rúbrica, 10 puntos)</h3>
+    <p>Cada apartado se comprueba sobre lo que se pide: completo, con fallos
+    puntuales (la mitad) o no conseguido.</p>
+    <ul>
+      <li><strong>Plantilla (1,5)</strong> — estilos Normal, Título 1 y 2 con
+      numeración, Paso, Aviso y Captura con los valores pedidos; encabezado, pie y
+      contenido fijo; guardada como <code>.dotm</code>.</li>
+      <li><strong>Macros (2,5) · criterio e</strong> — las tres funcionan y están
+      <strong>en la plantilla</strong> (1,5); botones para la plantilla y atajos
+      libres (0,5); comentario en el código y anexo de macros (0,5).</li>
+      <li><strong>Estructura del manual (1,5)</strong> — todas las partes; control
+      de versiones con 0.1 y 1.0; tabla de contenido y tabla de ilustraciones
+      actualizadas.</li>
+      <li><strong>Procedimientos (2,5)</strong> — redacción de los pasos (1);
+      capturas con su título, texto alternativo y referencias cruzadas (1); avisos
+      (0,5).</li>
+      <li><strong>Solución de problemas y glosario (0,5)</strong>.</li>
+      <li><strong>Revisión cruzada (1)</strong> — la que hiciste, con cambios,
+      comentarios y prueba del usuario (0,5); la que recibiste, resuelta y con un
+      rechazo justificado (0,5).</li>
+      <li><strong>Entrega (0,5)</strong> — documento inspeccionado, PDF con
+      marcadores, los cuatro archivos con sus nombres.</li>
+    </ul>
+    <p class="pie-fig"><em>Los apartados de macros cuentan para el criterio
+    <strong>e</strong>; el resto, para el criterio <strong>f</strong>.</em></p>
+
+    <div class="tarjeta">
+      <p><strong>Consejo de método.</strong> Plantilla y macros primero, y
+      <strong>pruébalas</strong> en un documento de prueba antes de empezar el
+      manual: grabar una macro con un estilo que todavía no existe es la forma más
+      rápida de perder una tarde. Después escribe los pasos de los tres
+      procedimientos <strong>sin capturas</strong>, haciéndolos a la vez en el
+      ordenador; las capturas, al final, cuando el texto ya no cambie. Reserva una
+      sesión entera para la revisión cruzada: no se puede hacer el último día.</p>
+    </div>
+  </section>
+
+  <section>
     <h2 id="apartado-taller-de-maquetacion-y-caso-practico">Taller de maquetación y caso práctico</h2>
     <p>Además de los puntos de control, el tema tiene un bloque de prácticas de
     maquetación que se entregan en Moodle:</p>
@@ -348,21 +559,10 @@
     </ul>
   </section>
 
-  <section>
-    <h2 id="apartado-proximos-puntos-de-control">Próximos puntos de control</h2>
-    <p>Se irán publicando a medida que avance el tema, como parada para consolidar
-    cada tramo:</p>
-    <ul>
-      <li><strong>Proyecto final</strong> — el subtema 2.7 (manual + macros) hace
-      de tercer punto de control e integra todo el tema, incluidos el trabajo
-      colaborativo y la seguridad del 2.6.</li>
-    </ul>
-  </section>
-
   <nav class="nav-temas">
     <a href="ut02.html">&laquo; Tema 2 (índice)</a>
     <a href="../index.html">Índice del módulo</a>
-    <a href="ut02-5.html">Subtema 2.5 &raquo;</a>
+    <a href="ut02-7.html">Subtema 2.7 &raquo;</a>
   </nav>
 
   <footer class="pie">
