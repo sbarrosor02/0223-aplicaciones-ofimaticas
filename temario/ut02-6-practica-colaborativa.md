@@ -7,12 +7,16 @@ ce: ["d"]
 apoya: ["f"]
 sesiones: 3
 agrupamiento: "equipos de 3"
-evaluable: true
+evaluable: false
 estado: publicado
 actualizado: 2026-10-08
 ---
 
 # Práctica colaborativa · Un dossier a seis manos en Google Docs
+
+> **Decisión del 19/10/2026:** la práctica pasa a ser **formativa**: no cuenta
+> para la nota del RA2. La rúbrica se mantiene como orientación para la
+> devolución. La revisión cruzada calificada está en el PC3.
 
 ## Por qué esta práctica
 
@@ -22,7 +26,7 @@ intercambiando archivos adjuntos**. El objetivo no es enseñar Google Docs, es q
 reconozcan los mismos conceptos en otra herramienta — que es lo que se les va a
 pedir en una empresa que use Workspace, Microsoft 365 en línea o Nextcloud.
 
-Acredita el **CE d** (importar y exportar entre formatos y aplicaciones) con el
+Trabaja el **CE d** (importar y exportar entre formatos y aplicaciones) con el
 cierre de la fase 5, y da soporte al **CE f**.
 
 ## El tema: GTA VI
@@ -100,7 +104,7 @@ la última sesión.
 | Anexo sobre la exportación | 1,5 | equipo |
 | Fuentes fechadas | 0,5 | equipo |
 
-El **anexo de exportación** es el que acredita el CE d y el que más se tiende a
+El **anexo de exportación** es el que trabaja el CE d y el que más se tiende a
 despachar con una frase. Se exige concreción: «se ve distinto» no puntúa; «el
 índice deja de actualizarse solo» sí.
 

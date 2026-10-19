@@ -65,6 +65,17 @@ Después de añadir o modificar páginas, ejecutar
 `python scripts/actualizar_aula.py` para actualizar portada, catálogo e índices.
 Consulta [la organización y el mantenimiento](docs/organizacion-aula.md).
 
+### Calificación
+
+`web/temas/calificacion.html` resume para el alumnado los capítulos 7 y 8 de
+la programación: peso de cada RA, instrumentos (50 % pruebas, 40 % casos
+prácticos, 10 % trabajo diario; RA9 dual con 40 % de empresa), requisitos para
+aprobar, cálculo de las evaluaciones parciales y recuperaciones, con una
+calculadora orientativa. Los pesos están también en `web/datos/temas.json`
+(clave `calificacion`), y cada tema declara en `instrumentos` qué actividades
+cuentan en cada instrumento: `actualizar_aula.py` genera con eso el recuadro
+*Cómo se califica este tema* de la portada de cada tema.
+
 ### Dirección publicada
 
 <https://sbarrosor02.github.io/0223-aplicaciones-ofimaticas/>
