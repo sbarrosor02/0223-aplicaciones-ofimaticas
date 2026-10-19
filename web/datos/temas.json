@@ -17,9 +17,23 @@
       "titulo": "Instalación y actualización de aplicaciones ofimáticas",
       "ra": "RA1",
       "evaluacion": 1,
-      "horas": 12,
+      "horas": 10,
       "estado": "publicado",
-      "actualizado": "2026-09-14"
+      "actualizado": "2026-09-14",
+      "instrumentos": {
+        "pruebas": "Prueba de evaluación del tema.",
+        "casos": [
+          {
+            "texto": "Los indicará el profesor durante el tema."
+          }
+        ],
+        "diario": [
+          {
+            "texto": "Prácticas P1.1 a P1.6",
+            "url": "temas/ut01.html#apartado-9-practicas-del-tema"
+          }
+        ]
+      }
     },
     {
       "ut": 2,
@@ -125,7 +139,7 @@
           "titulo": "Prácticas de control (puntos de control integradores)",
           "url": "temas/ut02-practicas.html",
           "evaluable": true,
-          "nota": "PC1 publicada (integra 2.0-2.3, material pc1-material-partida.docx) y PC2 publicada (integra 2.0-2.5, materiales pc2-material-partida.docx y pc2-clientes.xlsx); ambas con rúbrica de 10. Proyecto final en 2.7"
+          "nota": "PC1 publicada (integra 2.0-2.3, material pc1-material-partida.docx) y PC2 publicada (integra 2.0-2.5, materiales pc2-material-partida.docx y pc2-clientes.xlsx); ambas con rúbrica de 10. PC3 publicada (proyecto final: manual de usuario con plantilla .dotm y tres macros, revisión cruzada, CE e y f, entrega en Moodle)"
         },
         {
           "titulo": "Mapa de la cinta de Word (referencia)",
@@ -135,8 +149,8 @@
         {
           "titulo": "Práctica colaborativa en equipo: dossier en Google Docs",
           "url": "temas/ut02-6-practica-colaborativa.html",
-          "evaluable": true,
-          "nota": "equipos de 3, 3 sesiones; traslada el subtema 2.6 a Google Docs (sugerencias, comentarios asignados, historial de versiones, permisos) y cierra con exportación a .docx y PDF para el CE d"
+          "evaluable": false,
+          "nota": "formativa, no cuenta para la nota; equipos de 3, 3 sesiones; traslada el subtema 2.6 a Google Docs (sugerencias, comentarios asignados, historial de versiones, permisos) y cierra con exportación a .docx y PDF para el CE d"
         },
         {
           "titulo": "Reto en equipo: el documento saboteado",
@@ -155,7 +169,137 @@
           "evaluable": true,
           "nota": "caso práctico del CE c, 4 sesiones, rúbrica de 10; restaurante inventado La Cereza Brava; descarga carta-contenido.docx; entrega .docx + .pdf en Moodle"
         }
-      ]
+      ],
+      "instrumentos": {
+        "pruebas": "Prueba de evaluación del tema.",
+        "casos": [
+          {
+            "texto": "PC1 · Documento profesional integrador",
+            "url": "temas/ut02-practicas.html#apartado-pc1-documento-profesional-integrador"
+          },
+          {
+            "texto": "PC2 · Dossier corporativo y mailing",
+            "url": "temas/ut02-practicas.html#apartado-pc2-dossier-corporativo-y-mailing-comercial"
+          },
+          {
+            "texto": "PC3 · Manual de usuario con macros",
+            "url": "temas/ut02-practicas.html#apartado-pc3-proyecto-final-manual-de-usuario-con-macros"
+          },
+          {
+            "texto": "Caso práctico: la carta de un restaurante",
+            "url": "temas/ut02-practicas-carta.html"
+          }
+        ],
+        "diario": [
+          {
+            "texto": "Prácticas P2.x.y de cada subtema",
+            "url": "temas/ut02.html#apartado-subtemas"
+          },
+          {
+            "texto": "Taller de maquetación T1 a T5",
+            "url": "temas/ut02-practicas-taller.html"
+          }
+        ],
+        "no_cuenta": "Ejercicios guiados del CV, reto del documento saboteado y práctica colaborativa en Google Docs: son formativos."
+      }
     }
-  ]
+  ],
+  "calificacion": {
+    "fuente": "Programación didáctica 0223, curso 2026/2027, capítulos 7 y 8",
+    "ra": [
+      {
+        "ra": "RA1",
+        "titulo": "Instala y actualiza aplicaciones ofimáticas",
+        "ut": "UT1",
+        "tema": 1,
+        "trimestre": 1,
+        "peso": 8,
+        "ce": 9
+      },
+      {
+        "ra": "RA2",
+        "titulo": "Elabora documentos y plantillas con procesadores de textos",
+        "ut": "UT2",
+        "tema": 2,
+        "trimestre": 1,
+        "peso": 23,
+        "ce": 6
+      },
+      {
+        "ra": "RA5",
+        "titulo": "Manipula imágenes digitales",
+        "ut": "UT3",
+        "tema": 3,
+        "trimestre": 1,
+        "peso": 12,
+        "ce": 6
+      },
+      {
+        "ra": "RA9",
+        "titulo": "Aplica técnicas de soporte en el uso de aplicaciones (dual)",
+        "ut": "UT4",
+        "tema": 4,
+        "trimestre": 2,
+        "peso": 9,
+        "ce": 8,
+        "dual": true
+      },
+      {
+        "ra": "RA3",
+        "titulo": "Elabora documentos y plantillas de cálculo",
+        "ut": "UT5 y UT7",
+        "tema": "5 y 7",
+        "trimestre": "2 y 3",
+        "peso": 14,
+        "ce": 8
+      },
+      {
+        "ra": "RA7",
+        "titulo": "Elabora presentaciones multimedia",
+        "ut": "UT6",
+        "tema": 6,
+        "trimestre": 2,
+        "peso": 8,
+        "ce": 6
+      },
+      {
+        "ra": "RA4",
+        "titulo": "Elabora documentos con bases de datos ofimáticas",
+        "ut": "UT8",
+        "tema": 8,
+        "trimestre": 3,
+        "peso": 14,
+        "ce": 10
+      },
+      {
+        "ra": "RA8",
+        "titulo": "Gestiona el correo y la agenda electrónica",
+        "ut": "UT9",
+        "tema": 9,
+        "trimestre": 3,
+        "peso": 7,
+        "ce": 8
+      },
+      {
+        "ra": "RA6",
+        "titulo": "Manipula secuencias de vídeo",
+        "ut": "UT10",
+        "tema": 10,
+        "trimestre": 3,
+        "peso": 5,
+        "ce": 6
+      }
+    ],
+    "reparto": {
+      "pruebas": 50,
+      "casos": 40,
+      "diario": 10
+    },
+    "reparto_dual": {
+      "pruebas": 25,
+      "casos": 25,
+      "diario": 10,
+      "feoe": 40
+    }
+  }
 }

@@ -42,8 +42,8 @@ Al crear o modificar un tema en `temario/` hay que: (1) generar/actualizar
   (`ut02-1.html`…`ut02-7.html`), enlazados desde una página índice de tema
   (`web/temas/ut02.html`). Delante hay un subtema 2.0 de repaso (primer
   documento, edición básica), no evaluable y con horas no oficiales, para
-  quien no llegue con ese nivel. Subtemas 2.0 a 2.7 publicados; pendiente el
-  enunciado del proyecto final (PC3). Además hay una página de ejercicios guiados formativos
+  quien no llegue con ese nivel. Subtemas 2.0 a 2.7 publicados, con
+  sus tres prácticas de control (PC3: proyecto final, manual con macros). Además hay una página de ejercicios guiados formativos
   (`web/temas/ut02-ejercicios.html`), con un hilo conductor único (construir
   el propio currículum vitae) para todo el tema.
 - Taller de maquetación (T1–T5, trabajo diario) y caso práctico de la carta
@@ -64,6 +64,17 @@ Las lecciones incluyen un índice de apartados adaptable a móvil.
 Después de añadir o modificar páginas, ejecutar
 `python scripts/actualizar_aula.py` para actualizar portada, catálogo e índices.
 Consulta [la organización y el mantenimiento](docs/organizacion-aula.md).
+
+### Calificación
+
+`web/temas/calificacion.html` resume para el alumnado los capítulos 7 y 8 de
+la programación: peso de cada RA, instrumentos (50 % pruebas, 40 % casos
+prácticos, 10 % trabajo diario; RA9 dual con 40 % de empresa), requisitos para
+aprobar, cálculo de las evaluaciones parciales y recuperaciones, con una
+calculadora orientativa. Los pesos están también en `web/datos/temas.json`
+(clave `calificacion`), y cada tema declara en `instrumentos` qué actividades
+cuentan en cada instrumento: `actualizar_aula.py` genera con eso el recuadro
+*Cómo se califica este tema* de la portada de cada tema.
 
 ### Dirección publicada
 

@@ -32,6 +32,44 @@ def identify(source):
         return '<h2' + match[1] + ' id="' + target + '">' + match[2] + '</h2>'
     return re.sub(r'<h2([^>]*)>(.*?)</h2>', add, source, flags=re.S)
 
+def calificacion_tema(topic, data):
+    """Recuadro «Cómo se califica este tema» de la portada de cada tema, desde temas.json."""
+    cal = data.get('calificacion')
+    inst = topic.get('instrumentos')
+    if not cal or not inst or not topic.get('ra'):
+        return ''
+    ra = next((r for r in cal['ra'] if r['ra'] == topic['ra']), None)
+    if not ra:
+        return ''
+    rep = cal['reparto_dual'] if ra.get('dual') else cal['reparto']
+    def enlaces(items):
+        partes = []
+        for item in items:
+            texto = escape(item['texto'])
+            url = item.get('url')
+            if url:
+                url = url[len('temas/'):] if url.startswith('temas/') else '../' + url
+                texto = '<a href="' + escape(url) + '">' + texto + '</a>'
+            partes.append(texto)
+        return '; '.join(partes)
+    html_box = ('<details class="ra-ce calif-tema"><summary>Cómo se califica este tema · ' + escape(ra['ra']) + ' · '
+                + str(ra['peso']) + ' % de la nota del módulo</summary>'
+                + '<p>La nota del ' + escape(ra['ra']) + ' es de 0 a 10 y sale de estos instrumentos. Todos los '
+                + 'criterios de evaluación del resultado pesan lo mismo.</p><ul>'
+                + '<li><strong>Pruebas de evaluación · ' + str(rep['pruebas']) + ' %</strong> — ' + escape(inst['pruebas']) + '</li>'
+                + '<li><strong>Casos prácticos · ' + str(rep['casos']) + ' %</strong> — ' + enlaces(inst['casos']) + '.</li>'
+                + '<li><strong>Trabajo diario · ' + str(rep['diario']) + ' %</strong> — ' + enlaces(inst['diario']) + '.</li>')
+    if 'feoe' in rep:
+        html_box += '<li><strong>Formación en empresa · ' + str(rep['feoe']) + ' %</strong> — informe de la estancia.</li>'
+    html_box += ('</ul><p><strong>Para aprobarlo:</strong> al menos un 5 en pruebas y un 5 en casos prácticos, '
+                 'todas las prácticas entregadas y en plazo, y superadas al menos el 70 % de las tareas de '
+                 'trabajo diario.</p>')
+    if inst.get('no_cuenta'):
+        html_box += '<p><strong>No cuentan para la nota:</strong> ' + escape(inst['no_cuenta']) + '</p>'
+    html_box += '<p><a href="calificacion.html">Cómo se calcula la nota del módulo</a></p></details>'
+    return html_box
+
+
 def shell(source, code, current, short_name):
     prefix = '../' if current.startswith('temas/') else ''
     source = identify(source)
@@ -79,7 +117,12 @@ for repo in REPOS:
                 nav += '<a href="' + target + '"' + active + '>' + label + '</a>'
             nav += '</nav>'
             source = re.sub(r'(<header class="cab">.*?</header>)', lambda match: match[1] + '\n' + nav, source, count=1, flags=re.S)
+        source = re.sub(r'\n?<details class="ra-ce calif-tema">.*?</details>', '', source, flags=re.S)
+        topic = next((t for t in data['temas'] if path.name == 'ut%02d.html' % t['ut']), None)
+        box = calificacion_tema(topic, data) if topic else ''
         source = shell(source, code, 'temas/' + path.name, short_name)
+        if box:
+            source = re.sub(r'(<div class="aula-herramientas">.*?</div>)', lambda match: match[1] + '\n' + box, source, count=1, flags=re.S)
         path.write_text(source, encoding='utf-8')
         pages[path.name] = source
     cards = []
@@ -95,7 +138,7 @@ for repo in REPOS:
             category = 'ejercicios'
         elif 'practicas' in name:
             category = 'practicas'
-        elif 'mapa-' in name or name == 'ut00.html':
+        elif 'mapa-' in name or name in ('ut00.html', 'calificacion.html'):
             category = 'consulta'
         elif name == ('ut01.html' if code == '0221' else 'ut02.html'):
             continue
@@ -138,6 +181,8 @@ for repo in REPOS:
                 label += ' · Disponibles: ' + ', '.join(available_blocks)
         home += '<li><a href="temas/ut%02d.html"><span class="ut">Tema %s</span>%s<br><span class="etq">%s</span></a></li>' % (topic['ut'], topic['ut'], escape(topic['titulo']), escape(label))
     home += '</ul><h2>Antes de entregar</h2><p>Los ejercicios sirven para entrenar. En las prácticas, lee el enunciado completo, revisa los archivos que se piden y comprueba la rúbrica antes de entregar por el medio indicado en clase.</p>'
+    if (web / 'temas/calificacion.html').exists():
+        home += '<div class="tarjeta"><strong>¿Cómo se calcula tu nota?</strong><p><a href="temas/calificacion.html">Consulta cómo se califica el módulo</a>: el peso de cada resultado de aprendizaje, qué cuenta en cada tema y qué hace falta para aprobar.</p></div>'
     if code == '0223':
         home += '<div class="tarjeta"><strong>¿No encuentras una opción de Word?</strong><p><a href="temas/mapa-cinta.html">Consulta el mapa de la cinta</a>: pestañas, grupos y atajos.</p></div>'
     else:

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cómo se califica el módulo · 0223 Aplicaciones ofimáticas</title>
+<link rel="stylesheet" href="../assets/estilo.css">
+<style>
+  .tcal { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 1rem 0; }
+  .tcal th, .tcal td { border: 1px solid var(--linea); padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+  .tcal th { background: var(--acento-claro); color: var(--acento); }
+  .tcal td.num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .tcal tfoot td { font-weight: 700; }
+  .barra { display: inline-block; height: 0.6rem; background: var(--acento); border-radius: 2px; vertical-align: middle; margin-left: 0.4rem; }
+  .formula { background: var(--fondo); border: 1px solid var(--linea); border-radius: var(--radio);
+    padding: 0.7rem 1rem; margin: 0.8rem 0; font-family: Consolas, "Courier New", monospace; font-size: 0.95rem; overflow-x: auto; }
+  .calc { border: 1px solid var(--linea); border-radius: var(--radio); background: #fff; padding: 0.9rem 1rem; margin: 1rem 0; }
+  .calc fieldset { border: 0; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 0.7rem 1rem; }
+  .calc label { display: flex; flex-direction: column; gap: 0.2rem; font-size: 0.9rem; font-weight: 600; }
+  .calc input[type="text"] { font: inherit; padding: 0.4rem 0.5rem; border: 1px solid var(--linea); border-radius: var(--radio); width: 100%; box-sizing: border-box; }
+  .calc .dual { grid-column: 1 / -1; flex-direction: row; align-items: center; font-weight: 400; }
+  .calc .oculto { display: none; }
+  .calc output { display: block; margin-top: 0.9rem; padding: 0.7rem 0.9rem; border-radius: var(--radio); background: var(--acento-claro); }
+  .calc output .nota { font-size: 1.4rem; font-weight: 700; color: var(--acento); }
+  .calc output .mal { color: #a33; font-weight: 600; }
+  .calc output .bien { color: #2e7d32; font-weight: 600; }
+</style>
+<link rel="stylesheet" href="../assets/aula.css">
+<script defer src="../assets/aula.js"></script>
+</head>
+<body data-modulo="0223">
+<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0223 / Aplicaciones ofimáticas</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-2-como-se-saca-la-nota-de-cada-ra">2. Cómo se saca la nota de cada RA</a></li><li><a href="#apartado-3-que-hace-falta-para-aprobar-un-ra">3. Qué hace falta para aprobar un RA</a></li><li><a href="#apartado-4-calcula-la-nota-de-un-ra">4. Calcula la nota de un RA</a></li><li><a href="#apartado-5-la-nota-de-cada-evaluacion">5. La nota de cada evaluación</a></li><li><a href="#apartado-6-si-suspendes-un-ra">6. Si suspendes un RA</a></li><li><a href="#apartado-7-que-cuenta-en-cada-tema">7. Qué cuenta en cada tema</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1">
+
+  <header class="cab">
+    <p class="modulo">0223 · Aplicaciones ofimáticas</p>
+    <h1>Cómo se califica el módulo</h1>
+    <p class="meta">1.º SMR · Curso 2026/2027 · Resumen de la programación didáctica (capítulos 7 y 8)</p>
+  </header>
+<div class="aula-herramientas"><button type="button" data-imprimir hidden>Imprimir / guardar PDF</button></div>
+
+  <div class="aviso">
+    <strong>En una frase.</strong> El módulo tiene nueve resultados de aprendizaje
+    (RA). Cada uno se califica de 0 a 10 y <strong>hay que aprobarlos todos</strong>:
+    la nota final es la media ponderada de los nueve, pero si uno solo está por
+    debajo de 5, la nota del módulo no puede pasar de 4.
+  </div>
+
+  <section>
+    <h2 id="apartado-1-cuanto-pesa-cada-resultado-de-aprendizaje">1. Cuánto pesa cada resultado de aprendizaje</h2>
+    <p>No todos los RA pesan lo mismo: el peso depende de las horas que se le
+    dedican y del número de criterios de evaluación que tiene.</p>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tcal">
+      <thead><tr><th>RA</th><th>Qué trabaja</th><th>Tema</th><th>Trimestre</th><th>Peso</th></tr></thead>
+      <tbody>
+        <tr><td>RA1</td><td>Instala y actualiza aplicaciones ofimáticas</td><td><a href="ut01.html">Tema 1</a></td><td>1.º</td><td class="num">8 %<span class="barra" style="width:1.6rem"></span></td></tr>
+        <tr><td>RA2</td><td>Documentos y plantillas con procesador de textos</td><td><a href="ut02.html">Tema 2</a></td><td>1.º</td><td class="num">23 %<span class="barra" style="width:4.6rem"></span></td></tr>
+        <tr><td>RA5</td><td>Imagen digital</td><td>Tema 3</td><td>1.º</td><td class="num">12 %<span class="barra" style="width:2.4rem"></span></td></tr>
+        <tr><td>RA9</td><td>Técnicas de soporte en el uso de aplicaciones (dual)</td><td>Tema 4</td><td>2.º</td><td class="num">9 %<span class="barra" style="width:1.8rem"></span></td></tr>
+        <tr><td>RA3</td><td>Hojas de cálculo</td><td>Temas 5 y 7</td><td>2.º y 3.º</td><td class="num">14 %<span class="barra" style="width:2.8rem"></span></td></tr>
+        <tr><td>RA7</td><td>Presentaciones multimedia</td><td>Tema 6</td><td>2.º</td><td class="num">8 %<span class="barra" style="width:1.6rem"></span></td></tr>
+        <tr><td>RA4</td><td>Bases de datos ofimáticas</td><td>Tema 8</td><td>3.º</td><td class="num">14 %<span class="barra" style="width:2.8rem"></span></td></tr>
+        <tr><td>RA8</td><td>Correo y agenda electrónica</td><td>Tema 9</td><td>3.º</td><td class="num">7 %<span class="barra" style="width:1.4rem"></span></td></tr>
+        <tr><td>RA6</td><td>Vídeo digital</td><td>Tema 10</td><td>3.º</td><td class="num">5 %<span class="barra" style="width:1rem"></span></td></tr>
+      </tbody>
+      <tfoot><tr><td colspan="4">Total</td><td class="num">100 %</td></tr></tfoot>
+    </table></div>
+    <p class="pie-fig"><em>El RA2 es casi una cuarta parte de la nota del módulo: el
+    Tema 2 es el más largo del curso.</em></p>
+  </section>
+
+  <section>
+    <h2 id="apartado-2-como-se-saca-la-nota-de-cada-ra">2. Cómo se saca la nota de cada RA</h2>
+    <p>Cada RA se califica con tres instrumentos:</p>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tcal">
+      <thead><tr><th>Instrumento</th><th>Qué es</th><th>Peso</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Pruebas de evaluación</strong></td><td>Pruebas individuales: escritas, orales o prácticas, en el ordenador.</td><td class="num">50 %</td></tr>
+        <tr><td><strong>Casos prácticos</strong></td><td>Trabajos más completos, con rúbrica, que juntan lo de varios apartados del tema.</td><td class="num">40 %</td></tr>
+        <tr><td><strong>Trabajo diario</strong></td><td>Las prácticas y tareas de clase. Se califican por lo entregado: en plazo, técnicamente correcto, siguiendo el procedimiento pedido y documentado.</td><td class="num">10 %</td></tr>
+      </tbody>
+    </table></div>
+    <div class="formula">RA = 0,50 × Pruebas + 0,40 × Casos prácticos + 0,10 × Trabajo diario</div>
+    <p>Dentro de cada instrumento, <strong>todos los criterios de evaluación del RA
+    pesan lo mismo</strong>.</p>
+
+    <h3>El RA9, que se hace en parte en la empresa</h3>
+    <p>El RA9 es el resultado <strong>dual</strong>: una parte se trabaja durante la
+    estancia en empresa (del 8 de febrero al 5 de marzo de 2027), y la nota que pone
+    la empresa entra como un cuarto instrumento:</p>
+    <div class="formula">RA9 = 0,25 × Pruebas + 0,25 × Casos + 0,10 × Trabajo diario + 0,40 × Empresa</div>
+    <p>Quien no haga la estancia en empresa hace esa parte en el instituto, y su RA9
+    se calcula igual que los demás (50 · 40 · 10). No hacer la estancia nunca cuenta
+    como un cero.</p>
+
+    <h3>El RA3, que se reparte en dos temas</h3>
+    <p>Las hojas de cálculo se dan en dos temas separados (5 y 7), cada uno con la
+    mitad de los criterios. La nota del RA3 es la media de los dos, a partes
+    iguales.</p>
+  </section>
+
+  <section>
+    <h2 id="apartado-3-que-hace-falta-para-aprobar-un-ra">3. Qué hace falta para aprobar un RA</h2>
+    <p>No basta con que la media dé 5. Hacen falta <strong>las cuatro cosas</strong>:</p>
+    <ul class="checklist">
+      <li><label><input type="checkbox"> Al menos un <strong>5 en las pruebas</strong> de evaluación.</label></li>
+      <li><label><input type="checkbox"> Al menos un <strong>5 en los casos prácticos</strong>.</label></li>
+      <li><label><input type="checkbox"> <strong>Todas las prácticas obligatorias entregadas</strong>. Sin ellas no se puede aprobar el RA ni presentarse a su recuperación.</label></li>
+      <li><label><input type="checkbox"> Superadas <strong>al menos el 70 %</strong> de las tareas de trabajo diario.</label></li>
+    </ul>
+    <div class="aviso">
+      <strong>Tres normas que conviene no olvidar.</strong>
+      <ul>
+        <li><strong>Fuera de plazo no se entrega.</strong> Una tarea no entregada cuenta
+        como un 0 en la media de su apartado.</li>
+        <li><strong>Copiar suspende el RA entero.</strong> Si se detecta plagio, total o
+        parcial, de un compañero o de cualquier fuente, la nota de ese resultado de
+        aprendizaje es un 0.</li>
+        <li><strong>La ortografía resta</strong> en cualquier escrito (prácticas,
+        exámenes, documentos): 0,2 puntos por cada error de letras y 0,1 por cada tilde
+        o signo de puntuación, hasta un máximo de 1 punto.</li>
+      </ul>
+    </div>
+    <p>No se califican ni la actitud, ni el comportamiento, ni la asistencia. Pero la
+    asistencia sí es necesaria para la evaluación continua, y faltar sin justificar
+    cinco días seguidos, o un 20 % de las horas del curso, supone la anulación de la
+    matrícula.</p>
+  </section>
+
+  <section>
+    <h2 id="apartado-4-calcula-la-nota-de-un-ra">4. Calcula la nota de un RA</h2>
+    <p>Escribe tus notas medias de cada instrumento (de 0 a 10). Es solo
+    orientativo: la nota oficial es la que pone el profesor.</p>
+    <form class="calc" id="calc" novalidate>
+      <fieldset>
+        <label class="dual"><input type="checkbox" id="c-dual"> Es el RA9 y he hecho la estancia en empresa</label>
+        <label>Pruebas<input type="text" id="c-p" inputmode="decimal" autocomplete="off" placeholder="0 a 10"></label>
+        <label>Casos prácticos<input type="text" id="c-c" inputmode="decimal" autocomplete="off" placeholder="0 a 10"></label>
+        <label>Trabajo diario<input type="text" id="c-t" inputmode="decimal" autocomplete="off" placeholder="0 a 10"></label>
+        <label class="oculto" id="c-f-et">Empresa<input type="text" id="c-f" inputmode="decimal" autocomplete="off" placeholder="0 a 10"></label>
+      </fieldset>
+      <output id="c-res" for="c-p c-c c-t c-f" aria-live="polite">Rellena las tres notas para ver el resultado.</output>
+    </form>
+    <p class="pie-fig"><em>La calculadora no puede saber si has entregado todas las
+    prácticas ni si has superado el 70 % de las tareas: compruébalo tú.</em></p>
+  </section>
+
+  <section>
+    <h2 id="apartado-5-la-nota-de-cada-evaluacion">5. La nota de cada evaluación</h2>
+    <p>En la 1.ª y la 2.ª evaluación se hace la media ponderada <strong>solo de los RA
+    que ya se han evaluado</strong>, reajustando sus pesos para que lo que todavía no
+    se ha dado no cuente como un cero.</p>
+    <p><strong>Ejemplo de la 1.ª evaluación.</strong> En el primer trimestre se
+    evalúan el RA1 (peso 8), el RA2 (23) y el RA5 (12): suman 43. Con un 7 en el RA1, un
+    6,6 en el RA2 y un 5,5 en el RA5:</p>
+    <div class="formula">(8 × 7 + 23 × 6,6 + 12 × 5,5) / 43 = 273,8 / 43 = 6,37 → <strong>6</strong></div>
+    <ul>
+      <li>La nota de cada evaluación es un <strong>número entero</strong>: se redondea al
+      más cercano, y un ,5 exacto sube.</li>
+      <li>Si algún RA de los evaluados está suspenso, la nota de esa evaluación no
+      pasa de 4.</li>
+      <li>La nota final de junio es la media ponderada de los nueve RA, con los pesos
+      de la tabla del apartado 1.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 id="apartado-6-si-suspendes-un-ra">6. Si suspendes un RA</h2>
+    <ul>
+      <li><strong>Durante el curso.</strong> Al empezar el 2.º y el 3.º trimestre hay
+      pruebas de recuperación de los RA suspensos del trimestre anterior. El
+      profesor puede hacer alguna antes de terminar el trimestre.</li>
+      <li><strong>Evaluación final ordinaria (junio).</strong> Una prueba por cada RA
+      que tengas pendiente. Si los tienes todos pendientes, una prueba de todo el
+      módulo.</li>
+      <li><strong>Evaluación final extraordinaria (junio).</strong> Solo de los RA que
+      sigan pendientes. Los que ya tengas aprobados se te guardan.</li>
+    </ul>
+    <div class="aviso">
+      <strong>Para recuperar hay que tener las prácticas entregadas.</strong> En
+      cualquier recuperación, el requisito es haber entregado antes todas las
+      prácticas del RA que quieres recuperar. Las recuperaciones evalúan todos los
+      criterios del RA.
+    </div>
+  </section>
+
+  <section>
+    <h2 id="apartado-7-que-cuenta-en-cada-tema">7. Qué cuenta en cada tema</h2>
+    <p>En la portada de cada tema tienes un recuadro <em>Cómo se califica este
+    tema</em> con las actividades concretas de cada instrumento:</p>
+    <ul>
+      <li><a href="ut01.html">Tema 1 · Instalación y actualización</a> (RA1)</li>
+      <li><a href="ut02.html">Tema 2 · Procesadores de texto</a> (RA2)</li>
+    </ul>
+    <p>Los ejercicios guiados, los retos y las autocomprobaciones de cada página son
+    para practicar: <strong>no cuentan para la nota</strong>.</p>
+  </section>
+
+  <nav class="nav-temas">
+    <a href="../index.html">&laquo; Inicio del módulo</a>
+    <a href="../recursos.html">Materiales</a>
+    <span></span>
+  </nav>
+
+  <footer class="pie">
+    <p>0223 Aplicaciones ofimáticas · Resumen para el alumnado de la programación
+    didáctica del curso 2026/2027. Si hay alguna diferencia, manda la programación.</p>
+  </footer>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var dual = $('c-dual'), fEt = $('c-f-et'), res = $('c-res');
+  function leer(input) {
+    if (input.value.trim() === '') return null;
+    var v = parseFloat(input.value.replace(',', '.'));
+    return (isNaN(v) || v < 0 || v > 10) ? NaN : v;
+  }
+  function fmt(v) { return (Math.round(v * 100) / 100).toLocaleString('es-ES'); }
+  function calcular() {
+    var esDual = dual.checked;
+    fEt.classList.toggle('oculto', !esDual);
+    var p = leer($('c-p')), c = leer($('c-c')), t = leer($('c-t')), f = esDual ? leer($('c-f')) : 0;
+    var notas = esDual ? [p, c, t, f] : [p, c, t];
+    if (notas.some(function (n) { return n === null; })) {
+      res.textContent = 'Rellena ' + (esDual ? 'las cuatro notas' : 'las tres notas') + ' para ver el resultado.';
+      return;
+    }
+    if (notas.some(function (n) { return isNaN(n); })) {
+      res.textContent = 'Las notas tienen que estar entre 0 y 10.';
+      return;
+    }
+    var ra = esDual ? 0.25 * p + 0.25 * c + 0.10 * t + 0.40 * f : 0.50 * p + 0.40 * c + 0.10 * t;
+    var fallos = [];
+    if (p < 5) fallos.push('necesitas al menos un 5 en las pruebas');
+    if (c < 5) fallos.push('necesitas al menos un 5 en los casos prácticos');
+    if (ra < 5) fallos.push('la media no llega a 5');
+    res.innerHTML = 'Media ponderada: <span class="nota">' + fmt(ra) + '</span><br>' +
+      (fallos.length
+        ? '<span class="mal">RA no superado:</span> ' + fallos.join('; ') + '.'
+        : '<span class="bien">RA superado</span>, siempre que tengas todas las prácticas entregadas y el 70 % de las tareas superadas.');
+  }
+  $('calc').addEventListener('input', calcular);
+  $('calc').addEventListener('submit', function (e) { e.preventDefault(); });
+})();
+</script>
+
+</main></div>
+</body>
+</html>
