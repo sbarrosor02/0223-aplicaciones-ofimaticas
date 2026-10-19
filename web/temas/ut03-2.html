@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tema 3.2 · Obtener imágenes · 0223 Aplicaciones ofimáticas</title>
+<link rel="stylesheet" href="../assets/estilo.css">
+<style>
+  .t32 { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 1rem 0; }
+  .t32 th, .t32 td { border: 1px solid var(--linea); padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+  .t32 th { background: var(--acento-claro); color: var(--acento); }
+  .lab-enlace { display: inline-block; margin: 0.3rem 0 0.6rem; padding: 0.45rem 0.8rem; border: 1px solid var(--acento); border-radius: var(--radio); font-weight: 600; }
+</style>
+<link rel="stylesheet" href="../assets/aula.css">
+<script defer src="../assets/aula.js"></script>
+</head>
+<body data-modulo="0223">
+<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0223 / Aplicaciones ofimáticas</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-1-de-donde-salen-las-imagenes">1. De dónde salen las imágenes</a></li><li><a href="#apartado-2-escanear">2. Escanear</a></li><li><a href="#apartado-3-camara-y-movil">3. Cámara y móvil</a></li><li><a href="#apartado-4-capturas-de-pantalla">4. Capturas de pantalla</a></li><li><a href="#apartado-5-metadatos-lo-que-una-foto-dice-de-ti">5. Metadatos: lo que una foto dice de ti</a></li><li><a href="#apartado-6-practicas-del-subtema">6. Prácticas del subtema</a></li><li><a href="#apartado-7-comprueba-lo-que-has-entendido">7. Comprueba lo que has entendido</a></li><li><a href="#apartado-8-antes-de-pasar-al-subtema-3-3">8. Antes de pasar al subtema 3.3</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1">
+
+  <header class="cab">
+    <p class="modulo">0223 · Aplicaciones ofimáticas · Tema 3 (2 de 6)</p>
+    <h1>Tema 3.2 — Obtener imágenes: escáner, cámara y capturas</h1>
+    <p class="meta">1.º SMR · Curso 2026/2027 · 1.ª evaluación · Duración: 3 h</p>
+  </header>
+<nav class="subnav" aria-label="Apartados del tema 3"><a href="ut03.html">Portada del tema</a><a href="ut03.html#apartado-subtemas">Apuntes</a><a href="ut03-ejercicios.html">Ejercicios guiados</a><a href="laboratorio-imagen.html">Laboratorio de imagen</a></nav>
+<div class="aula-herramientas"><button type="button" data-imprimir hidden>Imprimir / guardar PDF</button></div>
+
+  <details class="ra-ce"><summary>Qué se evalúa · RA y criterios</summary>
+    <h2 id="apartado-resultado-de-aprendizaje">Resultado de aprendizaje</h2>
+    <p><strong>RA5.</strong> Manipula imágenes digitales analizando las
+    posibilidades de distintos programas y aplicando técnicas de captura y edición
+    básicas.</p>
+    <p>Criterio de evaluación que trabaja este subtema:</p>
+    <ul>
+      <li><strong>b)</strong> Se ha realizado la adquisición de imágenes con periféricos.</li>
+    </ul>
+  </details>
+
+  <div class="aviso">
+    <strong>Una imagen mal obtenida no se arregla después.</strong> Si escaneas a
+    poca resolución, si el móvil reduce la foto al mandarla por mensajería o si
+    la captura sale borrosa, GIMP no puede inventarse el detalle que falta. Este
+    subtema va de conseguir la imagen bien desde el principio… y de no regalar
+    datos tuyos por el camino.
+  </div>
+
+  <section>
+    <h2 id="apartado-1-de-donde-salen-las-imagenes">1. De dónde salen las imágenes</h2>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="t32">
+      <thead><tr><th>Fuente</th><th>Para qué</th><th>Lo que hay que vigilar</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Escáner plano</strong></td><td>Documentos, fotos en papel, dibujos</td><td>La resolución de escaneo y el modo de color</td></tr>
+        <tr><td><strong>Escáner con alimentador</strong> (ADF), el de las impresoras multifunción</td><td>Muchas hojas seguidas, a doble cara</td><td>Hojas arrugadas o con grapas; resolución baja por defecto</td></tr>
+        <tr><td><strong>Cámara o móvil</strong></td><td>Fotos, y también documentos con una aplicación de escaneo</td><td>Luz, enfoque, el zoom digital y los metadatos</td></tr>
+        <tr><td><strong>Captura de pantalla</strong></td><td>Lo que se ve en el ordenador: manuales, errores, programas</td><td>Capturar solo lo necesario y no dejar datos personales a la vista</td></tr>
+        <tr><td><strong>Tableta gráfica</strong></td><td>Dibujar a mano alzada directamente en el ordenador</td><td>La sensibilidad a la presión del lápiz</td></tr>
+        <tr><td><strong>Internet</strong></td><td>Imágenes de terceros</td><td>La licencia: no todo lo que se ve se puede usar (subtema 3.6)</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section>
+    <h2 id="apartado-2-escanear">2. Escanear</h2>
+    <h3>La resolución de escaneo</h3>
+    <p>Al escanear eliges cuántos píxeles por pulgada lee el escáner. La regla:
+    <strong>escanea a la resolución con la que lo vas a usar, multiplicada por lo
+    que lo vayas a ampliar</strong>.</p>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="t32">
+      <thead><tr><th>Qué escaneas</th><th>Resolución</th><th>Modo</th><th>Formato de salida</th></tr></thead>
+      <tbody>
+        <tr><td>Documento de texto para archivar o leer</td><td>300 ppp</td><td>Escala de grises o blanco y negro</td><td>PDF (con OCR)</td></tr>
+        <tr><td>Foto para reimprimirla al mismo tamaño</td><td>300 ppp</td><td>Color</td><td>TIFF o PNG para guardar; JPG para compartir</td></tr>
+        <tr><td>Foto pequeña que vas a imprimir el doble de grande</td><td>600 ppp</td><td>Color</td><td>TIFF o PNG</td></tr>
+        <tr><td>Dibujo a lápiz para pasarlo al ordenador</td><td>300 ppp</td><td>Escala de grises</td><td>PNG</td></tr>
+        <tr><td>Diapositiva o negativo</td><td>2400 ppp o más</td><td>Color</td><td>TIFF</td></tr>
+      </tbody>
+    </table></div>
+    <div class="aviso">
+      <strong>Resolución óptica frente a interpolada.</strong> Un escáner anuncia
+      «hasta 19 200 ppp», pero su resolución <em>óptica</em> (la real) suele ser de
+      1200 o 2400. Por encima de la óptica, el programa se inventa píxeles: la
+      imagen pesa más pero no tiene más detalle.
+    </div>
+
+    <h3>OCR: de imagen a texto</h3>
+    <p>Un documento escaneado es una foto del papel: no se puede buscar ni copiar
+    texto. El <strong>OCR</strong> (reconocimiento óptico de caracteres) reconoce
+    las letras y añade una capa de texto invisible al PDF. Así puedes buscar en
+    él con <kbd>Ctrl</kbd>+<kbd>F</kbd>.</p>
+
+    <h3>Con qué programa</h3>
+    <ul>
+      <li><strong>NAPS2</strong> (libre, para Windows, macOS y Linux): escanea varias
+      hojas, las ordena, hace OCR y guarda en PDF o en imagen. Es el que usaremos
+      en clase.</li>
+      <li><strong>Escáner de Windows</strong> (aplicación de Microsoft Store) o
+      <strong>Fax y Escáner de Windows</strong>: lo básico, sin OCR.</li>
+      <li><strong>Escáner de documentos</strong> (Simple Scan) en Linux.</li>
+      <li>La <strong>aplicación de escaneo del móvil</strong> (la de Google Drive o
+      la de Notas del iPhone): endereza la hoja, quita sombras y hace un PDF.
+      Muy útil cuando no hay escáner.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 id="apartado-3-camara-y-movil">3. Cámara y móvil</h2>
+    <ul>
+      <li><strong>Más megapíxeles no es más calidad.</strong> Influyen más el
+      tamaño del sensor, el objetivo y, sobre todo, la <strong>luz</strong>. Una
+      foto con poca luz sale con ruido aunque tenga 50 megapíxeles.</li>
+      <li><strong>El zoom digital es recortar.</strong> El zoom óptico acerca de
+      verdad con el objetivo; el digital solo amplía píxeles. Mejor acercarse con
+      los pies, o hacer la foto y recortar después.</li>
+      <li><strong>Formatos.</strong> Casi todos los móviles guardan en JPG; los
+      iPhone, en <strong>HEIC</strong>, que muchos programas no abren. En el iPhone,
+      <code>Ajustes &gt; Cámara &gt; Formatos &gt; Más compatible</code> lo cambia
+      a JPG. Las cámaras buenas y algunos móviles guardan también en
+      <strong>RAW</strong>.</li>
+    </ul>
+
+    <h3>Pasar las fotos al ordenador</h3>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="t32">
+      <thead><tr><th>Cómo</th><th>Calidad</th><th>Metadatos</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Cable USB</strong> (el móvil aparece como dispositivo en el Explorador)</td><td>La original, intacta</td><td>Se conservan</td></tr>
+        <tr><td>Nube (Google Fotos, iCloud, OneDrive) descargando el original</td><td>La original</td><td>Se conservan</td></tr>
+        <tr><td>Correo electrónico como adjunto</td><td>Normalmente la original</td><td>Se conservan</td></tr>
+        <tr><td>Aplicaciones de mensajería (WhatsApp, Telegram como foto)</td><td><strong>Reducida y recomprimida</strong></td><td>Se quitan casi siempre</td></tr>
+      </tbody>
+    </table></div>
+    <p>Para trabajar una foto en GIMP, pásala por cable o por la nube. Para que te
+    la manden por mensajería sin perder calidad, que la envíen como
+    <strong>documento o archivo</strong>, no como foto.</p>
+  </section>
+
+  <section>
+    <h2 id="apartado-4-capturas-de-pantalla">4. Capturas de pantalla</h2>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="t32">
+      <thead><tr><th>Atajo (Windows)</th><th>Qué captura</th><th>Dónde va</th></tr></thead>
+      <tbody>
+        <tr><td><kbd>Impr Pant</kbd></td><td>Toda la pantalla (en Windows 11, abre Recortes)</td><td>Portapapeles</td></tr>
+        <tr><td><kbd>Alt</kbd>+<kbd>Impr Pant</kbd></td><td>Solo la ventana activa</td><td>Portapapeles</td></tr>
+        <tr><td><kbd>Windows</kbd>+<kbd>Impr Pant</kbd></td><td>Toda la pantalla</td><td>Archivo PNG en <code>Imágenes\Capturas de pantalla</code></td></tr>
+        <tr><td><kbd>Windows</kbd>+<kbd>Mayús</kbd>+<kbd>S</kbd></td><td>La zona, ventana o pantalla que elijas (Recortes)</td><td>Portapapeles; se puede guardar y anotar</td></tr>
+      </tbody>
+    </table></div>
+    <p>En Linux, <kbd>Impr Pant</kbd> abre la herramienta de captura. En GIMP,
+    <code>Archivo &gt; Crear &gt; Captura de pantalla</code> permite poner un
+    <strong>retardo</strong> de unos segundos, para capturar un menú
+    desplegado.</p>
+    <ul>
+      <li>Las capturas se guardan en <strong>PNG</strong>: tienen texto y bordes
+      nítidos, y el JPG los emborrona.</li>
+      <li><strong>Captura solo lo necesario</strong> y recorta. Una captura de
+      pantalla completa en un manual obliga al lector a buscar.</li>
+      <li><strong>Revisa qué sale</strong>: pestañas del navegador, nombres,
+      correos y notificaciones. Si se ve algo personal, tápalo o vuelve a
+      capturar.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 id="apartado-5-metadatos-lo-que-una-foto-dice-de-ti">5. Metadatos: lo que una foto dice de ti</h2>
+    <p>Los JPG de cámaras y móviles llevan dentro unos datos llamados
+    <strong>EXIF</strong>: marca y modelo del aparato, fecha y hora exactas,
+    ajustes de la foto (exposición, diafragma, ISO) y, si la ubicación está
+    activada, las <strong>coordenadas GPS</strong> del sitio donde se hizo.</p>
+    <div class="aviso">
+      <strong>Una foto de tu habitación con GPS dice dónde vives.</strong> Muchas
+      redes sociales quitan los metadatos al publicar, pero el correo, la nube, las
+      webs y muchos foros los dejan intactos. Antes de publicar o mandar una foto
+      a quien no conoces, quítaselos.
+    </div>
+    <h3>Cómo verlos y quitarlos</h3>
+    <ul>
+      <li><strong>Windows</strong>: clic derecho en la foto &gt;
+      <code>Propiedades &gt; Detalles</code>. Abajo, <em>Quitar propiedades e
+      información personal</em> crea una copia limpia.</li>
+      <li><strong>GIMP</strong>: <code>Imagen &gt; Metadatos &gt; Ver
+      metadatos</code>. Al exportar en JPG, en la ventana de opciones,
+      desmarca <em>Guardar datos Exif</em>, <em>XMP</em> e <em>IPTC</em>.</li>
+      <li><strong>Laboratorio</strong>: el visor de metadatos los muestra, te
+      enseña la ubicación en el mapa y descarga una copia sin ninguno.</li>
+      <li><strong>En el móvil</strong>: desactiva la ubicación en la cámara si no
+      la necesitas.</li>
+    </ul>
+    <p><a class="lab-enlace" href="laboratorio-imagen.html#apartado-5-metadatos-exif">Pruébalo en el laboratorio: metadatos EXIF</a></p>
+  </section>
+
+  <section>
+    <h2 id="apartado-6-practicas-del-subtema">6. Prácticas del subtema</h2>
+    <p>Acreditan el criterio <em>b</em> (adquisición de imágenes con
+    periféricos). La documentación se hace en Word, con títulos y capturas como en
+    el Tema 2.</p>
+    <ul>
+      <li><strong>P3.2.1</strong> · <strong>Escanear.</strong> Con el escáner del
+      aula y NAPS2: (1) un documento de dos hojas a 300 ppp en escala de grises,
+      guardado como PDF con OCR (comprueba que puedes buscar una palabra);
+      (2) una foto impresa a 300 y a 600 ppp, guardada en PNG. Anota de cada
+      archivo los píxeles y el peso, y explica cuándo usarías cada
+      resolución.</li>
+      <li><strong>P3.2.2</strong> · <strong>Del móvil al ordenador.</strong> Haz una
+      foto con el móvil y pásala de dos formas: por cable USB (o la nube) y por una
+      aplicación de mensajería como foto. Compara en una tabla los píxeles, el
+      peso y los metadatos de las dos copias.</li>
+      <li><strong>P3.2.3</strong> · <strong>Cuatro capturas.</strong> Haz una de
+      pantalla completa, una de una ventana, una de una zona con Recortes y una de
+      un menú desplegado con la captura con retardo de GIMP. Inclúyelas en un
+      documento con su título y una línea que diga cómo se hizo cada una.</li>
+      <li><strong>P3.2.4</strong> · <strong>Metadatos.</strong> Con una foto de tu
+      móvil (o la de ejemplo del laboratorio), haz una tabla con los metadatos
+      que lleva. Quítaselos con dos métodos distintos y comprueba con el
+      laboratorio que han desaparecido.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 id="apartado-7-comprueba-lo-que-has-entendido">7. Comprueba lo que has entendido</h2>
+    <p>Siete preguntas. No cuenta para la nota: es para que veas si puedes seguir.</p>
+    <form id="ei">
+      <div class="pregunta" data-correcta="c">
+        <p class="enunciado"><span class="num">1.</span> Vas a imprimir el doble de grande una foto de papel de 10 × 15 cm. ¿A qué resolución la escaneas?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p1" value="a"> 72 ppp</label></li>
+          <li><label><input type="radio" name="p1" value="b"> 150 ppp</label></li>
+          <li><label><input type="radio" name="p1" value="c"> 600 ppp</label></li>
+          <li><label><input type="radio" name="p1" value="d"> A la máxima que permita el escáner, aunque sea interpolada</label></li>
+        </ul><span class="marca"></span>
+      </div>
+      <div class="pregunta" data-correcta="b">
+        <p class="enunciado"><span class="num">2.</span> Escaneas un contrato y no puedes buscar ninguna palabra en el PDF. ¿Qué le falta?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p2" value="a"> Más resolución</label></li>
+          <li><label><input type="radio" name="p2" value="b"> El OCR</label></li>
+          <li><label><input type="radio" name="p2" value="c"> Escanearlo en color</label></li>
+          <li><label><input type="radio" name="p2" value="d"> Guardarlo en JPG</label></li>
+        </ul><span class="marca"></span>
+      </div>
+      <div class="pregunta" data-correcta="a">
+        <p class="enunciado"><span class="num">3.</span> ¿Qué hace el zoom digital del móvil?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p3" value="a"> Recorta y amplía los píxeles: no acerca de verdad</label></li>
+          <li><label><input type="radio" name="p3" value="b"> Mueve las lentes del objetivo</label></li>
+          <li><label><input type="radio" name="p3" value="c"> Aumenta los megapíxeles reales</label></li>
+          <li><label><input type="radio" name="p3" value="d"> Lo mismo que el óptico, pero más rápido</label></li>
+        </ul><span class="marca"></span>
+      </div>
+      <div class="pregunta" data-correcta="d">
+        <p class="enunciado"><span class="num">4.</span> Te mandan por WhatsApp, como foto, la imagen que tienes que retocar. ¿Qué ha pasado?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p4" value="a"> Nada: llega igual que la original</label></li>
+          <li><label><input type="radio" name="p4" value="b"> Llega en RAW</label></li>
+          <li><label><input type="radio" name="p4" value="c"> Ha ganado resolución</label></li>
+          <li><label><input type="radio" name="p4" value="d"> Llega reducida y recomprimida, normalmente sin metadatos</label></li>
+        </ul><span class="marca"></span>
+      </div>
+      <div class="pregunta" data-correcta="c">
+        <p class="enunciado"><span class="num">5.</span> ¿Qué atajo de Windows captura solo la ventana activa?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p5" value="a"> Windows + Impr Pant</label></li>
+          <li><label><input type="radio" name="p5" value="b"> Ctrl + Impr Pant</label></li>
+          <li><label><input type="radio" name="p5" value="c"> Alt + Impr Pant</label></li>
+          <li><label><input type="radio" name="p5" value="d"> Windows + Mayús + S</label></li>
+        </ul><span class="marca"></span>
+      </div>
+      <div class="pregunta" data-correcta="b">
+        <p class="enunciado"><span class="num">6.</span> ¿En qué formato conviene guardar una captura de pantalla para un manual?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p6" value="a"> JPG, porque pesa menos</label></li>
+          <li><label><input type="radio" name="p6" value="b"> PNG, porque mantiene nítidos el texto y los bordes</label></li>
+          <li><label><input type="radio" name="p6" value="c"> GIF</label></li>
+          <li><label><input type="radio" name="p6" value="d"> BMP</label></li>
+        </ul><span class="marca"></span>
+      </div>
+      <div class="pregunta" data-correcta="a">
+        <p class="enunciado"><span class="num">7.</span> ¿Qué dato de los metadatos EXIF puede revelar dónde vives?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p7" value="a"> Las coordenadas GPS</label></li>
+          <li><label><input type="radio" name="p7" value="b"> El ISO</label></li>
+          <li><label><input type="radio" name="p7" value="c"> El modelo del móvil</label></li>
+          <li><label><input type="radio" name="p7" value="d"> El tiempo de exposición</label></li>
+        </ul><span class="marca"></span>
+      </div>
+      <div class="acciones">
+        <button type="button" id="corregir">Corregir</button>
+        <button type="button" id="reiniciar">Reiniciar</button>
+      </div>
+      <p class="resultado oculto" id="resultado"></p>
+    </form>
+  </section>
+
+  <section>
+    <h2 id="apartado-8-antes-de-pasar-al-subtema-3-3">8. Antes de pasar al subtema 3.3</h2>
+    <ul class="checklist">
+      <li><label><input type="checkbox"> Elegir la resolución, el modo y el formato al escanear según para qué sea</label></li>
+      <li><label><input type="checkbox"> Distinguir la resolución óptica de la interpolada</label></li>
+      <li><label><input type="checkbox"> Escanear un documento a PDF con OCR</label></li>
+      <li><label><input type="checkbox"> Pasar fotos del móvil al ordenador sin perder calidad</label></li>
+      <li><label><input type="checkbox"> Hacer capturas de pantalla completa, de ventana, de zona y con retardo</label></li>
+      <li><label><input type="checkbox"> Ver los metadatos de una foto y quitárselos antes de publicarla</label></li>
+    </ul>
+  </section>
+
+  <nav class="nav-temas">
+    <a href="ut03-1.html">&laquo; Tema 3.1</a>
+    <a href="ut03.html">Índice del Tema 3</a>
+    <span>Siguiente &raquo; (Tema 3.3, próximamente)</span>
+  </nav>
+
+  <footer class="pie">
+    <p>0223 Aplicaciones ofimáticas · Material de consulta del alumnado.
+    Currículo: Decreto 272/2009 (Extremadura).</p>
+  </footer>
+
+<script>
+(function () {
+  var form = document.getElementById('ei');
+  var preguntas = form.querySelectorAll('.pregunta');
+  var salida = document.getElementById('resultado');
+  document.getElementById('corregir').addEventListener('click', function () {
+    var aciertos = 0, contestadas = 0;
+    preguntas.forEach(function (p) {
+      var correcta = p.getAttribute('data-correcta'), elegida = p.querySelector('input:checked'), marca = p.querySelector('.marca');
+      p.classList.remove('acierto', 'fallo');
+      if (!elegida) { marca.textContent = ''; return; }
+      contestadas++;
+      if (elegida.value === correcta) { aciertos++; p.classList.add('acierto'); marca.textContent = '✓ correcto'; }
+      else { p.classList.add('fallo'); marca.textContent = '✗ la correcta era la opción ' + correcta.toUpperCase(); }
+    });
+    var total = preguntas.length;
+    salida.classList.remove('oculto');
+    salida.textContent = 'Aciertos: ' + aciertos + ' de ' + total + '  ·  Contestadas: ' + contestadas + '/' + total +
+      '  ·  Nota orientativa: ' + (Math.round(aciertos / total * 100) / 10) + ' / 10   (recuerda: esta autocomprobación no cuenta para la evaluación)';
+    salida.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+  document.getElementById('reiniciar').addEventListener('click', function () {
+    form.reset();
+    preguntas.forEach(function (p) { p.classList.remove('acierto', 'fallo'); p.querySelector('.marca').textContent = ''; });
+    salida.classList.add('oculto'); salida.textContent = '';
+  });
+})();
+</script>
+
+</main></div>
+</body>
+</html>

@@ -56,8 +56,9 @@ Al crear o modificar un tema en `temario/` hay que: (1) generar/actualizar
 - **Tema 3 — Imagen digital (RA5, 28 h)**: en progreso. Seis subtemas (3.1 a
   3.6) con GIMP 3 como editor y un **laboratorio de imagen** propio
   (`web/temas/laboratorio-imagen.html`) para los conceptos. Ejercicios guiados
-  con el hilo de una banda o un estudio de videojuegos. Publicados: 3.1,
-  laboratorio (4 herramientas) y bloque 3.1 de ejercicios.
+  con el hilo de una banda o un estudio de videojuegos. Publicados: 3.1 y
+  3.2, laboratorio (5 herramientas, con visor de metadatos EXIF) y bloques 3.1 y
+  3.2 de ejercicios.
 - Resto de temas (4 a 10): pendientes.
 
 ## Navegación del aula
