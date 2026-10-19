@@ -30,13 +30,17 @@
   .tlab th { background: var(--acento-claro); color: var(--acento); }
   .tlab td.n { text-align: right; font-variant-numeric: tabular-nums; }
   .pie-lab { font-size: 0.85rem; color: #555; margin: 0.3rem 0 0; }
+  .n-hist { width: 100%; max-width: 512px; height: auto; background: #fff !important; }
+  .n-canales { display: flex; flex-wrap: wrap; gap: 0.3rem; margin: 0.4rem 0; }
+  .n-canales button[aria-pressed="true"], .lab button[aria-pressed="true"] { background: var(--acento); color: #fff; }
+  .n-aviso { color: #b3261e; font-weight: 600; }
 </style>
 <link rel="stylesheet" href="../assets/aula.css">
 <script defer src="../assets/aula.js"></script>
 </head>
 <body data-modulo="0223">
 <a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0223 / Aplicaciones ofimáticas</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
-<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-1-pixeles-y-vectores">1. Píxeles y vectores</a></li><li><a href="#apartado-2-resolucion-y-tamano-de-impresion">2. Resolución y tamaño de impresión</a></li><li><a href="#apartado-3-color-y-profundidad-de-color">3. Color y profundidad de color</a></li><li><a href="#apartado-4-compresion-y-formatos">4. Compresión y formatos</a></li><li><a href="#apartado-5-metadatos-exif">5. Metadatos EXIF</a></li><li><a href="#apartado-proximamente">Próximamente</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1">
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-1-pixeles-y-vectores">1. Píxeles y vectores</a></li><li><a href="#apartado-2-resolucion-y-tamano-de-impresion">2. Resolución y tamaño de impresión</a></li><li><a href="#apartado-3-color-y-profundidad-de-color">3. Color y profundidad de color</a></li><li><a href="#apartado-4-compresion-y-formatos">4. Compresión y formatos</a></li><li><a href="#apartado-5-metadatos-exif">5. Metadatos EXIF</a></li><li><a href="#apartado-6-histograma-y-niveles">6. Histograma y niveles</a></li><li><a href="#apartado-proximamente">Próximamente</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1">
 
   <header class="cab">
     <p class="modulo">0223 · Aplicaciones ofimáticas · Tema 3</p>
@@ -194,10 +198,64 @@
   </section>
 
   <section>
+    <h2 id="apartado-6-histograma-y-niveles">6. Histograma y niveles</h2>
+    <p>El <strong>histograma</strong> es un gráfico que cuenta cuántos píxeles hay
+    de cada luminosidad: a la izquierda los negros, a la derecha los blancos. Con
+    los <strong>niveles</strong> le dices al programa qué gris tiene que pasar a ser
+    negro puro, cuál blanco puro y cómo repartir los tonos medios. Es lo mismo que
+    <code>Colores &gt; Niveles</code> de GIMP.</p>
+    <div class="lab">
+      <div class="rejilla">
+        <label class="campo">Imagen<input id="n-archivo" type="file" accept="image/*"></label>
+        <label class="campo">O una foto de prueba con un problema
+          <select id="n-ejemplo">
+            <option value="">— Elige —</option>
+            <option value="oscura">Oscura (subexpuesta)</option>
+            <option value="lavada">Lavada y amarillenta</option>
+            <option value="quemada">Quemada (sobreexpuesta)</option>
+            <option value="bien">Bien expuesta</option>
+          </select>
+        </label>
+      </div>
+      <div class="lab-fila" style="margin-top:.6rem">
+        <div>
+          <p class="pie-lab" style="margin-bottom:.3rem">Canal que ajustas (como en GIMP):</p>
+          <div class="n-canales" role="group" aria-label="Canal">
+            <button type="button" data-ncanal="v" aria-pressed="true">Valor</button>
+            <button type="button" data-ncanal="r" aria-pressed="false">Rojo</button>
+            <button type="button" data-ncanal="g" aria-pressed="false">Verde</button>
+            <button type="button" data-ncanal="b" aria-pressed="false">Azul</button>
+          </div>
+          <canvas id="n-hist" class="n-hist" width="512" height="200" aria-label="Histograma del canal elegido"></canvas>
+          <p class="pie-lab">Histograma de la imagen original, como en el diálogo de niveles de GIMP. La línea negra es el punto negro y la naranja, el blanco.</p>
+          <label class="pie-lab" style="display:block"><input type="checkbox" id="n-ver-res"> Ver el histograma del resultado (fíjate en los huecos: el «peine»)</label>
+          <div class="ctrl"><label for="n-negro">Punto negro</label><input id="n-negro" type="range" min="0" max="254" value="0"><output id="n-negro-o" for="n-negro">0</output></div>
+          <div class="ctrl"><label for="n-gamma">Gamma (medios)</label><input id="n-gamma" type="range" min="10" max="300" value="100"><output id="n-gamma-o" for="n-gamma">1,00</output></div>
+          <div class="ctrl"><label for="n-blanco">Punto blanco</label><input id="n-blanco" type="range" min="1" max="255" value="255"><output id="n-blanco-o" for="n-blanco">255</output></div>
+          <div class="botones">
+            <button type="button" class="principal" id="n-auto">Automático</button>
+            <button type="button" id="n-reiniciar">Reiniciar</button>
+            <button type="button" id="n-descargar">Descargar el resultado (PNG)</button>
+          </div>
+          <div class="resultado-lab" id="n-res" aria-live="polite"></div>
+        </div>
+        <figure style="margin:0">
+          <canvas id="n-lienzo" width="640" height="400" aria-label="Imagen: a la izquierda de la línea, antes; a la derecha, después"></canvas>
+          <div class="ctrl"><label for="n-corte">Antes | Después</label><input id="n-corte" type="range" min="0" max="100" value="50"><output id="n-corte-o" for="n-corte">50 %</output></div>
+          <figcaption class="pie-lab">A la izquierda de la línea blanca, la imagen original; a la derecha, con los niveles aplicados. GIMP tiene lo mismo: la casilla <em>Vista dividida</em> de los filtros.</figcaption>
+        </figure>
+      </div>
+    </div>
+    <p class="pie-lab"><strong>Automático</strong> estira cada canal por separado
+    (como el botón <em>Automático</em> de los niveles de GIMP): por eso, además de
+    dar contraste, suele quitar las dominantes de color. Prueba con la foto lavada
+    y amarillenta y fíjate en cómo quedan los tres canales.</p>
+  </section>
+
+  <section>
     <h2 id="apartado-proximamente">Próximamente</h2>
-    <p>Con los siguientes subtemas se añadirán el <strong>histograma y los
-    niveles</strong> (3.3) y una
-    calculadora de <strong>tamaños para redes e impresión</strong> (3.6).</p>
+    <p>Con el subtema 3.6 se añadirá una calculadora de <strong>tamaños para
+    redes e impresión</strong>.</p>
   </section>
 
   <nav class="nav-temas">
@@ -526,6 +584,126 @@
     setTimeout(function () { URL.revokeObjectURL(a.href); }, 2000);
     mostrarExif(fotoExif.nombre.replace(/\.(jpe?g)$/i, '') + '-sin-metadatos.jpg', await limpio.arrayBuffer(), limpio);
   });
+
+  // ---------------------------------------------------- 6. histograma y niveles
+  var nOrig = null, nRes = null, nCanal = 'v', nHistOrig = null, nHistRes = null;
+  function nHistVacio() { return { v: new Uint32Array(256), r: new Uint32Array(256), g: new Uint32Array(256), b: new Uint32Array(256) }; }
+  var niveles = { v: [0, 1, 255], r: [0, 1, 255], g: [0, 1, 255], b: [0, 1, 255] };
+  var nEjemplos = {
+    oscura: function (x) { return [0.02 + 0.50 * Math.pow(x[0], 1.6), 0.02 + 0.50 * Math.pow(x[1], 1.6), 0.02 + 0.50 * Math.pow(x[2], 1.6)]; },
+    lavada: function (x) { return [(0.24 + 0.58 * x[0]) * 1.08, (0.24 + 0.58 * x[1]) * 1.02, (0.24 + 0.58 * x[2]) * 0.72]; },
+    quemada: function (x) { return [x[0] * 1.7 + 0.12, x[1] * 1.7 + 0.12, x[2] * 1.7 + 0.12]; },
+    bien: function (x) { return x; }
+  };
+  function nCargar(lienzo) {
+    var c = $('n-lienzo'); c.width = lienzo.width; c.height = lienzo.height;
+    nOrig = lienzo.getContext('2d').getImageData(0, 0, lienzo.width, lienzo.height);
+    nRes = new ImageData(nOrig.width, nOrig.height);
+    nHistOrig = nHistVacio();
+    for (var k = 0, o = nOrig.data; k < o.length; k += 4) { nHistOrig.r[o[k]]++; nHistOrig.g[o[k + 1]]++; nHistOrig.b[o[k + 2]]++; nHistOrig.v[Math.round(0.299 * o[k] + 0.587 * o[k + 1] + 0.114 * o[k + 2])]++; }
+    nReiniciar();
+  }
+  function nDesdeEjemplo(tipo) {
+    var c = document.createElement('canvas'); c.width = muestra.width; c.height = muestra.height;
+    var x = c.getContext('2d'); x.drawImage(muestra, 0, 0);
+    var d = x.getImageData(0, 0, c.width, c.height), a = d.data, f = nEjemplos[tipo];
+    for (var k = 0; k < a.length; k += 4) {
+      var v = f([a[k] / 255, a[k + 1] / 255, a[k + 2] / 255]);
+      a[k] = Math.max(0, Math.min(255, v[0] * 255)); a[k + 1] = Math.max(0, Math.min(255, v[1] * 255)); a[k + 2] = Math.max(0, Math.min(255, v[2] * 255));
+    }
+    x.putImageData(d, 0, 0); nCargar(c);
+  }
+  function tabla(n) {
+    var t = new Uint8ClampedArray(256), b = n[0], g = n[1], w = n[2];
+    for (var i = 0; i < 256; i++) { var v = (i - b) / Math.max(1, w - b); v = Math.max(0, Math.min(1, v)); t[i] = Math.round(Math.pow(v, 1 / g) * 255); }
+    return t;
+  }
+  function nAplicar() {
+    if (!nOrig) return;
+    var tv = tabla(niveles.v), tr = tabla(niveles.r), tg = tabla(niveles.g), tb = tabla(niveles.b);
+    var o = nOrig.data, r = nRes.data, hist = nHistVacio();
+    var negros = 0, blancos = 0, total = o.length / 4;
+    for (var k = 0; k < o.length; k += 4) {
+      var R = tv[tr[o[k]]], G = tv[tg[o[k + 1]]], B = tv[tb[o[k + 2]]];
+      r[k] = R; r[k + 1] = G; r[k + 2] = B; r[k + 3] = 255;
+      hist.r[R]++; hist.g[G]++; hist.b[B]++;
+      var lum = Math.round(0.299 * R + 0.587 * G + 0.114 * B); hist.v[lum]++;
+      if (R === 0 && G === 0 && B === 0) negros++;
+      if (R === 255 && G === 255 && B === 255) blancos++;
+    }
+    nHistRes = hist; nPintar(); nHistograma($('n-ver-res').checked ? nHistRes : nHistOrig);
+    var pn = negros / total * 100, pb = blancos / total * 100, n = niveles[nCanal];
+    var media = 0; for (var i = 0; i < 256; i++) media += i * hist.v[i]; media /= total;
+    $('n-res').innerHTML = '<p>Luminosidad media: <span class="dato">' + num(media, 0) + '</span> de 255</p>' +
+      '<p>Píxeles negros puros: <span class="dato">' + num(pn, 1) + ' %</span> · blancos puros: <span class="dato">' + num(pb, 1) + ' %</span></p>' +
+      ((pn > 2 || pb > 2) ? '<p class="n-aviso">Más del 2 % de los píxeles son negro o blanco puro: ahí no queda detalle. Si es por tus ajustes, suaviza los puntos negro y blanco; si ya venía así en la original (foto quemada), no hay forma de recuperarlo.</p>' : '') +
+      '<p>En GIMP, para el canal ' + { v: 'Valor', r: 'Rojo', g: 'Verde', b: 'Azul' }[nCanal] + ': niveles de entrada <span class="dato">' + n[0] + ' · ' + num(n[1], 2) + ' · ' + n[2] + '</span></p>';
+  }
+  function nPintar() {
+    var c = $('n-lienzo'), x = c.getContext('2d'), corte = Math.round(c.width * $('n-corte').value / 100);
+    x.putImageData(nRes, 0, 0);
+    if (corte > 0) x.putImageData(nOrig, 0, 0, 0, 0, corte, c.height);
+    x.fillStyle = '#fff'; x.fillRect(corte - 1, 0, 2, c.height);
+    $('n-corte-o').textContent = $('n-corte').value + ' %';
+  }
+  function nHistograma(h) {
+    var c = $('n-hist'), x = c.getContext('2d'), W = c.width, Hh = c.height, datos = h[nCanal];
+    x.fillStyle = '#fff'; x.fillRect(0, 0, W, Hh);
+    var max = 1; for (var i = 0; i < 256; i++) max = Math.max(max, datos[i]);
+    x.fillStyle = { v: '#5f6b78', r: '#d33', g: '#2a2', b: '#33d' }[nCanal];
+    for (var j = 0; j < 256; j++) { var alto = Math.sqrt(datos[j] / max) * (Hh - 4); x.fillRect(j * 2, Hh - alto, 2, alto); }
+    var n = niveles[nCanal]; x.fillStyle = '#000'; x.fillRect(n[0] * 2, 0, 2, Hh); x.fillStyle = '#e8a400'; x.fillRect(n[2] * 2 - 1, 0, 2, Hh);
+  }
+  function nControles() {
+    var n = niveles[nCanal];
+    $('n-negro').value = n[0]; $('n-gamma').value = Math.round(n[1] * 100); $('n-blanco').value = n[2];
+    $('n-negro-o').textContent = n[0]; $('n-gamma-o').textContent = num(n[1], 2); $('n-blanco-o').textContent = n[2];
+  }
+  function nLeer() {
+    var b = +$('n-negro').value, w = +$('n-blanco').value;
+    if (w <= b) { if (this && this.id === 'n-negro') b = w - 1; else w = b + 1; }
+    niveles[nCanal] = [b, +$('n-gamma').value / 100, w];
+    nControles(); nAplicar();
+  }
+  function nReiniciar() { niveles = { v: [0, 1, 255], r: [0, 1, 255], g: [0, 1, 255], b: [0, 1, 255] }; nControles(); nAplicar(); }
+  function nAuto() {
+    if (!nOrig) return;
+    var o = nOrig.data, total = o.length / 4;
+    [0, 1, 2].forEach(function (ci) {
+      var h = new Uint32Array(256); for (var k = ci; k < o.length; k += 4) h[o[k]]++;
+      var lim = total * 0.005, acc = 0, b = 0, w = 255;
+      for (b = 0; b < 255; b++) { acc += h[b]; if (acc > lim) break; }
+      acc = 0; for (w = 255; w > 0; w--) { acc += h[w]; if (acc > lim) break; }
+      niveles['rgb'[ci]] = [b, 1, Math.max(w, b + 1)];
+    });
+    niveles.v = [0, 1, 255]; nControles(); nAplicar();
+  }
+  ['n-negro', 'n-gamma', 'n-blanco'].forEach(function (id) { $(id).addEventListener('input', nLeer); });
+  $('n-corte').addEventListener('input', function () { if (nOrig) nPintar(); });
+  $('n-auto').addEventListener('click', nAuto);
+  $('n-ver-res').addEventListener('change', function () { if (nOrig) nHistograma(this.checked ? nHistRes : nHistOrig); });
+  $('n-reiniciar').addEventListener('click', nReiniciar);
+  document.querySelectorAll('[data-ncanal]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      nCanal = b.dataset.ncanal;
+      document.querySelectorAll('[data-ncanal]').forEach(function (o) { o.setAttribute('aria-pressed', String(o === b)); });
+      nControles(); nAplicar();
+    });
+  });
+  $('n-ejemplo').addEventListener('change', function () { if (this.value) nDesdeEjemplo(this.value); });
+  $('n-archivo').addEventListener('change', async function () {
+    var f = this.files[0]; if (!f) return;
+    var bmp = await createImageBitmap(f), maxW = 1200, e = Math.min(1, maxW / bmp.width);
+    var c = document.createElement('canvas'); c.width = Math.round(bmp.width * e); c.height = Math.round(bmp.height * e);
+    c.getContext('2d').drawImage(bmp, 0, 0, c.width, c.height);
+    $('n-ejemplo').value = ''; nCargar(c);
+  });
+  $('n-descargar').addEventListener('click', function () {
+    if (!nRes) return;
+    var c = document.createElement('canvas'); c.width = nRes.width; c.height = nRes.height; c.getContext('2d').putImageData(nRes, 0, 0);
+    c.toBlob(function (bl) { var a = document.createElement('a'); a.href = URL.createObjectURL(bl); a.download = 'niveles-resultado.png'; a.click(); setTimeout(function () { URL.revokeObjectURL(a.href); }, 2000); }, 'image/png');
+  });
+  $('n-ejemplo').value = 'oscura'; nDesdeEjemplo('oscura');
 })();
 </script>
 
