@@ -230,7 +230,8 @@
             "RA5.b"
           ],
           "horas": 3,
-          "estado": "borrador"
+          "estado": "publicado",
+          "actualizado": "2026-10-19"
         },
         {
           "ut": "3.3",
@@ -274,12 +275,12 @@
         {
           "titulo": "Laboratorio de imagen",
           "url": "temas/laboratorio-imagen.html",
-          "nota": "herramientas HTML sin dependencias: píxeles y vectores, resolución, color y profundidad, compresión y formatos; se amplía con cada subtema"
+          "nota": "herramientas HTML sin dependencias: píxeles y vectores, resolución, color y profundidad, compresión y formatos, metadatos EXIF (ver, ubicación en mapa y quitar); se amplía con cada subtema"
         },
         {
           "titulo": "Ejercicios guiados: tu grupo o tu estudio, pieza a pieza",
           "url": "temas/ut03-ejercicios.html",
-          "nota": "formativo; hilo conductor banda de música o estudio de videojuegos; bloque 3.1 publicado"
+          "nota": "formativo; hilo conductor banda de música o estudio de videojuegos; bloques 3.1 y 3.2 publicados"
         }
       ]
     }

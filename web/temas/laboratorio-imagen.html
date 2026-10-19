@@ -36,7 +36,7 @@
 </head>
 <body data-modulo="0223">
 <a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0223 / Aplicaciones ofimáticas</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
-<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-1-pixeles-y-vectores">1. Píxeles y vectores</a></li><li><a href="#apartado-2-resolucion-y-tamano-de-impresion">2. Resolución y tamaño de impresión</a></li><li><a href="#apartado-3-color-y-profundidad-de-color">3. Color y profundidad de color</a></li><li><a href="#apartado-4-compresion-y-formatos">4. Compresión y formatos</a></li><li><a href="#apartado-proximamente">Próximamente</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1">
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-1-pixeles-y-vectores">1. Píxeles y vectores</a></li><li><a href="#apartado-2-resolucion-y-tamano-de-impresion">2. Resolución y tamaño de impresión</a></li><li><a href="#apartado-3-color-y-profundidad-de-color">3. Color y profundidad de color</a></li><li><a href="#apartado-4-compresion-y-formatos">4. Compresión y formatos</a></li><li><a href="#apartado-5-metadatos-exif">5. Metadatos EXIF</a></li><li><a href="#apartado-proximamente">Próximamente</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1">
 
   <header class="cab">
     <p class="modulo">0223 · Aplicaciones ofimáticas · Tema 3</p>
@@ -173,9 +173,30 @@
   </section>
 
   <section>
+    <h2 id="apartado-5-metadatos-exif">5. Metadatos EXIF</h2>
+    <p>Las cámaras y los móviles guardan dentro de cada foto JPG datos que no se
+    ven: el modelo del aparato, la fecha y la hora exactas, los ajustes de la
+    foto y, si la ubicación está activada, <strong>las coordenadas GPS del sitio
+    donde la hiciste</strong>. Carga una foto de tu móvil y mira lo que cuenta de
+    ti.</p>
+    <div class="lab">
+      <div class="rejilla">
+        <label class="campo">Foto JPG<input id="x-archivo" type="file" accept="image/jpeg,.jpg,.jpeg"></label>
+        <div class="campo" style="justify-content:flex-end"><button type="button" id="x-ejemplo">Usar una foto de ejemplo con GPS</button></div>
+      </div>
+      <div class="resultado-lab" id="x-res" aria-live="polite"><p>Todavía no has cargado ninguna foto.</p></div>
+      <table class="tlab" id="x-tabla" hidden><thead><tr><th>Dato</th><th>Valor</th></tr></thead><tbody></tbody></table>
+      <div class="botones" id="x-acciones" hidden>
+        <button type="button" class="principal" id="x-limpiar">Quitar los metadatos y descargar</button>
+      </div>
+      <p class="pie-lab">Para quitarlos, la herramienta vuelve a guardar la imagen sin ningún metadato (en JPG, calidad 92). La foto original no se modifica.</p>
+    </div>
+  </section>
+
+  <section>
     <h2 id="apartado-proximamente">Próximamente</h2>
-    <p>Con los siguientes subtemas se añadirán un visor de <strong>metadatos
-    EXIF</strong> (3.2), el <strong>histograma y los niveles</strong> (3.3) y una
+    <p>Con los siguientes subtemas se añadirán el <strong>histograma y los
+    niveles</strong> (3.3) y una
     calculadora de <strong>tamaños para redes e impresión</strong> (3.6).</p>
   </section>
 
@@ -392,6 +413,119 @@
     setTimeout(function () { URL.revokeObjectURL(a.href); }, 2000);
   });
   compresion();
+
+  // ---------------------------------------------------- 5. EXIF
+  var fotoExif = null;
+  function leerExif(buf) {
+    var v = new DataView(buf);
+    if (v.getUint16(0) !== 0xFFD8) return null;
+    var p = 2;
+    while (p + 4 < v.byteLength) {
+      var marca = v.getUint16(p), largo = v.getUint16(p + 2);
+      if (marca === 0xFFE1 && v.getUint32(p + 4) === 0x45786966) return tiff(v, p + 10);
+      if ((marca & 0xFF00) !== 0xFF00 || marca === 0xFFDA) break;
+      p += 2 + largo;
+    }
+    return {};
+  }
+  function tiff(v, base) {
+    var le = v.getUint16(base) === 0x4949;
+    var u16 = function (o) { return v.getUint16(base + o, le); }, u32 = function (o) { return v.getUint32(base + o, le); };
+    var datos = {};
+    function valor(tipo, n, off) {
+      var tam = { 1: 1, 2: 1, 3: 2, 4: 4, 5: 8, 7: 1, 9: 4, 10: 8 }[tipo] || 1;
+      var o = tam * n > 4 ? u32(off) : off, r = [];
+      for (var i = 0; i < n; i++) {
+        if (tipo === 2) { var c = v.getUint8(base + o + i); if (c) r.push(String.fromCharCode(c)); continue; }
+        if (tipo === 3) r.push(u16(o + i * 2));
+        else if (tipo === 4 || tipo === 9) r.push(u32(o + i * 4));
+        else if (tipo === 5 || tipo === 10) { var d = u32(o + i * 8 + 4); r.push(d ? u32(o + i * 8) / d : 0); }
+        else r.push(v.getUint8(base + o + i));
+      }
+      return tipo === 2 ? r.join('').trim() : (n === 1 ? r[0] : r);
+    }
+    function ifd(off, nombres) {
+      var n = u16(off);
+      for (var i = 0; i < n; i++) {
+        var e = off + 2 + i * 12, tag = u16(e), tipo = u16(e + 2), cuenta = u32(e + 4);
+        try { if (nombres[tag]) datos[nombres[tag]] = valor(tipo, cuenta, e + 8); } catch (err) { /* etiqueta rota */ }
+      }
+    }
+    ifd(u32(4), { 0x010F: 'marca', 0x0110: 'modelo', 0x0131: 'programa', 0x0132: 'fecha', 0x0112: 'orientacion', 0x8769: 'exifIFD', 0x8825: 'gpsIFD' });
+    if (datos.exifIFD) ifd(datos.exifIFD, { 0x9003: 'fechaOriginal', 0x829A: 'exposicion', 0x829D: 'diafragma', 0x8827: 'iso', 0x920A: 'focal', 0xA002: 'ancho', 0xA003: 'alto' });
+    if (datos.gpsIFD) ifd(datos.gpsIFD, { 1: 'latRef', 2: 'lat', 3: 'lonRef', 4: 'lon', 6: 'altitud' });
+    return datos;
+  }
+  function grados(arr, ref) { if (!arr || arr.length < 3) return null; var g = arr[0] + arr[1] / 60 + arr[2] / 3600; return (ref === 'S' || ref === 'W') ? -g : g; }
+  function mostrarExif(nombre, buf, blob) {
+    var d = leerExif(buf);
+    var cuerpo = $('x-tabla').tBodies[0]; cuerpo.innerHTML = '';
+    if (d === null) { $('x-res').innerHTML = '<p>Ese archivo no es un JPG. Los metadatos EXIF van sobre todo en los JPG de cámaras y móviles.</p>'; $('x-tabla').hidden = true; $('x-acciones').hidden = true; return; }
+    fotoExif = { nombre: nombre, blob: blob };
+    var filas = [];
+    var add = function (k, val) { if (val !== undefined && val !== null && val !== '') filas.push([k, val]); };
+    add('Marca de la cámara o móvil', d.marca); add('Modelo', d.modelo); add('Programa', d.programa);
+    add('Fecha y hora de la foto', d.fechaOriginal || d.fecha);
+    if (d.exposicion) add('Tiempo de exposición', d.exposicion >= 1 ? d.exposicion + ' s' : '1/' + Math.round(1 / d.exposicion) + ' s');
+    if (d.diafragma) add('Diafragma', 'f/' + num(d.diafragma, 1));
+    add('ISO', d.iso); if (d.focal) add('Distancia focal', num(d.focal, 1) + ' mm');
+    var lat = grados(d.lat, d.latRef), lon = grados(d.lon, d.lonRef);
+    if (lat !== null && lon !== null) {
+      add('Ubicación GPS', num(lat, 5) + ', ' + num(lon, 5) + ' — <a href="https://www.openstreetmap.org/?mlat=' + lat.toFixed(5) + '&amp;mlon=' + lon.toFixed(5) + '#map=17/' + lat.toFixed(5) + '/' + lon.toFixed(5) + '" target="_blank" rel="noopener">ver en el mapa</a>');
+      if (typeof d.altitud === 'number') add('Altitud', num(d.altitud, 0) + ' m');
+    }
+    filas.forEach(function (f) { var tr = document.createElement('tr'); tr.innerHTML = '<td>' + f[0] + '</td><td>' + f[1] + '</td>'; cuerpo.appendChild(tr); });
+    $('x-tabla').hidden = !filas.length; $('x-acciones').hidden = false;
+    var gps = lat !== null;
+    $('x-res').innerHTML = '<p><strong>' + nombre + '</strong> · ' + bytes(blob.size) + ' · ' + (filas.length ? filas.length + ' datos encontrados.' : 'no tiene metadatos EXIF.') + '</p>' +
+      (gps ? '<p class="veredicto-mal">Esta foto dice dónde se hizo. Si la publicas tal cual, cualquiera puede ver el sitio en un mapa.</p>' : (filas.length ? '<p class="veredicto-bien">No lleva ubicación GPS.</p>' : ''));
+  }
+  $('x-archivo').addEventListener('change', function () {
+    var f = this.files[0]; if (!f) return;
+    f.arrayBuffer().then(function (buf) { mostrarExif(f.name, buf, f); });
+  });
+  // Foto de ejemplo: la imagen de prueba en JPG con un bloque EXIF inventado (Cabezuela del Valle)
+  function exifEjemplo() {
+    var partes = [], le = true;
+    var ascii = function (t) { return Array.from(t + '\0').map(function (c) { return c.charCodeAt(0); }); };
+    // Diseño: cabecera TIFF (8) + IFD0 (2+5*12+4=66) + Exif IFD (2+1*12+4=18) + GPS IFD (2+5*12+4=66) + datos
+    var datos = [], baseDatos = 8 + 66 + 18 + 66;
+    var ref = function (bytesArr) { var off = baseDatos + datos.length; datos = datos.concat(bytesArr); if (datos.length % 2) datos.push(0); return off; };
+    var r32 = function (n) { return [n & 255, (n >> 8) & 255, (n >> 16) & 255, (n >>> 24) & 255]; };
+    var racional = function (num_, den) { return r32(num_).concat(r32(den)); };
+    var dms = function (g) { var d = Math.floor(g), m = Math.floor((g - d) * 60), s = Math.round(((g - d) * 60 - m) * 60 * 100); return racional(d, 1).concat(racional(m, 1), racional(s, 100)); };
+    var entrada = function (tag, tipo, cuenta, valorOffset) { return [tag & 255, tag >> 8, tipo & 255, 0].concat(r32(cuenta), valorOffset); };
+    var marca = ascii('Movil de ejemplo'), modelo = ascii('Modelo SMR 2026'), fecha = ascii('2026:10:19 11:42:07');
+    var ifd0 = [5, 0].concat(
+      entrada(0x010F, 2, marca.length, r32(ref(marca))), entrada(0x0110, 2, modelo.length, r32(ref(modelo))),
+      entrada(0x0132, 2, fecha.length, r32(ref(fecha))), entrada(0x8769, 4, 1, r32(8 + 66)), entrada(0x8825, 4, 1, r32(8 + 66 + 18)), r32(0));
+    var exif = [1, 0].concat(entrada(0x9003, 2, fecha.length, r32(ref(fecha))), r32(0));
+    var gps = [5, 0].concat(
+      entrada(1, 2, 2, [78, 0, 0, 0]), entrada(2, 5, 3, r32(ref(dms(40.19253)))),
+      entrada(3, 2, 2, [87, 0, 0, 0]), entrada(4, 5, 3, r32(ref(dms(5.80569)))),
+      entrada(6, 5, 1, r32(ref(racional(512, 1)))), r32(0));
+    var tiffBytes = [0x49, 0x49, 42, 0].concat(r32(8), ifd0, exif, gps, datos);
+    var app1 = [0x45, 0x78, 0x69, 0x66, 0, 0].concat(tiffBytes);
+    var largo = app1.length + 2;
+    return new Uint8Array([0xFF, 0xE1, largo >> 8, largo & 255].concat(app1));
+  }
+  $('x-ejemplo').addEventListener('click', async function () {
+    var c = document.createElement('canvas'); c.width = muestra.width; c.height = muestra.height; c.getContext('2d').drawImage(muestra, 0, 0);
+    var jpg = new Uint8Array(await (await comprimir(c, 'image/jpeg', 90)).arrayBuffer());
+    var ex = exifEjemplo();
+    var todo = new Uint8Array(jpg.length + ex.length); todo.set(jpg.subarray(0, 2)); todo.set(ex, 2); todo.set(jpg.subarray(2), 2 + ex.length);
+    var blob = new Blob([todo], { type: 'image/jpeg' });
+    mostrarExif('foto-de-ejemplo.jpg', todo.buffer, blob);
+  });
+  $('x-limpiar').addEventListener('click', async function () {
+    if (!fotoExif) return;
+    var bmp = await createImageBitmap(fotoExif.blob);
+    var c = document.createElement('canvas'); c.width = bmp.width; c.height = bmp.height; c.getContext('2d').drawImage(bmp, 0, 0);
+    var limpio = await comprimir(c, 'image/jpeg', 92);
+    var a = document.createElement('a'); a.href = URL.createObjectURL(limpio); a.download = fotoExif.nombre.replace(/\.(jpe?g)$/i, '') + '-sin-metadatos.jpg'; a.click();
+    setTimeout(function () { URL.revokeObjectURL(a.href); }, 2000);
+    mostrarExif(fotoExif.nombre.replace(/\.(jpe?g)$/i, '') + '-sin-metadatos.jpg', await limpio.arrayBuffer(), limpio);
+  });
 })();
 </script>
 
