@@ -19,7 +19,11 @@ Página: `web/temas/ut03-2.html`. Herramienta: apartado 5 del laboratorio
 
 1. Fuentes de imagen y qué vigilar en cada una.
 2. Escanear: resolución según destino (tabla), óptica frente a interpolada, OCR,
-   programas (NAPS2 en clase; escáner de Windows; Simple Scan; app del móvil).
+   programas (escáner de Windows, NAPS2, Simple Scan) y, en clase, la app de
+   escaneo del móvil (Google Drive, Notas del iPhone). OCR sin instalar nada:
+   Acciones de texto de Recortes (Windows 11), Google Drive > Abrir con Documentos
+   de Google, Google Lens. Cómo escanear bien con el móvil; los ppp del móvil no
+   significan nada, cuentan los píxeles.
 3. Cámara y móvil: megapíxeles frente a luz, zoom óptico frente a digital,
    HEIC y RAW, cómo pasar las fotos sin perder calidad (la mensajería recomprime).
 4. Capturas de pantalla: atajos de Windows, Linux y captura con retardo de GIMP;
@@ -29,15 +33,23 @@ Página: `web/temas/ut03-2.html`. Herramienta: apartado 5 del laboratorio
 
 ## Necesidades de aula
 
-- Escáner o multifunción accesible y **NAPS2** instalado (con el idioma español
-  de OCR descargado: lo pide la primera vez).
+- **No hay escáner en el aula**: el periférico de adquisición es la cámara del
+  móvil (CE b habla de «periféricos» en general). El escáner se ve como teoría
+  (resolución según destino, óptica/interpolada, OCR) y puede entrar en la prueba.
+- La P3.2.1 se hace en parejas con un móvil por pareja. Si nadie puede usar
+  móvil: fotos simuladas `web/descargas/documento-fotografiado-1.jpg` y `-2.jpg`
+  (generadas con `scripts/generar_documento_fotografiado.py`; hoja torcida, con
+  sombra, contenido inventado) para el OCR y el PDF con Word.
+- OCR: Recortes de Windows 11 (Acciones de texto) o Google Drive con la cuenta
+  educativa. Comprobar antes que Recortes está actualizado en los equipos.
 - Las prácticas con el móvil son voluntarias en cuanto al aparato: quien no
   tenga o no quiera usar el suyo usa la **foto de ejemplo** del laboratorio,
   que lleva un EXIF inventado con coordenadas de Cabezuela del Valle.
 
 ## Prácticas (CE b)
 
-- **P3.2.1** Escanear: documento a PDF con OCR y foto a 300 y 600 ppp.
+- **P3.2.1** Digitalizar un documento con el móvil: foto normal frente a app de
+  escaneo, PDF de dos hojas, OCR y revisión de errores.
 - **P3.2.2** Del móvil al ordenador por cable y por mensajería; comparar.
 - **P3.2.3** Cuatro capturas (completa, ventana, zona, con retardo).
 - **P3.2.4** Metadatos: tabla, quitarlos con dos métodos y comprobar.
@@ -45,5 +57,5 @@ Página: `web/temas/ut03-2.html`. Herramienta: apartado 5 del laboratorio
 ## Ejercicios guiados (bloque 3.2)
 
 Fotos o capturas del proyecto (sin personas salvo permiso; juegos libres para
-las capturas), boceto del logo escaneado a 300 ppp en grises, limpieza de
+las capturas), boceto del logo escaneado con el móvil (≥ 2000 px en el lado largo), limpieza de
 metadatos y tabla de origen de cada imagen (prepara las licencias del 3.6).
