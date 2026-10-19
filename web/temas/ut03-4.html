@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tema 3.4 · Capas, selecciones y texto · 0223 Aplicaciones ofimáticas</title>
+<link rel="stylesheet" href="../assets/estilo.css">
+<style>
+  .t34 { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 1rem 0; }
+  .t34 th, .t34 td { border: 1px solid var(--linea); padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+  .t34 th { background: var(--acento-claro); color: var(--acento); }
+  .lab-enlace { display: inline-block; margin: 0.3rem 0 0.6rem; padding: 0.45rem 0.8rem; border: 1px solid var(--acento); border-radius: var(--radio); font-weight: 600; }
+  .fotos-practica { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 0.8rem; margin: 1rem 0; }
+  .fotos-practica figure { margin: 0; }
+  .fotos-practica img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border: 1px solid var(--linea); border-radius: 4px; }
+  .fotos-practica figcaption { font-size: 0.85rem; margin-top: 0.3rem; }
+</style>
+<link rel="stylesheet" href="../assets/aula.css">
+<script defer src="../assets/aula.js"></script>
+</head>
+<body data-modulo="0223">
+<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0223 / Aplicaciones ofimáticas</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-material-para-practicar">Material para practicar</a></li><li><a href="#apartado-1-capas">1. Capas</a></li><li><a href="#apartado-2-seleccionar">2. Seleccionar</a></li><li><a href="#apartado-3-mascaras-de-capa">3. Máscaras de capa</a></li><li><a href="#apartado-4-texto">4. Texto</a></li><li><a href="#apartado-5-componer-una-pieza">5. Componer una pieza</a></li><li><a href="#apartado-6-practicas-del-subtema">6. Prácticas del subtema</a></li><li><a href="#apartado-7-comprueba-lo-que-has-entendido">7. Comprueba lo que has entendido</a></li><li><a href="#apartado-8-antes-de-pasar-al-subtema-3-5">8. Antes de pasar al subtema 3.5</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1">
+
+  <header class="cab">
+    <p class="modulo">0223 · Aplicaciones ofimáticas · Tema 3 (4 de 6)</p>
+    <h1>Tema 3.4 — Capas, selecciones y texto</h1>
+    <p class="meta">1.º SMR · Curso 2026/2027 · 1.ª evaluación · Duración: 6 h</p>
+  </header>
+<nav class="subnav" aria-label="Apartados del tema 3"><a href="ut03.html">Portada del tema</a><a href="ut03.html#apartado-subtemas">Apuntes</a><a href="ut03-ejercicios.html">Ejercicios guiados</a><a href="laboratorio-imagen.html">Laboratorio de imagen</a></nav>
+
+  <details class="ra-ce"><summary>Qué se evalúa · RA y criterios</summary>
+    <h2 id="apartado-resultado-de-aprendizaje">Resultado de aprendizaje</h2>
+    <p><strong>RA5.</strong> Manipula imágenes digitales analizando las
+    posibilidades de distintos programas y aplicando técnicas de captura y edición
+    básicas.</p>
+    <p>Criterio de evaluación que trabaja este subtema:</p>
+    <ul>
+      <li><strong>d)</strong> Se han empleado herramientas para la edición de imagen digital.</li>
+    </ul>
+  </details>
+
+  <div class="aviso">
+    <strong>De retocar a diseñar.</strong> Hasta ahora arreglabas una foto. Con
+    capas, selecciones y texto juntas varias imágenes en una sola: una portada, un
+    cartel, una miniatura. Es lo que hace un diseñador gráfico todos los días.
+  </div>
+
+  <section>
+    <h2 id="apartado-material-para-practicar">Material para practicar</h2>
+    <p>Imágenes inventadas para este subtema. Guárdalas en
+    <code>Tema3_Proyecto/trabajo/originales</code>.</p>
+    <div class="fotos-practica">
+      <figure><a href="../descargas/capas-guitarra.jpg"><img src="../descargas/capas-guitarra.jpg" alt="Guitarra acústica sobre una pared clara, con sombra" loading="lazy" width="2000" height="1500"></a>
+        <figcaption><strong>Guitarra</strong>: para recortarla (opción A, grupo de música).</figcaption></figure>
+      <figure><a href="../descargas/capas-mando.jpg"><img src="../descargas/capas-mando.jpg" alt="Mando de videoconsola sobre una mesa azulada" loading="lazy" width="2000" height="1500"></a>
+        <figcaption><strong>Mando</strong>: para recortarlo (opción B, videojuego).</figcaption></figure>
+      <figure><a href="../descargas/capas-textura.jpg"><img src="../descargas/capas-textura.jpg" alt="Textura de papel viejo con manchas" loading="lazy" width="2000" height="1500"></a>
+        <figcaption><strong>Textura de papel</strong>: para los modos de fusión.</figcaption></figure>
+    </div>
+    <p>Enlaces directos:
+    <a href="../descargas/capas-guitarra.jpg">Guitarra para recortar</a> ·
+    <a href="../descargas/capas-mando.jpg">Mando para recortar</a> ·
+    <a href="../descargas/capas-textura.jpg">Textura de papel viejo</a>.
+    También usarás el paisaje que retocaste en el subtema 3.3.</p>
+  </section>
+
+  <section>
+    <h2 id="apartado-1-capas">1. Capas</h2>
+    <p>Una imagen con capas es como un montón de <strong>láminas
+    transparentes</strong> apiladas: en cada una hay una cosa (el fondo, una foto,
+    un texto) y lo de arriba tapa a lo de abajo. Puedes mover, cambiar o esconder
+    cada lámina sin estropear las demás. Por eso se trabaja en <code>.xcf</code>:
+    es el único formato que guarda las capas de GIMP.</p>
+    <h3>El diálogo Capas</h3>
+    <p><code>Ventanas &gt; Diálogos empotrables &gt; Capas</code>
+    (<kbd>Ctrl</kbd>+<kbd>L</kbd>). Cada fila es una capa:</p>
+    <ul>
+      <li>El <strong>ojo</strong> la muestra u oculta.</li>
+      <li>La <strong>cadena</strong> enlaza capas para moverlas juntas.</li>
+      <li>Arriba del diálogo, el <strong>modo</strong> de fusión y la
+      <strong>opacidad</strong> de la capa activa.</li>
+      <li>Abajo, los botones para crear, subir, bajar, duplicar, anclar y borrar
+      capas.</li>
+      <li>Doble clic en el nombre para <strong>renombrarla</strong>. Pon nombres
+      claros («fondo», «guitarra», «título»): con diez capas llamadas «Capa
+      copia #3» no se encuentra nada.</li>
+    </ul>
+    <h3>Órdenes que vas a usar siempre</h3>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="t34">
+      <thead><tr><th>Para</th><th>Orden</th></tr></thead>
+      <tbody>
+        <tr><td>Traer otra imagen como capa</td><td><code>Archivo &gt; Abrir como capas</code> (<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>O</kbd>) o arrastrarla desde el Explorador</td></tr>
+        <tr><td>Capa nueva vacía</td><td><code>Capa &gt; Capa nueva</code> (<kbd>Mayús</kbd>+<kbd>Ctrl</kbd>+<kbd>N</kbd>), con relleno <em>Transparencia</em></td></tr>
+        <tr><td>Mover una capa</td><td>Herramienta <strong>Mover</strong> (<kbd>M</kbd>). En sus opciones, marca <em>Mover la capa activa</em>: si no, mueve la capa que haya debajo del ratón</td></tr>
+        <tr><td>Cambiar el tamaño o girar una capa</td><td><strong>Transformación unificada</strong> (<kbd>Mayús</kbd>+<kbd>T</kbd>) o <strong>Escalar</strong> (<kbd>Mayús</kbd>+<kbd>S</kbd>)</td></tr>
+        <tr><td>Que una capa admita transparencia</td><td><code>Capa &gt; Transparencia &gt; Añadir canal alfa</code> (las fotos JPG no lo traen)</td></tr>
+        <tr><td>Que la capa ocupe toda la imagen</td><td><code>Capa &gt; Capa a tamaño de imagen</code></td></tr>
+        <tr><td>Juntar todas las capas en una</td><td><code>Imagen &gt; Aplanar imagen</code>. Solo al final, en una copia: después ya no hay capas</td></tr>
+      </tbody>
+    </table></div>
+    <h3>Modos de fusión</h3>
+    <p>El modo dice cómo se mezcla la capa con lo que tiene debajo. Los cuatro más
+    útiles:</p>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="t34">
+      <thead><tr><th>Modo</th><th>Qué hace</th><th>Para qué</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Normal</strong></td><td>Tapa lo de debajo</td><td>Casi todo</td></tr>
+        <tr><td><strong>Multiplicar</strong></td><td>Solo oscurece; el blanco desaparece</td><td>Texturas, sombras, un dibujo a lápiz sobre una foto</td></tr>
+        <tr><td><strong>Pantalla</strong></td><td>Solo aclara; el negro desaparece</td><td>Luces, brillos, humo</td></tr>
+        <tr><td><strong>Superponer</strong></td><td>Oscurece lo oscuro y aclara lo claro</td><td>Dar contraste y teñir con una textura o un color</td></tr>
+      </tbody>
+    </table></div>
+    <p><a class="lab-enlace" href="laboratorio-imagen.html#apartado-7-capas-modos-de-fusion-y-mascaras">Pruébalo en el laboratorio: capas, modos y máscaras</a></p>
+  </section>
+
+  <section>
+    <h2 id="apartado-2-seleccionar">2. Seleccionar</h2>
+    <p>Una selección es la zona en la que vas a trabajar: lo que pintes, borres,
+    copies o ajustes solo afecta a lo que está dentro. Se ve con una línea
+    discontinua que se mueve (las «hormigas»).</p>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="t34">
+      <thead><tr><th>Herramienta</th><th>Tecla</th><th>Cómo selecciona</th><th>Para</th></tr></thead>
+      <tbody>
+        <tr><td>Selección rectangular</td><td><kbd>R</kbd></td><td>Un rectángulo</td><td>Franjas, recuadros, recortar zonas</td></tr>
+        <tr><td>Selección elíptica</td><td><kbd>E</kbd></td><td>Una elipse (con <kbd>Mayús</kbd> mientras arrastras, un círculo)</td><td>Formas redondas</td></tr>
+        <tr><td>Selección libre (lazo)</td><td><kbd>F</kbd></td><td>Clic a clic hace tramos rectos; arrastrando, a mano alzada. <kbd>Intro</kbd> la cierra</td><td>Objetos con bordes rectos o irregulares</td></tr>
+        <tr><td>Tijeras inteligentes</td><td><kbd>I</kbd></td><td>Pones puntos en el borde y se pegan solos a él</td><td>Objetos con buen contraste con el fondo</td></tr>
+        <tr><td>Selección difusa (varita)</td><td><kbd>U</kbd></td><td>Un clic coge la zona continua de color parecido. El <em>umbral</em> dice cuánto de parecido</td><td>Fondos lisos</td></tr>
+        <tr><td>Selección por color</td><td><kbd>Mayús</kbd>+<kbd>O</kbd></td><td>Como la varita, pero en toda la imagen, aunque no esté junto</td><td>Un color que se repite (el cielo entre las ramas)</td></tr>
+      </tbody>
+    </table></div>
+    <h3>Combinar selecciones</h3>
+    <p>Pulsa la tecla <strong>antes</strong> de hacer clic:</p>
+    <ul>
+      <li><kbd>Mayús</kbd>: <strong>añade</strong> a la selección que ya tienes.</li>
+      <li><kbd>Ctrl</kbd>: <strong>resta</strong>.</li>
+      <li><kbd>Mayús</kbd>+<kbd>Ctrl</kbd>: deja solo la parte <strong>común</strong>.</li>
+    </ul>
+    <h3>El menú Seleccionar</h3>
+    <ul>
+      <li><strong>Todo</strong> (<kbd>Ctrl</kbd>+<kbd>A</kbd>) y <strong>Ninguno</strong>
+      (<kbd>Mayús</kbd>+<kbd>Ctrl</kbd>+<kbd>A</kbd>). Si algo «no hace nada», casi
+      siempre es que hay una selección olvidada en otro sitio.</li>
+      <li><strong>Invertir</strong> (<kbd>Ctrl</kbd>+<kbd>I</kbd>): truco clásico.
+      Seleccionas el fondo liso con la varita, inviertes y tienes el objeto.</li>
+      <li><strong>Difuminar</strong>: suaviza el borde unos píxeles para que el
+      recorte no quede «pegado». Con 1 o 2 px suele bastar.</li>
+      <li><strong>Encoger</strong> y <strong>Agrandar</strong>: mueven el borde hacia
+      dentro o hacia fuera. Encoger 1 px quita el halo del fondo que a veces queda
+      alrededor.</li>
+    </ul>
+    <h3>Máscara rápida: retocar la selección pintando</h3>
+    <p>Con <kbd>Mayús</kbd>+<kbd>Q</kbd> la zona sin seleccionar se tiñe de rojo. Ahora
+    pintas con el pincel: en <strong>blanco</strong> añades a la selección y en
+    <strong>negro</strong> quitas. Vuelve a pulsar <kbd>Mayús</kbd>+<kbd>Q</kbd> y
+    vuelven las hormigas. Es la forma más cómoda de arreglar los bordes
+    difíciles.</p>
+    <h3>Copiar y pegar sin líos</h3>
+    <p>Para llevar lo seleccionado a otra imagen o a otra capa, copia
+    (<kbd>Ctrl</kbd>+<kbd>C</kbd>) y usa <code>Editar &gt; Pegar como &gt; Capa
+    nueva</code>. Si en el diálogo Capas te aparece una <strong>Selección
+    flotante</strong>, conviértela con <code>Capa &gt; A capa nueva</code>: mientras
+    está flotando no puedes hacer casi nada más.</p>
+  </section>
+
+  <section>
+    <h2 id="apartado-3-mascaras-de-capa">3. Máscaras de capa</h2>
+    <p>Para quitar el fondo de un objeto podrías borrarlo con la goma, pero si te
+    equivocas ya no hay vuelta atrás. La <strong>máscara de capa</strong> esconde
+    en lugar de borrar:</p>
+    <ul>
+      <li><code>Capa &gt; Máscara &gt; Añadir máscara de capa</code>. Si tienes una
+      selección hecha, elige <em>Selección</em> y lo de fuera desaparece al
+      momento.</li>
+      <li>En la máscara, el <strong>blanco muestra</strong> y el <strong>negro
+      oculta</strong>. Los grises dejan la capa a medias.</li>
+      <li>Haz clic en la miniatura de la máscara (en el diálogo Capas) y pinta en
+      ella con el pincel en blanco o en negro para arreglar el borde.</li>
+      <li>Con un <strong>degradado</strong> (<kbd>G</kbd>) de negro a blanco sobre la
+      máscara, una imagen se funde poco a poco con la de debajo. Así se hacen los
+      fundidos y las dobles exposiciones.</li>
+    </ul>
+    <div class="aviso">
+      <strong>¿Estás pintando en la capa o en la máscara?</strong> Lo que esté
+      activo tiene un borde blanco en el diálogo Capas. Es el despiste más típico:
+      pintar de negro sobre la foto en vez de sobre su máscara.
+    </div>
+  </section>
+
+  <section>
+    <h2 id="apartado-4-texto">4. Texto</h2>
+    <p>Con la herramienta <strong>Texto</strong> (<kbd>T</kbd>) haces clic donde
+    quieres el texto y escribes. Cada texto va en su propia <strong>capa de
+    texto</strong>, que se puede volver a editar: selecciónala y haz clic encima
+    con <kbd>T</kbd>.</p>
+    <ul>
+      <li>En las opciones: <strong>tipografía</strong>, <strong>tamaño</strong> (en
+      píxeles), <strong>color</strong>, alineación, <strong>interlineado</strong> y
+      <strong>espaciado entre letras</strong>.</li>
+      <li>Para cambiar solo unas letras, selecciónalas en el lienzo y usa la barrita
+      que aparece encima del texto.</li>
+      <li>Si pintas o aplicas un filtro sobre una capa de texto, GIMP la convierte
+      en una capa normal y deja de ser editable. Duplica la capa de texto antes si
+      vas a hacer efectos.</li>
+    </ul>
+    <h3>Que se lea</h3>
+    <ul>
+      <li><strong>Contraste</strong>: texto claro sobre zona oscura o al revés. Si la
+      foto de detrás tiene de todo, pon debajo del texto una franja negra al 50 %
+      de opacidad.</li>
+      <li><strong>Sombra</strong>: <code>Filtros &gt; Luz y sombra &gt; Sombra
+      arrojada</code>, discreta, separa el texto del fondo.</li>
+      <li><strong>Máximo dos tipografías</strong> por pieza: una llamativa para el
+      título y una sencilla para el resto.</li>
+      <li><strong>Tamaño</strong>: una miniatura de YouTube se ve en el móvil a unos
+      pocos centímetros. Aleja la vista (<kbd>-</kbd>) hasta verla de ese tamaño: si
+      no lees el título, es pequeño.</li>
+    </ul>
+    <h3>Tipografías nuevas</h3>
+    <p>Las tipografías también tienen licencia. Las de
+    <strong>Google Fonts</strong> son libres (licencia OFL) y se pueden usar en
+    cualquier trabajo. Para instalar una en Windows, descomprime el ZIP, clic
+    derecho en el archivo <code>.ttf</code> &gt; <strong>Instalar</strong>: se
+    instala solo para tu usuario y no pide contraseña de administrador. Después,
+    en GIMP, pulsa el botón de recargar del diálogo <em>Tipografías</em> o reinicia
+    el programa.</p>
+  </section>
+
+  <section>
+    <h2 id="apartado-5-componer-una-pieza">5. Componer una pieza</h2>
+    <ul>
+      <li><strong>Jerarquía</strong>: una cosa es lo más importante (el nombre del
+      grupo, el título del juego) y se ve primero, grande. Lo demás, más pequeño.</li>
+      <li><strong>Regla de los tercios</strong>, como al recortar: lo importante en
+      una línea o un cruce, no siempre en el centro.</li>
+      <li><strong>Margen de seguridad</strong>: deja aire en los bordes. En la
+      miniatura de YouTube, la esquina inferior derecha la tapa la duración del
+      vídeo.</li>
+      <li><strong>Guías</strong>: arrastra desde las reglas para crear guías y
+      alinear. <code>Imagen &gt; Guías &gt; Guía nueva (en porcentaje)</code> pone
+      una justo al 50 %. La herramienta <strong>Alineación</strong>
+      (<kbd>Q</kbd>) centra capas respecto a la imagen.</li>
+      <li><strong>Pocos colores</strong>: los de la paleta de tu proyecto (bloque 3.1).</li>
+    </ul>
+    <h3>Un logotipo desde el boceto</h3>
+    <ol>
+      <li>Imagen nueva de 1000 × 1000 con <strong>relleno transparente</strong>.</li>
+      <li>Abre el boceto limpio como capa y bájale la opacidad al 30 %: es tu
+      plantilla para calcar.</li>
+      <li>En capas nuevas encima, construye las formas con selecciones (rectángulos
+      y elipses que sumas y restas) y rellénalas: arrastra el color de primer plano
+      dentro de la selección o usa <code>Editar &gt; Rellenar con el color de
+      frente</code>.</li>
+      <li>Añade el texto, oculta el boceto y guarda el <code>.xcf</code>.</li>
+    </ol>
+    <p class="pie-fig"><em>Los logotipos profesionales se hacen en programas
+    vectoriales como Inkscape, para poder ampliarlos sin límite. Con 1000 × 1000
+    px en GIMP tienes de sobra para web, redes y documentos.</em></p>
+  </section>
+
+  <section>
+    <h2 id="apartado-6-practicas-del-subtema">6. Prácticas del subtema</h2>
+    <p>Acreditan el criterio <em>d</em> (herramientas de edición). Entrega en cada
+    una el <code>.xcf</code> y, en el documento de Word, una captura del resultado
+    y otra del <strong>diálogo Capas</strong> con las capas bien nombradas.</p>
+    <ul>
+      <li><strong>P3.4.1</strong> · <strong>Recortar un objeto.</strong> Recorta la
+      guitarra o el mando sin su sombra, usando al menos dos herramientas de
+      selección combinadas (por ejemplo, varita e invertir, y lazo para restar la
+      sombra). Aplica la selección como <strong>máscara de capa</strong>, pon el
+      objeto sobre la textura de papel y dale una sombra nueva con <em>Sombra
+      arrojada</em>. Explica qué herramientas has usado y por qué.</li>
+      <li><strong>P3.4.2</strong> · <strong>Modos de fusión.</strong> Sobre tu
+      paisaje retocado del 3.3, pon la textura de papel en
+      <strong>Multiplicar</strong> o <strong>Superponer</strong> y una capa con un
+      degradado de color en <strong>Pantalla</strong>, a la opacidad que te guste.
+      Exporta tres capturas con modos distintos y explica la diferencia.</li>
+      <li><strong>P3.4.3</strong> · <strong>Fundido con máscara.</strong> Funde el
+      objeto recortado de la P3.4.1 con el paisaje: añade una máscara a la capa de
+      arriba y aplica un degradado de negro a blanco para que una imagen se vaya
+      convirtiendo en la otra.</li>
+      <li><strong>P3.4.4</strong> · <strong>Miniatura con texto.</strong> Crea una
+      miniatura de 1280 × 720 con una de las composiciones anteriores, un título y
+      una línea secundaria (dos tipografías como máximo). El título tiene que leerse
+      con la vista alejada al 25 %: incluye esa captura.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 id="apartado-7-comprueba-lo-que-has-entendido">7. Comprueba lo que has entendido</h2>
+    <p>Ocho preguntas. No cuenta para la nota: es para que veas si puedes seguir.</p>
+    <form id="ei">
+      <div class="pregunta" data-correcta="c">
+        <p class="enunciado"><span class="num">1.</span> ¿En qué formato se guardan las capas de GIMP para seguir editándolas?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p1" value="a"> JPG</label></li>
+          <li><label><input type="radio" name="p1" value="b"> PNG</label></li>
+          <li><label><input type="radio" name="p1" value="c"> XCF</label></li>
+          <li><label><input type="radio" name="p1" value="d"> En cualquiera: todos guardan capas</label></li>
+        </ul><span class="marca"></span>
+      </div>
+      <div class="pregunta" data-correcta="b">
+        <p class="enunciado"><span class="num">2.</span> Tienes una textura de papel en la capa de arriba y quieres que se vean sus manchas sobre la foto, pero que el blanco del papel desaparezca. ¿Qué modo usas?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p2" value="a"> Pantalla</label></li>
+          <li><label><input type="radio" name="p2" value="b"> Multiplicar</label></li>
+          <li><label><input type="radio" name="p2" value="c"> Normal al 100 %</label></li>
+          <li><label><input type="radio" name="p2" value="d"> Diferencia</label></li>
+        </ul><span class="marca"></span>
+      </div>
+      <div class="pregunta" data-correcta="a">
+        <p class="enunciado"><span class="num">3.</span> El objeto está sobre un fondo de un solo color. ¿Cuál es la forma más rápida de seleccionarlo?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p3" value="a"> Varita en el fondo y luego Seleccionar &gt; Invertir</label></li>
+          <li><label><input type="radio" name="p3" value="b"> Selección rectangular alrededor del objeto</label></li>
+          <li><label><input type="radio" name="p3" value="c"> Selección elíptica con Mayús</label></li>
+          <li><label><input type="radio" name="p3" value="d"> Seleccionar &gt; Todo</label></li>
+        </ul><span class="marca"></span>
+      </div>
+      <div class="pregunta" data-correcta="d">
+        <p class="enunciado"><span class="num">4.</span> Tienes una selección y quieres quitarle un trozo con el lazo. ¿Qué tecla pulsas antes de empezar?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p4" value="a"> Mayús</label></li>
+          <li><label><input type="radio" name="p4" value="b"> Alt</label></li>
+          <li><label><input type="radio" name="p4" value="c"> Mayús + Ctrl</label></li>
+          <li><label><input type="radio" name="p4" value="d"> Ctrl</label></li>
+        </ul><span class="marca"></span>
+      </div>
+      <div class="pregunta" data-correcta="c">
+        <p class="enunciado"><span class="num">5.</span> En una máscara de capa, ¿qué hace pintar en negro?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p5" value="a"> Pinta de negro la imagen</label></li>
+          <li><label><input type="radio" name="p5" value="b"> Borra para siempre esa zona de la capa</label></li>
+          <li><label><input type="radio" name="p5" value="c"> Oculta esa zona de la capa, sin borrarla</label></li>
+          <li><label><input type="radio" name="p5" value="d"> Muestra esa zona</label></li>
+        </ul><span class="marca"></span>
+      </div>
+      <div class="pregunta" data-correcta="b">
+        <p class="enunciado"><span class="num">6.</span> ¿Para qué sirve Seleccionar &gt; Difuminar?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p6" value="a"> Para desenfocar la imagen entera</label></li>
+          <li><label><input type="radio" name="p6" value="b"> Para suavizar el borde de la selección y que el recorte no quede pegado</label></li>
+          <li><label><input type="radio" name="p6" value="c"> Para quitar la selección</label></li>
+          <li><label><input type="radio" name="p6" value="d"> Para convertir la selección en texto</label></li>
+        </ul><span class="marca"></span>
+      </div>
+      <div class="pregunta" data-correcta="a">
+        <p class="enunciado"><span class="num">7.</span> Aplicas un filtro a una capa de texto y ya no puedes cambiar lo que pone. ¿Qué ha pasado?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p7" value="a"> GIMP la ha convertido en una capa normal; había que duplicarla antes</label></li>
+          <li><label><input type="radio" name="p7" value="b"> La tipografía no tiene licencia</label></li>
+          <li><label><input type="radio" name="p7" value="c"> El archivo está en JPG</label></li>
+          <li><label><input type="radio" name="p7" value="d"> La capa está oculta</label></li>
+        </ul><span class="marca"></span>
+      </div>
+      <div class="pregunta" data-correcta="d">
+        <p class="enunciado"><span class="num">8.</span> ¿Qué tipografías puedes usar sin problemas en la portada de tu proyecto?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p8" value="a"> Cualquiera que encuentres en internet</label></li>
+          <li><label><input type="radio" name="p8" value="b"> Solo Arial</label></li>
+          <li><label><input type="radio" name="p8" value="c"> Las que salen en las portadas de grupos famosos</label></li>
+          <li><label><input type="radio" name="p8" value="d"> Las de licencia libre, como las de Google Fonts</label></li>
+        </ul><span class="marca"></span>
+      </div>
+      <div class="acciones">
+        <button type="button" id="corregir">Corregir</button>
+        <button type="button" id="reiniciar">Reiniciar</button>
+      </div>
+      <p class="resultado oculto" id="resultado"></p>
+    </form>
+  </section>
+
+  <section>
+    <h2 id="apartado-8-antes-de-pasar-al-subtema-3-5">8. Antes de pasar al subtema 3.5</h2>
+    <ul class="checklist">
+      <li><label><input type="checkbox"> Abrir imágenes como capas, ordenarlas, nombrarlas y moverlas</label></li>
+      <li><label><input type="checkbox"> Elegir el modo de fusión adecuado (Multiplicar, Pantalla, Superponer)</label></li>
+      <li><label><input type="checkbox"> Seleccionar con varias herramientas y combinar selecciones con Mayús y Ctrl</label></li>
+      <li><label><input type="checkbox"> Arreglar una selección con la máscara rápida</label></li>
+      <li><label><input type="checkbox"> Recortar un objeto con una máscara de capa en vez de con la goma</label></li>
+      <li><label><input type="checkbox"> Fundir dos imágenes con un degradado en la máscara</label></li>
+      <li><label><input type="checkbox"> Escribir texto legible y editable, con dos tipografías como máximo</label></li>
+    </ul>
+  </section>
+
+  <nav class="nav-temas">
+    <a href="ut03-3.html">&laquo; Tema 3.3</a>
+    <a href="ut03.html">Índice del Tema 3</a>
+    <span>Siguiente &raquo; (Tema 3.5, próximamente)</span>
+  </nav>
+
+  <footer class="pie">
+    <p>0223 Aplicaciones ofimáticas · Material de consulta del alumnado.
+    Currículo: Decreto 272/2009 (Extremadura).</p>
+  </footer>
+
+<script>
+(function () {
+  var form = document.getElementById('ei');
+  var preguntas = form.querySelectorAll('.pregunta');
+  var salida = document.getElementById('resultado');
+  document.getElementById('corregir').addEventListener('click', function () {
+    var aciertos = 0, contestadas = 0;
+    preguntas.forEach(function (p) {
+      var correcta = p.getAttribute('data-correcta'), elegida = p.querySelector('input:checked'), marca = p.querySelector('.marca');
+      p.classList.remove('acierto', 'fallo');
+      if (!elegida) { marca.textContent = ''; return; }
+      contestadas++;
+      if (elegida.value === correcta) { aciertos++; p.classList.add('acierto'); marca.textContent = '✓ correcto'; }
+      else { p.classList.add('fallo'); marca.textContent = '✗ la correcta era la opción ' + correcta.toUpperCase(); }
+    });
+    var total = preguntas.length;
+    salida.classList.remove('oculto');
+    salida.textContent = 'Aciertos: ' + aciertos + ' de ' + total + '  ·  Contestadas: ' + contestadas + '/' + total +
+      '  ·  Nota orientativa: ' + (Math.round(aciertos / total * 100) / 10) + ' / 10   (recuerda: esta autocomprobación no cuenta para la evaluación)';
+    salida.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+  document.getElementById('reiniciar').addEventListener('click', function () {
+    form.reset();
+    preguntas.forEach(function (p) { p.classList.remove('acierto', 'fallo'); p.querySelector('.marca').textContent = ''; });
+    salida.classList.add('oculto'); salida.textContent = '';
+  });
+})();
+</script>
+
+</main></div>
+</body>
+</html>

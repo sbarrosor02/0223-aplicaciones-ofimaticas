@@ -40,7 +40,7 @@
 </head>
 <body data-modulo="0223">
 <a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0223 / Aplicaciones ofimáticas</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
-<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-1-pixeles-y-vectores">1. Píxeles y vectores</a></li><li><a href="#apartado-2-resolucion-y-tamano-de-impresion">2. Resolución y tamaño de impresión</a></li><li><a href="#apartado-3-color-y-profundidad-de-color">3. Color y profundidad de color</a></li><li><a href="#apartado-4-compresion-y-formatos">4. Compresión y formatos</a></li><li><a href="#apartado-5-metadatos-exif">5. Metadatos EXIF</a></li><li><a href="#apartado-6-histograma-y-niveles">6. Histograma y niveles</a></li><li><a href="#apartado-proximamente">Próximamente</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1">
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-1-pixeles-y-vectores">1. Píxeles y vectores</a></li><li><a href="#apartado-2-resolucion-y-tamano-de-impresion">2. Resolución y tamaño de impresión</a></li><li><a href="#apartado-3-color-y-profundidad-de-color">3. Color y profundidad de color</a></li><li><a href="#apartado-4-compresion-y-formatos">4. Compresión y formatos</a></li><li><a href="#apartado-5-metadatos-exif">5. Metadatos EXIF</a></li><li><a href="#apartado-6-histograma-y-niveles">6. Histograma y niveles</a></li><li><a href="#apartado-7-capas-modos-de-fusion-y-mascaras">7. Capas, modos de fusión y máscaras</a></li><li><a href="#apartado-proximamente">Próximamente</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1">
 
   <header class="cab">
     <p class="modulo">0223 · Aplicaciones ofimáticas · Tema 3</p>
@@ -250,6 +250,54 @@
     (como el botón <em>Automático</em> de los niveles de GIMP): por eso, además de
     dar contraste, suele quitar las dominantes de color. Prueba con la foto lavada
     y amarillenta y fíjate en cómo quedan los tres canales.</p>
+  </section>
+
+  <section>
+    <h2 id="apartado-7-capas-modos-de-fusion-y-mascaras">7. Capas, modos de fusión y máscaras</h2>
+    <p>Dos capas: abajo, la imagen de prueba; arriba, la que elijas. El
+    <strong>modo de fusión</strong> decide cómo se mezclan los píxeles de la capa
+    de arriba con los de abajo, y la <strong>máscara</strong> decide dónde se ve la
+    de arriba (blanco: se ve; negro: no se ve). Son los mismos nombres que en el
+    diálogo de capas de GIMP.</p>
+    <div class="lab">
+      <div class="rejilla">
+        <label class="campo">Capa de arriba
+          <select id="f-capa">
+            <option value="textura">Textura de papel</option>
+            <option value="degradado">Degradado de colores</option>
+            <option value="texto">Texto blanco</option>
+            <option value="sombra">Mancha negra difuminada</option>
+          </select>
+        </label>
+        <label class="campo">Modo
+          <select id="f-modo">
+            <option value="source-over">Normal</option>
+            <option value="multiply">Multiplicar</option>
+            <option value="screen">Pantalla</option>
+            <option value="overlay">Superponer</option>
+            <option value="soft-light">Luz suave</option>
+            <option value="darken">Solo oscurecer</option>
+            <option value="lighten">Solo aclarar</option>
+            <option value="difference">Diferencia</option>
+          </select>
+        </label>
+        <label class="campo">Máscara de la capa
+          <select id="f-mascara">
+            <option value="no">Sin máscara</option>
+            <option value="degradado">Degradado de negro a blanco</option>
+            <option value="centro">Elipse blanca difuminada</option>
+          </select>
+        </label>
+      </div>
+      <div class="ctrl"><label for="f-opacidad">Opacidad</label><input id="f-opacidad" type="range" min="0" max="100" value="100"><output id="f-opacidad-o" for="f-opacidad">100</output></div>
+      <label class="pie-lab" style="display:block"><input type="checkbox" id="f-visible" checked> Capa de arriba visible (el «ojo» de GIMP)</label>
+      <div class="lab-fila" style="margin-top:.6rem">
+        <figure style="margin:0"><canvas id="f-lienzo" width="640" height="400" aria-label="Resultado de mezclar las dos capas"></canvas><figcaption class="pie-lab">Resultado</figcaption></figure>
+        <figure style="margin:0"><canvas id="f-mini-capa" width="320" height="200" aria-label="Capa de arriba sola"></canvas><figcaption class="pie-lab">La capa de arriba sola</figcaption>
+          <canvas id="f-mini-mascara" width="320" height="200" style="margin-top:.5rem" aria-label="Máscara de la capa"></canvas><figcaption class="pie-lab">Su máscara</figcaption></figure>
+      </div>
+      <div class="resultado-lab" id="f-res" aria-live="polite"></div>
+    </div>
   </section>
 
   <section>
@@ -704,6 +752,62 @@
     c.toBlob(function (bl) { var a = document.createElement('a'); a.href = URL.createObjectURL(bl); a.download = 'niveles-resultado.png'; a.click(); setTimeout(function () { URL.revokeObjectURL(a.href); }, 2000); }, 'image/png');
   });
   $('n-ejemplo').value = 'oscura'; nDesdeEjemplo('oscura');
+  // ---------------------------------------------------- 7. capas y modos de fusión
+  var fExplica = {
+    'source-over': 'Normal: la capa de arriba tapa a la de abajo. Con menos opacidad, se transparenta.',
+    'multiply': 'Multiplicar: solo oscurece. El blanco de la capa de arriba desaparece y lo oscuro se suma. Sirve para texturas, sombras y para poner un dibujo a lápiz sobre una foto.',
+    'screen': 'Pantalla: lo contrario de Multiplicar, solo aclara. El negro desaparece. Sirve para luces, brillos y destellos.',
+    'overlay': 'Superponer: oscurece lo oscuro y aclara lo claro. Da contraste y tiñe; muy usado con texturas.',
+    'soft-light': 'Luz suave: como Superponer, pero más suave.',
+    'darken': 'Solo oscurecer: de cada píxel se queda con el más oscuro de las dos capas.',
+    'lighten': 'Solo aclarar: de cada píxel se queda con el más claro de las dos capas.',
+    'difference': 'Diferencia: resta las dos capas. Donde son iguales sale negro: sirve para comparar dos versiones de una imagen.'
+  };
+  function fCapa(tipo, w, h) {
+    var c = document.createElement('canvas'); c.width = w; c.height = h; var x = c.getContext('2d');
+    if (tipo === 'textura') {
+      x.fillStyle = '#e2d4b4'; x.fillRect(0, 0, w, h);
+      var s = 99; var rnd = function () { s = (s * 16807) % 2147483647; return s / 2147483647; };
+      for (var i = 0; i < 260; i++) { x.fillStyle = 'rgba(120,90,40,' + (rnd() * 0.18) + ')'; x.beginPath(); x.ellipse(rnd() * w, rnd() * h, 6 + rnd() * 40, 4 + rnd() * 18, rnd() * 3, 0, 7); x.fill(); }
+      var d = x.getImageData(0, 0, w, h), a = d.data; for (var k = 0; k < a.length; k += 4) { var r = (rnd() - 0.5) * 30; a[k] += r; a[k + 1] += r; a[k + 2] += r; } x.putImageData(d, 0, 0);
+    } else if (tipo === 'degradado') {
+      var g = x.createLinearGradient(0, 0, w, h); g.addColorStop(0, '#ff2d95'); g.addColorStop(0.5, '#ffd23f'); g.addColorStop(1, '#2de2ff'); x.fillStyle = g; x.fillRect(0, 0, w, h);
+    } else if (tipo === 'texto') {
+      x.fillStyle = '#000'; x.fillRect(0, 0, w, h); x.fillStyle = '#fff'; x.textAlign = 'center';
+      x.font = '800 ' + Math.round(h * 0.2) + 'px Arial, sans-serif'; x.fillText('EN DIRECTO', w / 2, h * 0.62);
+    } else {
+      x.fillStyle = '#fff'; x.fillRect(0, 0, w, h);
+      var r2 = x.createRadialGradient(w * 0.35, h * 0.5, 10, w * 0.35, h * 0.5, h * 0.45); r2.addColorStop(0, '#000'); r2.addColorStop(1, 'rgba(255,255,255,0)'); x.fillStyle = r2; x.fillRect(0, 0, w, h);
+    }
+    return c;
+  }
+  function fMascara(tipo, w, h) {
+    var c = document.createElement('canvas'); c.width = w; c.height = h; var x = c.getContext('2d');
+    if (tipo === 'no') { x.fillStyle = '#fff'; x.fillRect(0, 0, w, h); }
+    else if (tipo === 'degradado') { var g = x.createLinearGradient(0, 0, w, 0); g.addColorStop(0, '#000'); g.addColorStop(1, '#fff'); x.fillStyle = g; x.fillRect(0, 0, w, h); }
+    else { x.fillStyle = '#000'; x.fillRect(0, 0, w, h); var r = x.createRadialGradient(w / 2, h / 2, h * 0.1, w / 2, h / 2, h * 0.55); r.addColorStop(0, '#fff'); r.addColorStop(1, '#000'); x.fillStyle = r; x.fillRect(0, 0, w, h); }
+    return c;
+  }
+  function fusion() {
+    var c = $('f-lienzo'), x = c.getContext('2d'), w = c.width, h = c.height;
+    var capa = fCapa($('f-capa').value, w, h), masc = fMascara($('f-mascara').value, w, h);
+    // La máscara se convierte en transparencia de la capa (blanco = opaco, negro = transparente)
+    var cd = capa.getContext('2d'), dc = cd.getImageData(0, 0, w, h), dm = masc.getContext('2d').getImageData(0, 0, w, h);
+    for (var k = 0; k < dc.data.length; k += 4) dc.data[k + 3] = dm.data[k];
+    cd.putImageData(dc, 0, 0);
+    x.globalCompositeOperation = 'source-over'; x.globalAlpha = 1; x.drawImage(muestra, 0, 0, w, h);
+    var op = +$('f-opacidad').value; $('f-opacidad-o').textContent = op;
+    if ($('f-visible').checked) { x.globalAlpha = op / 100; x.globalCompositeOperation = $('f-modo').value; x.drawImage(capa, 0, 0); }
+    x.globalAlpha = 1; x.globalCompositeOperation = 'source-over';
+    var mc = $('f-mini-capa').getContext('2d'); mc.clearRect(0, 0, 320, 200); mc.drawImage(fCapa($('f-capa').value, w, h), 0, 0, 320, 200);
+    $('f-mini-mascara').getContext('2d').drawImage(masc, 0, 0, 320, 200);
+    $('f-res').innerHTML = '<p>' + fExplica[$('f-modo').value] + '</p>' +
+      ($('f-capa').value === 'texto' ? '<p>Prueba el texto en <strong>Pantalla</strong>: el fondo negro de la capa desaparece y solo queda el texto, sin tener que recortarlo.</p>' : '') +
+      ($('f-mascara').value !== 'no' ? '<p>La máscara no borra nada: si la cambias, la capa vuelve a aparecer entera. Por eso es mejor que la goma.</p>' : '');
+  }
+  ['f-capa', 'f-modo', 'f-mascara', 'f-visible'].forEach(function (id) { $(id).addEventListener('change', fusion); });
+  $('f-opacidad').addEventListener('input', fusion);
+  $('f-modo').value = 'multiply'; fusion();
 })();
 </script>
 
