@@ -109,10 +109,17 @@ for repo in REPOS:
     pages = {}
     for path in sorted((web / 'temas').glob('*.html')):
         source = path.read_text(encoding='utf-8')
-        if code == '0223' and path.name.startswith('ut02'):
+        subnavs = {
+            'ut02': [('Portada del tema', 'ut02.html'), ('Apuntes', 'ut02.html#apartado-subtemas'), ('Ejercicios guiados', 'ut02-ejercicios.html'), ('Reto en equipo', 'ut02-ejercicios-reto-saboteado.html'), ('Prácticas de control', 'ut02-practicas.html'), ('Mapa de Word', 'mapa-cinta.html')],
+            'ut03': [('Portada del tema', 'ut03.html'), ('Apuntes', 'ut03.html#apartado-subtemas'), ('Ejercicios guiados', 'ut03-ejercicios.html'), ('Laboratorio de imagen', 'laboratorio-imagen.html')],
+        }
+        prefijo_tema = 'ut03' if path.name.startswith('laboratorio-imagen') else path.name[:4]
+        if code == '0223' and prefijo_tema in subnavs and re.match(r'ut\d\d', prefijo_tema):
             source = re.sub(r'\n?<nav class="subnav"[^>]*>.*?</nav>', '', source, count=1, flags=re.S)
-            nav = '<nav class="subnav" aria-label="Apartados del tema 2">'
-            for label, target in [('Portada del tema', 'ut02.html'), ('Apuntes', 'ut02.html#apartado-subtemas'), ('Ejercicios guiados', 'ut02-ejercicios.html'), ('Reto en equipo', 'ut02-ejercicios-reto-saboteado.html'), ('Prácticas de control', 'ut02-practicas.html'), ('Mapa de Word', 'mapa-cinta.html')]:
+            nav = '<nav class="subnav" aria-label="Apartados del tema ' + str(int(prefijo_tema[2:])) + '">'
+            for label, target in subnavs[prefijo_tema]:
+                if not (web / 'temas' / target.split('#')[0]).exists():
+                    continue
                 active = ' aria-current="page"' if target == path.name else ''
                 nav += '<a href="' + target + '"' + active + '>' + label + '</a>'
             nav += '</nav>'
@@ -138,9 +145,9 @@ for repo in REPOS:
             category = 'ejercicios'
         elif 'practicas' in name:
             category = 'practicas'
-        elif 'mapa-' in name or name in ('ut00.html', 'calificacion.html'):
+        elif 'mapa-' in name or 'laboratorio-' in name or name in ('ut00.html', 'calificacion.html'):
             category = 'consulta'
-        elif name == ('ut01.html' if code == '0221' else 'ut02.html'):
+        elif name in (('ut01.html',) if code == '0221' else ('ut02.html', 'ut03.html')):
             continue
         filtered = [(target, label) for target, label in section_list if not any(word in label.lower() for word in ['criterio', 'resultado de aprendizaje', 'pendiente', 'próximos', 'en esta página'])]
         shortcuts = '<div class="aula-atajos">' + ''.join('<a href="temas/' + name + '#' + target + '">' + escape(label) + '</a>' for target, label in (filtered if category == 'ejercicios' else filtered[:5])) + '</div>'

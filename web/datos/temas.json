@@ -202,6 +202,86 @@
         ],
         "no_cuenta": "Ejercicios guiados del CV, reto del documento saboteado y práctica colaborativa en Google Docs: son formativos."
       }
+    },
+    {
+      "ut": 3,
+      "titulo": "Imagen digital: captura, edición y publicación",
+      "ra": "RA5",
+      "evaluacion": 1,
+      "horas": 28,
+      "estado": "en progreso",
+      "actualizado": "2026-10-19",
+      "subtemas": [
+        {
+          "ut": "3.1",
+          "titulo": "La imagen digital",
+          "ce": [
+            "RA5.a",
+            "RA5.c"
+          ],
+          "horas": 4,
+          "estado": "publicado",
+          "actualizado": "2026-10-19"
+        },
+        {
+          "ut": "3.2",
+          "titulo": "Obtener imágenes: escáner, cámara y capturas",
+          "ce": [
+            "RA5.b"
+          ],
+          "horas": 3,
+          "estado": "borrador"
+        },
+        {
+          "ut": "3.3",
+          "titulo": "Retoque básico en GIMP",
+          "ce": [
+            "RA5.c",
+            "RA5.d"
+          ],
+          "horas": 6,
+          "estado": "borrador"
+        },
+        {
+          "ut": "3.4",
+          "titulo": "Capas, selecciones y texto",
+          "ce": [
+            "RA5.d"
+          ],
+          "horas": 6,
+          "estado": "borrador"
+        },
+        {
+          "ut": "3.5",
+          "titulo": "Importar, exportar y optimizar",
+          "ce": [
+            "RA5.e"
+          ],
+          "horas": 4,
+          "estado": "borrador"
+        },
+        {
+          "ut": "3.6",
+          "titulo": "Publicar en web, redes e impresión",
+          "ce": [
+            "RA5.f"
+          ],
+          "horas": 3,
+          "estado": "borrador"
+        }
+      ],
+      "recursos": [
+        {
+          "titulo": "Laboratorio de imagen",
+          "url": "temas/laboratorio-imagen.html",
+          "nota": "herramientas HTML sin dependencias: píxeles y vectores, resolución, color y profundidad, compresión y formatos; se amplía con cada subtema"
+        },
+        {
+          "titulo": "Ejercicios guiados: tu grupo o tu estudio, pieza a pieza",
+          "url": "temas/ut03-ejercicios.html",
+          "nota": "formativo; hilo conductor banda de música o estudio de videojuegos; bloque 3.1 publicado"
+        }
+      ]
     }
   ],
   "calificacion": {

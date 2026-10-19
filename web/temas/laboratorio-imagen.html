@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Laboratorio de imagen · 0223 Aplicaciones ofimáticas</title>
+<link rel="stylesheet" href="../assets/estilo.css">
+<style>
+  .lab { border: 1px solid var(--linea); border-radius: var(--radio); background: #fff; padding: 0.9rem 1rem; margin: 1rem 0 1.4rem; }
+  .lab-fila { display: flex; flex-wrap: wrap; gap: 1rem; align-items: flex-start; }
+  .lab-fila > * { flex: 1 1 260px; min-width: 0; }
+  .lab canvas, .lab svg.zoom { display: block; max-width: 100%; height: auto; border: 1px solid var(--linea); border-radius: 4px; background: repeating-conic-gradient(#e6e9ee 0% 25%, #fff 0% 50%) 0 0 / 16px 16px; }
+  .lab .pixelado { image-rendering: pixelated; }
+  .ctrl { display: grid; grid-template-columns: auto 1fr auto; gap: 0.4rem 0.7rem; align-items: center; margin: 0.6rem 0; font-size: 0.95rem; }
+  .ctrl input[type="range"] { width: 100%; }
+  .ctrl output, .dato { font-variant-numeric: tabular-nums; font-weight: 600; }
+  .lab label.campo { display: flex; flex-direction: column; gap: 0.2rem; font-size: 0.9rem; font-weight: 600; }
+  .lab input[type="text"], .lab input[type="number"], .lab select { font: inherit; padding: 0.35rem 0.5rem; border: 1px solid var(--linea); border-radius: 4px; width: 100%; box-sizing: border-box; }
+  .rejilla { display: grid; grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr)); gap: 0.6rem 0.9rem; }
+  .botones { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.6rem 0; }
+  .botones button, .lab button { font: inherit; font-size: 0.9rem; padding: 0.35rem 0.7rem; border-radius: 4px; border: 1px solid var(--acento); background: #fff; color: var(--acento); cursor: pointer; }
+  .lab button.principal { background: var(--acento); color: #fff; }
+  .lab button:focus-visible, .lab input:focus-visible, .lab select:focus-visible { outline: 3px solid var(--acento); outline-offset: 2px; }
+  .resultado-lab { background: var(--acento-claro); border-radius: 4px; padding: 0.6rem 0.8rem; margin-top: 0.6rem; }
+  .resultado-lab p { margin: 0.2rem 0; }
+  .muestra-color { height: 7rem; border-radius: 6px; border: 1px solid var(--linea); }
+  .veredicto-bien { color: #1e7b3a; font-weight: 700; } .veredicto-regular { color: #8a5a00; font-weight: 700; } .veredicto-mal { color: #b3261e; font-weight: 700; }
+  .tlab { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin-top: 0.6rem; }
+  .tlab th, .tlab td { border: 1px solid var(--linea); padding: 0.3rem 0.5rem; text-align: left; }
+  .tlab th { background: var(--acento-claro); color: var(--acento); }
+  .tlab td.n { text-align: right; font-variant-numeric: tabular-nums; }
+  .pie-lab { font-size: 0.85rem; color: #555; margin: 0.3rem 0 0; }
+</style>
+<link rel="stylesheet" href="../assets/aula.css">
+<script defer src="../assets/aula.js"></script>
+</head>
+<body data-modulo="0223">
+<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0223 / Aplicaciones ofimáticas</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-1-pixeles-y-vectores">1. Píxeles y vectores</a></li><li><a href="#apartado-2-resolucion-y-tamano-de-impresion">2. Resolución y tamaño de impresión</a></li><li><a href="#apartado-3-color-y-profundidad-de-color">3. Color y profundidad de color</a></li><li><a href="#apartado-4-compresion-y-formatos">4. Compresión y formatos</a></li><li><a href="#apartado-proximamente">Próximamente</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1">
+
+  <header class="cab">
+    <p class="modulo">0223 · Aplicaciones ofimáticas · Tema 3</p>
+    <h1>Laboratorio de imagen</h1>
+    <p class="meta">Herramientas para ver por dentro cómo funciona una imagen digital · Funciona sin instalar nada</p>
+  </header>
+<nav class="subnav" aria-label="Apartados del tema 3"><a href="ut03.html">Portada del tema</a><a href="ut03.html#apartado-subtemas">Apuntes</a><a href="ut03-ejercicios.html">Ejercicios guiados</a><a href="laboratorio-imagen.html" aria-current="page">Laboratorio de imagen</a></nav>
+<div class="aula-herramientas"><button type="button" data-imprimir hidden>Imprimir / guardar PDF</button></div>
+
+  <div class="aviso">
+    <strong>Tus imágenes no salen de tu ordenador.</strong> Puedes cargar fotos
+    tuyas en las herramientas: se procesan en este navegador y no se suben a
+    ningún sitio. Si no cargas ninguna, se usa una imagen de prueba generada aquí
+    mismo.
+  </div>
+
+  <section>
+    <h2 id="apartado-1-pixeles-y-vectores">1. Píxeles y vectores</h2>
+    <p>Amplía las dos imágenes. A la izquierda, un <strong>mapa de bits</strong>:
+    una cuadrícula de píxeles, cada uno de un color. A la derecha, la misma figura
+    como <strong>imagen vectorial</strong>: una descripción matemática (formas,
+    curvas y colores) que el ordenador vuelve a dibujar a cualquier tamaño.</p>
+    <div class="lab">
+      <div class="ctrl">
+        <label for="zoom-pv">Ampliación</label>
+        <input id="zoom-pv" type="range" min="1" max="16" step="1" value="1">
+        <output id="zoom-pv-o" for="zoom-pv">×1</output>
+      </div>
+      <div class="lab-fila">
+        <figure style="margin:0">
+          <canvas id="pv-bitmap" class="pixelado" width="320" height="200" aria-label="Estrella y texto como mapa de bits ampliado"></canvas>
+          <figcaption class="pie-lab">Mapa de bits (PNG de 64 × 40 píxeles)</figcaption>
+        </figure>
+        <figure style="margin:0">
+          <svg id="pv-vector" class="zoom" viewBox="0 0 64 40" width="320" height="200" role="img" aria-label="Estrella y texto como imagen vectorial ampliada">
+            <g id="pv-grupo"><rect width="64" height="40" fill="#fff"/><polygon points="20,4 23.5,14 34,14 25.5,20.5 28.8,31 20,24.6 11.2,31 14.5,20.5 6,14 16.5,14" fill="#c0392b"/><text x="38" y="24" font-family="Arial, sans-serif" font-size="11" font-weight="700" fill="#1f4e79">SVG</text></g>
+          </svg>
+          <figcaption class="pie-lab">Vectorial (SVG)</figcaption>
+        </figure>
+      </div>
+      <label style="display:flex;gap:.4rem;align-items:center;margin-top:.6rem"><input type="checkbox" id="pv-suave"> Suavizar al ampliar (lo que hacen los programas para disimular los píxeles)</label>
+      <p class="pie-lab">Fíjate en los bordes de la estrella al ×8: el mapa de bits se ve en escalera y, si lo suavizas, borroso. El vectorial sigue nítido.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 id="apartado-2-resolucion-y-tamano-de-impresion">2. Resolución y tamaño de impresión</h2>
+    <p>Una imagen tiene un número fijo de píxeles. Cuántos centímetros ocupa al
+    imprimirla depende de cuántos píxeles metas en cada pulgada (2,54 cm): los
+    <strong>ppp</strong> (píxeles por pulgada).</p>
+    <div class="lab">
+      <div class="botones" role="group" aria-label="Tamaños habituales">
+        <button type="button" data-px="3000,3000">Portada de Spotify</button>
+        <button type="button" data-px="1280,720">Miniatura de YouTube</button>
+        <button type="button" data-px="1920,1080">Pantalla Full HD</button>
+        <button type="button" data-px="4000,3000">Foto de móvil (12 Mpx)</button>
+        <button type="button" data-cm="29.7,42">Cartel A3</button>
+        <button type="button" data-cm="21,29.7">Folio A4</button>
+      </div>
+      <div class="rejilla">
+        <label class="campo">Ancho (px)<input id="r-ancho" type="number" min="1" value="3000" inputmode="numeric"></label>
+        <label class="campo">Alto (px)<input id="r-alto" type="number" min="1" value="3000" inputmode="numeric"></label>
+        <label class="campo">Resolución (ppp)<input id="r-ppp" type="number" min="1" value="300" inputmode="numeric"></label>
+      </div>
+      <div class="resultado-lab" role="status" aria-live="polite" id="r-res"></div>
+      <h3 style="margin-top:1rem">Al revés: ¿cuántos píxeles necesito?</h3>
+      <div class="rejilla">
+        <label class="campo">Ancho (cm)<input id="r-cm-ancho" type="text" value="29,7" inputmode="decimal"></label>
+        <label class="campo">Alto (cm)<input id="r-cm-alto" type="text" value="42" inputmode="decimal"></label>
+        <label class="campo">Imprimir a (ppp)<input id="r-cm-ppp" type="number" min="1" value="300" inputmode="numeric"></label>
+      </div>
+      <div class="resultado-lab" role="status" aria-live="polite" id="r-res2"></div>
+    </div>
+  </section>
+
+  <section>
+    <h2 id="apartado-3-color-y-profundidad-de-color">3. Color y profundidad de color</h2>
+    <p>En pantalla, cada píxel mezcla <strong>luz roja, verde y azul</strong>
+    (modelo <strong>RGB</strong>). Con 8 bits por canal, cada uno va de 0 a 255.</p>
+    <div class="lab">
+      <div class="lab-fila">
+        <div>
+          <div class="ctrl"><label for="c-r">Rojo</label><input id="c-r" type="range" min="0" max="255" value="192"><output id="c-r-o" for="c-r">192</output></div>
+          <div class="ctrl"><label for="c-g">Verde</label><input id="c-g" type="range" min="0" max="255" value="57"><output id="c-g-o" for="c-g">57</output></div>
+          <div class="ctrl"><label for="c-b">Azul</label><input id="c-b" type="range" min="0" max="255" value="43"><output id="c-b-o" for="c-b">43</output></div>
+        </div>
+        <div>
+          <div class="muestra-color" id="c-muestra" role="img" aria-label="Muestra del color elegido"></div>
+          <div class="resultado-lab" id="c-datos" aria-live="polite"></div>
+        </div>
+      </div>
+      <h3 style="margin-top:1rem">Canales y profundidad de color</h3>
+      <p>Cada imagen RGB son tres imágenes en gris, una por canal. Y si bajas los
+      bits por canal, quedan menos colores disponibles: aparecen escalones
+      (<em>bandas</em>) en los degradados.</p>
+      <div class="botones" role="group" aria-label="Qué canal ver">
+        <button type="button" data-canal="rgb" class="principal">Color (RGB)</button>
+        <button type="button" data-canal="0">Solo rojo</button>
+        <button type="button" data-canal="1">Solo verde</button>
+        <button type="button" data-canal="2">Solo azul</button>
+        <button type="button" data-canal="gris">Escala de grises</button>
+      </div>
+      <div class="ctrl"><label for="c-bits">Bits por canal</label><input id="c-bits" type="range" min="1" max="8" value="8"><output id="c-bits-o" for="c-bits">8</output></div>
+      <canvas id="c-lienzo" width="640" height="400" aria-label="Imagen de prueba según el canal y los bits elegidos"></canvas>
+      <p class="pie-lab" id="c-colores" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <section>
+    <h2 id="apartado-4-compresion-y-formatos">4. Compresión y formatos</h2>
+    <p>Guarda la misma imagen en distintos formatos y calidades, y compara cuánto
+    pesa y cómo se ve. Amplía la zona marcada para ver los <strong>artefactos</strong>
+    que deja la compresión con pérdida.</p>
+    <div class="lab">
+      <div class="rejilla">
+        <label class="campo">Imagen<input id="k-archivo" type="file" accept="image/*"></label>
+        <label class="campo">Formato
+          <select id="k-formato"><option value="image/jpeg">JPG (con pérdida)</option><option value="image/webp">WebP (con pérdida)</option><option value="image/png">PNG (sin pérdida)</option></select>
+        </label>
+      </div>
+      <div class="ctrl" id="k-calidad-fila"><label for="k-calidad">Calidad</label><input id="k-calidad" type="range" min="1" max="100" value="80"><output id="k-calidad-o" for="k-calidad">80</output></div>
+      <div class="botones">
+        <button type="button" class="principal" id="k-anotar">Anotar en la tabla</button>
+        <button type="button" id="k-recomprimir">Guardar 10 veces seguidas en JPG al 70 %</button>
+        <button type="button" id="k-descargar">Descargar este resultado</button>
+      </div>
+      <div class="resultado-lab" id="k-res" aria-live="polite"></div>
+      <div class="lab-fila" style="margin-top:.6rem">
+        <figure style="margin:0"><canvas id="k-salida" width="640" height="400" aria-label="Imagen comprimida"></canvas><figcaption class="pie-lab">Resultado (el recuadro rojo es la zona ampliada)</figcaption></figure>
+        <figure style="margin:0"><canvas id="k-detalle" class="pixelado" width="320" height="320" aria-label="Detalle ampliado de la imagen comprimida"></canvas><figcaption class="pie-lab">Detalle a ×4</figcaption></figure>
+      </div>
+      <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tlab" id="k-tabla"><thead><tr><th>Formato</th><th>Calidad</th><th>Peso</th><th>Respecto al original sin comprimir</th></tr></thead><tbody></tbody></table></div>
+    </div>
+  </section>
+
+  <section>
+    <h2 id="apartado-proximamente">Próximamente</h2>
+    <p>Con los siguientes subtemas se añadirán un visor de <strong>metadatos
+    EXIF</strong> (3.2), el <strong>histograma y los niveles</strong> (3.3) y una
+    calculadora de <strong>tamaños para redes e impresión</strong> (3.6).</p>
+  </section>
+
+  <nav class="nav-temas">
+    <a href="ut03.html">&laquo; Tema 3</a>
+    <a href="../index.html">Índice del módulo</a>
+    <a href="ut03-1.html">Tema 3.1 &raquo;</a>
+  </nav>
+
+  <footer class="pie">
+    <p>0223 Aplicaciones ofimáticas · Material de consulta del alumnado.
+    Currículo: Decreto 272/2009 (Extremadura).</p>
+  </footer>
+
+<script>
+(function () {
+  'use strict';
+  var $ = function (id) { return document.getElementById(id); };
+  var num = function (v, d) { return Number(v).toLocaleString('es-ES', { minimumFractionDigits: d || 0, maximumFractionDigits: d === undefined ? 2 : d }); };
+  var leerDec = function (v) { return parseFloat(String(v).replace(',', '.')); };
+  var bytes = function (n) { return n < 1024 ? n + ' B' : n < 1048576 ? num(n / 1024, 1) + ' KB' : num(n / 1048576, 2) + ' MB'; };
+
+  // ---------------------------------------------------- imagen de prueba
+  function imagenPrueba(w, h) {
+    var c = document.createElement('canvas'); c.width = w; c.height = h;
+    var x = c.getContext('2d');
+    var cielo = x.createLinearGradient(0, 0, 0, h * 0.65);
+    cielo.addColorStop(0, '#1d3c78'); cielo.addColorStop(0.6, '#e8774a'); cielo.addColorStop(1, '#f7c46c');
+    x.fillStyle = cielo; x.fillRect(0, 0, w, h);
+    x.fillStyle = '#fff4c2'; x.beginPath(); x.arc(w * 0.72, h * 0.42, h * 0.11, 0, Math.PI * 2); x.fill();
+    var montes = [[0.62, '#3b2a4a'], [0.72, '#2a1f38'], [0.84, '#160f22']];
+    montes.forEach(function (m, i) {
+      x.fillStyle = m[1]; x.beginPath(); x.moveTo(0, h);
+      for (var px = 0; px <= w; px += w / 40) x.lineTo(px, h * m[0] - Math.sin(px / w * (5 + i * 3) + i) * h * 0.06 - Math.sin(px / w * 23) * h * 0.012);
+      x.lineTo(w, h); x.closePath(); x.fill();
+    });
+    // Rayas finas y texto: los bordes duros es donde más se nota la compresión
+    for (var i = 0; i < 24; i++) { x.fillStyle = i % 2 ? '#e33' : '#1cc'; x.fillRect(w * 0.06 + i * 4, h * 0.08, 2, h * 0.16); }
+    x.font = '700 ' + Math.round(h * 0.11) + 'px Arial, sans-serif'; x.fillStyle = '#ffffff'; x.fillText('SMR', w * 0.06, h * 0.40);
+    x.font = Math.round(h * 0.045) + 'px Arial, sans-serif'; x.fillText('Laboratorio de imagen · 0223', w * 0.06, h * 0.48);
+    // Ruido de «foto»
+    var d = x.getImageData(0, 0, w, h), a = d.data, s = 12345;
+    for (var k = 0; k < a.length; k += 4) { s = (s * 1103515245 + 12345) & 0x7fffffff; var r = (s % 17) - 8; a[k] += r; a[k + 1] += r; a[k + 2] += r; }
+    x.putImageData(d, 0, 0);
+    return c;
+  }
+  var muestra = imagenPrueba(640, 400);
+
+  // ---------------------------------------------------- 1. píxeles y vectores
+  var pvBit = document.createElement('canvas'); pvBit.width = 64; pvBit.height = 40;
+  (function () {
+    var x = pvBit.getContext('2d'); x.fillStyle = '#fff'; x.fillRect(0, 0, 64, 40);
+    var pts = [20,4,23.5,14,34,14,25.5,20.5,28.8,31,20,24.6,11.2,31,14.5,20.5,6,14,16.5,14];
+    x.fillStyle = '#c0392b'; x.beginPath(); x.moveTo(pts[0], pts[1]); for (var i = 2; i < pts.length; i += 2) x.lineTo(pts[i], pts[i + 1]); x.closePath(); x.fill();
+    x.font = '700 11px Arial, sans-serif'; x.fillStyle = '#1f4e79'; x.fillText('SVG', 38, 24);
+  })();
+  function pintarPV() {
+    var z = +$('zoom-pv').value; $('zoom-pv-o').textContent = '×' + z;
+    var c = $('pv-bitmap'), x = c.getContext('2d');
+    x.imageSmoothingEnabled = $('pv-suave').checked;
+    x.fillStyle = '#fff'; x.fillRect(0, 0, c.width, c.height);
+    var sw = 64 / z, sh = 40 / z;
+    // Centro de la ampliación: el borde derecho de la estrella, donde se ven los escalones
+    var sx = Math.min(Math.max(26 - sw / 2, 0), 64 - sw), sy = Math.min(Math.max(14 - sh / 2, 0), 40 - sh);
+    x.drawImage(pvBit, sx, sy, sw, sh, 0, 0, c.width, c.height);
+    var v = 64 / z, vh = 40 / z;
+    $('pv-vector').setAttribute('viewBox', sx + ' ' + sy + ' ' + v + ' ' + vh);
+  }
+  $('zoom-pv').addEventListener('input', pintarPV); $('pv-suave').addEventListener('change', pintarPV); pintarPV();
+
+  // ---------------------------------------------------- 2. resolución
+  function veredicto(ppp) {
+    if (ppp >= 300) return '<span class="veredicto-bien">Calidad de imprenta</span> (300 ppp o más).';
+    if (ppp >= 150) return '<span class="veredicto-regular">Aceptable</span> para carteles que se miran de lejos; justo para fotos.';
+    return '<span class="veredicto-mal">Se verán los píxeles</span> al imprimir a ese tamaño.';
+  }
+  function resolucion() {
+    var w = +$('r-ancho').value, h = +$('r-alto').value, ppp = +$('r-ppp').value;
+    if (!(w > 0 && h > 0 && ppp > 0)) { $('r-res').textContent = 'Escribe números mayores que 0.'; return; }
+    var cmw = w / ppp * 2.54, cmh = h / ppp * 2.54;
+    $('r-res').innerHTML = '<p>Tamaño impreso: <span class="dato">' + num(cmw, 1) + ' × ' + num(cmh, 1) + ' cm</span></p>' +
+      '<p>Píxeles totales: <span class="dato">' + num(w * h, 0) + '</span> (' + num(w * h / 1e6, 1) + ' megapíxeles)</p>' +
+      '<p>Peso sin comprimir (RGB, 8 bits por canal): <span class="dato">' + bytes(w * h * 3) + '</span></p>' +
+      '<p>' + veredicto(ppp) + '</p>';
+  }
+  function resolucion2() {
+    var cw = leerDec($('r-cm-ancho').value), ch = leerDec($('r-cm-alto').value), ppp = +$('r-cm-ppp').value;
+    if (!(cw > 0 && ch > 0 && ppp > 0)) { $('r-res2').textContent = 'Escribe números mayores que 0.'; return; }
+    var w = Math.round(cw / 2.54 * ppp), h = Math.round(ch / 2.54 * ppp);
+    $('r-res2').innerHTML = '<p>Necesitas una imagen de <span class="dato">' + num(w, 0) + ' × ' + num(h, 0) + ' píxeles</span> (' + num(w * h / 1e6, 1) + ' Mpx).</p>' +
+      '<p>Fórmula: píxeles = cm ÷ 2,54 × ppp</p>';
+  }
+  ['r-ancho', 'r-alto', 'r-ppp'].forEach(function (id) { $(id).addEventListener('input', resolucion); });
+  ['r-cm-ancho', 'r-cm-alto', 'r-cm-ppp'].forEach(function (id) { $(id).addEventListener('input', resolucion2); });
+  document.querySelectorAll('[data-px]').forEach(function (b) { b.addEventListener('click', function () { var v = b.dataset.px.split(','); $('r-ancho').value = v[0]; $('r-alto').value = v[1]; resolucion(); }); });
+  document.querySelectorAll('[data-cm]').forEach(function (b) { b.addEventListener('click', function () { var v = b.dataset.cm.split(','); $('r-cm-ancho').value = v[0].replace('.', ','); $('r-cm-alto').value = v[1].replace('.', ','); resolucion2(); }); });
+  resolucion(); resolucion2();
+
+  // ---------------------------------------------------- 3. color
+  var canal = 'rgb';
+  function hex2(n) { return ('0' + n.toString(16).toUpperCase()).slice(-2); }
+  function color() {
+    var r = +$('c-r').value, g = +$('c-g').value, b = +$('c-b').value;
+    $('c-r-o').textContent = r; $('c-g-o').textContent = g; $('c-b-o').textContent = b;
+    $('c-muestra').style.background = 'rgb(' + r + ',' + g + ',' + b + ')';
+    var k = 1 - Math.max(r, g, b) / 255;
+    var cmy = k >= 1 ? [0, 0, 0] : [r, g, b].map(function (v) { return Math.round((1 - v / 255 - k) / (1 - k) * 100); });
+    var gris = Math.round(0.299 * r + 0.587 * g + 0.114 * b);
+    $('c-datos').innerHTML = '<p>RGB: <span class="dato">' + r + ', ' + g + ', ' + b + '</span></p><p>Hexadecimal: <span class="dato">#' + hex2(r) + hex2(g) + hex2(b) + '</span></p>' +
+      '<p>CMYK aproximado: <span class="dato">' + cmy[0] + ' %, ' + cmy[1] + ' %, ' + cmy[2] + ' %, ' + Math.round(k * 100) + ' %</span></p>' +
+      '<p>En escala de grises: <span class="dato">' + gris + '</span></p>';
+  }
+  ['c-r', 'c-g', 'c-b'].forEach(function (id) { $(id).addEventListener('input', color); }); color();
+  function canales() {
+    var bits = +$('c-bits').value; $('c-bits-o').textContent = bits;
+    var c = $('c-lienzo'), x = c.getContext('2d');
+    x.drawImage(muestra, 0, 0, c.width, c.height);
+    var d = x.getImageData(0, 0, c.width, c.height), a = d.data, niveles = Math.pow(2, bits), paso = 255 / (niveles - 1);
+    for (var i = 0; i < a.length; i += 4) {
+      for (var j = 0; j < 3; j++) a[i + j] = Math.round(Math.round(a[i + j] / paso) * paso);
+      if (canal === 'gris') { var y = Math.round(0.299 * a[i] + 0.587 * a[i + 1] + 0.114 * a[i + 2]); a[i] = a[i + 1] = a[i + 2] = y; }
+      else if (canal !== 'rgb') { var v = a[i + +canal]; a[i] = a[i + 1] = a[i + 2] = v; }
+    }
+    x.putImageData(d, 0, 0);
+    var total = canal === 'rgb' ? Math.pow(niveles, 3) : niveles;
+    $('c-colores').textContent = bits + ' bits por canal: ' + num(niveles, 0) + ' niveles por canal, ' + num(total, 0) + (canal === 'rgb' ? ' colores posibles.' : ' tonos de gris posibles.');
+  }
+  document.querySelectorAll('[data-canal]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      canal = b.dataset.canal;
+      document.querySelectorAll('[data-canal]').forEach(function (o) { o.classList.toggle('principal', o === b); o.setAttribute('aria-pressed', o === b); });
+      canales();
+    });
+  });
+  $('c-bits').addEventListener('input', canales); canales();
+
+  // ---------------------------------------------------- 4. compresión
+  var fuente = muestra, nombreFuente = 'imagen de prueba', ultimo = null, zona = { x: 40, y: 40 };
+  function originalBytes() { return fuente.width * fuente.height * 3; }
+  function comprimir(canvas, tipo, q) {
+    return new Promise(function (ok) { canvas.toBlob(function (b) { ok(b); }, tipo, q / 100); });
+  }
+  function mostrar(blob) {
+    return new Promise(function (ok) {
+      var img = new Image(), url = URL.createObjectURL(blob);
+      img.onload = function () {
+        var c = $('k-salida'); c.width = img.width; c.height = img.height;
+        c.getContext('2d').drawImage(img, 0, 0);
+        var d = $('k-detalle'), xd = d.getContext('2d'); xd.imageSmoothingEnabled = false;
+        zona.x = Math.min(zona.x, img.width - 80); zona.y = Math.min(zona.y, img.height - 80);
+        xd.drawImage(img, zona.x, zona.y, 80, 80, 0, 0, 320, 320);
+        var xc = c.getContext('2d'); xc.strokeStyle = '#e00'; xc.lineWidth = Math.max(2, img.width / 320); xc.strokeRect(zona.x, zona.y, 80, 80);
+        URL.revokeObjectURL(url); ok();
+      };
+      img.src = url;
+    });
+  }
+  var pendiente = false;
+  async function compresion() {
+    if (pendiente) return; pendiente = true;
+    var tipo = $('k-formato').value, q = +$('k-calidad').value;
+    $('k-calidad-o').textContent = q; $('k-calidad-fila').style.opacity = tipo === 'image/png' ? .4 : 1;
+    var c = document.createElement('canvas'); c.width = fuente.width; c.height = fuente.height; c.getContext('2d').drawImage(fuente, 0, 0);
+    var b = await comprimir(c, tipo, q);
+    if (b.type !== tipo) { $('k-res').innerHTML = '<p>Este navegador no sabe guardar en ese formato.</p>'; pendiente = false; return; }
+    ultimo = { blob: b, tipo: tipo, q: q };
+    await mostrar(b);
+    $('k-res').innerHTML = '<p>' + nombreFuente + ': ' + num(fuente.width, 0) + ' × ' + num(fuente.height, 0) + ' px</p><p>Peso: <span class="dato">' + bytes(b.size) +
+      '</span> · sin comprimir serían ' + bytes(originalBytes()) + ' (<span class="dato">' + num(b.size / originalBytes() * 100, 1) + ' %</span>)</p>';
+    pendiente = false;
+  }
+  $('k-formato').addEventListener('change', compresion);
+  $('k-calidad').addEventListener('input', compresion);
+  $('k-salida').addEventListener('click', function (e) {
+    var r = e.target.getBoundingClientRect(), esc = e.target.width / r.width;
+    zona.x = Math.max(0, Math.round((e.clientX - r.left) * esc - 40)); zona.y = Math.max(0, Math.round((e.clientY - r.top) * esc - 40)); compresion();
+  });
+  $('k-archivo').addEventListener('change', function () {
+    var f = this.files[0]; if (!f) return;
+    var img = new Image(), url = URL.createObjectURL(f);
+    img.onload = function () {
+      var max = 1600, s = Math.min(1, max / Math.max(img.width, img.height));
+      var c = document.createElement('canvas'); c.width = Math.round(img.width * s); c.height = Math.round(img.height * s);
+      c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+      fuente = c; nombreFuente = f.name + (s < 1 ? ' (reducida a ' + c.width + ' px de ancho)' : ''); URL.revokeObjectURL(url); zona = { x: 40, y: 40 }; compresion();
+    };
+    img.src = url;
+  });
+  $('k-anotar').addEventListener('click', function () {
+    if (!ultimo) return;
+    var nombre = { 'image/jpeg': 'JPG', 'image/webp': 'WebP', 'image/png': 'PNG' }[ultimo.tipo];
+    var tr = document.createElement('tr');
+    tr.innerHTML = '<td>' + nombre + '</td><td class="n">' + (ultimo.tipo === 'image/png' ? '—' : ultimo.q) + '</td><td class="n">' + bytes(ultimo.blob.size) + '</td><td class="n">' + num(ultimo.blob.size / originalBytes() * 100, 1) + ' %</td>';
+    $('k-tabla').tBodies[0].appendChild(tr);
+  });
+  $('k-recomprimir').addEventListener('click', async function () {
+    var c = document.createElement('canvas'); c.width = fuente.width; c.height = fuente.height; var x = c.getContext('2d'); x.drawImage(fuente, 0, 0);
+    var b;
+    for (var i = 0; i < 10; i++) {
+      b = await comprimir(c, 'image/jpeg', 70);
+      var img = await createImageBitmap(b);
+      x.drawImage(img, 0, 0);
+      // Pequeño giro de color en cada guardado, como cuando se retoca y se vuelve a guardar
+      var d = x.getImageData(0, 0, c.width, c.height); for (var k = 0; k < d.data.length; k += 4) d.data[k] = Math.min(255, d.data[k] + 1); x.putImageData(d, 0, 0);
+    }
+    ultimo = { blob: b, tipo: 'image/jpeg', q: 70 };
+    await mostrar(b);
+    $('k-res').innerHTML = '<p>Después de <strong>10 guardados seguidos en JPG</strong>: ' + bytes(b.size) + '. Mira el detalle: cada guardado con pérdida degrada un poco más la imagen. Por eso se trabaja en un formato sin pérdida (XCF, PNG) y se exporta a JPG solo al final.</p>';
+  });
+  $('k-descargar').addEventListener('click', function () {
+    if (!ultimo) return;
+    var ext = { 'image/jpeg': 'jpg', 'image/webp': 'webp', 'image/png': 'png' }[ultimo.tipo];
+    var a = document.createElement('a'); a.href = URL.createObjectURL(ultimo.blob); a.download = 'prueba-' + (ultimo.tipo === 'image/png' ? 'png' : ext + '-' + ultimo.q) + '.' + ext; a.click();
+    setTimeout(function () { URL.revokeObjectURL(a.href); }, 2000);
+  });
+  compresion();
+})();
+</script>
+
+</main></div>
+</body>
+</html>

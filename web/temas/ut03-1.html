@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tema 3.1 · La imagen digital · 0223 Aplicaciones ofimáticas</title>
+<link rel="stylesheet" href="../assets/estilo.css">
+<style>
+  .t31 { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 1rem 0; }
+  .t31 th, .t31 td { border: 1px solid var(--linea); padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+  .t31 th { background: var(--acento-claro); color: var(--acento); }
+  .t31 td.c { text-align: center; }
+  .formula { background: var(--fondo); border: 1px solid var(--linea); border-radius: var(--radio); padding: 0.6rem 0.9rem; margin: 0.8rem 0; font-family: Consolas, "Courier New", monospace; }
+  .lab-enlace { display: inline-block; margin: 0.3rem 0 0.6rem; padding: 0.45rem 0.8rem; border: 1px solid var(--acento); border-radius: var(--radio); font-weight: 600; }
+</style>
+<link rel="stylesheet" href="../assets/aula.css">
+<script defer src="../assets/aula.js"></script>
+</head>
+<body data-modulo="0223">
+<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0223 / Aplicaciones ofimáticas</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-1-mapa-de-bits-y-vectorial">1. Mapa de bits y vectorial</a></li><li><a href="#apartado-2-el-pixel-y-la-resolucion">2. El píxel y la resolución</a></li><li><a href="#apartado-3-el-color">3. El color</a></li><li><a href="#apartado-4-cuanto-pesa-una-imagen">4. Cuánto pesa una imagen</a></li><li><a href="#apartado-5-los-formatos">5. Los formatos</a></li><li><a href="#apartado-6-practicas-del-subtema">6. Prácticas del subtema</a></li><li><a href="#apartado-7-comprueba-lo-que-has-entendido">7. Comprueba lo que has entendido</a></li><li><a href="#apartado-8-antes-de-pasar-al-subtema-3-2">8. Antes de pasar al subtema 3.2</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1">
+
+  <header class="cab">
+    <p class="modulo">0223 · Aplicaciones ofimáticas · Tema 3 (1 de 6)</p>
+    <h1>Tema 3.1 — La imagen digital</h1>
+    <p class="meta">1.º SMR · Curso 2026/2027 · 1.ª evaluación · Duración: 4 h</p>
+  </header>
+<nav class="subnav" aria-label="Apartados del tema 3"><a href="ut03.html">Portada del tema</a><a href="ut03.html#apartado-subtemas">Apuntes</a><a href="ut03-ejercicios.html">Ejercicios guiados</a><a href="laboratorio-imagen.html">Laboratorio de imagen</a></nav>
+<div class="aula-herramientas"><button type="button" data-imprimir hidden>Imprimir / guardar PDF</button></div>
+
+  <details class="ra-ce"><summary>Qué se evalúa · RA y criterios</summary>
+    <h2 id="apartado-resultado-de-aprendizaje">Resultado de aprendizaje</h2>
+    <p><strong>RA5.</strong> Manipula imágenes digitales analizando las
+    posibilidades de distintos programas y aplicando técnicas de captura y edición
+    básicas.</p>
+    <p>Criterios de evaluación que trabaja este subtema:</p>
+    <ul>
+      <li><strong>a)</strong> Se han analizado los distintos formatos de imágenes.</li>
+      <li><strong>c)</strong> Se ha trabajado con imágenes a diferentes resoluciones, según su finalidad.</li>
+    </ul>
+  </details>
+
+  <div class="aviso">
+    <strong>Antes de tocar GIMP.</strong> Este subtema es la base de todo el tema:
+    si entiendes qué es un píxel, qué es la resolución y qué hace cada formato,
+    sabrás por qué una imagen sale borrosa al imprimirla, por qué pesa 8 MB o por
+    qué el logo tiene un fondo blanco que no debería. Ten abierto el
+    <a href="laboratorio-imagen.html">laboratorio de imagen</a>: cada apartado
+    tiene su herramienta para probarlo.
+  </div>
+
+  <section>
+    <h2 id="apartado-1-mapa-de-bits-y-vectorial">1. Mapa de bits y vectorial</h2>
+    <p>Hay dos formas de guardar una imagen en un ordenador:</p>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="t31">
+      <thead><tr><th></th><th>Mapa de bits (ráster)</th><th>Vectorial</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Qué guarda</strong></td><td>Una cuadrícula de <strong>píxeles</strong>, cada uno de un color</td><td>Formas: líneas, curvas, rellenos y textos descritos con coordenadas</td></tr>
+        <tr><td><strong>Al ampliar</strong></td><td>Se ven los píxeles (escalones) o se emborrona</td><td>Sigue nítida a cualquier tamaño</td></tr>
+        <tr><td><strong>Sirve para</strong></td><td>Fotos y todo lo que tenga degradados y texturas reales</td><td>Logotipos, iconos, rótulos, planos, dibujos de líneas</td></tr>
+        <tr><td><strong>Formatos</strong></td><td>JPG, PNG, GIF, WebP, TIFF, BMP, HEIC, RAW</td><td>SVG, AI, EPS; también PDF</td></tr>
+        <tr><td><strong>Programas</strong></td><td>GIMP, Photoshop, Krita, Photopea</td><td>Inkscape, Illustrator, Affinity Designer</td></tr>
+      </tbody>
+    </table></div>
+    <p>En este tema trabajamos con mapas de bits y con <strong>GIMP</strong>. Pero
+    el logotipo de tu grupo o de tu estudio debería existir también en vectorial:
+    es el que se manda a la imprenta para una lona de tres metros.</p>
+    <p><a class="lab-enlace" href="laboratorio-imagen.html#apartado-1-pixeles-y-vectores">Pruébalo en el laboratorio: píxeles y vectores</a></p>
+  </section>
+
+  <section>
+    <h2 id="apartado-2-el-pixel-y-la-resolucion">2. El píxel y la resolución</h2>
+    <h3>Dimensiones en píxeles</h3>
+    <p>Lo único que tiene de verdad una imagen de mapa de bits es su número de
+    píxeles: <strong>ancho × alto</strong>. Una foto de 4000 × 3000 tiene 12
+    millones de píxeles (<strong>12 megapíxeles</strong>). Eso no cambia aunque la
+    veas grande o pequeña en la pantalla.</p>
+
+    <h3>Resolución de impresión: los ppp</h3>
+    <p>Al imprimir hay que decidir cuántos píxeles van en cada pulgada de papel
+    (una pulgada son 2,54 cm). Eso es la <strong>resolución</strong>, en
+    <strong>ppp</strong> (píxeles por pulgada; en inglés, <em>ppi</em>). Con más
+    ppp, los píxeles son más pequeños: la imagen sale más nítida pero más
+    pequeña.</p>
+    <div class="formula">tamaño impreso (cm) = píxeles ÷ ppp × 2,54<br>píxeles necesarios = cm ÷ 2,54 × ppp</div>
+    <p>Ejemplo: la portada de un single para Spotify mide 3000 × 3000 px. A 300 ppp
+    se imprime a 3000 ÷ 300 × 2,54 = <strong>25,4 cm</strong> de lado. Para un
+    cartel A3 (29,7 × 42 cm) a 300 ppp necesitas
+    <strong>3508 × 4961 px</strong>.</p>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="t31">
+      <thead><tr><th>Uso</th><th>Resolución recomendada</th></tr></thead>
+      <tbody>
+        <tr><td>Imprenta, fotos, folletos y portadas</td><td>300 ppp</td></tr>
+        <tr><td>Carteles que se ven a más de un metro</td><td>150 ppp</td></tr>
+        <tr><td>Lonas y vallas que se ven de lejos</td><td>de 50 a 100 ppp (o lo que pida la imprenta)</td></tr>
+        <tr><td>Pantalla (web, redes, presentaciones)</td><td>Los ppp dan igual: mandan los píxeles</td></tr>
+      </tbody>
+    </table></div>
+    <div class="aviso">
+      <strong>El mito de los 72 ppp.</strong> En pantalla, una imagen de 1280 ×
+      720 se ve igual guardada a 72 ppp que a 300: el monitor solo cuenta píxeles.
+      El número de ppp solo importa al imprimir. Y otra cosa: subir los ppp o los
+      píxeles en GIMP <strong>no añade detalle</strong>; el programa se inventa los
+      píxeles nuevos y la imagen se ve blanda.
+    </div>
+    <p class="pie-fig"><em>Las impresoras hablan de <strong>ppp de impresión</strong>
+    (<em>dpi</em>, puntos de tinta por pulgada), que no es lo mismo: una impresora
+    de 1200 dpi usa varios puntos de tinta para dibujar cada píxel.</em></p>
+
+    <h3>En GIMP</h3>
+    <ul>
+      <li><code>Imagen &gt; Propiedades de la imagen</code> (<kbd>Alt</kbd>+<kbd>Intro</kbd>):
+      tamaño en píxeles, resolución, modo de color y peso en memoria.</li>
+      <li><code>Imagen &gt; Tamaño de impresión</code>: cambia los ppp y los
+      centímetros <strong>sin tocar los píxeles</strong>. Es lo que hay que usar
+      para preparar una impresión.</li>
+      <li><code>Imagen &gt; Escalar la imagen</code>: cambia el número de píxeles.
+      Reducir es seguro; ampliar mucho estropea la imagen.</li>
+    </ul>
+    <p><a class="lab-enlace" href="laboratorio-imagen.html#apartado-2-resolucion-y-tamano-de-impresion">Pruébalo en el laboratorio: resolución e impresión</a></p>
+  </section>
+
+  <section>
+    <h2 id="apartado-3-el-color">3. El color</h2>
+    <h3>Modelos de color</h3>
+    <ul>
+      <li><strong>RGB</strong> (rojo, verde, azul): mezcla de <strong>luz</strong>.
+      Es el de las pantallas. Los tres al máximo dan blanco; los tres a 0, negro. Se
+      escribe en decimal (192, 57, 43) o en hexadecimal (<code>#C0392B</code>).</li>
+      <li><strong>CMYK</strong> (cian, magenta, amarillo y negro): mezcla de
+      <strong>tintas</strong>. Es el de la imprenta. Hay colores RGB muy vivos que
+      no se pueden imprimir: por eso un cartel impreso sale más apagado que en la
+      pantalla.</li>
+      <li><strong>Escala de grises</strong>: un solo canal, del negro al blanco.</li>
+      <li><strong>Indexado</strong>: la imagen usa una <strong>paleta</strong> de
+      como mucho 256 colores. Es el modo de los GIF.</li>
+    </ul>
+
+    <h3>Profundidad de color</h3>
+    <p>Son los bits con que se guarda cada canal. Con <strong>8 bits por
+    canal</strong> hay 256 niveles por canal y 256 × 256 × 256 =
+    <strong>16,7 millones de colores</strong>, suficiente para casi todo. Las
+    cámaras y los archivos RAW llegan a 12, 14 o 16 bits, y eso da margen para
+    retocar sin que aparezcan <strong>bandas</strong> en los degradados.</p>
+
+    <h3>Transparencia: el canal alfa</h3>
+    <p>Un cuarto canal guarda cuánto se ve cada píxel, de opaco a transparente.
+    Solo algunos formatos lo admiten (PNG, WebP, GIF a medias). Si guardas un logo
+    con fondo transparente en JPG, el fondo se vuelve blanco.</p>
+    <p>En GIMP: <code>Imagen &gt; Modo</code> (RGB, escala de grises, indexado),
+    <code>Imagen &gt; Precisión</code> (8 o 16 bits) y
+    <code>Capa &gt; Transparencia &gt; Añadir canal alfa</code>.</p>
+    <p><a class="lab-enlace" href="laboratorio-imagen.html#apartado-3-color-y-profundidad-de-color">Pruébalo en el laboratorio: color y profundidad</a></p>
+  </section>
+
+  <section>
+    <h2 id="apartado-4-cuanto-pesa-una-imagen">4. Cuánto pesa una imagen</h2>
+    <p>Sin comprimir, cada píxel RGB ocupa 3 bytes (uno por canal):</p>
+    <div class="formula">peso sin comprimir = ancho × alto × 3 bytes</div>
+    <p>Una foto de 4000 × 3000 ocuparía 36 millones de bytes: unos 34 MB, como
+    los cuenta Windows (1 KB son 1024 bytes). Por eso casi todos los formatos
+    <strong>comprimen</strong>:</p>
+    <ul>
+      <li><strong>Sin pérdida</strong> (PNG, TIFF, GIF): se recupera exactamente la
+      imagen original. Va muy bien con dibujos, capturas y logos de colores
+      planos; con fotos, ahorra poco.</li>
+      <li><strong>Con pérdida</strong> (JPG, WebP, HEIC): descarta detalles que el
+      ojo casi no ve. Las fotos pasan de 34 MB a 2 o 3 MB. Si se aprieta demasiado,
+      aparecen <strong>artefactos</strong>: bloques de 8 × 8 píxeles y manchas
+      alrededor de los bordes y los textos.</li>
+    </ul>
+    <div class="aviso">
+      <strong>Cada vez que guardas en JPG, pierdes un poco.</strong> Abrir un JPG,
+      retocarlo y volver a guardarlo en JPG varias veces degrada la imagen. Trabaja
+      en el formato propio de GIMP (<strong>XCF</strong>) y <strong>exporta</strong>
+      a JPG o PNG solo al final.
+    </div>
+    <p><a class="lab-enlace" href="laboratorio-imagen.html#apartado-4-compresion-y-formatos">Pruébalo en el laboratorio: compresión y formatos</a></p>
+  </section>
+
+  <section>
+    <h2 id="apartado-5-los-formatos">5. Los formatos</h2>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="t31">
+      <thead><tr><th>Formato</th><th>Compresión</th><th>Transparencia</th><th>Animación</th><th>Para qué se usa</th></tr></thead>
+      <tbody>
+        <tr><td><strong>JPG / JPEG</strong></td><td>Con pérdida</td><td class="c">No</td><td class="c">No</td><td>Fotos para web, correo y redes</td></tr>
+        <tr><td><strong>PNG</strong></td><td>Sin pérdida</td><td class="c">Sí</td><td class="c">No</td><td>Logos, iconos, capturas de pantalla, gráficos con texto</td></tr>
+        <tr><td><strong>GIF</strong></td><td>Sin pérdida, 256 colores</td><td class="c">Sí o no (sin término medio)</td><td class="c">Sí</td><td>Animaciones cortas y sencillas</td></tr>
+        <tr><td><strong>WebP</strong></td><td>Con o sin pérdida</td><td class="c">Sí</td><td class="c">Sí</td><td>Web moderna: pesa menos que JPG y PNG</td></tr>
+        <tr><td><strong>HEIC</strong></td><td>Con pérdida</td><td class="c">Sí</td><td class="c">—</td><td>Fotos del iPhone. Muchos programas no lo abren</td></tr>
+        <tr><td><strong>TIFF</strong></td><td>Sin pérdida o sin comprimir</td><td class="c">Sí</td><td class="c">No</td><td>Imprenta, escáner, archivo de fotos de calidad</td></tr>
+        <tr><td><strong>BMP</strong></td><td>Normalmente sin comprimir</td><td class="c">No</td><td class="c">No</td><td>Antiguo, de Windows. Pesa muchísimo</td></tr>
+        <tr><td><strong>RAW</strong> (CR3, NEF, DNG…)</td><td>Datos del sensor</td><td class="c">—</td><td class="c">—</td><td>Fotografía profesional: máximo margen de retoque</td></tr>
+        <tr><td><strong>XCF</strong> / <strong>PSD</strong></td><td>Sin pérdida</td><td class="c">Sí</td><td class="c">—</td><td>Archivos de trabajo de GIMP y Photoshop: guardan capas, textos editables y selecciones</td></tr>
+        <tr><td><strong>SVG</strong></td><td>Vectorial</td><td class="c">Sí</td><td class="c">Sí</td><td>Logos e iconos para web</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>Cómo elegir</h3>
+    <ol>
+      <li>¿Vas a seguir editándola? <strong>XCF</strong> (y la exportas después).</li>
+      <li>¿Es una foto? <strong>JPG</strong> (o WebP para web) a calidad 80-90.</li>
+      <li>¿Tiene texto, colores planos o transparencia? <strong>PNG</strong>.</li>
+      <li>¿Se mueve? <strong>GIF</strong> o WebP animado.</li>
+      <li>¿Va a imprenta? Lo que pida la imprenta: normalmente <strong>PDF</strong>
+      o <strong>TIFF</strong> a 300 ppp.</li>
+    </ol>
+    <p>En GIMP, <code>Archivo &gt; Guardar</code> solo guarda en XCF. Para todo lo
+    demás está <code>Archivo &gt; Exportar como</code>
+    (<kbd>Mayús</kbd>+<kbd>Ctrl</kbd>+<kbd>E</kbd>): el formato se elige con la
+    extensión que escribas en el nombre (<code>portada.png</code>) y después
+    aparece una ventana con las opciones de ese formato, como la calidad del
+    JPG.</p>
+  </section>
+
+  <section>
+    <h2 id="apartado-6-practicas-del-subtema">6. Prácticas del subtema</h2>
+    <p>Acreditan los criterios <em>a</em> (formatos) y <em>c</em> (resolución).</p>
+    <ul>
+      <li><strong>P3.1.1</strong> · <strong>Comparativa de formatos.</strong> Con
+      una foto tuya en el laboratorio (apartado 4), guárdala en JPG al 90, 60 y 20,
+      en WebP al 80 y en PNG. Haz en Word una tabla con el formato, la calidad, el
+      peso y el porcentaje respecto al original sin comprimir, y escribe debajo
+      qué calidad usarías para la web y por qué.</li>
+      <li><strong>P3.1.2</strong> · <strong>Cálculos de resolución.</strong>
+      Resuelve sin el laboratorio, con la fórmula, y compruébalo después con él:
+      (1) a qué tamaño sale impresa a 300 ppp una foto de 4000 × 3000; (2) cuántos
+      píxeles hacen falta para un cartel A3 a 150 ppp; (3) si una miniatura de
+      YouTube de 1280 × 720 vale para imprimir una postal de 15 × 10 cm y por
+      qué.</li>
+      <li><strong>P3.1.3</strong> · <strong>Propiedades en GIMP.</strong> Abre en
+      GIMP una foto del móvil y anota sus propiedades (píxeles, ppp, modo de color,
+      precisión). Cambia el tamaño de impresión a 300 ppp sin tocar los píxeles y
+      expórtala en JPG y en PNG. Explica por qué el PNG pesa más.</li>
+      <li><strong>P3.1.4</strong> · <strong>Mapa de bits o vectorial.</strong> Busca
+      un logotipo en SVG con licencia libre (por ejemplo, en Wikimedia Commons) y
+      su versión en PNG. Ábrelos en el navegador, amplía al 800 % y haz una
+      captura de cada uno. Explica la diferencia en tres líneas.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 id="apartado-7-comprueba-lo-que-has-entendido">7. Comprueba lo que has entendido</h2>
+    <p>Ocho preguntas. No cuenta para la nota: es para que veas si puedes seguir.</p>
+    <form id="ei">
+      <div class="pregunta" data-correcta="b">
+        <p class="enunciado"><span class="num">1.</span> Necesitas el logotipo de tu grupo para una lona de tres metros. ¿En qué tipo de imagen debería estar?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p1" value="a"> En un JPG a máxima calidad</label></li>
+          <li><label><input type="radio" name="p1" value="b"> En vectorial (por ejemplo, SVG)</label></li>
+          <li><label><input type="radio" name="p1" value="c"> En un PNG a 72 ppp</label></li>
+          <li><label><input type="radio" name="p1" value="d"> Da igual, se amplía en la imprenta</label></li>
+        </ul><span class="marca"></span>
+      </div>
+      <div class="pregunta" data-correcta="c">
+        <p class="enunciado"><span class="num">2.</span> Una imagen de 3000 × 3000 px impresa a 300 ppp mide…</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p2" value="a"> 10 × 10 cm</label></li>
+          <li><label><input type="radio" name="p2" value="b"> 30 × 30 cm</label></li>
+          <li><label><input type="radio" name="p2" value="c"> 25,4 × 25,4 cm</label></li>
+          <li><label><input type="radio" name="p2" value="d"> Depende de la pantalla</label></li>
+        </ul><span class="marca"></span>
+      </div>
+      <div class="pregunta" data-correcta="a">
+        <p class="enunciado"><span class="num">3.</span> Guardas una miniatura de YouTube de 1280 × 720 a 72 ppp y otra igual a 300 ppp. En la pantalla…</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p3" value="a"> Se ven exactamente igual</label></li>
+          <li><label><input type="radio" name="p3" value="b"> La de 300 ppp se ve más nítida</label></li>
+          <li><label><input type="radio" name="p3" value="c"> La de 72 ppp se ve más grande</label></li>
+          <li><label><input type="radio" name="p3" value="d"> La de 300 ppp no se puede subir a YouTube</label></li>
+        </ul><span class="marca"></span>
+      </div>
+      <div class="pregunta" data-correcta="d">
+        <p class="enunciado"><span class="num">4.</span> ¿Qué modelo de color usa una imprenta?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p4" value="a"> RGB</label></li>
+          <li><label><input type="radio" name="p4" value="b"> Indexado</label></li>
+          <li><label><input type="radio" name="p4" value="c"> Hexadecimal</label></li>
+          <li><label><input type="radio" name="p4" value="d"> CMYK</label></li>
+        </ul><span class="marca"></span>
+      </div>
+      <div class="pregunta" data-correcta="b">
+        <p class="enunciado"><span class="num">5.</span> Con 8 bits por canal en RGB, ¿cuántos colores puede tener un píxel?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p5" value="a"> 256</label></li>
+          <li><label><input type="radio" name="p5" value="b"> Unos 16,7 millones</label></li>
+          <li><label><input type="radio" name="p5" value="c"> 24</label></li>
+          <li><label><input type="radio" name="p5" value="d"> 65 536</label></li>
+        </ul><span class="marca"></span>
+      </div>
+      <div class="pregunta" data-correcta="c">
+        <p class="enunciado"><span class="num">6.</span> Exportas el logo de tu estudio, con fondo transparente, en JPG. ¿Qué pasa?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p6" value="a"> Nada, el JPG guarda la transparencia</label></li>
+          <li><label><input type="radio" name="p6" value="b"> Se convierte en vectorial</label></li>
+          <li><label><input type="radio" name="p6" value="c"> El fondo deja de ser transparente (normalmente sale blanco)</label></li>
+          <li><label><input type="radio" name="p6" value="d"> GIMP no deja exportarlo</label></li>
+        </ul><span class="marca"></span>
+      </div>
+      <div class="pregunta" data-correcta="a">
+        <p class="enunciado"><span class="num">7.</span> Vas a retocar la portada en varias sesiones. ¿En qué formato la guardas mientras trabajas?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p7" value="a"> XCF, el formato de GIMP</label></li>
+          <li><label><input type="radio" name="p7" value="b"> JPG al 100 %</label></li>
+          <li><label><input type="radio" name="p7" value="c"> GIF</label></li>
+          <li><label><input type="radio" name="p7" value="d"> BMP</label></li>
+        </ul><span class="marca"></span>
+      </div>
+      <div class="pregunta" data-correcta="d">
+        <p class="enunciado"><span class="num">8.</span> ¿Cuánto ocupa sin comprimir una imagen RGB de 1000 × 1000 píxeles?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p8" value="a"> 1 MB</label></li>
+          <li><label><input type="radio" name="p8" value="b"> 1000 KB</label></li>
+          <li><label><input type="radio" name="p8" value="c"> 300 KB</label></li>
+          <li><label><input type="radio" name="p8" value="d"> Unos 3 MB</label></li>
+        </ul><span class="marca"></span>
+      </div>
+      <div class="acciones">
+        <button type="button" id="corregir">Corregir</button>
+        <button type="button" id="reiniciar">Reiniciar</button>
+      </div>
+      <p class="resultado oculto" id="resultado"></p>
+    </form>
+  </section>
+
+  <section>
+    <h2 id="apartado-8-antes-de-pasar-al-subtema-3-2">8. Antes de pasar al subtema 3.2</h2>
+    <ul class="checklist">
+      <li><label><input type="checkbox"> Explicar la diferencia entre mapa de bits y vectorial, con un ejemplo de cada uno</label></li>
+      <li><label><input type="checkbox"> Calcular el tamaño impreso de una imagen y los píxeles que necesito para un tamaño dado</label></li>
+      <li><label><input type="checkbox"> Explicar por qué los ppp no importan en pantalla</label></li>
+      <li><label><input type="checkbox"> Distinguir RGB, CMYK, escala de grises e indexado</label></li>
+      <li><label><input type="checkbox"> Calcular el peso sin comprimir y explicar la compresión con y sin pérdida</label></li>
+      <li><label><input type="checkbox"> Elegir el formato adecuado para una foto, un logo, una animación y un trabajo a medias</label></li>
+      <li><label><input type="checkbox"> Ver en GIMP las propiedades de una imagen, cambiar el tamaño de impresión y exportar</label></li>
+    </ul>
+  </section>
+
+  <nav class="nav-temas">
+    <a href="ut03.html">&laquo; Tema 3 (índice)</a>
+    <a href="laboratorio-imagen.html">Laboratorio de imagen</a>
+    <span>Siguiente &raquo; (Tema 3.2, próximamente)</span>
+  </nav>
+
+  <footer class="pie">
+    <p>0223 Aplicaciones ofimáticas · Material de consulta del alumnado.
+    Currículo: Decreto 272/2009 (Extremadura).</p>
+  </footer>
+
+<script>
+(function () {
+  var form = document.getElementById('ei');
+  var preguntas = form.querySelectorAll('.pregunta');
+  var salida = document.getElementById('resultado');
+  document.getElementById('corregir').addEventListener('click', function () {
+    var aciertos = 0, contestadas = 0;
+    preguntas.forEach(function (p) {
+      var correcta = p.getAttribute('data-correcta'), elegida = p.querySelector('input:checked'), marca = p.querySelector('.marca');
+      p.classList.remove('acierto', 'fallo');
+      if (!elegida) { marca.textContent = ''; return; }
+      contestadas++;
+      if (elegida.value === correcta) { aciertos++; p.classList.add('acierto'); marca.textContent = '✓ correcto'; }
+      else { p.classList.add('fallo'); marca.textContent = '✗ la correcta era la opción ' + correcta.toUpperCase(); }
+    });
+    var total = preguntas.length;
+    salida.classList.remove('oculto');
+    salida.textContent = 'Aciertos: ' + aciertos + ' de ' + total + '  ·  Contestadas: ' + contestadas + '/' + total +
+      '  ·  Nota orientativa: ' + (Math.round(aciertos / total * 100) / 10) + ' / 10   (recuerda: esta autocomprobación no cuenta para la evaluación)';
+    salida.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+  document.getElementById('reiniciar').addEventListener('click', function () {
+    form.reset();
+    preguntas.forEach(function (p) { p.classList.remove('acierto', 'fallo'); p.querySelector('.marca').textContent = ''; });
+    salida.classList.add('oculto'); salida.textContent = '';
+  });
+})();
+</script>
+
+</main></div>
+</body>
+</html>
