@@ -16,7 +16,7 @@ actualizado: 2026-10-08
 
 > **Decisión del 19/10/2026:** la práctica pasa a ser **formativa**: no cuenta
 > para la nota del RA2. La rúbrica se mantiene como orientación para la
-> devolución. La revisión cruzada calificada está en el PC3.
+> devolución.
 
 ## Por qué esta práctica
 

@@ -110,5 +110,6 @@ que no se quede sin la P2.6.2.
 - **Va a 2.7**: la seguridad de macros se retoma al grabar macros propias, y el
   parte de incidencias de la P2.6.5 es candidato natural a ser el documento del
   proyecto final.
-- **PC3 / proyecto final**: debería exigir que el manual pase por una revisión
-  con control de cambios antes de la entrega.
+- **PC3 / proyecto final**: el manual se entrega inspeccionado (sin comentarios
+  ni revisiones). La revisión cruzada se quitó del PC3 el 19/10/2026: el
+  control de cambios se evalúa en las P2.6.x.

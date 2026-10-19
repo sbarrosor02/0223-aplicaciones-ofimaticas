@@ -101,8 +101,8 @@ Regla que se repite en clase: **si haces lo mismo más de tres veces, grábalo**
   marcadores.
 
 El **proyecto final (PC3)** integra el tema completo: manual de usuario de
-tres procedimientos con una plantilla `.dotm` y tres macros, revisión cruzada
-y entrega en Moodle. Ver `temario/ut02-practica-control-3.md`.
+tres procedimientos con una plantilla `.dotm` y tres macros, y entrega en
+Moodle. Ver `temario/ut02-practica-control-3.md`.
 
 ## Nota de montaje
 
