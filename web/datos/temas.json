@@ -241,7 +241,8 @@
             "RA5.d"
           ],
           "horas": 6,
-          "estado": "borrador"
+          "estado": "publicado",
+          "actualizado": "2026-10-19"
         },
         {
           "ut": "3.4",
@@ -275,12 +276,17 @@
         {
           "titulo": "Laboratorio de imagen",
           "url": "temas/laboratorio-imagen.html",
-          "nota": "herramientas HTML sin dependencias: píxeles y vectores, resolución, color y profundidad, compresión y formatos, metadatos EXIF (ver, ubicación en mapa y quitar); se amplía con cada subtema"
+          "nota": "herramientas HTML sin dependencias: píxeles y vectores, resolución, color y profundidad, compresión y formatos, metadatos EXIF (ver, ubicación en mapa y quitar), histograma y niveles por canal con vista dividida; se amplía con cada subtema"
         },
         {
           "titulo": "Ejercicios guiados: tu grupo o tu estudio, pieza a pieza",
           "url": "temas/ut03-ejercicios.html",
-          "nota": "formativo; hilo conductor banda de música o estudio de videojuegos; bloques 3.1 y 3.2 publicados"
+          "nota": "formativo; hilo conductor banda de música o estudio de videojuegos; bloques 3.1 a 3.3 publicados"
+        },
+        {
+          "titulo": "Fotos para practicar el retoque",
+          "url": "temas/ut03-3.html#apartado-fotos-para-practicar",
+          "nota": "paisaje inventado generado con scripts/generar_fotos_retoque.py: torcida y oscura, lavada y amarilla, manchas y cable"
         }
       ]
     }

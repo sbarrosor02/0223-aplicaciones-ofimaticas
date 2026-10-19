@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tema 3.3 · Retoque básico en GIMP · 0223 Aplicaciones ofimáticas</title>
+<link rel="stylesheet" href="../assets/estilo.css">
+<style>
+  .t33 { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 1rem 0; }
+  .t33 th, .t33 td { border: 1px solid var(--linea); padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+  .t33 th { background: var(--acento-claro); color: var(--acento); }
+  .lab-enlace { display: inline-block; margin: 0.3rem 0 0.6rem; padding: 0.45rem 0.8rem; border: 1px solid var(--acento); border-radius: var(--radio); font-weight: 600; }
+  .fotos-practica { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 0.8rem; margin: 1rem 0; }
+  .fotos-practica figure { margin: 0; }
+  .fotos-practica img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border: 1px solid var(--linea); border-radius: 4px; }
+  .fotos-practica figcaption { font-size: 0.85rem; margin-top: 0.3rem; }
+</style>
+<link rel="stylesheet" href="../assets/aula.css">
+<script defer src="../assets/aula.js"></script>
+</head>
+<body data-modulo="0223">
+<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0223 / Aplicaciones ofimáticas</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-fotos-para-practicar">Fotos para practicar</a></li><li><a href="#apartado-1-antes-de-empezar-el-orden-del-retoque">1. Antes de empezar: el orden del retoque</a></li><li><a href="#apartado-2-enderezar-recortar-y-corregir-la-perspectiva">2. Enderezar, recortar y corregir la perspectiva</a></li><li><a href="#apartado-3-tamano-y-resolucion-segun-el-destino">3. Tamaño y resolución según el destino</a></li><li><a href="#apartado-4-la-luz-histograma-niveles-y-curvas">4. La luz: histograma, niveles y curvas</a></li><li><a href="#apartado-5-el-color-dominantes-y-saturacion">5. El color: dominantes y saturación</a></li><li><a href="#apartado-6-limpiar-saneado-y-clonar">6. Limpiar: Saneado y Clonar</a></li><li><a href="#apartado-7-enfocar-al-final">7. Enfocar, al final</a></li><li><a href="#apartado-8-practicas-del-subtema">8. Prácticas del subtema</a></li><li><a href="#apartado-9-comprueba-lo-que-has-entendido">9. Comprueba lo que has entendido</a></li><li><a href="#apartado-10-antes-de-pasar-al-subtema-3-4">10. Antes de pasar al subtema 3.4</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1">
+
+  <header class="cab">
+    <p class="modulo">0223 · Aplicaciones ofimáticas · Tema 3 (3 de 6)</p>
+    <h1>Tema 3.3 — Retoque básico en GIMP</h1>
+    <p class="meta">1.º SMR · Curso 2026/2027 · 1.ª evaluación · Duración: 6 h</p>
+  </header>
+<nav class="subnav" aria-label="Apartados del tema 3"><a href="ut03.html">Portada del tema</a><a href="ut03.html#apartado-subtemas">Apuntes</a><a href="ut03-ejercicios.html">Ejercicios guiados</a><a href="laboratorio-imagen.html">Laboratorio de imagen</a></nav>
+
+  <details class="ra-ce"><summary>Qué se evalúa · RA y criterios</summary>
+    <h2 id="apartado-resultado-de-aprendizaje">Resultado de aprendizaje</h2>
+    <p><strong>RA5.</strong> Manipula imágenes digitales analizando las
+    posibilidades de distintos programas y aplicando técnicas de captura y edición
+    básicas.</p>
+    <p>Criterios de evaluación que trabaja este subtema:</p>
+    <ul>
+      <li><strong>c)</strong> Se ha trabajado con imágenes a diferentes resoluciones, según su finalidad.</li>
+      <li><strong>d)</strong> Se han empleado herramientas para la edición de imagen digital.</li>
+    </ul>
+  </details>
+
+  <div class="aviso">
+    <strong>Retocar es arreglar, no inventar.</strong> En este subtema aprendes a
+    corregir los defectos típicos de una foto: torcida, oscura, con un color raro,
+    con manchas o del tamaño equivocado. El objetivo es que la foto se parezca a lo
+    que veías cuando la hiciste, no cambiar lo que pasó.
+  </div>
+
+  <section>
+    <h2 id="apartado-fotos-para-practicar">Fotos para practicar</h2>
+    <p>Son fotos inventadas, generadas para este subtema, cada una con un problema.
+    Descárgalas (clic derecho &gt; <em>Guardar imagen como</em>) en
+    <code>Tema3_Proyecto/trabajo/originales</code>. También puedes usar las fotos
+    de tu proyecto del bloque 3.2.</p>
+    <div class="fotos-practica">
+      <figure><a href="../descargas/retoque-1-torcida-oscura.jpg"><img src="../descargas/retoque-1-torcida-oscura.jpg" alt="Paisaje con un embalse, inclinado y muy oscuro" loading="lazy" width="2400" height="1600"></a>
+        <figcaption><strong>1 · Torcida y oscura</strong>: el horizonte cae y está subexpuesta.</figcaption></figure>
+      <figure><a href="../descargas/retoque-2-lavada-amarilla.jpg"><img src="../descargas/retoque-2-lavada-amarilla.jpg" alt="El mismo paisaje, sin contraste y con un tono amarillo" loading="lazy" width="2400" height="1600"></a>
+        <figcaption><strong>2 · Lavada y amarilla</strong>: sin negros ni blancos y con dominante de color.</figcaption></figure>
+      <figure><a href="../descargas/retoque-3-manchas-cable.jpg"><img src="../descargas/retoque-3-manchas-cable.jpg" alt="El mismo paisaje con manchas oscuras y un cable en el cielo" loading="lazy" width="2400" height="1600"></a>
+        <figcaption><strong>3 · Manchas y cable</strong>: polvo en el sensor y un cable que cruza el cielo.</figcaption></figure>
+      <figure><a href="../descargas/documento-fotografiado-1.jpg"><img src="../descargas/documento-fotografiado-1.jpg" alt="Hoja fotografiada torcida sobre una mesa" loading="lazy" width="2000" height="2600"></a>
+        <figcaption><strong>4 · Documento en perspectiva</strong>: la del subtema 3.2.</figcaption></figure>
+    </div>
+    <p>Enlaces directos:
+    <a href="../descargas/retoque-1-torcida-oscura.jpg">Foto de retoque 1, torcida y oscura</a> ·
+    <a href="../descargas/retoque-2-lavada-amarilla.jpg">Foto de retoque 2, lavada y amarilla</a> ·
+    <a href="../descargas/retoque-3-manchas-cable.jpg">Foto de retoque 3, manchas y cable</a> ·
+    <a href="../descargas/documento-fotografiado-1.jpg">Documento fotografiado, hoja 1</a>.</p>
+  </section>
+
+  <section>
+    <h2 id="apartado-1-antes-de-empezar-el-orden-del-retoque">1. Antes de empezar: el orden del retoque</h2>
+    <p>Los retoques se hacen <strong>siempre en el mismo orden</strong>. Si
+    enfocas antes de reducir, el enfoque se pierde; si corriges el color antes de
+    recortar, la parte que vas a quitar influye en el ajuste.</p>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="t33">
+      <thead><tr><th>Paso</th><th>Qué arreglas</th><th>Con qué (GIMP)</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Enderezar y recortar</td><td>Medir, Rotar, Perspectiva, Recortar</td></tr>
+        <tr><td>2</td><td>Luz: oscura, quemada, sin contraste</td><td>Niveles, Curvas, Sombras-Luces</td></tr>
+        <tr><td>3</td><td>Color: dominantes y saturación</td><td>Balance de blancos, Niveles por canal, Tono y saturación</td></tr>
+        <tr><td>4</td><td>Limpiar: manchas, cables, granos</td><td>Saneado y Clonar</td></tr>
+        <tr><td>5</td><td>Escalar al tamaño de destino</td><td>Escalar la imagen, Tamaño de impresión</td></tr>
+        <tr><td>6</td><td>Enfocar un poco</td><td>Máscara de desenfoque</td></tr>
+        <tr><td>7</td><td>Exportar</td><td>Exportar como (subtema 3.5)</td></tr>
+      </tbody>
+    </table></div>
+    <h3>Trabaja sin miedo</h3>
+    <ul>
+      <li><strong>Nunca retoques el original.</strong> Abre la foto y guárdala en
+      seguida como <code>.xcf</code> en <code>trabajo</code>. El JPG original no se
+      toca.</li>
+      <li><strong>Duplica la capa</strong> antes de empezar
+      (<code>Capa &gt; Duplicar capa</code>, <kbd>Mayús</kbd>+<kbd>Ctrl</kbd>+<kbd>D</kbd>).
+      Retoca la copia; con el ojo de la capa de arriba ves el antes y el
+      después.</li>
+      <li><strong>Deshacer</strong>: <kbd>Ctrl</kbd>+<kbd>Z</kbd> y
+      <kbd>Ctrl</kbd>+<kbd>Y</kbd>. En <code>Editar &gt; Historial de deshacer</code>
+      puedes volver a cualquier paso.</li>
+      <li><strong>Vista dividida</strong>: casi todos los ajustes de los menús
+      <code>Colores</code> y <code>Filtros</code> tienen esa casilla abajo. Muestra
+      la mitad de la imagen sin el ajuste y la otra mitad con él.</li>
+    </ul>
+    <p class="pie-fig"><em>Los nombres de los menús son los de GIMP 3 en español.
+    Si en tu ordenador hay una versión anterior, alguno puede cambiar
+    ligeramente.</em></p>
+  </section>
+
+  <section>
+    <h2 id="apartado-2-enderezar-recortar-y-corregir-la-perspectiva">2. Enderezar, recortar y corregir la perspectiva</h2>
+    <h3>Enderezar el horizonte</h3>
+    <ol>
+      <li>Elige la herramienta <strong>Medir</strong> (<kbd>Mayús</kbd>+<kbd>M</kbd>).</li>
+      <li>Haz clic en un extremo de algo que debería ser horizontal (la orilla del
+      embalse, una mesa, el suelo) y arrastra hasta el otro extremo. Abajo, en la
+      barra de estado, ves el ángulo.</li>
+      <li>En las opciones de la herramienta, pulsa <strong>Enderezar</strong>. GIMP
+      gira la imagen para que esa línea quede horizontal.</li>
+    </ol>
+    <p>Si sabes el ángulo, también puedes usar <strong>Rotar</strong>
+    (<kbd>Mayús</kbd>+<kbd>R</kbd>) y escribirlo. Al girar quedan
+    <strong>esquinas vacías</strong> (transparentes): se quitan recortando.</p>
+
+    <h3>Recortar</h3>
+    <p>Herramienta <strong>Recortar</strong> (<kbd>Mayús</kbd>+<kbd>C</kbd>). Dibuja
+    el rectángulo, ajústalo por los bordes y pulsa <kbd>Intro</kbd>. En sus
+    opciones:</p>
+    <ul>
+      <li><strong>Fijo: Relación de aspecto</strong> y escribe la proporción del
+      destino: <code>1:1</code> para un post cuadrado, <code>16:9</code> para una
+      miniatura de YouTube, <code>3:2</code> para una foto de 10 × 15 cm.</li>
+      <li><strong>Guías: Regla de los tercios</strong>. Divide el recuadro en 3 × 3.
+      Si colocas lo importante en una de las líneas o en un cruce, la foto queda
+      más equilibrada que con todo en el centro.</li>
+      <li>Deja marcada la casilla de <strong>borrar los píxeles recortados</strong>:
+      si no, GIMP solo los oculta y siguen en el archivo.</li>
+    </ul>
+
+    <h3>Corregir la perspectiva de un documento</h3>
+    <p>Cuando fotografías una hoja desde un lado, sale como un trapecio. La
+    herramienta <strong>Perspectiva</strong> (<kbd>Mayús</kbd>+<kbd>P</kbd>) la
+    vuelve a dejar rectangular:</p>
+    <ol>
+      <li>En las opciones, pon <strong>Dirección: Correctiva (hacia atrás)</strong>.</li>
+      <li>Haz clic en la imagen y arrastra las cuatro esquinas del marco hasta las
+      <strong>cuatro esquinas de la hoja</strong>.</li>
+      <li>Pulsa <strong>Transformar</strong>. La hoja queda recta; recorta lo que
+      sobra de mesa.</li>
+    </ol>
+    <p>Es lo mismo que hacía la aplicación de escaneo del móvil en el subtema 3.2,
+    pero a mano.</p>
+  </section>
+
+  <section>
+    <h2 id="apartado-3-tamano-y-resolucion-segun-el-destino">3. Tamaño y resolución según el destino</h2>
+    <p>Una misma foto acaba en sitios distintos y cada uno pide unos píxeles. Hay
+    tres órdenes de GIMP que se confunden mucho:</p>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="t33">
+      <thead><tr><th>Orden</th><th>Qué cambia</th><th>Cuándo usarla</th></tr></thead>
+      <tbody>
+        <tr><td><code>Imagen &gt; Escalar la imagen</code></td><td>Los <strong>píxeles</strong>: la imagen entera se hace más grande o más pequeña</td><td>Para dejarla del tamaño del destino (1280 × 720, 1080 × 1080…)</td></tr>
+        <tr><td><code>Imagen &gt; Tamaño de impresión</code></td><td>Solo los <strong>ppp</strong> y los centímetros. Los píxeles no cambian</td><td>Para decir a qué tamaño se imprimirá</td></tr>
+        <tr><td><code>Imagen &gt; Tamaño del lienzo</code></td><td>El <strong>marco</strong>: añade o quita espacio alrededor, sin estirar la foto</td><td>Para poner márgenes o hacer cuadrada una imagen sin recortarla</td></tr>
+      </tbody>
+    </table></div>
+    <h3>Escalar bien</h3>
+    <ul>
+      <li>Deja la <strong>cadena</strong> entre anchura y altura cerrada: si no, la
+      imagen se deforma.</li>
+      <li>Primero <strong>recorta a la proporción</strong> del destino y luego
+      escala. Si escalas una foto 3:2 a 1280 × 720 sin recortar, o se deforma o no
+      llega.</li>
+      <li>En <em>Calidad &gt; Interpolación</em>, para reducir va bien
+      <strong>NoHalo</strong> o <strong>Cúbica</strong>.</li>
+      <li><strong>Reducir es seguro; ampliar, no.</strong> Al ampliar, GIMP se
+      inventa los píxeles nuevos y la foto se ve blanda. Si una foto no llega a los
+      píxeles que pide el destino, lo correcto es buscar otra o usarla más
+      pequeña.</li>
+    </ul>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="t33">
+      <thead><tr><th>Destino</th><th>Proporción para recortar</th><th>Píxeles finales</th><th>ppp</th></tr></thead>
+      <tbody>
+        <tr><td>Post cuadrado en redes</td><td>1:1</td><td>1080 × 1080</td><td>Dan igual</td></tr>
+        <tr><td>Miniatura de YouTube</td><td>16:9</td><td>1280 × 720</td><td>Dan igual</td></tr>
+        <tr><td>Foto impresa de 15 × 10 cm</td><td>3:2</td><td>1772 × 1181</td><td>300</td></tr>
+        <tr><td>Portada de tu proyecto</td><td>1:1</td><td>3000 × 3000</td><td>300</td></tr>
+      </tbody>
+    </table></div>
+    <p><a class="lab-enlace" href="laboratorio-imagen.html#apartado-2-resolucion-y-tamano-de-impresion">Calcula los píxeles en el laboratorio</a></p>
+  </section>
+
+  <section>
+    <h2 id="apartado-4-la-luz-histograma-niveles-y-curvas">4. La luz: histograma, niveles y curvas</h2>
+    <h3>Leer el histograma</h3>
+    <p>El histograma (<code>Ventanas &gt; Diálogos empotrables &gt; Histograma</code>)
+    cuenta cuántos píxeles hay de cada luminosidad, de negro (izquierda) a blanco
+    (derecha). Sin mirar la foto, ya dice qué le pasa:</p>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="t33">
+      <thead><tr><th>Forma del histograma</th><th>Qué le pasa a la foto</th><th>Arreglo</th></tr></thead>
+      <tbody>
+        <tr><td>Todo amontonado a la izquierda; la derecha vacía</td><td>Oscura (subexpuesta)</td><td>Niveles: el punto blanco hacia dentro</td></tr>
+        <tr><td>Todo en el centro; los dos extremos vacíos</td><td>Lavada, sin contraste</td><td>Niveles: los puntos negro y blanco hacia dentro</td></tr>
+        <tr><td>Pegado a la derecha, con un pico en el borde</td><td>Quemada: hay zonas blancas sin detalle</td><td>Se puede oscurecer, pero lo quemado <strong>no se recupera</strong></td></tr>
+        <tr><td>Repartido de un extremo a otro</td><td>Bien expuesta</td><td>Poco o nada</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>Niveles</h3>
+    <p><code>Colores &gt; Niveles</code> es el ajuste más útil. Arriba ves el
+    histograma y debajo tres triángulos en los <strong>niveles de entrada</strong>:</p>
+    <ul>
+      <li><strong>Negro</strong> (izquierda): llévalo hasta donde empieza el
+      histograma. Ese gris pasará a ser negro puro.</li>
+      <li><strong>Blanco</strong> (derecha): llévalo hasta donde acaba. Ese gris
+      pasará a ser blanco puro.</li>
+      <li><strong>Gris</strong> (centro, la gamma): mueve los tonos medios. Hacia
+      la izquierda aclara y hacia la derecha oscurece, sin tocar el negro ni el
+      blanco.</li>
+    </ul>
+    <p>El botón <strong>Automático</strong> lo hace solo, canal por canal. Funciona
+    bien a menudo, pero mira siempre el resultado.</p>
+    <div class="aviso">
+      <strong>No te pases.</strong> Si metes los triángulos más allá de donde empieza
+      o acaba el histograma, los píxeles de fuera se quedan en negro o blanco puro y
+      pierden el detalle. Pasa igual que con lo quemado: después ya no se recupera.
+    </div>
+
+    <h3>Curvas, Sombras-Luces y Brillo-contraste</h3>
+    <ul>
+      <li><code>Colores &gt; Curvas</code>: una línea que puedes doblar. Una
+      <strong>«S» suave</strong> (bajar un poco las sombras y subir un poco las
+      luces) da contraste. Subir el centro de la línea aclara los medios.</li>
+      <li><code>Colores &gt; Sombras-Luces</code>: aclara solo las sombras u oscurece
+      solo las luces. Ideal para un <strong>contraluz</strong> (cara oscura con el
+      cielo detrás).</li>
+      <li><code>Colores &gt; Brillo y contraste</code>: rápido, pero mueve todos
+      los tonos a la vez y quema con facilidad. Mejor Niveles o Curvas.</li>
+    </ul>
+    <p><a class="lab-enlace" href="laboratorio-imagen.html#apartado-6-histograma-y-niveles">Pruébalo en el laboratorio: histograma y niveles</a></p>
+  </section>
+
+  <section>
+    <h2 id="apartado-5-el-color-dominantes-y-saturacion">5. El color: dominantes y saturación</h2>
+    <p>Una <strong>dominante</strong> es un tono que lo tiñe todo: amarillo con
+    bombillas antiguas, azul en la sombra o en días nublados, verde con algunos
+    fluorescentes. Se nota en lo que debería ser blanco o gris (una pared, una
+    nube, un papel).</p>
+    <ul>
+      <li><code>Colores &gt; Automático &gt; Balance de blancos</code>: lo intenta
+      solo. Rápido, pero a veces exagera.</li>
+      <li><strong>Niveles por canal</strong>: en <code>Colores &gt; Niveles</code>,
+      cambia el <em>Canal</em> a Rojo, Verde o Azul y ajusta cada uno por separado.
+      En una foto amarillenta, el canal azul es el que está más apretado.</li>
+      <li><strong>Cuentagotas gris</strong> de Niveles: haz clic en algo de la foto
+      que debería ser gris neutro y GIMP quita la dominante.</li>
+      <li><code>Colores &gt; Temperatura del color</code>: hace la foto más cálida
+      (amarilla) o más fría (azul).</li>
+      <li><code>Colores &gt; Tono y saturación</code>: la <strong>saturación</strong>
+      es la intensidad del color. Súbela poco: con +15 ya se nota, y con mucho
+      más la piel se vuelve naranja y el cielo, fosforito.</li>
+      <li><strong>Blanco y negro</strong>: <code>Colores &gt; Desaturar &gt;
+      Desaturar</code>. Para que el resultado se parezca a lo que ve el ojo, elige
+      el modo <em>Luminancia</em>.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 id="apartado-6-limpiar-saneado-y-clonar">6. Limpiar: Saneado y Clonar</h2>
+    <p>Las dos herramientas copian píxeles de una zona buena y los pintan encima de
+    lo que quieres quitar. Se usan igual: <kbd>Ctrl</kbd>+clic para elegir el
+    <strong>origen</strong> (de dónde se copia) y luego pintas sobre el defecto.</p>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="t33">
+      <thead><tr><th>Herramienta</th><th>Qué hace</th><th>Para qué</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Saneado</strong> (<kbd>H</kbd>)</td><td>Copia la textura del origen y la <strong>funde</strong> con la luz y el color de alrededor</td><td>Motas de polvo, granos, pequeñas manchas</td></tr>
+        <tr><td><strong>Clonar</strong> (<kbd>C</kbd>)</td><td>Copia el origen <strong>tal cual</strong>, sin mezclar</td><td>Quitar objetos grandes o con bordes (un cable, una papelera, un letrero)</td></tr>
+      </tbody>
+    </table></div>
+    <ul>
+      <li>Tamaño del pincel: un poco más grande que el defecto. Se cambia con
+      <kbd>[</kbd> y <kbd>]</kbd>.</li>
+      <li><strong>Cambia el origen a menudo.</strong> Si clonas siempre del mismo
+      sitio se ven trozos repetidos.</li>
+      <li>Coge el origen de una zona con la <strong>misma luz y la misma
+      textura</strong>: para quitar un cable del cielo, cielo de justo al lado.</li>
+      <li>Haz pinceladas cortas y mira el resultado con la imagen al 100 %
+      (<kbd>1</kbd>).</li>
+    </ul>
+    <p>Otros dos arreglos de <code>Filtros &gt; Realzar</code>: <strong>Eliminar ojos
+    rojos</strong> (selecciona antes los ojos) y <strong>Reducción de ruido</strong>
+    (para fotos con grano hechas con poca luz).</p>
+  </section>
+
+  <section>
+    <h2 id="apartado-7-enfocar-al-final">7. Enfocar, al final</h2>
+    <p><code>Filtros &gt; Realzar &gt; Enfocar (máscara de desenfoque)</code> sube el
+    contraste en los bordes y la foto parece más nítida.</p>
+    <ul>
+      <li>Se aplica <strong>después de escalar</strong>, al tamaño final: al reducir,
+      una parte del enfoque se pierde.</li>
+      <li>Poco: si ves un halo claro alrededor de los bordes, te has pasado.</li>
+      <li>Enfocar no arregla una foto <strong>movida o desenfocada</strong>. El
+      detalle que no se captó no aparece.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 id="apartado-8-practicas-del-subtema">8. Prácticas del subtema</h2>
+    <p>Acreditan los criterios <em>c</em> (resolución según la finalidad) y
+    <em>d</em> (herramientas de edición). Entrega en cada una el <code>.xcf</code>
+    y un documento de Word con capturas del <strong>antes y el después</strong> y
+    los valores que has usado.</p>
+    <ul>
+      <li><strong>P3.3.1</strong> · <strong>Enderezar, recortar y perspectiva.</strong>
+      (1) Endereza la foto 1 con la herramienta Medir y apunta el ángulo. Recorta
+      para que no quede ninguna esquina vacía y anota los píxeles finales.
+      (2) Corrige la perspectiva de la foto 4 (documento), recorta la mesa y escala
+      la hoja a 1240 × 1754 píxeles (un A4 a 150 ppp).</li>
+      <li><strong>P3.3.2</strong> · <strong>Luz y color.</strong> Arregla con Niveles
+      la foto 1 ya enderezada y quita la dominante de la foto 2. En cada una, haz
+      una captura del histograma antes y después, y explica en dos líneas qué
+      triángulos has movido y por qué.</li>
+      <li><strong>P3.3.3</strong> · <strong>Limpiar.</strong> En la foto 3, quita
+      todas las motas con Saneado y el cable con Clonar. Después, enfoca un poco.
+      Haz una captura ampliando una zona donde estaba el cable, antes y
+      después.</li>
+      <li><strong>P3.3.4</strong> · <strong>Una foto, cuatro destinos.</strong> Con
+      la foto 1 ya retocada, prepara las cuatro versiones de la tabla del
+      apartado 3: post de 1080 × 1080, miniatura de 1280 × 720, foto impresa de
+      15 × 10 cm a 300 ppp y portada de 3000 × 3000 a 300 ppp. Para cada una,
+      apunta la proporción a la que recortas y los píxeles que te quedan antes de
+      escalar. Una de las cuatro no se puede hacer bien: di cuál, por qué y qué
+      harías.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 id="apartado-9-comprueba-lo-que-has-entendido">9. Comprueba lo que has entendido</h2>
+    <p>Ocho preguntas. No cuenta para la nota: es para que veas si puedes seguir.</p>
+    <form id="ei">
+      <div class="pregunta" data-correcta="b">
+        <p class="enunciado"><span class="num">1.</span> ¿En qué orden se retoca una foto?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p1" value="a"> Enfocar, escalar, luz, recortar</label></li>
+          <li><label><input type="radio" name="p1" value="b"> Recortar, luz, color, limpiar, escalar, enfocar</label></li>
+          <li><label><input type="radio" name="p1" value="c"> Escalar, enfocar, recortar, color</label></li>
+          <li><label><input type="radio" name="p1" value="d"> Da igual el orden</label></li>
+        </ul><span class="marca"></span>
+      </div>
+      <div class="pregunta" data-correcta="c">
+        <p class="enunciado"><span class="num">2.</span> El histograma de una foto está todo en el centro y los dos extremos están vacíos. ¿Qué le pasa?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p2" value="a"> Está quemada</label></li>
+          <li><label><input type="radio" name="p2" value="b"> Está muy oscura</label></li>
+          <li><label><input type="radio" name="p2" value="c"> Está lavada, sin contraste</label></li>
+          <li><label><input type="radio" name="p2" value="d"> Tiene demasiada saturación</label></li>
+        </ul><span class="marca"></span>
+      </div>
+      <div class="pregunta" data-correcta="a">
+        <p class="enunciado"><span class="num">3.</span> En Niveles, ¿qué hace llevar el triángulo negro hasta donde empieza el histograma?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p3" value="a"> Convierte ese gris en negro puro y la foto gana contraste</label></li>
+          <li><label><input type="radio" name="p3" value="b"> Aclara toda la foto</label></li>
+          <li><label><input type="radio" name="p3" value="c"> Quita la dominante de color</label></li>
+          <li><label><input type="radio" name="p3" value="d"> Reduce el peso del archivo</label></li>
+        </ul><span class="marca"></span>
+      </div>
+      <div class="pregunta" data-correcta="d">
+        <p class="enunciado"><span class="num">4.</span> El cielo de una foto ha salido blanco puro, sin nubes. ¿Qué puedes hacer en GIMP?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p4" value="a"> Bajar el punto blanco en Niveles y las nubes vuelven</label></li>
+          <li><label><input type="radio" name="p4" value="b"> Enfocar con la máscara de desenfoque</label></li>
+          <li><label><input type="radio" name="p4" value="c"> Subir los ppp</label></li>
+          <li><label><input type="radio" name="p4" value="d"> Nada para recuperar las nubes: lo quemado no tiene detalle</label></li>
+        </ul><span class="marca"></span>
+      </div>
+      <div class="pregunta" data-correcta="b">
+        <p class="enunciado"><span class="num">5.</span> Quieres quitar unas motas de polvo del cielo. ¿Qué herramienta es la más adecuada?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p5" value="a"> Recortar</label></li>
+          <li><label><input type="radio" name="p5" value="b"> Saneado</label></li>
+          <li><label><input type="radio" name="p5" value="c"> Medir</label></li>
+          <li><label><input type="radio" name="p5" value="d"> Tamaño del lienzo</label></li>
+        </ul><span class="marca"></span>
+      </div>
+      <div class="pregunta" data-correcta="c">
+        <p class="enunciado"><span class="num">6.</span> ¿Qué orden cambia los píxeles de la imagen?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p6" value="a"> Imagen &gt; Tamaño de impresión</label></li>
+          <li><label><input type="radio" name="p6" value="b"> Imagen &gt; Tamaño del lienzo, sin tocar nada más</label></li>
+          <li><label><input type="radio" name="p6" value="c"> Imagen &gt; Escalar la imagen</label></li>
+          <li><label><input type="radio" name="p6" value="d"> Colores &gt; Niveles</label></li>
+        </ul><span class="marca"></span>
+      </div>
+      <div class="pregunta" data-correcta="a">
+        <p class="enunciado"><span class="num">7.</span> Tienes una foto de 2400 × 1600 y la quieres de miniatura para YouTube (1280 × 720). ¿Qué haces?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p7" value="a"> Recortar a 16:9 y luego escalar a 1280 × 720</label></li>
+          <li><label><input type="radio" name="p7" value="b"> Escalar directamente a 1280 × 720 con la cadena abierta</label></li>
+          <li><label><input type="radio" name="p7" value="c"> Cambiar el tamaño de impresión a 72 ppp</label></li>
+          <li><label><input type="radio" name="p7" value="d"> Escalar a 1280 de ancho y dejar el alto que salga</label></li>
+        </ul><span class="marca"></span>
+      </div>
+      <div class="pregunta" data-correcta="d">
+        <p class="enunciado"><span class="num">8.</span> ¿Cuándo se aplica la máscara de desenfoque?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p8" value="a"> Lo primero, para ver mejor los defectos</label></li>
+          <li><label><input type="radio" name="p8" value="b"> Antes de recortar</label></li>
+          <li><label><input type="radio" name="p8" value="c"> Nunca: estropea siempre la foto</label></li>
+          <li><label><input type="radio" name="p8" value="d"> Al final, después de escalar al tamaño de destino</label></li>
+        </ul><span class="marca"></span>
+      </div>
+      <div class="acciones">
+        <button type="button" id="corregir">Corregir</button>
+        <button type="button" id="reiniciar">Reiniciar</button>
+      </div>
+      <p class="resultado oculto" id="resultado"></p>
+    </form>
+  </section>
+
+  <section>
+    <h2 id="apartado-10-antes-de-pasar-al-subtema-3-4">10. Antes de pasar al subtema 3.4</h2>
+    <ul class="checklist">
+      <li><label><input type="checkbox"> Trabajar sobre una copia en XCF y con la capa duplicada</label></li>
+      <li><label><input type="checkbox"> Enderezar con Medir y recortar a una proporción fija</label></li>
+      <li><label><input type="checkbox"> Corregir la perspectiva de un documento fotografiado</label></li>
+      <li><label><input type="checkbox"> Distinguir Escalar la imagen, Tamaño de impresión y Tamaño del lienzo</label></li>
+      <li><label><input type="checkbox"> Leer un histograma y arreglar la luz con Niveles</label></li>
+      <li><label><input type="checkbox"> Quitar una dominante de color</label></li>
+      <li><label><input type="checkbox"> Limpiar manchas con Saneado y objetos con Clonar</label></li>
+      <li><label><input type="checkbox"> Preparar una foto para distintos destinos sin ampliarla</label></li>
+    </ul>
+  </section>
+
+  <nav class="nav-temas">
+    <a href="ut03-2.html">&laquo; Tema 3.2</a>
+    <a href="ut03.html">Índice del Tema 3</a>
+    <span>Siguiente &raquo; (Tema 3.4, próximamente)</span>
+  </nav>
+
+  <footer class="pie">
+    <p>0223 Aplicaciones ofimáticas · Material de consulta del alumnado.
+    Currículo: Decreto 272/2009 (Extremadura).</p>
+  </footer>
+
+<script>
+(function () {
+  var form = document.getElementById('ei');
+  var preguntas = form.querySelectorAll('.pregunta');
+  var salida = document.getElementById('resultado');
+  document.getElementById('corregir').addEventListener('click', function () {
+    var aciertos = 0, contestadas = 0;
+    preguntas.forEach(function (p) {
+      var correcta = p.getAttribute('data-correcta'), elegida = p.querySelector('input:checked'), marca = p.querySelector('.marca');
+      p.classList.remove('acierto', 'fallo');
+      if (!elegida) { marca.textContent = ''; return; }
+      contestadas++;
+      if (elegida.value === correcta) { aciertos++; p.classList.add('acierto'); marca.textContent = '✓ correcto'; }
+      else { p.classList.add('fallo'); marca.textContent = '✗ la correcta era la opción ' + correcta.toUpperCase(); }
+    });
+    var total = preguntas.length;
+    salida.classList.remove('oculto');
+    salida.textContent = 'Aciertos: ' + aciertos + ' de ' + total + '  ·  Contestadas: ' + contestadas + '/' + total +
+      '  ·  Nota orientativa: ' + (Math.round(aciertos / total * 100) / 10) + ' / 10   (recuerda: esta autocomprobación no cuenta para la evaluación)';
+    salida.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+  document.getElementById('reiniciar').addEventListener('click', function () {
+    form.reset();
+    preguntas.forEach(function (p) { p.classList.remove('acierto', 'fallo'); p.querySelector('.marca').textContent = ''; });
+    salida.classList.add('oculto'); salida.textContent = '';
+  });
+})();
+</script>
+
+</main></div>
+</body>
+</html>
