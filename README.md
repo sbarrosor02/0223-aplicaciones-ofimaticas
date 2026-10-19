@@ -53,7 +53,12 @@ Al crear o modificar un tema en `temario/` hay que: (1) generar/actualizar
   saboteado» (formativo, 1 sesión; solucionario en `temario/soluciones/`). Práctica de control PC1
   publicada con especificaciones concretas y material descargable. Mapa de la
   cinta de Word disponible como recurso de consulta.
-- Resto de temas (3 a 9): pendientes.
+- **Tema 3 — Imagen digital (RA5, 28 h)**: en progreso. Seis subtemas (3.1 a
+  3.6) con GIMP 3 como editor y un **laboratorio de imagen** propio
+  (`web/temas/laboratorio-imagen.html`) para los conceptos. Ejercicios guiados
+  con el hilo de una banda o un estudio de videojuegos. Publicados: 3.1,
+  laboratorio (4 herramientas) y bloque 3.1 de ejercicios.
+- Resto de temas (4 a 10): pendientes.
 
 ## Navegación del aula
 

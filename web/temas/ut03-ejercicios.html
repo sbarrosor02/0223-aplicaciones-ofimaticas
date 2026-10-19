@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ejercicios guiados Tema 3 · Tu grupo o tu estudio · 0223 Aplicaciones ofimáticas</title>
+<link rel="stylesheet" href="../assets/estilo.css">
+<style>
+  .te { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 1rem 0; }
+  .te th, .te td { border: 1px solid var(--linea); padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+  .te th { background: var(--acento-claro); color: var(--acento); }
+  .te td.vacia { background: #fffbe8; }
+  .dos { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+  .dos > div { border: 1px solid var(--linea); border-radius: var(--radio); padding: 0.6rem 0.9rem; background: #fff; }
+  .dos h3 { margin-top: 0.2rem; }
+  @media (max-width: 600px) { .dos { grid-template-columns: 1fr; } }
+</style>
+<link rel="stylesheet" href="../assets/aula.css">
+<script defer src="../assets/aula.js"></script>
+</head>
+<body data-modulo="0223">
+<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0223 / Aplicaciones ofimáticas</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-bloque-3-1-tu-proyecto-y-su-ficha-tecnica">Bloque 3.1 — Tu proyecto y su ficha técnica</a></li><li><a href="#apartado-proximos-bloques">Próximos bloques</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1">
+
+  <header class="cab">
+    <p class="modulo">0223 · Aplicaciones ofimáticas · Tema 3</p>
+    <h1>Ejercicios guiados: tu grupo o tu estudio, pieza a pieza</h1>
+    <p class="meta">1.º SMR · Curso 2026/2027 · 1.ª evaluación · Formativos: no cuentan para la nota</p>
+  </header>
+<nav class="subnav" aria-label="Apartados del tema 3"><a href="ut03.html">Portada del tema</a><a href="ut03.html#apartado-subtemas">Apuntes</a><a href="ut03-ejercicios.html" aria-current="page">Ejercicios guiados</a><a href="laboratorio-imagen.html">Laboratorio de imagen</a></nav>
+<div class="aula-herramientas"><button type="button" data-imprimir hidden>Imprimir / guardar PDF</button></div>
+
+  <div class="aviso">
+    <strong>Esto no son las prácticas evaluables.</strong> Las prácticas P3.x.y de
+    cada subtema son las que se entregan y se califican. Estos ejercicios son para
+    coger soltura, y construyen poco a poco un proyecto que te puedes quedar.
+  </div>
+
+  <p>Igual que en el Tema 2 construiste tu currículum, aquí vas a ser el
+  <strong>diseñador gráfico</strong> de un proyecto inventado. Cada bloque le
+  añade piezas, y al final tendrás un kit completo, preparado para publicarse en
+  la web, en redes y en papel.</p>
+
+  <section>
+    <h2 id="apartado-bloque-3-1-tu-proyecto-y-su-ficha-tecnica">Bloque 3.1 — Tu proyecto y su ficha técnica</h2>
+    <p>Corresponde al <a href="ut03-1.html">subtema 3.1</a>. Antes de abrir GIMP
+    para diseñar nada, un diseñador decide <strong>qué piezas</strong> va a hacer
+    y con qué <strong>tamaño, resolución y formato</strong> cada una. Equivocarse
+    aquí significa rehacerlo todo después.</p>
+
+    <h3>Ejercicio 3.1.1 · Elige tu proyecto</h3>
+    <div class="dos">
+      <div>
+        <h3>Opción A · Un grupo de música</h3>
+        <p>Inventa el nombre del grupo, su estilo y el título de su próximo
+        single. Por ejemplo: <em>Los Picotas Eléctricas</em>, rock, single
+        <em>Noches de cerezo</em>.</p>
+      </div>
+      <div>
+        <h3>Opción B · Un estudio de videojuegos</h3>
+        <p>Inventa el nombre del estudio, el del juego y su género. Por ejemplo:
+        <em>Garganta Games</em>, juego de plataformas <em>Pixel Jerte</em>.</p>
+      </div>
+    </div>
+    <ol>
+      <li>Crea una carpeta <code>Tema3_Proyecto</code> y dentro dos subcarpetas:
+      <code>trabajo</code> (los archivos <code>.xcf</code> de GIMP, donde se edita)
+      y <code>exportados</code> (lo que se publica: JPG, PNG…).</li>
+      <li>Crea en Word un documento <code>ficha-proyecto.docx</code> con el nombre
+      del proyecto, una línea que lo describa y las secciones de los ejercicios
+      siguientes. Aplica los estilos de título del Tema 2: este documento es el
+      manual de tu proyecto.</li>
+    </ol>
+
+    <h3>Ejercicio 3.1.2 · La ficha técnica de las piezas</h3>
+    <p>Copia esta tabla en tu ficha y <strong>rellena las celdas amarillas</strong>
+    con la fórmula del subtema 3.1 o con el
+    <a href="laboratorio-imagen.html#apartado-2-resolucion-y-tamano-de-impresion">laboratorio</a>.</p>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="te">
+      <thead><tr><th>Pieza</th><th>Dónde se publica</th><th>Píxeles</th><th>ppp</th><th>Tamaño impreso</th><th>Formato final</th></tr></thead>
+      <tbody>
+        <tr><td>Logotipo</td><td>Web, redes y documentos</td><td>1000 × 1000</td><td>—</td><td>—</td><td class="vacia"></td></tr>
+        <tr><td>Portada del single o del juego</td><td>Spotify o tienda de juegos</td><td>3000 × 3000</td><td>300</td><td class="vacia"></td><td>JPG</td></tr>
+        <tr><td>Miniatura del vídeo o del tráiler</td><td>YouTube</td><td>1280 × 720</td><td>—</td><td>—</td><td class="vacia"></td></tr>
+        <tr><td>Cartel del concierto o de la presentación</td><td>Imprenta, A3 (29,7 × 42 cm)</td><td class="vacia"></td><td>300</td><td>29,7 × 42 cm</td><td>PDF o TIFF</td></tr>
+        <tr><td>Banner del canal</td><td>YouTube</td><td>2560 × 1440</td><td>—</td><td>—</td><td class="vacia"></td></tr>
+      </tbody>
+    </table></div>
+    <p>Debajo de la tabla, explica en dos líneas por qué en tres piezas la
+    columna de ppp lleva un guion.</p>
+
+    <h3>Ejercicio 3.1.3 · La paleta del proyecto</h3>
+    <ol>
+      <li>En el <a href="laboratorio-imagen.html#apartado-3-color-y-profundidad-de-color">laboratorio</a>,
+      busca <strong>cuatro colores</strong> que encajen con tu proyecto: uno
+      principal, uno de acento, uno oscuro y uno claro.</li>
+      <li>Apunta de cada uno sus valores <strong>RGB</strong>, su código
+      <strong>hexadecimal</strong> y su <strong>CMYK</strong> aproximado.</li>
+      <li>En la ficha, haz una tabla de 4 columnas y sombrea cada celda con su
+      color (<code>Sombreado &gt; Más colores &gt; Personalizado</code>,
+      escribiendo los valores RGB).</li>
+    </ol>
+    <div class="tarjeta">
+      <p><strong>Fíjate en el CMYK.</strong> Si elegiste un color muy saturado (un
+      verde o un azul eléctrico), en el cartel impreso saldrá más apagado. Si te
+      importa mucho ese color, pide a la imprenta una prueba.</p>
+    </div>
+
+    <h3>Ejercicio 3.1.4 · Primer contacto con GIMP</h3>
+    <ol>
+      <li>Abre GIMP y crea una imagen nueva (<code>Archivo &gt; Nueva</code>) del
+      tamaño de la <strong>portada</strong>: 3000 × 3000 píxeles. Despliega
+      <em>Opciones avanzadas</em> y pon la resolución a 300 ppp y el relleno con
+      el color principal de tu paleta.</li>
+      <li>Escribe el nombre de tu proyecto con la herramienta de texto
+      (<kbd>T</kbd>), grande, en el color claro.</li>
+      <li>Guárdala con <code>Archivo &gt; Guardar como</code> en
+      <code>trabajo/portada.xcf</code>.</li>
+      <li>Exporta con <code>Archivo &gt; Exportar como</code> tres versiones en
+      <code>exportados</code>: <code>portada-90.jpg</code> (calidad 90),
+      <code>portada-50.jpg</code> (calidad 50) y <code>portada.png</code>.</li>
+      <li>Mira el peso de los cuatro archivos en el Explorador y apúntalo en la
+      ficha. ¿Por qué el XCF pesa tanto y el JPG al 50 tan poco? Amplía el texto
+      del JPG al 50 y busca los artefactos.</li>
+    </ol>
+    <p class="pie-fig"><em>Este XCF es el principio de tu portada: en el bloque 3.4
+    le añadirás capas, imágenes y efectos.</em></p>
+  </section>
+
+  <section>
+    <h2 id="apartado-proximos-bloques">Próximos bloques</h2>
+    <p>Se publican junto con cada subtema:</p>
+    <ul>
+      <li><strong>3.2</strong> · Las fotos del grupo o las capturas del juego:
+      escanear, fotografiar y capturar, y limpiar los metadatos.</li>
+      <li><strong>3.3</strong> · Retocar esas fotos: recortar, enderezar, luz,
+      color y limpiar imperfecciones.</li>
+      <li><strong>3.4</strong> · El logotipo y la portada con capas, selecciones y
+      texto.</li>
+      <li><strong>3.5</strong> · Exportar cada pieza con el formato y el peso
+      adecuados.</li>
+      <li><strong>3.6</strong> · El cartel para la imprenta y el banner para
+      redes.</li>
+    </ul>
+  </section>
+
+  <nav class="nav-temas">
+    <a href="ut03.html">&laquo; Tema 3 (índice)</a>
+    <a href="laboratorio-imagen.html">Laboratorio de imagen</a>
+    <a href="ut03-1.html">Subtema 3.1 &raquo;</a>
+  </nav>
+
+  <footer class="pie">
+    <p>0223 Aplicaciones ofimáticas · Material de consulta del alumnado.
+    Currículo: Decreto 272/2009 (Extremadura).</p>
+  </footer>
+
+</main></div>
+</body>
+</html>
