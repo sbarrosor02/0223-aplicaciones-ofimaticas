@@ -168,6 +168,12 @@
           "url": "temas/ut02-practicas-carta.html",
           "evaluable": true,
           "nota": "caso práctico del CE c, 4 sesiones, rúbrica de 10; restaurante inventado La Cereza Brava; descarga carta-contenido.docx; entrega .docx + .pdf en Moodle"
+        },
+        {
+          "titulo": "Examen de repaso con pistas y autocorrector",
+          "url": "temas/ut02-examen-repaso.html",
+          "evaluable": false,
+          "nota": "formativo, para casa; versión R del examen práctico (Cerezo Eventos) con el mismo formato que las versiones de examen; pistas desplegables por bloque; descargas examen-repaso-ut2-material.zip y examen-repaso-ut2-enunciado.pdf; autocorrector en web/herramientas/ut02-autocorrector.html, construido solo con la versión R (las versiones de examen no se publican)"
         }
       ],
       "instrumentos": {

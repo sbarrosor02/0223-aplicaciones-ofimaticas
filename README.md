@@ -53,6 +53,10 @@ Al crear o modificar un tema en `temario/` hay que: (1) generar/actualizar
   saboteado» (formativo, 1 sesión; solucionario en `temario/soluciones/`). Práctica de control PC1
   publicada con especificaciones concretas y material descargable. Mapa de la
   cinta de Word disponible como recurso de consulta.
+- **Examen de repaso del Tema 2** (`web/temas/ut02-examen-repaso.html`): versión R
+  del examen práctico para casa, con pistas por bloque, material y un
+  autocorrector (`web/herramientas/ut02-autocorrector.html`) que solo conoce esa
+  versión. Se genera desde `examenes/ut02/repaso_web.py` (privado).
 - **Tema 3 — Imagen digital (RA5, 28 h)**: en progreso. Seis subtemas (3.1 a
   3.6) con GIMP 3 como editor y un **laboratorio de imagen** propio
   (`web/temas/laboratorio-imagen.html`) para los conceptos. Ejercicios guiados
