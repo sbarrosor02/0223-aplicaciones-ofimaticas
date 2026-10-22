@@ -110,7 +110,7 @@ for repo in REPOS:
     for path in sorted((web / 'temas').glob('*.html')):
         source = path.read_text(encoding='utf-8')
         subnavs = {
-            'ut02': [('Portada del tema', 'ut02.html'), ('Apuntes', 'ut02.html#apartado-subtemas'), ('Ejercicios guiados', 'ut02-ejercicios.html'), ('Reto en equipo', 'ut02-ejercicios-reto-saboteado.html'), ('Prácticas de control', 'ut02-practicas.html'), ('Mapa de Word', 'mapa-cinta.html')],
+            'ut02': [('Portada del tema', 'ut02.html'), ('Apuntes', 'ut02.html#apartado-subtemas'), ('Ejercicios guiados', 'ut02-ejercicios.html'), ('Reto en equipo', 'ut02-ejercicios-reto-saboteado.html'), ('Prácticas de control', 'ut02-practicas.html'), ('Examen de repaso', 'ut02-examen-repaso.html'), ('Mapa de Word', 'mapa-cinta.html')],
             'ut03': [('Portada del tema', 'ut03.html'), ('Apuntes', 'ut03.html#apartado-subtemas'), ('Ejercicios guiados', 'ut03-ejercicios.html'), ('Laboratorio de imagen', 'laboratorio-imagen.html')],
         }
         prefijo_tema = 'ut03' if path.name.startswith('laboratorio-imagen') else path.name[:4]
@@ -141,7 +141,7 @@ for repo in REPOS:
         title = plain(re.search(r'<h1[^>]*>(.*?)</h1>', source, re.S)[1])
         section_list = headings(source)
         category = 'apuntes'
-        if 'ejercicios' in name:
+        if 'ejercicios' in name or 'examen-repaso' in name:
             category = 'ejercicios'
         elif 'practicas' in name:
             category = 'practicas'

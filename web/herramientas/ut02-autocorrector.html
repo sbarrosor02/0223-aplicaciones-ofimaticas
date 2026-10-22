@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Autocorrector del examen de repaso · Tema 2 · 0223</title>
+<style>
+  :root { --fondo: #f4f6f9; --tarjeta: #fff; --texto: #1d2733; --suave: #5b6876; --linea: #d7dde4; --acento: #1f4e79;
+    --ok: #1e7b3a; --ok-f: #e3f3e8; --parcial: #8a5a00; --parcial-f: #fff3d6; --fallo: #b3261e; --fallo-f: #fbe4e2; --revisar: #5b3fa8; --revisar-f: #ece6fa; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "Segoe UI", Calibri, system-ui, sans-serif; background: var(--fondo); color: var(--texto); font-size: 15px; }
+  header { background: var(--acento); color: #fff; padding: 14px 24px; }
+  header h1 { margin: 0; font-size: 20px; }
+  header p { margin: 4px 0 0; opacity: .85; font-size: 13px; }
+  main { max-width: 1200px; margin: 0 auto; padding: 20px 24px 60px; }
+  .panel { background: var(--tarjeta); border: 1px solid var(--linea); border-radius: 8px; padding: 16px 18px; margin-bottom: 16px; }
+  .fila { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; }
+  label { font-weight: 600; }
+  select, button { font: inherit; padding: 7px 12px; border-radius: 6px; border: 1px solid var(--linea); background: #fff; }
+  button { cursor: pointer; background: var(--acento); color: #fff; border-color: var(--acento); font-weight: 600; }
+  button.sec { background: #fff; color: var(--acento); }
+  button:disabled { opacity: .5; cursor: default; }
+  #zona { border: 2px dashed #9fb3c8; border-radius: 8px; padding: 28px; text-align: center; color: var(--suave); background: #fafcff; cursor: pointer; }
+  #zona.encima { border-color: var(--acento); background: #eef4fb; }
+  #zona strong { color: var(--texto); }
+  .nota-privacidad { font-size: 13px; color: var(--suave); margin: 8px 0 0; }
+  #estado { margin: 10px 0 0; font-size: 14px; color: var(--suave); min-height: 1.2em; }
+  table { width: 100%; border-collapse: collapse; }
+  th, td { padding: 7px 8px; border-bottom: 1px solid var(--linea); text-align: left; }
+  th { font-size: 13px; color: var(--suave); font-weight: 600; background: #f8fafc; position: sticky; top: 0; }
+  td.n, th.n { text-align: center; font-variant-numeric: tabular-nums; width: 70px; }
+  tr.alumno { cursor: pointer; }
+  tr.alumno:hover td { background: #f3f7fc; }
+  tr.alumno.sel td { background: #e8f0fa; }
+  .ch { display: inline-block; min-width: 46px; padding: 2px 6px; border-radius: 4px; font-weight: 600; }
+  .ch.alto { background: var(--ok-f); color: var(--ok); } .ch.medio { background: var(--parcial-f); color: var(--parcial); } .ch.bajo { background: var(--fallo-f); color: var(--fallo); }
+  .bandera { color: var(--revisar); font-weight: 700; }
+  #detalle h2 { margin: 0 0 4px; font-size: 18px; }
+  #detalle h3 { margin: 18px 0 6px; font-size: 15px; display: flex; justify-content: space-between; border-bottom: 2px solid var(--acento); padding-bottom: 3px; }
+  .it { display: grid; grid-template-columns: 26px 1fr 80px; gap: 6px; padding: 5px 0; border-bottom: 1px dashed var(--linea); align-items: start; }
+  .it .ic { font-weight: 700; text-align: center; border-radius: 4px; }
+  .ok .ic { color: var(--ok); } .parcial .ic { color: var(--parcial); } .fallo .ic { color: var(--fallo); } .revisar .ic { color: var(--revisar); }
+  .it .det { display: block; font-size: 13px; color: var(--suave); }
+  .it .pts { text-align: right; font-variant-numeric: tabular-nums; }
+  .archivos { font-size: 13px; color: var(--suave); }
+  .leyenda { font-size: 13px; color: var(--suave); display: flex; gap: 16px; flex-wrap: wrap; margin-top: 6px; }
+  .vacio { color: var(--suave); text-align: center; padding: 30px; }
+  @media print { header, .panel.controles { display: none; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>Autocorrector del examen de repaso · Tema 2</h1>
+  <p>0223 Aplicaciones ofimáticas · IES Valle del Jerte · <a href="../temas/ut02-examen-repaso.html" style="color:#fff">Volver al examen de repaso</a></p>
+</header>
+<main>
+  <section class="panel controles">
+    <div class="fila">
+      <label for="version">Versión</label>
+      <select id="version"></select>
+      <button id="exportar" disabled hidden>Descargar Excel</button>
+      <button id="limpiar" class="sec" disabled>Empezar de nuevo</button>
+    </div>
+    <div id="zona" tabindex="0" role="button" aria-describedby="ayuda-zona" style="margin-top:14px">
+      <strong>Arrastra aquí tu Apellido_Nombre_UT2.zip</strong><br>
+      o haz clic para elegirlo. También puedes elegir los archivos sueltos a la vez.
+      <input id="entrada" type="file" multiple hidden accept=".zip,.docx,.docm,.dotm,.dotx,.pdf,.exportedUI">
+    </div>
+    <p id="ayuda-zona" class="nota-privacidad">Todo se procesa en este navegador: tus archivos no se suben a ningún sitio. La nota es orientativa: en el examen, el profesor revisa además a mano lo marcado con ⚑.</p>
+    <p id="estado" role="status" aria-live="polite"></p>
+  </section>
+
+  <section class="panel">
+    <table id="tabla">
+      <thead><tr><th>Alumno/a</th><th class="n">a</th><th class="n">b</th><th class="n">c</th><th class="n">d</th><th class="n">e</th><th class="n">f</th><th class="n">Media</th><th class="n">Revisar</th></tr></thead>
+      <tbody><tr><td colspan="9" class="vacio">Todavía no hay entregas corregidas.</td></tr></tbody>
+    </table>
+    <div class="leyenda"><span>a…f: nota de cada criterio (bloque 1 a 6) sobre 10</span><span class="bandera">⚑</span><span>hay comprobaciones que conviene mirar a mano</span></div>
+  </section>
+
+  <section class="panel" id="detalle" hidden></section>
+</main>
+
+<script>
+// Lectores de formatos para corrector.html. Sin dependencias: solo APIs del navegador.
+'use strict';
+
+// ------------------------------------------------------------------ ZIP (lectura)
+async function inflarRaw(bytes) {
+  const ds = new DecompressionStream('deflate-raw');
+  const stream = new Blob([bytes]).stream().pipeThrough(ds);
+  return new Uint8Array(await new Response(stream).arrayBuffer());
+}
+async function inflarZlib(bytes) {
+  const ds = new DecompressionStream('deflate');
+  const stream = new Blob([bytes]).stream().pipeThrough(ds);
+  return new Uint8Array(await new Response(stream).arrayBuffer());
+}
+const u16 = (b, o) => b[o] | (b[o + 1] << 8);
+const u32 = (b, o) => (b[o] | (b[o + 1] << 8) | (b[o + 2] << 16) | (b[o + 3] << 24)) >>> 0;
+
+async function leerZip(bytes) {
+  // Devuelve Map nombre -> función async que da los bytes.
+  let eocd = -1;
+  for (let i = bytes.length - 22; i >= Math.max(0, bytes.length - 65557); i--) {
+    if (u32(bytes, i) === 0x06054b50) { eocd = i; break; }
+  }
+  if (eocd < 0) throw new Error('No es un archivo ZIP válido');
+  const total = u16(bytes, eocd + 10);
+  let p = u32(bytes, eocd + 16);
+  const archivos = new Map();
+  const utf8 = new TextDecoder('utf-8');
+  const utf8Estricto = new TextDecoder('utf-8', { fatal: true }); const cp1252 = new TextDecoder('windows-1252');
+  for (let n = 0; n < total; n++) {
+    if (u32(bytes, p) !== 0x02014b50) break;
+    const flags = u16(bytes, p + 8), metodo = u16(bytes, p + 10);
+    const comp = u32(bytes, p + 20);
+    const lnom = u16(bytes, p + 28), lext = u16(bytes, p + 30), lcom = u16(bytes, p + 32);
+    const local = u32(bytes, p + 42);
+    const nombreBytes = bytes.subarray(p + 46, p + 46 + lnom);
+    const nombre = (flags & 0x800) ? utf8.decode(nombreBytes) : (() => {
+      try { return utf8Estricto.decode(nombreBytes); } catch (e) { return cp1252.decode(nombreBytes); }
+    })();
+    p += 46 + lnom + lext + lcom;
+    if (nombre.endsWith('/')) continue;
+    archivos.set(nombre.replace(/\\/g, '/'), async () => {
+      const ln = u16(bytes, local + 26), le = u16(bytes, local + 28);
+      const ini = local + 30 + ln + le;
+      const datos = bytes.subarray(ini, ini + comp);
+      if (metodo === 0) return datos;
+      if (metodo === 8) return inflarRaw(datos);
+      throw new Error('Método de compresión no admitido: ' + metodo);
+    });
+  }
+  return archivos;
+}
+
+// ------------------------------------------------------------------ ZIP (escritura, sin compresión)
+const TABLA_CRC = (() => {
+  const t = new Uint32Array(256);
+  for (let n = 0; n < 256; n++) { let c = n; for (let k = 0; k < 8; k++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1; t[n] = c >>> 0; }
+  return t;
+})();
+function crc32(b) { let c = 0xFFFFFFFF; for (let i = 0; i < b.length; i++) c = TABLA_CRC[(c ^ b[i]) & 0xFF] ^ (c >>> 8); return (c ^ 0xFFFFFFFF) >>> 0; }
+function escribirZip(entradas) {
+  // entradas: [{nombre, datos: Uint8Array|string}]
+  const enc = new TextEncoder();
+  const partes = [], central = [];
+  let offset = 0;
+  const w16 = v => [v & 255, (v >>> 8) & 255];
+  const w32 = v => [v & 255, (v >>> 8) & 255, (v >>> 16) & 255, (v >>> 24) & 255];
+  for (const e of entradas) {
+    const nom = enc.encode(e.nombre);
+    const datos = typeof e.datos === 'string' ? enc.encode(e.datos) : e.datos;
+    const crc = crc32(datos);
+    const cab = new Uint8Array([...w32(0x04034b50), ...w16(20), ...w16(0x800), ...w16(0), ...w16(0), ...w16(0x21),
+      ...w32(crc), ...w32(datos.length), ...w32(datos.length), ...w16(nom.length), ...w16(0)]);
+    partes.push(cab, nom, datos);
+    central.push(new Uint8Array([...w32(0x02014b50), ...w16(20), ...w16(20), ...w16(0x800), ...w16(0), ...w16(0), ...w16(0x21),
+      ...w32(crc), ...w32(datos.length), ...w32(datos.length), ...w16(nom.length), ...w16(0), ...w16(0), ...w16(0), ...w16(0),
+      ...w32(0), ...w32(offset)]), nom);
+    offset += cab.length + nom.length + datos.length;
+  }
+  const tamCentral = central.reduce((s, b) => s + b.length, 0);
+  const fin = new Uint8Array([...w32(0x06054b50), ...w16(0), ...w16(0), ...w16(entradas.length), ...w16(entradas.length),
+    ...w32(tamCentral), ...w32(offset), ...w16(0)]);
+  return new Blob([...partes, ...central, fin]);
+}
+
+// ------------------------------------------------------------------ XML
+const NS_W = 'http://schemas.openxmlformats.org/wordprocessingml/2006/main';
+function xml(texto) {
+  const doc = new DOMParser().parseFromString(texto, 'application/xml');
+  if (doc.getElementsByTagName('parsererror').length) throw new Error('XML no válido');
+  return doc;
+}
+const todos = (raiz, local) => raiz ? Array.from(raiz.getElementsByTagNameNS('*', local)) : [];
+const uno = (raiz, local) => raiz ? raiz.getElementsByTagNameNS('*', local)[0] || null : null;
+const hijos = (el, local) => el ? Array.from(el.children).filter(c => c.localName === local) : [];
+const hijo = (el, local) => hijos(el, local)[0] || null;
+function atr(el, nombre) {
+  if (!el) return null;
+  for (const a of el.attributes) if (a.localName === nombre) return a.value;
+  return null;
+}
+const sinTildes = s => (s || '').normalize('NFD').replace(/[̀-ͯ]/g, '');
+const norm = s => sinTildes(s).toLowerCase().replace(/\s+/g, ' ').trim();
+
+// ------------------------------------------------------------------ Paquete OOXML (docx, dotm)
+async function paqueteOOXML(bytes) {
+  const zip = await leerZip(bytes);
+  const cache = new Map();
+  const dec = new TextDecoder('utf-8');
+  const P = {
+    zip,
+    tiene: n => zip.has(n),
+    async bytes(n) { const f = zip.get(n); return f ? f() : null; },
+    async texto(n) { const b = await P.bytes(n); return b ? dec.decode(b) : null; },
+    async xml(n) {
+      if (cache.has(n)) return cache.get(n);
+      const t = await P.texto(n); const d = t ? xml(t) : null; cache.set(n, d); return d;
+    },
+    async rels(parte) {
+      const i = parte.lastIndexOf('/');
+      const r = await P.xml(parte.slice(0, i + 1) + '_rels/' + parte.slice(i + 1) + '.rels');
+      const m = new Map();
+      for (const rel of todos(r, 'Relationship')) m.set(rel.getAttribute('Id'), {
+        tipo: rel.getAttribute('Type'), destino: rel.getAttribute('Target'), externo: rel.getAttribute('TargetMode') === 'External' });
+      return m;
+    },
+  };
+  return P;
+}
+
+// Texto visible de un párrafo (sin códigos de campo ni texto borrado)
+function textoParrafo(p) {
+  let s = '';
+  const recorre = el => {
+    for (const c of el.children) {
+      const n = c.localName;
+      if (n === 'del' || n === 'instrText' || n === 'delText' || n === 'pPr' || n === 'rPr') continue;
+      if (n === 't') s += c.textContent;
+      else if (n === 'tab') s += '\t';
+      else if (n === 'br' || n === 'cr') s += ' ';
+      else recorre(c);
+    }
+  };
+  recorre(p);
+  return s;
+}
+// Instrucciones de campo de un párrafo
+function camposParrafo(p) {
+  const r = todos(p, 'fldSimple').map(f => atr(f, 'instr') || '');
+  let actual = null;
+  for (const el of todos(p, '*')) {
+    if (el.localName === 'fldChar') {
+      const t = atr(el, 'fldCharType');
+      if (t === 'begin') actual = '';
+      else if (t === 'separate' || t === 'end') { if (actual !== null) r.push(actual); actual = null; }
+    } else if (el.localName === 'instrText' && actual !== null) actual += el.textContent;
+  }
+  return r.map(s => s.trim());
+}
+function camposDocumento(doc) {
+  const r = todos(doc, 'fldSimple').map(f => atr(f, 'instr') || '');
+  let pila = [];
+  for (const el of todos(doc, '*')) {
+    if (el.localName === 'fldChar') {
+      const t = atr(el, 'fldCharType');
+      if (t === 'begin') pila.push('');
+      else if (t === 'separate' && pila.length) { r.push(pila[pila.length - 1]); pila[pila.length - 1] = null; }
+      else if (t === 'end' && pila.length) { const v = pila.pop(); if (v !== null) r.push(v); }
+    } else if (el.localName === 'instrText' && pila.length && pila[pila.length - 1] !== null) pila[pila.length - 1] += el.textContent;
+  }
+  return r.map(s => s.trim());
+}
+
+// ------------------------------------------------------------------ Estilos
+async function estilos(P) {
+  const st = await P.xml('word/styles.xml');
+  const tema = await P.xml('word/theme/theme1.xml');
+  const porId = new Map(), porNombre = new Map();
+  for (const s of todos(st, 'style')) {
+    const id = atr(s, 'styleId'); const nombre = atr(hijo(s, 'name'), 'val') || id;
+    porId.set(id, s); porNombre.set(norm(nombre), s);
+  }
+  const fuentesTema = {
+    minor: atr(uno(uno(tema, 'minorFont'), 'latin'), 'typeface'),
+    major: atr(uno(uno(tema, 'majorFont'), 'latin'), 'typeface'),
+  };
+  const def = uno(st, 'docDefaults');
+  // Alias en español e inglés de los estilos integrados
+  const alias = { 'normal': ['normal'], 'heading 1': ['heading 1', 'titulo 1'], 'heading 2': ['heading 2', 'titulo 2'],
+    'heading 3': ['heading 3', 'titulo 3'] };
+  const buscar = nombre => {
+    for (const a of (alias[norm(nombre)] || [norm(nombre)])) if (porNombre.has(a)) return porNombre.get(a);
+    return null;
+  };
+  const cadena = s => { const r = []; let x = s, n = 0; while (x && n++ < 20) { r.push(x); x = porId.get(atr(hijo(x, 'basedOn'), 'val')); } return r; };
+  // Valor efectivo: primero el estilo, luego sus bases, luego docDefaults
+  function propiedad(s, bloque, local, lector) {
+    for (const x of cadena(s)) { const v = lector(uno(hijo(x, bloque), local)); if (v !== null && v !== undefined) return v; }
+    const d = uno(def, bloque === 'rPr' ? 'rPrDefault' : 'pPrDefault');
+    return lector(uno(d, local));
+  }
+  const efectivo = s => ({
+    fuente: propiedad(s, 'rPr', 'rFonts', el => {
+      if (!el) return null;
+      const a = atr(el, 'ascii'); if (a) return a;
+      const t = atr(el, 'asciiTheme'); if (t) return t.startsWith('major') ? fuentesTema.major : fuentesTema.minor;
+      return null;
+    }),
+    sz: propiedad(s, 'rPr', 'sz', el => el ? +atr(el, 'val') : null),
+    color: propiedad(s, 'rPr', 'color', el => el ? (atr(el, 'val') || '').toUpperCase() : null),
+    jc: propiedad(s, 'pPr', 'jc', el => el ? atr(el, 'val') : null),
+    line: propiedad(s, 'pPr', 'spacing', el => el && atr(el, 'line') ? +atr(el, 'line') : null),
+    after: propiedad(s, 'pPr', 'spacing', el => el && atr(el, 'after') ? +atr(el, 'after') : null),
+    salto: propiedad(s, 'pPr', 'pageBreakBefore', el => el ? (atr(el, 'val') || 'true') !== '0' && atr(el, 'val') !== 'false' : null),
+    shd: propiedad(s, 'pPr', 'shd', el => el ? (atr(el, 'fill') || '').toUpperCase() : null),
+    bordeIzq: propiedad(s, 'pPr', 'pBdr', el => {
+      const b = el && (hijo(el, 'left') || hijo(el, 'start'));
+      return b ? { color: (atr(b, 'color') || '').toUpperCase(), sz: +atr(b, 'sz') } : null;
+    }),
+    sangriaIzq: propiedad(s, 'pPr', 'ind', el => el && (atr(el, 'left') || atr(el, 'start')) ? +(atr(el, 'left') || atr(el, 'start')) : null),
+    numPr: propiedad(s, 'pPr', 'numPr', el => el ? true : null),
+  });
+  const parrafoEstilo = p => {
+    const id = atr(uno(hijo(p, 'pPr'), 'pStyle'), 'val');
+    if (id && porId.has(id)) return porId.get(id);
+    return todos(st, 'style').find(s => atr(s, 'type') === 'paragraph' && atr(s, 'default') === '1') || null;
+  };
+  const nombreDe = s => s ? atr(hijo(s, 'name'), 'val') : '';
+  return { buscar, efectivo, parrafoEstilo, nombreDe, porId, cadena };
+}
+
+// ------------------------------------------------------------------ CFB y VBA (MS-CFB, MS-OVBA)
+function leerCFB(b) {
+  if (u32(b, 0) !== 0xE011CFD0) throw new Error('No es un archivo OLE');
+  const tamSector = 1 << u16(b, 30), tamMini = 1 << u16(b, 32);
+  const sector = n => (n + 1) * tamSector;
+  const difat = [];
+  for (let i = 0; i < 109; i++) { const s = u32(b, 76 + i * 4); if (s < 0xFFFFFFFA) difat.push(s); }
+  let sigDifat = u32(b, 68), nDifat = u32(b, 72);
+  while (nDifat-- > 0 && sigDifat < 0xFFFFFFFA) {
+    const base = sector(sigDifat), porSector = tamSector / 4 - 1;
+    for (let i = 0; i < porSector; i++) { const s = u32(b, base + i * 4); if (s < 0xFFFFFFFA) difat.push(s); }
+    sigDifat = u32(b, base + porSector * 4);
+  }
+  const fat = [];
+  for (const s of difat) for (let i = 0; i < tamSector / 4; i++) fat.push(u32(b, sector(s) + i * 4));
+  const cadena = (ini, tabla) => { const r = []; let s = ini, n = 0; while (s < 0xFFFFFFFA && n++ < 1e6) { r.push(s); s = tabla[s]; } return r; };
+  const leer = ini => { const partes = cadena(ini, fat).map(s => b.subarray(sector(s), sector(s) + tamSector)); const o = new Uint8Array(partes.length * tamSector); partes.forEach((p, i) => o.set(p, i * tamSector)); return o; };
+  const dir = leer(u32(b, 48));
+  const entradas = [];
+  for (let o = 0; o + 128 <= dir.length; o += 128) {
+    const ln = u16(dir, o + 64);
+    const nombre = new TextDecoder('utf-16le').decode(dir.subarray(o, o + Math.max(0, ln - 2)));
+    entradas.push({ nombre, tipo: dir[o + 66], izq: u32(dir, o + 68), der: u32(dir, o + 72), hijo: u32(dir, o + 76),
+      inicio: u32(dir, o + 116), tam: u32(dir, o + 120) });
+  }
+  const minifat = [];
+  if (u32(b, 64) > 0) { const m = leer(u32(b, 60)); for (let i = 0; i + 4 <= m.length; i += 4) minifat.push(u32(m, i)); }
+  const raiz = entradas[0];
+  const ministream = raiz && raiz.inicio < 0xFFFFFFFA ? leer(raiz.inicio) : new Uint8Array();
+  const corte = u32(b, 56);
+  const contenido = e => {
+    if (e.tam < corte) {
+      const r = new Uint8Array(e.tam); let o = 0;
+      for (const s of cadena(e.inicio, minifat)) { const t = ministream.subarray(s * tamMini, (s + 1) * tamMini); r.set(t.subarray(0, Math.min(t.length, e.tam - o)), o); o += t.length; if (o >= e.tam) break; }
+      return r;
+    }
+    return leer(e.inicio).subarray(0, e.tam);
+  };
+  const rutas = new Map();
+  const visita = (i, prefijo, n = 0) => {
+    if (i >= 0xFFFFFFFA || i >= entradas.length || n > 1000) return;
+    const e = entradas[i];
+    visita(e.izq, prefijo, n + 1); visita(e.der, prefijo, n + 1);
+    const ruta = prefijo + e.nombre;
+    if (e.tipo === 2) rutas.set(ruta, e);
+    if (e.tipo === 1) visita(e.hijo, ruta + '/', n + 1);
+  };
+  visita(raiz.hijo, '');
+  return { rutas, contenido };
+}
+function descomprimirVBA(b, ini) {
+  if (b[ini] !== 1) throw new Error('Contenedor VBA no válido');
+  const out = []; let p = ini + 1;
+  while (p + 2 <= b.length) {
+    const cab = u16(b, p); p += 2;
+    const tam = (cab & 0x0FFF) + 3; const comprimido = (cab >> 15) & 1;
+    const finTrozo = Math.min(b.length, p + tam - 2);
+    const inicioDesc = out.length;
+    if (!comprimido) { for (let i = 0; i < 4096 && p < b.length; i++) out.push(b[p++]); continue; }
+    while (p < finTrozo) {
+      const flags = b[p++];
+      for (let bit = 0; bit < 8 && p < finTrozo; bit++) {
+        if (((flags >> bit) & 1) === 0) out.push(b[p++]);
+        else {
+          const token = u16(b, p); p += 2;
+          const dif = out.length - inicioDesc;
+          let bits = 4; while ((1 << bits) < dif) bits++;
+          const mascaraLong = 0xFFFF >> bits;
+          const largo = (token & mascaraLong) + 3;
+          const despl = (token >> (16 - bits)) + 1;
+          const origen = out.length - despl;
+          for (let k = 0; k < largo; k++) out.push(out[origen + k]);
+        }
+      }
+    }
+  }
+  return new Uint8Array(out);
+}
+function codigoVBA(binario) {
+  // Devuelve [{modulo, codigo}] buscando el código fuente comprimido en cada flujo de la carpeta VBA.
+  const cfb = leerCFB(binario);
+  const dec = new TextDecoder('windows-1252');
+  const r = [];
+  for (const [ruta, e] of cfb.rutas) {
+    if (!/^VBA\//i.test(ruta) || /\/(dir|_VBA_PROJECT|__SRP_\d+)$/i.test(ruta) || /PROJECT/i.test(ruta.split('/').pop())) continue;
+    const datos = cfb.contenido(e);
+    const marca = [0x00, 0x41, 0x74, 0x74, 0x72, 0x69, 0x62, 0x75, 0x74];
+    for (let i = 3; i + marca.length < datos.length; i++) {
+      if (datos[i - 3] !== 1) continue;
+      let ok = true; for (let k = 0; k < marca.length; k++) if (datos[i + k] !== marca[k]) { ok = false; break; }
+      if (!ok) continue;
+      try {
+        const codigo = dec.decode(descomprimirVBA(datos, i - 3));
+        if (/Attribute VB_Name/.test(codigo)) { r.push({ modulo: ruta.split('/').pop(), codigo }); break; }
+      } catch (err) { /* seguir buscando */ }
+    }
+  }
+  return r;
+}
+function subsVBA(codigo) {
+  const r = new Map();
+  const re = /^\s*(?:Public\s+|Private\s+)?Sub\s+(\w+)\s*\(([\s\S]*?)^\s*End\s+Sub/gim;
+  let m; while ((m = re.exec(codigo))) r.set(m[1].toLowerCase(), m[0]);
+  return r;
+}
+
+// ------------------------------------------------------------------ PDF: ¿tiene marcadores?
+async function pdfMarcadores(bytes) {
+  const lat = new TextDecoder('latin1');
+  const textos = [lat.decode(bytes)];
+  const crudo = textos[0];
+  const re = /stream\r?\n/g; let m;
+  while ((m = re.exec(crudo))) {
+    const ini = m.index + m[0].length;
+    const fin = crudo.indexOf('endstream', ini);
+    if (fin < 0) break;
+    const cab = crudo.slice(Math.max(0, m.index - 400), m.index);
+    if (/\/ObjStm/.test(cab) && /FlateDecode/.test(cab)) {
+      try { textos.push(lat.decode(await inflarZlib(bytes.subarray(ini, fin)))); } catch (e) { /* ignorar */ }
+    }
+    re.lastIndex = fin;
+  }
+  const todo = textos.join('\n');
+  const tieneOutlines = /\/Outlines\s+\d+\s+\d+\s+R/.test(todo);
+  const entradas = (todo.match(/\/Parent\s+\d+\s+\d+\s+R[^>]*?\/Title|\/Title[^>]*?\/Parent\s+\d+\s+\d+\s+R/g) || []).length;
+  return { tieneOutlines, entradas };
+}
+
+</script>
+<script>
+// Comprobaciones de los seis bloques del examen práctico del Tema 2.
+'use strict';
+
+function item(texto, max, fraccion, detalle = '', revisar = false) {
+  const f = Math.max(0, Math.min(1, fraccion || 0));
+  const pts = Math.round(max * f * 100) / 100;
+  return { texto, max, pts, estado: revisar ? 'revisar' : f >= 0.999 ? 'ok' : f > 0 ? 'parcial' : 'fallo', detalle };
+}
+const cerca = (a, b, tol) => a !== null && a !== undefined && Math.abs(a - b) <= tol;
+const soloLetras = t => norm(t).replace(/[^a-z0-9ñ ]/g, ' ').replace(/\s+/g, ' ').trim();
+const fr = (...bools) => bools.filter(Boolean).length / bools.length;
+const lista = arr => arr.filter(Boolean).join('; ');
+
+// ------------------------------------------------------------------ clasificación de archivos
+async function clasificar(archivos, V) {
+  const r = { ui: null, plantilla: null, rescate: false, manual: null, carta: null, combinadas: null, pdf: null, otros: [], nombres: {} };
+  const docs = [];
+  for (const [nombre, bytes] of archivos) {
+    const base = nombre.split('/').pop(); const n = base.toLowerCase();
+    if (n.startsWith('~$') || n.startsWith('._')) continue;
+    if (n.endsWith('.exportedui')) { r.ui = new TextDecoder('utf-8').decode(bytes); r.nombres.ui = base; }
+    else if (n.endsWith('.dotm') || n.endsWith('.dotx')) {
+      const esRescate = n.includes('rescate');
+      if (!r.plantilla || (r.rescate && !esRescate) || n === V.b2.plantilla.toLowerCase()) {
+        try { r.plantilla = await paqueteOOXML(bytes); r.rescate = esRescate; r.nombres.plantilla = base; } catch (e) { r.otros.push(base + ' (no se puede abrir)'); }
+      }
+    } else if (n.endsWith('.docx') || n.endsWith('.docm')) {
+      try { docs.push({ base, n, P: await paqueteOOXML(bytes) }); } catch (e) { r.otros.push(base + ' (no se puede abrir)'); }
+    } else if (n.endsWith('.pdf')) { if (!r.pdf || n.includes('manual')) { r.pdf = bytes; r.nombres.pdf = base; } }
+    else r.otros.push(base);
+  }
+  // Rescate detectado por contenido
+  if (r.plantilla && !r.rescate) {
+    const cab = await r.plantilla.texto('word/header1.xml') || '';
+    if (/PLANTILLA DE RESCATE/.test(cab)) r.rescate = true;
+  }
+  for (const d of docs) {
+    const settings = await d.P.texto('word/settings.xml') || '';
+    const docxml = await d.P.texto('word/document.xml') || '';
+    d.combinacion = /<w:mailMerge\b/.test(settings);
+    d.toc = /TOC \\/.test(docxml) || /Table of Contents/.test(docxml);
+    d.secciones = (docxml.match(/<w:sectPr\b/g) || []).length;
+    d.empresas = V.b4.cartas.filter(e => docxml.includes(e.replace(/&/g, '&amp;'))).length;
+  }
+  const toma = (pred) => { const i = docs.findIndex(pred); return i >= 0 ? docs.splice(i, 1)[0] : null; };
+  let c;
+  if ((c = toma(d => d.n.includes('combinad')))) { r.combinadas = c.P; r.nombres.combinadas = c.base; }
+  if ((c = toma(d => d.combinacion))) { r.carta = c.P; r.nombres.carta = c.base; }
+  if ((c = toma(d => d.n.includes('manual')) || toma(d => d.toc))) { r.manual = c.P; r.nombres.manual = c.base; }
+  if (!r.combinadas && (c = toma(d => d.empresas >= 2 && !d.combinacion))) { r.combinadas = c.P; r.nombres.combinadas = c.base; }
+  if (!r.carta && (c = toma(d => d.n.includes('carta')))) { r.carta = c.P; r.nombres.carta = c.base; }
+  for (const d of docs) r.otros.push(d.base);
+  return r;
+}
+
+// ------------------------------------------------------------------ utilidades sobre el manual
+async function analizarManual(P) {
+  if (!P) return null;
+  const doc = await P.xml('word/document.xml');
+  const E = await estilos(P);
+  const cuerpo = uno(doc, 'body');
+  const parrafos = todos(cuerpo, 'p').map(p => {
+    const s = E.parrafoEstilo(p);
+    return { el: p, texto: textoParrafo(p), estilo: E.nombreDe(s), estiloEl: s, campos: camposParrafo(p),
+      numPr: uno(hijo(p, 'pPr'), 'numPr') };
+  });
+  return { P, doc, E, cuerpo, parrafos, campos: camposDocumento(doc), texto: parrafos.map(p => p.texto).join('\n') };
+}
+const esTitulo = (nombreEstilo, nivel) => ['heading ' + nivel, 'titulo ' + nivel].includes(norm(nombreEstilo));
+const limpiaTitulo = t => norm(t).replace(/^[\divxl]+(\.\d+)*\.?\s+/, '').trim();
+
+// ------------------------------------------------------------------ bloque 1
+function uiAnalizar(texto) {
+  if (!texto) return null;
+  const sinDecl = texto.replace(/<\?xml[^>]*\?>/, '');
+  const d = xml('<raiz xmlns:mso="http://schemas.microsoft.com/office/2009/07/customui" xmlns:x1="urn:x1" xmlns:x2="urn:x2">' +
+    sinDecl.replace(/xmlns:mso="[^"]*"/g, '') + '</raiz>');
+  const pestanas = todos(d, 'tab').filter(t => t.getAttribute('label'));
+  const qat = uno(d, 'qat');
+  const visibles = el => todos(el, '*').filter(c => ['control', 'button'].includes(c.localName) && c.getAttribute('visible') !== 'false');
+  return { pestanas, qat: qat ? visibles(qat) : [], visibles };
+}
+const idDe = c => (c.getAttribute('idQ') || c.getAttribute('idMso') || c.getAttribute('id') || '') + ' ' + (c.getAttribute('onAction') || '') + ' ' + (c.getAttribute('label') || '');
+const coincide = (control, ids) => ids.some(id => idDe(control).toLowerCase().includes(id.toLowerCase()));
+
+function bloque1(R, V, M) {
+  const b = V.b1; const items = [];
+  let ui = null; try { ui = uiAnalizar(R.ui); } catch (e) { ui = null; }
+  if (!ui) {
+    items.push(item('Pestaña con tu nombre, el grupo y sus tres comandos', 3, 0, R.ui ? 'El archivo .exportedUI no se puede leer' : 'No se ha entregado personalizacion.exportedUI'));
+    items.push(item('Los dos comandos en la barra de acceso rápido', 2.5, 0, 'Sin archivo de personalización'));
+  } else {
+    const genericos = ['nueva pestana', 'new tab', 'pestana nueva'];
+    const candidatas = ui.pestanas.filter(t => !genericos.includes(norm(t.getAttribute('label'))));
+    let mejor = { f: 0, det: 'No hay ninguna pestaña personalizada con nombre propio' };
+    for (const t of candidatas) {
+      const grupo = todos(t, 'group').find(g => norm(g.getAttribute('label')) === norm(b.grupo));
+      const controles = grupo ? ui.visibles(grupo) : [];
+      const ok = b.comandos.map(c => controles.some(x => coincide(x, c.ids)));
+      const f = (1 + (grupo ? 0.5 : 0) + ok.filter(Boolean).length * 0.5) / 3;
+      if (f > mejor.f) mejor = { f, det: lista([`pestaña «${t.getAttribute('label')}»`, grupo ? '' : `falta el grupo «${b.grupo}»`,
+        ...b.comandos.map((c, i) => grupo && !ok[i] ? `falta «${c.texto}»` : '')]) };
+    }
+    items.push(item('Pestaña con tu nombre, el grupo y sus tres comandos', 3, mejor.f, mejor.det));
+    const qok = b.qat.map(c => ui.qat.some(x => coincide(x, c.ids)));
+    items.push(item('Los dos comandos en la barra de acceso rápido', 2.5, fr(...qok), lista(b.qat.map((c, i) => qok[i] ? '' : `falta «${c.texto}»`))));
+  }
+  // Autocorrección
+  const ac = b.autocorreccion;
+  if (M) {
+    const veces = (M.texto.match(new RegExp(ac.sale, 'g')) || []).length;
+    const quedan = (M.texto.match(new RegExp('\\[' + ac.escribe + '\\]', 'gi')) || []).length;
+    const f = Math.max(0, (ac.veces - quedan) / ac.veces) * (veces >= ac.veces - quedan ? 1 : 0.5);
+    items.push(item('Autocorrección usada en las tres marcas', 2, f,
+      quedan ? `quedan ${quedan} marcas [${ac.escribe}] sin sustituir` : `«${ac.sale}» aparece ${veces} veces (no se puede saber si se escribió con la autocorrección)`));
+  } else items.push(item('Autocorrección usada en las tres marcas', 2, 0, 'No se ha encontrado manual.docx'));
+  items.push(item('Personalización exportada en el archivo pedido', 2.5, ui ? 1 : 0, ui ? R.nombres.ui : 'Falta el archivo .exportedUI'));
+  return items;
+}
+
+// ------------------------------------------------------------------ bloque 2
+async function bloque2(R, V, M) {
+  const b = V.b2; const items = [];
+  if (!R.plantilla || R.rescate) {
+    const det = R.rescate ? 'Ha usado la plantilla de rescate' : 'No se ha entregado la plantilla';
+    for (const [t, m] of [['Márgenes y estilo Normal con los valores pedidos', 2], ['Título 1 y Título 2 con los valores pedidos y el salto de página en el estilo', 2.5],
+      ['Estilo nuevo con su nombre y su formato', 2], ['Encabezado y pie con Página X de Y', 2], ['manual.docx creado desde la plantilla', 1.5]]) items.push(item(t, m, 0, det));
+    return items;
+  }
+  const P = R.plantilla;
+  const doc = await P.xml('word/document.xml');
+  const E = await estilos(P);
+  const sects = todos(doc, 'sectPr'); const sp = sects[sects.length - 1];
+  const mar = uno(sp, 'pgMar');
+  const m = k => mar ? +atr(mar, k) : null;
+  const mt = b.margenes_twips;
+  const margenesOk = [cerca(m('top'), mt.sup, 15), cerca(m('bottom'), mt.inf, 15), cerca(m('left'), mt.izq, 15), cerca(m('right'), mt.der, 15)];
+  const N = E.efectivo(E.buscar('Normal'));
+  const n = b.normal;
+  const normalOk = [norm(N.fuente) === norm(n.fuente), N.sz === n.sz, N.jc === n.jc, cerca(N.line, n.line, 3), cerca(N.after, n.after, 2)];
+  const cm = t => (t / 1440 * 2.54).toFixed(2).replace('.', ',');
+  items.push(item('Márgenes y estilo Normal con los valores pedidos', 2, (fr(...margenesOk) + fr(...normalOk)) / 2, lista([
+    margenesOk.every(Boolean) ? '' : `márgenes ${['top', 'bottom', 'left', 'right'].map(k => cm(m(k) || 0)).join(' / ')} cm`,
+    normalOk[0] ? '' : `fuente de Normal: ${N.fuente}`, normalOk[1] ? '' : `tamaño de Normal: ${N.sz / 2} pt`,
+    normalOk[2] ? '' : `alineación de Normal: ${N.jc || 'izquierda'}`, normalOk[3] ? '' : `interlineado: ${N.line ? (N.line / 240).toFixed(2) : '?'}`,
+    normalOk[4] ? '' : `espaciado posterior: ${N.after !== null ? N.after / 20 : '?'} pt`])));
+  const T1 = E.efectivo(E.buscar('heading 1')), T2 = E.efectivo(E.buscar('heading 2'));
+  const tOk = [T1.sz === b.titulo1.sz, T1.color === b.titulo1.color, !!T1.salto, T2.sz === b.titulo2.sz, T2.color === b.titulo2.color];
+  items.push(item('Título 1 y Título 2 con los valores pedidos y el salto de página en el estilo', 2.5, fr(...tOk), lista([
+    tOk[0] ? '' : `Título 1 a ${T1.sz / 2} pt`, tOk[1] ? '' : `color de Título 1 ${T1.color || 'del tema'}`, tOk[2] ? '' : 'Título 1 sin salto de página anterior',
+    tOk[3] ? '' : `Título 2 a ${T2.sz / 2} pt`, tOk[4] ? '' : `color de Título 2 ${T2.color || 'del tema'}`])));
+  const en = b.estilo_nuevo; const S = E.buscar(en.nombre);
+  if (!S) items.push(item('Estilo nuevo con su nombre y su formato', 2, 0, `No existe el estilo «${en.nombre}»`));
+  else {
+    const X = E.efectivo(S);
+    const base = E.nombreDe(E.porId.get(atr(hijo(S, 'basedOn'), 'val')));
+    const ok = [true, norm(base) === 'normal', X.shd === en.sombreado, X.bordeIzq && X.bordeIzq.color === en.borde_izq_color,
+      X.bordeIzq && cerca(X.bordeIzq.sz, en.borde_izq_sz, 2), cerca(X.sangriaIzq, en.sangria_izq_twips, 20)];
+    items.push(item('Estilo nuevo con su nombre y su formato', 2, fr(...ok), lista([ok[1] ? '' : `basado en «${base}»`, ok[2] ? '' : `sombreado ${X.shd || 'ninguno'}`,
+      ok[3] ? '' : `borde izquierdo ${X.bordeIzq ? X.bordeIzq.color : 'ninguno'}`, ok[4] ? '' : 'grosor del borde distinto', ok[5] ? '' : 'sangría izquierda distinta'])));
+  }
+  // Encabezado y pie
+  const rels = await P.rels('word/document.xml');
+  let cabOk = false, cabDer = false, pieOk = false, pieCen = false;
+  for (const ref of todos(sp, 'headerReference').concat(todos(sp, 'footerReference'))) {
+    const rel = rels.get(atr(ref, 'id')); if (!rel) continue;
+    const parte = await P.xml('word/' + rel.destino.replace(/^\/?word\//, ''));
+    for (const p of todos(parte, 'p')) {
+      const jc = atr(uno(hijo(p, 'pPr'), 'jc'), 'val');
+      if (ref.localName === 'headerReference' && soloLetras(textoParrafo(p)).includes(soloLetras(b.encabezado))) { cabOk = true; cabDer = cabDer || jc === 'right' || jc === 'end'; }
+      if (ref.localName === 'footerReference') {
+        const c = camposParrafo(p).map(x => x.toUpperCase());
+        if (c.some(x => /^PAGE\b/.test(x)) && c.some(x => /^NUMPAGES\b/.test(x))) { pieOk = true; pieCen = pieCen || jc === 'center'; }
+      }
+    }
+  }
+  items.push(item('Encabezado y pie con Página X de Y', 2, (cabOk * 0.75 + cabDer * 0.25 + pieOk * 0.75 + pieCen * 0.25) / 2,
+    lista([cabOk ? (cabDer ? '' : 'el encabezado no está a la derecha') : 'no se encuentra el texto del encabezado', pieOk ? (pieCen ? '' : 'el pie no está centrado') : 'el pie no tiene los campos PAGE y NUMPAGES'])));
+  // manual.docx vinculado a la plantilla
+  let vinc = null;
+  if (M) {
+    const settings = await M.P.xml('word/settings.xml');
+    const at = uno(settings, 'attachedTemplate');
+    if (at) { const r = (await M.P.rels('word/settings.xml')).get(atr(at, 'id')); vinc = r ? decodeURIComponent(r.destino).split(/[\\/]/).pop() : null; }
+  }
+  const okV = vinc && norm(vinc) === norm(b.plantilla) || (vinc && R.nombres.plantilla && norm(vinc) === norm(R.nombres.plantilla));
+  items.push(item('manual.docx creado desde la plantilla', 1.5, okV ? 1 : 0, M ? (okV ? '' : `manual.docx está basado en «${vinc || 'Normal.dotm'}»`) : 'No se ha encontrado manual.docx'));
+  return items;
+}
+
+// ------------------------------------------------------------------ bloque 3
+async function bloque3(R, V, M) {
+  const b = V.b3; const items = [];
+  if (!M) { for (const [t, m] of [['Tabla', 3.5], ['Imagen', 2.5], ['Captura', 1.5], ['Gráfico', 2.5]]) items.push(item(t, m, 0, 'No se ha encontrado manual.docx')); return items; }
+  // Tabla
+  const tablas = todos(M.cuerpo, 'tbl');
+  const cols = b.tabla_columnas.map(norm);
+  let T = null, filaCab = -1;
+  for (const t of tablas) {
+    const filas = hijos(t, 'tr');
+    const i = filas.findIndex(tr => { const c = hijos(tr, 'tc').map(tc => norm(textoParrafo(tc))); return cols.filter(x => c.includes(x)).length >= cols.length - 1; });
+    if (i >= 0) { T = t; filaCab = i; break; }
+  }
+  const rubTabla = b.fila_titulo ? 'Tabla convertida, fila de título combinada, encabezado repetido, ordenada y con estilo' : 'Tabla convertida, encabezado repetido, ordenada y con estilo';
+  if (!T) items.push(item(rubTabla, 3.5, 0, 'No se encuentra la tabla con las columnas ' + b.tabla_columnas.join(', ')));
+  else {
+    const filas = hijos(T, 'tr');
+    const datos = filas.slice(filaCab + 1).map(tr => hijos(tr, 'tc').map(tc => textoParrafo(tc).trim())).filter(f => f.some(x => x));
+    const iCol = hijos(filas[filaCab], 'tc').map(tc => norm(textoParrafo(tc))).indexOf(norm(b.ordenar_por));
+    const conv = datos.length >= b.tabla_filas;
+    const titulo = !b.fila_titulo || filas.slice(0, filaCab).some(tr => { const tcs = hijos(tr, 'tc'); return tcs.length === 1 || tcs.some(tc => +atr(uno(tc, 'gridSpan'), 'val') > 1); });
+    const repite = !!uno(hijo(filas[filaCab], 'trPr'), 'tblHeader') || (filaCab > 0 && !!uno(hijo(filas[0], 'trPr'), 'tblHeader'));
+    const orden = iCol >= 0 && datos.map(f => norm(f[iCol])).join('|') === b.columna_orden.map(norm).join('|');
+    const tp = hijo(T, 'tblPr'); const estilo = atr(uno(tp, 'tblStyle'), 'val'); const look = uno(tp, 'tblLook');
+    const bandas = look ? (atr(look, 'noHBand') !== null ? ['0', 'false'].includes(atr(look, 'noHBand')) : !(parseInt(atr(look, 'val') || '0', 16) & 0x0200)) : false;
+    const conEstilo = !!estilo && !/^(TableGrid|Tablaconcuadrcula|TableNormal)$/i.test(estilo) && bandas;
+    items.push(item(rubTabla, 3.5, fr(...[conv, repite, orden, conEstilo].concat(b.fila_titulo ? [titulo] : [])), lista([
+      conv ? '' : `solo ${datos.length} filas de datos`, titulo ? '' : 'no hay fila de título combinada', repite ? '' : 'la fila de encabezado no se repite',
+      orden ? '' : `no está ordenada por ${b.ordenar_por}`, conEstilo ? '' : (estilo ? 'el estilo de tabla no tiene filas con bandas' : 'sin estilo de tabla')])));
+  }
+  // Imágenes
+  const dibujos = todos(M.cuerpo, 'drawing').filter(d => uno(d, 'pic'));
+  const infoDibujo = d => {
+    const ext = uno(d, 'extent'); const cx = +atr(ext, 'cx'), cy = +atr(ext, 'cy');
+    const docPr = uno(d, 'docPr'); const p = d.closest ? null : null;
+    return { d, cx, cy, ratio: cy / cx, recorte: !!uno(d, 'srcRect') && ['l', 't', 'r', 'b'].some(k => +(atr(uno(d, 'srcRect'), k) || 0) !== 0),
+      cuadrado: !!uno(d, 'wrapSquare'), alt: (atr(docPr, 'descr') || '').trim() };
+  };
+  const ims = dibujos.map(infoDibujo);
+  const parrafoDe = el => { let x = el; while (x && x.localName !== 'p') x = x.parentNode; return x; };
+  const tituloTras = el => {
+    const p = parrafoDe(el); if (!p) return false;
+    const idx = M.parrafos.findIndex(q => q.el === p);
+    const cerca_ = M.parrafos.slice(Math.max(0, idx - 1), idx + 3);
+    if (cerca_.some(q => q.campos.some(c => /^SEQ\s+(Figura|Ilustraci)/i.test(c)))) return true;
+    // Si la imagen ya tenía ajuste de texto, Word mete el título en un cuadro de texto
+    return cerca_.some(q => [...todos(q.el, 'instrText').map(x => x.textContent), ...todos(q.el, 'fldSimple').map(x => atr(x, 'instr') || '')]
+      .some(c => /SEQ\s+(Figura|Ilustraci)/i.test(c.trim())));
+  };
+  const logo = ims.filter(i => !i.recorte).sort((a, x) => Math.abs(a.ratio - 0.6) - Math.abs(x.ratio - 0.6))[0];
+  if (!logo) items.push(item('Imagen: ancho, ajuste, texto alternativo y título', 2.5, 0, 'No se encuentra la imagen del logotipo'));
+  else {
+    const ok = [cerca(logo.cx, b.imagen_ancho_emu, b.imagen_ancho_emu * 0.03), logo.cuadrado, logo.alt.length > 3, tituloTras(logo.d)];
+    items.push(item('Imagen: ancho, ajuste, texto alternativo y título', 2.5, fr(...ok), lista([ok[0] ? '' : `ancho ${(logo.cx / 360000).toFixed(2).replace('.', ',')} cm`,
+      ok[1] ? '' : 'ajuste distinto de Cuadrado', ok[2] ? '' : 'sin texto alternativo', ok[3] ? '' : 'sin título de figura'])));
+  }
+  const captura = ims.filter(i => i !== logo).sort((a, x) => (x.recorte - a.recorte))[0];
+  if (!captura) items.push(item('Captura recortada y con título', 1.5, 0, 'No hay una segunda imagen'));
+  else items.push(item('Captura recortada y con título', 1.5, fr(captura.recorte, tituloTras(captura.d)),
+    lista([captura.recorte ? '' : 'la captura no está recortada', tituloTras(captura.d) ? '' : 'sin título', 'comprobar a mano que es la ventana pedida']), true));
+  // Gráfico
+  const g = b.grafico;
+  const partes = [...M.P.zip.keys()].filter(k => /^word\/charts\/chart\d+\.xml$/.test(k));
+  let mejor = { f: 0, det: 'No hay ningún gráfico de Word en el documento' };
+  for (const parte of partes) {
+    const c = await M.P.xml(parte);
+    const bar = uno(c, 'barChart'), pie = uno(c, 'pieChart');
+    const dir = atr(uno(bar, 'barDir'), 'val');
+    const tipo = g.tipo === 'columnas' ? !!bar && dir === 'col' : g.tipo === 'barras' ? !!bar && dir === 'bar' : !!pie;
+    const valores = todos(uno(c, 'val'), 'v').map(v => +v.textContent);
+    const datos = valores.length === g.valores.length && valores.every((v, i) => v === g.valores[i]);
+    const tt = uno(c, 'title'); const tituloTxt = tt ? todos(tt, 't').map(t => t.textContent).join('') : '';
+    const titulo = !!tt && (norm(tituloTxt).includes(norm(g.titulo)) || (!tituloTxt && atr(uno(c, 'autoTitleDeleted'), 'val') === '0'));
+    const leyenda = !!uno(c, 'legend');
+    const etiquetas = todos(c, 'dLbls').some(d => atr(uno(d, 'showVal'), 'val') === '1');
+    const f = (tipo * 0.5 + datos * 0.5 + titulo * 0.4 + leyenda * 0.3 + etiquetas * 0.3 + 0.5) / 2.5;
+    if (f > mejor.f) mejor = { f, det: lista([tipo ? '' : `no es de tipo ${g.tipo}`, datos ? '' : `datos: ${valores.join(', ') || 'ninguno'}`,
+      titulo ? '' : 'título distinto o sin título', leyenda ? '' : 'sin leyenda', etiquetas ? '' : 'sin etiquetas de datos']) };
+  }
+  items.push(item('Gráfico del tipo pedido, con sus datos, título, leyenda y etiquetas', 2.5, mejor.f, mejor.det));
+  return items;
+}
+
+// ------------------------------------------------------------------ bloque 4
+async function bloque4(R, V, M) {
+  const b = V.b4; const items = [];
+  items.push(item('Contenido importado con Texto de archivo', 1, M && norm(M.texto).includes(norm(b.texto_importado)) ? 1 : 0,
+    M ? 'el resultado es igual que copiar y pegar: comprobar a mano si hay dudas' : 'No se ha encontrado manual.docx'));
+  // Carta principal
+  let campos = [], combin = false;
+  if (R.carta) {
+    const s = await R.carta.xml('word/settings.xml'); combin = !!uno(s, 'mailMerge');
+    campos = camposDocumento(await R.carta.xml('word/document.xml')).map(c => c.toUpperCase());
+  }
+  const bloque = campos.some(c => c.startsWith('ADDRESSBLOCK')), saludo = campos.some(c => c.startsWith('GREETINGLINE'));
+  // Combinadas
+  let C = null, textoC = '';
+  if (R.combinadas) { C = await R.combinadas.xml('word/document.xml'); textoC = todos(uno(C, 'body'), 'p').map(textoParrafo).join('\n'); }
+  const todasEmpresas = V.b4.cartas.concat(V.b4.descartadas);
+  const pos = e => textoC.indexOf(e);
+  const encontradas = todasEmpresas.filter(e => pos(e) >= 0).sort((a, x) => pos(a) - pos(x));
+  // Dirección completa: para cada carta, la calle aparece cerca del nombre de la empresa
+  const calles = V.b4.calles || {};
+  let dirOk = 0;
+  for (const e of V.b4.cartas) { const i = pos(e); if (i >= 0 && calles[e] && textoC.slice(i, i + 300).includes(calles[e])) dirOk++; }
+  const dirF = V.b4.cartas.length ? dirOk / V.b4.cartas.length : 0;
+  items.push(item('Asignar campos resuelto: bloque de direcciones completo y línea de saludo', 2,
+    (combin * 0.25 + bloque * 0.25 + saludo * 0.5 + dirF * 1) / 2,
+    lista([R.carta ? (combin ? '' : 'carta.docx no está conectada a datos') : 'falta carta.docx', bloque ? '' : 'sin bloque de direcciones', saludo ? '' : 'sin línea de saludo',
+      C ? (dirF < 1 ? `la dirección completa solo aparece en ${dirOk} de ${V.b4.cartas.length} cartas` : '') : 'falta cartas-combinadas.docx'])));
+  const sueltos = b.campos_sueltos.map(cs => campos.some(c => new RegExp('^MERGEFIELD\\s+"?' + cs + '"?\\b', 'i').test(sinTildes(c))));
+  items.push(item('Los dos campos sueltos en el texto', 1.5, fr(...sueltos), lista(b.campos_sueltos.map((c, i) => sueltos[i] ? '' : `falta el campo ${c}`))));
+  const esperadas = V.b4.cartas;
+  const exacto = C && encontradas.length === esperadas.length && esperadas.every(e => encontradas.includes(e));
+  const sobran = encontradas.filter(e => !esperadas.includes(e)), faltan = esperadas.filter(e => !encontradas.includes(e));
+  const filtroF = !C ? 0 : exacto ? 1 : (faltan.length === 0 && sobran.length <= 3 ? 0.5 : 0);
+  items.push(item('Filtro: salen exactamente las cartas que tocan', 2, filtroF,
+    C ? lista([`salen ${encontradas.length} de ${esperadas.length} esperadas`, sobran.length ? 'sobran: ' + sobran.join(', ') : '', faltan.length ? 'faltan: ' + faltan.join(', ') : '']) : 'falta cartas-combinadas.docx'));
+  const orden = C && exacto && encontradas.every((e, i) => e === esperadas[i]);
+  const control = C && encontradas[b.posicion_control - 1] === esperadas[b.posicion_control - 1];
+  items.push(item('Orden: las cartas salen en el orden pedido', 1.5, orden ? 1 : control ? 0.5 : 0,
+    C ? (orden ? '' : `la ${b.posicion_control}.ª carta es «${encontradas[b.posicion_control - 1] || '—'}» y debía ser «${esperadas[b.posicion_control - 1]}»`) : ''));
+  const sinCampos = C && !camposDocumento(C).some(c => /^MERGEFIELD/i.test(c));
+  items.push(item('Documento combinado generado', 0.5, C && sinCampos && encontradas.length ? 1 : 0, C ? (sinCampos ? '' : 'el archivo todavía tiene campos de combinación') : 'falta cartas-combinadas.docx'));
+  let pdf = null; if (R.pdf) { try { pdf = await pdfMarcadores(R.pdf); } catch (e) { pdf = null; } }
+  items.push(item('PDF del manual con marcadores', 1.5, R.pdf ? (pdf && pdf.tieneOutlines ? 1 : 1 / 3) : 0,
+    R.pdf ? (pdf && pdf.tieneOutlines ? '' : 'el PDF no tiene marcadores') : 'falta manual.pdf'));
+  return items;
+}
+
+// ------------------------------------------------------------------ bloque 5
+async function bloque5(R, V, M) {
+  const b = V.b5; const items = [];
+  let subs = new Map(), errorVBA = '';
+  if (R.plantilla && !R.plantilla.tiene('word/vbaProject.bin')) errorVBA = 'la plantilla no contiene macros';
+  else if (R.plantilla) {
+    try { for (const m of codigoVBA(await R.plantilla.bytes('word/vbaProject.bin'))) for (const [k, v] of subsVBA(m.codigo)) subs.set(k, v); }
+    catch (e) { errorVBA = 'no se ha podido leer el código de las macros: ' + e.message; }
+  } else errorVBA = 'no se ha entregado la plantilla';
+  const evalua = (nombre, patrones) => {
+    const c = subs.get(nombre.toLowerCase());
+    if (!c) return { f: 0, det: errorVBA || `no existe la macro ${nombre} en la plantilla` };
+    const ok = patrones.map(([re]) => new RegExp(re, 'i').test(c));
+    return { f: (1 + ok.filter(Boolean).length * (2 / patrones.length)) / 3, det: lista(patrones.map(([, d], i) => ok[i] ? '' : 'no ' + d)), codigo: c };
+  };
+  const m1 = evalua(b.macro1, b.macro1_patrones), m2 = evalua(b.macro2, b.macro2_patrones);
+  items.push(item(`${b.macro1} está en la plantilla, funciona y aplica el estilo`, 3, m1.f, m1.det, m1.f > 0 && m1.f < 1));
+  items.push(item(`${b.macro2} está en la plantilla y funciona`, 3, m2.f, m2.det, m2.f > 0 && m2.f < 1));
+  let ui = null; try { ui = uiAnalizar(R.ui); } catch (e) { ui = null; }
+  const boton = ui && ui.qat.some(x => idDe(x).toLowerCase().includes(b.macro1.toLowerCase()));
+  items.push(item('Botón de la macro en la barra de acceso rápido', 1.5, boton ? 1 : 0, ui ? (boton ? '' : `no hay botón de ${b.macro1} en la barra`) : 'sin archivo .exportedUI'));
+  let atajo = false;
+  if (R.plantilla) { const c = await R.plantilla.texto('word/customizations.xml') || ''; atajo = new RegExp('macroName="[^"]*' + b.macro2 + '"', 'i').test(c); }
+  items.push(item('Atajo de teclado libre guardado en la plantilla', 1, atajo ? 1 : 0, atajo ? '' : `no hay atajo de teclado para ${b.macro2} guardado en la plantilla`));
+  const comenta = c => !!c && c.split(/\r?\n/).filter(l => /^\s*'/.test(l)).some(l => /\d{1,2}\/\d{1,2}\/\d{2,4}|20\d\d/.test(l));
+  const com = [comenta(m1.codigo), comenta(m2.codigo)];
+  items.push(item('Comentario con tu nombre en el código', 0.5, fr(...com), lista([com[0] ? '' : `${b.macro1} sin comentario con fecha`, com[1] ? '' : `${b.macro2} sin comentario con fecha`])));
+  let usos = 0;
+  if (M) usos = M.parrafos.filter(p => norm(p.estilo) === norm(V.b2.estilo_nuevo.nombre) && norm(p.texto).startsWith(norm(b.macro1_texto).replace(/:$/, ''))).length;
+  items.push(item(`${b.macro1} usada en las dos marcas del manual`, 1, Math.min(1, usos / V.b6.notas_macro), `${usos} de ${V.b6.notas_macro} notas con el estilo y el texto`));
+  const pc3 = ['insertaraviso', 'formatocaptura', 'actualizarcampos'].filter(n => subs.has(n));
+  if (pc3.length) items.push(item('Aviso: la plantilla contiene macros del PC3 (' + pc3.join(', ') + ')', 0, 0, 'no puntúa; solo para tu información', true));
+  return items;
+}
+
+// ------------------------------------------------------------------ bloque 6
+async function bloque6(R, V, M) {
+  const b = V.b6; const items = [];
+  if (!M) { for (const [t, m] of [['Títulos', 2], ['Portada y secciones', 2], ['Tabla de contenido', 1.5], ['Pasos', 1.5], ['Referencias', 2], ['Nota al pie', 1]]) items.push(item(t, m, 0, 'No se ha encontrado manual.docx')); return items; }
+  // Títulos
+  const ok = b.titulos.map(t => M.parrafos.some(p => limpiaTitulo(p.texto) === norm(t.texto) && esTitulo(p.estilo, t.nivel)));
+  const s1 = M.E.buscar('heading 1');
+  const numDoc = await M.P.xml('word/numbering.xml');
+  const idT1 = s1 ? atr(s1, 'styleId') : null;
+  const multinivel = (s1 && M.E.efectivo(s1).numPr) || todos(numDoc, 'pStyle').some(x => atr(x, 'val') === idT1) ||
+    M.parrafos.filter(p => esTitulo(p.estilo, 1)).every(p => p.numPr) && M.parrafos.some(p => esTitulo(p.estilo, 1));
+  items.push(item('Títulos con sus estilos y numeración multinivel', 2, fr(...ok) * 0.7 + (multinivel ? 0.3 : 0),
+    lista([...b.titulos.map((t, i) => ok[i] ? '' : `«${t.texto}» sin Título ${t.nivel}`), multinivel ? '' : 'los títulos no tienen numeración multinivel'])));
+  // Portada y secciones
+  const sects = todos(M.cuerpo, 'sectPr');
+  const portada = todos(M.cuerpo, 'docPartGallery').some(g => /Cover/i.test(atr(g, 'val'))) || norm(M.texto).slice(0, 400).includes(norm(V.b6.titulo).slice(0, 30));
+  const rels = await M.P.rels('word/document.xml');
+  const tienePagina = async (sp) => {
+    const tp = uno(sp, 'titlePg'); const primeraDistinta = !!tp && !['0', 'false'].includes(atr(tp, 'val'));
+    for (const ref of todos(sp, 'footerReference').concat(todos(sp, 'headerReference'))) {
+      if ((atr(ref, 'type') || 'default') !== (primeraDistinta ? 'first' : 'default')) continue;
+      const r = rels.get(atr(ref, 'id')); if (!r) continue;
+      const parte = await M.P.xml('word/' + r.destino.replace(/^\/?word\//, ''));
+      if (camposDocumento(parte).some(c => /^PAGE\b/i.test(c)) || todos(parte, 'docPartGallery').some(g => /Page Numbers/i.test(atr(g, 'val')))) return true;
+    }
+    return false;
+  };
+  const dosSecciones = sects.length >= 2;
+  const primeraSinNum = dosSecciones && !(await tienePagina(sects[0]));
+  const pg = dosSecciones ? uno(sects[1], 'pgNumType') : null;
+  const fmt = pg ? atr(pg, 'fmt') : null, ini = pg ? atr(pg, 'start') : null;
+  const numOk = dosSecciones && ini === (b.numeracion_paginas === 'romanos' ? '1' : '1') &&
+    (b.numeracion_paginas === 'romanos' ? fmt === 'lowerRoman' : (!fmt || fmt === 'decimal'));
+  items.push(item('Portada y secciones con la numeración pedida', 2, fr(portada, dosSecciones, primeraSinNum, numOk), lista([portada ? '' : 'no hay portada',
+    dosSecciones ? '' : 'el documento tiene una sola sección', dosSecciones && !primeraSinNum ? 'la portada tiene número de página' : '',
+    dosSecciones && !numOk ? `la segunda sección no empieza en 1${b.numeracion_paginas === 'romanos' ? ' en romanos' : ''}` : ''])));
+  // Índice
+  const toc = M.campos.some(c => /^TOC\b/i.test(c));
+  const entradasToc = M.parrafos.filter(p => /^(toc|tdc)\s*\d/.test(norm(p.estilo)) && p.texto.trim());
+  const titulosDoc = M.parrafos.filter(p => esTitulo(p.estilo, 1) || esTitulo(p.estilo, 2));
+  const actualizado = toc && entradasToc.length === titulosDoc.length && titulosDoc.length > 0 &&
+    titulosDoc.every(t => entradasToc.some(e => norm(e.texto).includes(limpiaTitulo(t.texto))));
+  items.push(item('Tabla de contenido automática y actualizada', 1.5, toc ? (actualizado ? 1 : 1 / 3) : 0,
+    toc ? (actualizado ? '' : `el índice tiene ${entradasToc.length} entradas y hay ${titulosDoc.length} títulos: no está actualizado`) : 'no hay tabla de contenido automática'));
+  // Pasos
+  const busca = t => M.parrafos.find(p => norm(p.texto).startsWith(norm(t).slice(0, 30)));
+  const p1 = b.pasos1.map(busca), p2 = b.pasos2.map(busca);
+  const numerado = p => p && (p.numPr || (p.estiloEl && M.E.efectivo(p.estiloEl).numPr));
+  const fNum = fr(...p1.concat(p2).map(numerado));
+  const numId = p => p && p.numPr ? atr(uno(p.numPr, 'numId'), 'val') : null;
+  const reinicia = numerado(p2[0]) && numerado(p1[0]) && (numId(p2[0]) !== numId(p1[0]) ||
+    todos(numDoc, 'num').some(n => atr(n, 'numId') === numId(p2[0]) && uno(n, 'startOverride')));
+  items.push(item('Pasos con numeración automática que vuelve a 1', 1.5, fNum * 0.5 + (reinicia ? 0.5 : 0),
+    lista([fNum < 1 ? `${p1.concat(p2).filter(p => !numerado(p)).length} pasos sin numeración automática` : '', reinicia ? '' : 'el segundo procedimiento no vuelve a empezar en 1'])));
+  // Referencias
+  const ref = M.campos.some(c => /^REF\s+_Ref/i.test(c));
+  const pageref = M.parrafos.filter(p => !/^(toc|tdc)/.test(norm(p.estilo))).some(p => p.campos.some(c => /^PAGEREF\s+_Ref/i.test(c)));
+  items.push(item('Referencia cruzada a la figura y al número de página del apartado', 2, fr(ref, pageref),
+    lista([ref ? '' : 'no hay referencia cruzada a la figura', pageref ? '' : 'no hay referencia al número de página'])));
+  // Nota al pie
+  const notas = await M.P.xml('word/footnotes.xml');
+  const conTexto = todos(notas, 'footnote').filter(f => +atr(f, 'id') > 0 && !atr(f, 'type') && textoParrafo(f).trim().length > 5);
+  const enFrase = M.parrafos.some(p => norm(p.texto).includes(norm(b.nota_frase)) && uno(p.el, 'footnoteReference'));
+  items.push(item('Nota al pie', 1, fr(conTexto.length > 0, enFrase), lista([conTexto.length ? '' : 'no hay ninguna nota al pie', enFrase ? '' : 'la nota no está en la frase pedida'])));
+  return items;
+}
+
+// ------------------------------------------------------------------ todo
+const BLOQUES = [
+  { n: 1, ce: 'a', titulo: 'Personalizar Word', fn: bloque1 },
+  { n: 2, ce: 'b', titulo: 'Plantilla', fn: bloque2 },
+  { n: 3, ce: 'c', titulo: 'Tabla, imagen, captura y gráfico', fn: bloque3 },
+  { n: 4, ce: 'd', titulo: 'Importar, combinar y exportar', fn: bloque4 },
+  { n: 5, ce: 'e', titulo: 'Macros', fn: bloque5 },
+  { n: 6, ce: 'f', titulo: 'Manual', fn: bloque6 },
+];
+async function corregirEntrega(archivos, V) {
+  const R = await clasificar(archivos, V);
+  let M = null, errorManual = '';
+  try { M = await analizarManual(R.manual); } catch (e) { errorManual = e.message; }
+  const bloques = [];
+  for (const B of BLOQUES) {
+    let items;
+    try { items = await B.fn(R, V, M); }
+    catch (e) { items = [item('Error al corregir este bloque: revisar a mano', 10, 0, e.message, true)]; }
+    const nota = Math.round(items.reduce((s, i) => s + i.pts, 0) * 100) / 100;
+    bloques.push({ ...B, items, nota, revisar: items.some(i => i.estado === 'revisar') });
+  }
+  const media = Math.round(bloques.reduce((s, b) => s + b.nota, 0) / bloques.length * 100) / 100;
+  return { bloques, media, archivos: R.nombres, otros: R.otros, rescate: R.rescate, errorManual };
+}
+
+</script>
+<script>
+'use strict';
+const VERSIONES = {"R": {"version": "R", "nombre": "Repaso", "fecha": "para casa", "b1": {"grupo": "Examen UT2", "comandos": [{"texto": "Insertar título", "ids": ["CaptionInsert"]}, {"texto": "Insertar nota al pie", "ids": ["FootnoteInsert"]}, {"texto": "Referencia cruzada", "ids": ["CrossReferenceInsert", "CrossReference"]}], "qat": [{"texto": "Guardar como", "ids": ["FileSaveAs"]}, {"texto": "Impresión rápida", "ids": ["FilePrintQuick"]}], "autocorreccion": {"escribe": "cev", "sale": "Cerezo Eventos", "veces": 3}}, "b2": {"plantilla": "plantilla-manual.dotm", "margenes_twips": {"sup": 1417, "inf": 1417, "izq": 1701, "der": 1701}, "normal": {"fuente": "Verdana", "sz": 20, "line": 276, "after": 120, "jc": "left"}, "titulo1": {"sz": 32, "color": "7030A0", "salto_antes": true}, "titulo2": {"sz": 26, "color": "C00000"}, "estilo_nuevo": {"nombre": "Nota de sala", "sombreado": "F2E6F9", "borde_izq_color": "7030A0", "borde_izq_sz": 24, "sangria_izq_twips": 283}, "encabezado": "Cerezo Eventos - Manual de usuario"}, "b3": {"tabla_columnas": ["Sala", "Aforo", "Proyector", "Altavoces"], "tabla_titulo": "Salas disponibles", "fila_titulo": false, "tabla_filas": 10, "ordenar_por": "Aforo", "columna_orden": ["12", "25", "28", "30", "35", "45", "80", "120", "150", "220"], "primera_columna_orden": ["Sala de reuniones", "Aula 2", "Aula 3", "Aula 1", "Sala de prensa", "Sala Garganta", "Sala Cerezo", "Sala Valle", "Terraza cubierta", "Sala de actos"], "imagen_ancho_emu": 2160000, "grafico": {"tipo": "columnas", "titulo": "Eventos celebrados en 2025", "serie": "Eventos", "categorias": ["1.er trimestre", "2.º trimestre", "3.er trimestre", "4.º trimestre"], "valores": [18, 24, 11, 29]}}, "b4": {"campos_sueltos": ["Empresa", "Equipos"], "cartas": ["Cooperativa Cerezas del Jerte", "Asociación Cultural El Pilón", "Banda Municipal de Plasencia", "Festival Rock del Valle", "Teatro Alkázar", "Gimnasio Navaconcejo", "Colegio Valle del Jerte", "Instituto Gabriel y Galán", "Hotel Cerezo en Flor", "Turismo Rural Ambroz"], "calles": {"Cooperativa Cerezas del Jerte": "Ctra. N-110 km 377", "Asociación Cultural El Pilón": "C/ Picota 3", "Banda Municipal de Plasencia": "Pl. Mayor 1", "Festival Rock del Valle": "Apdo. de correos 20", "Teatro Alkázar": "C/ Rey 2", "Gimnasio Navaconcejo": "Av. de Extremadura 9", "Colegio Valle del Jerte": "C/ Escuelas 2", "Instituto Gabriel y Galán": "Av. Virgen del Puerto 5", "Hotel Cerezo en Flor": "Ctra. del Puerto 12", "Turismo Rural Ambroz": "C/ Mayor 30"}, "posicion_control": 2, "descartadas": ["Club de Montaña Tornavacas", "Escuela de Idiomas Béjar", "Peña Ciclista Plasencia", "Universidad de Mayores"], "texto_importado": "Este manual explica a las personas que dan charlas en la sal"}, "b5": {"marca": "NOTA", "macro1": "NotaSala", "macro1_texto": "Nota: ", "macro2": "InsertarFechaCorta", "macro2_formato": "dd/MM/yy", "macro2_desc": "inserta en la posición del cursor un campo con la fecha de hoy en formato corto (por ejemplo, 22/10/26) que se actualice solo", "macro1_patrones": [["Style\\s*=.*Nota de sala", "aplica el estilo Nota de sala"], ["TypeText\\s+Text:=\"Nota:", "escribe «Nota:»"], ["Bold\\s*=\\s*(True|wdToggle)", "pone la negrita"]], "macro2_patrones": [["InsertDateTime|Fields\\.Add", "inserta la fecha"], ["InsertAsField:=True|wdFieldDate|\"DATE", "como campo que se actualiza"], ["dd/MM/yy", "con el formato dd/mm/aa"]]}, "b6": {"titulos": [{"nivel": 1, "texto": "Introducción"}, {"nivel": 1, "texto": "Requisitos previos"}, {"nivel": 2, "texto": "Salas disponibles"}, {"nivel": 2, "texto": "Qué necesitas"}, {"nivel": 1, "texto": "Conectar el portátil al proyector"}, {"nivel": 1, "texto": "Evitar avisos durante la charla"}, {"nivel": 1, "texto": "Solución de problemas"}, {"nivel": 2, "texto": "Problemas más frecuentes"}, {"nivel": 2, "texto": "Estadísticas de uso"}, {"nivel": 1, "texto": "Anexo: equipo del técnico"}], "numeracion_paginas": "arabigos", "pasos1": ["Conecta el cable HDMI de la mesa al portátil.", "Enciende el proyector con el mando y espera a que se vea la imagen de inicio.", "En el portátil, pulsa Windows + P.", "Elige Duplicar para ver lo mismo en la pantalla del portátil y en el proyector.", "Si la imagen sale cortada, abre Configuración y entra en Sistema y después en Pantalla.", "En Resolución de pantalla, elige 1920 × 1080.", "Pulsa Mantener los cambios."], "pasos2": ["Abre Configuración con la combinación Windows + I.", "Entra en Sistema y después en Notificaciones.", "Activa No molestar.", "Despliega Activar No molestar automáticamente.", "Marca la casilla Al duplicar la pantalla.", "Cierra Configuración.", "Al terminar la charla, vuelve a desactivar No molestar."], "nota_frase": "mando del proyector", "ref_apartado": "Solución de problemas", "notas_macro": 2}}};
+const $ = s => document.querySelector(s);
+const resultados = [];
+const sel = $('#version');
+for (const [k, v] of Object.entries(VERSIONES)) sel.add(new Option(`${k} · ${v.nombre} · ${v.fecha}`, k));
+
+const estado = t => { $('#estado').textContent = t; };
+const fmt = n => (Math.round(n * 100) / 100).toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const clase = n => n >= 7 ? 'alto' : n >= 5 ? 'medio' : 'bajo';
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+function nombreAlumno(ruta) {
+  const seg = ruta.split('/');
+  const carpeta = seg.length > 1 ? seg[0] : '';
+  const m = carpeta.match(/^(.*?)_\d+_assign/);
+  return m ? m[1].trim() : (carpeta || '');
+}
+
+async function reunirEntregas(ficheros) {
+  // Devuelve Map alumno -> Map(nombreArchivo -> bytes)
+  const entregas = new Map();
+  const anade = (alumno, nombre, bytes) => { if (!entregas.has(alumno)) entregas.set(alumno, new Map()); entregas.get(alumno).set(nombre, bytes); };
+  async function expandir(alumno, nombre, bytes, nivel) {
+    if (/\.zip$/i.test(nombre) && nivel < 3) {
+      const z = await leerZip(bytes);
+      for (const [n, f] of z) {
+        const b = await f();
+        const quien = alumno || nombreAlumno(n) || nombre.replace(/\.zip$/i, '');
+        await expandir(quien, n, b, nivel + 1);
+      }
+    } else anade(alumno || 'Entrega', nombre, bytes);
+  }
+  for (const f of ficheros) await expandir('', f.name, new Uint8Array(await f.arrayBuffer()), 0);
+  return entregas;
+}
+
+async function procesar(ficheros) {
+  const V = VERSIONES[sel.value];
+  if (!V) { estado('No hay ninguna versión cargada en el corrector.'); return; }
+  estado('Leyendo archivos…');
+  let entregas;
+  try { entregas = await reunirEntregas(ficheros); } catch (e) { estado('No se han podido leer los archivos: ' + e.message); return; }
+  let i = 0;
+  for (const [alumno, archivos] of entregas) {
+    estado(`Corrigiendo ${++i} de ${entregas.size}: ${alumno}`);
+    try { resultados.push({ alumno, version: sel.value, ...(await corregirEntrega(archivos, V)) }); }
+    catch (e) { resultados.push({ alumno, version: sel.value, error: e.message, bloques: [], media: 0 }); }
+    pintar();
+  }
+  resultados.sort((a, b) => a.alumno.localeCompare(b.alumno, 'es'));
+  pintar();
+  estado(`${entregas.size} entrega(s) corregida(s) con la versión ${sel.value}.`);
+}
+
+function pintar() {
+  const tb = $('#tabla tbody');
+  if (!resultados.length) { tb.innerHTML = '<tr><td colspan="9" class="vacio">Todavía no hay entregas corregidas.</td></tr>'; return; }
+  tb.innerHTML = resultados.map((r, i) => {
+    const celdas = [0, 1, 2, 3, 4, 5].map(k => { const b = r.bloques[k]; return b ? `<td class="n"><span class="ch ${clase(b.nota)}">${fmt(b.nota)}</span></td>` : '<td class="n">—</td>'; }).join('');
+    const rev = r.bloques.filter(b => b.revisar).length;
+    return `<tr class="alumno" data-i="${i}" tabindex="0"><td>${esc(r.alumno)}${r.error ? ' <span class="bandera">(error)</span>' : ''}</td>${celdas}` +
+      `<td class="n"><span class="ch ${clase(r.media)}">${fmt(r.media)}</span></td><td class="n">${rev ? '<span class="bandera">⚑ ' + rev + '</span>' : ''}</td></tr>`;
+  }).join('');
+  $('#exportar').disabled = $('#limpiar').disabled = false;
+}
+
+function detalle(i) {
+  const r = resultados[i];
+  document.querySelectorAll('tr.alumno').forEach(tr => tr.classList.toggle('sel', +tr.dataset.i === i));
+  const d = $('#detalle'); d.hidden = false;
+  const icono = { ok: '✓', parcial: '≈', fallo: '✗', revisar: '⚑' };
+  const arch = Object.entries(r.archivos || {}).map(([k, v]) => `${k}: ${esc(v)}`).join(' · ');
+  d.innerHTML = `<h2>${esc(r.alumno)} · media ${fmt(r.media)}</h2>
+    <p class="archivos">${r.error ? 'Error: ' + esc(r.error) : 'Archivos reconocidos: ' + (arch || 'ninguno')}${r.otros && r.otros.length ? ' · Otros: ' + esc(r.otros.join(', ')) : ''}${r.rescate ? ' · <strong>Usó la plantilla de rescate</strong>' : ''}</p>` +
+    r.bloques.map(b => `<h3><span>Bloque ${b.n} · CE ${b.ce} · ${esc(b.titulo)}</span><span>${fmt(b.nota)} / 10</span></h3>` +
+      b.items.map(it => `<div class="it ${it.estado}"><span class="ic" aria-label="${it.estado}">${icono[it.estado]}</span>` +
+        `<span>${esc(it.texto)}${it.detalle ? `<span class="det">${esc(it.detalle)}</span>` : ''}</span><span class="pts">${it.max ? fmt(it.pts) + ' / ' + fmt(it.max) : ''}</span></div>`).join('')).join('');
+  d.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function devolucion(r) {
+  const lineas = [`Nota de la prueba: ${fmt(r.media)}.`];
+  for (const b of r.bloques) {
+    const fallos = b.items.filter(i => i.max && i.pts < i.max).map(i => `${i.texto}${i.detalle ? ' (' + i.detalle + ')' : ''}`);
+    lineas.push(`Bloque ${b.n} (CE ${b.ce}): ${fmt(b.nota)}.` + (fallos.length ? ' A revisar: ' + fallos.join('; ') + '.' : ' Completo.'));
+  }
+  return lineas.join('\n');
+}
+
+// ---------------------------------------------------------------- Excel
+function hojaXML(filas) {
+  const col = n => { let s = ''; n++; while (n) { const m = (n - 1) % 26; s = String.fromCharCode(65 + m) + s; n = Math.floor((n - 1) / 26); } return s; };
+  const escX = s => String(s).replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c])).replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g, '');
+  const filasXML = filas.map((f, r) => `<row r="${r + 1}">` + f.map((v, c) => {
+    const ref = col(c) + (r + 1); const s = r === 0 ? ' s="1"' : '';
+    return typeof v === 'number' ? `<c r="${ref}"${s}><v>${v}</v></c>` : `<c r="${ref}" t="inlineStr"${s}><is><t xml:space="preserve">${escX(v ?? '')}</t></is></c>`;
+  }).join('') + '</row>').join('');
+  const anchos = filas[0].map((_, c) => Math.min(80, Math.max(8, ...filas.map(f => String(f[c] ?? '').split('\n')[0].length + 2))));
+  const cols = '<cols>' + anchos.map((w, c) => `<col min="${c + 1}" max="${c + 1}" width="${w}" customWidth="1"/>`).join('') + '</cols>';
+  return `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><sheetViews><sheetView workbookViewId="0"><pane ySplit="1" topLeftCell="A2" activePane="bottomLeft" state="frozen"/></sheetView></sheetViews>${cols}<sheetData>${filasXML}</sheetData></worksheet>`;
+}
+function exportar() {
+  const V = VERSIONES[sel.value] || {};
+  const resumen = [['Alumno/a', 'Versión', 'CE a', 'CE b', 'CE c', 'CE d', 'CE e', 'CE f', 'Media', 'Bloques a revisar']];
+  const det = [['Alumno/a', 'Bloque', 'CE', 'Comprobación', 'Puntos', 'Máximo', 'Estado', 'Detalle']];
+  const dev = [['Alumno/a', 'Comentario para Moodle']];
+  for (const r of resultados) {
+    resumen.push([r.alumno, r.version, ...[0, 1, 2, 3, 4, 5].map(k => r.bloques[k] ? r.bloques[k].nota : 0), r.media, r.bloques.filter(b => b.revisar).map(b => b.n).join(', ')]);
+    for (const b of r.bloques) for (const i of b.items) det.push([r.alumno, b.n, b.ce, i.texto, i.pts, i.max, i.estado, i.detalle]);
+    dev.push([r.alumno, devolucion(r)]);
+  }
+  const hojas = [['Resumen', resumen], ['Detalle', det], ['Devolución', dev]];
+  const ct = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/><Override PartName="/xl/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml"/>${hojas.map((_, i) => `<Override PartName="/xl/worksheets/sheet${i + 1}.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/>`).join('')}</Types>`;
+  const rels = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/></Relationships>`;
+  const wb = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets>${hojas.map(([n], i) => `<sheet name="${n}" sheetId="${i + 1}" r:id="rId${i + 1}"/>`).join('')}</sheets></workbook>`;
+  const wbr = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">${hojas.map((_, i) => `<Relationship Id="rId${i + 1}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet${i + 1}.xml"/>`).join('')}<Relationship Id="rId${hojas.length + 1}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>`;
+  const estilos = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><fonts count="2"><font><sz val="11"/><name val="Calibri"/></font><font><b/><sz val="11"/><name val="Calibri"/></font></fonts><fills count="2"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill></fills><borders count="1"><border/></borders><cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs><cellXfs count="2"><xf fontId="0" fillId="0" borderId="0" xfId="0"/><xf fontId="1" fillId="0" borderId="0" xfId="0" applyFont="1"/></cellXfs><cellStyles count="1"><cellStyle name="Normal" xfId="0" builtinId="0"/></cellStyles></styleSheet>`;
+  const blob = escribirZip([{ nombre: '[Content_Types].xml', datos: ct }, { nombre: '_rels/.rels', datos: rels }, { nombre: 'xl/workbook.xml', datos: wb },
+    { nombre: 'xl/_rels/workbook.xml.rels', datos: wbr }, { nombre: 'xl/styles.xml', datos: estilos },
+    ...hojas.map(([, f], i) => ({ nombre: `xl/worksheets/sheet${i + 1}.xml`, datos: hojaXML(f) }))]);
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([blob], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' }));
+  a.download = `notas-UT2-version-${sel.value}.xlsx`;
+  a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+}
+
+// ---------------------------------------------------------------- eventos
+const zona = $('#zona'), entrada = $('#entrada');
+zona.addEventListener('click', () => entrada.click());
+zona.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); entrada.click(); } });
+entrada.addEventListener('change', () => { procesar([...entrada.files]); entrada.value = ''; });
+zona.addEventListener('dragover', e => { e.preventDefault(); zona.classList.add('encima'); });
+zona.addEventListener('dragleave', () => zona.classList.remove('encima'));
+zona.addEventListener('drop', e => { e.preventDefault(); zona.classList.remove('encima'); procesar([...e.dataTransfer.files]); });
+$('#tabla').addEventListener('click', e => { const tr = e.target.closest('tr.alumno'); if (tr) detalle(+tr.dataset.i); });
+$('#tabla').addEventListener('keydown', e => { const tr = e.target.closest('tr.alumno'); if (tr && e.key === 'Enter') detalle(+tr.dataset.i); });
+$('#exportar').addEventListener('click', exportar);
+$('#limpiar').addEventListener('click', () => { resultados.length = 0; pintar(); $('#detalle').hidden = true; estado(''); $('#exportar').disabled = $('#limpiar').disabled = true; });
+if (!('DecompressionStream' in window)) estado('Este navegador es demasiado antiguo: usa Chrome, Edge o Firefox actualizados.');
+</script>
+</body>
+</html>

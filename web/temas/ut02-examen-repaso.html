@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Examen de repaso del Tema 2 · 0223 Aplicaciones ofimáticas</title>
+<link rel="stylesheet" href="../assets/estilo.css">
+<style>
+  .bloque-ex { margin: 1.6rem 0; }
+  .ce-etq { font-size: 0.85rem; font-weight: 600; color: #555; margin-left: 0.4rem; }
+  table.rub { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin: 0.8rem 0; }
+  table.rub th, table.rub td { border: 1px solid var(--linea); padding: 0.35rem 0.55rem; text-align: left; vertical-align: top; }
+  table.rub th { background: var(--acento-claro); color: var(--acento); }
+  table.rub td.n { text-align: right; width: 4.5rem; }
+  details.pista { border: 1px solid #c9b46a; background: #fffbea; border-radius: var(--radio); padding: 0.5rem 0.9rem; margin: 0.8rem 0; }
+  details.pista summary { cursor: pointer; font-weight: 700; color: #6b5300; }
+  details.pista h3 { font-size: 1rem; margin: 0.8rem 0 0.3rem; }
+  .pasos-repaso li { margin: 0.35rem 0; }
+  .boton { display: inline-block; margin: 0.3rem 0.4rem 0.3rem 0; padding: 0.5rem 0.9rem; border: 1px solid var(--acento); border-radius: var(--radio); font-weight: 600; }
+  .boton.principal { background: var(--acento); color: #fff; }
+  code { overflow-wrap: anywhere; }
+</style>
+<link rel="stylesheet" href="../assets/aula.css">
+<script defer src="../assets/aula.js"></script>
+</head>
+<body data-modulo="0223">
+<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0223 / Aplicaciones ofimáticas</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-como-usarlo">Cómo usarlo</a></li><li><a href="#apartado-hoja-de-ruta">Hoja de ruta</a></li><li><a href="#apartado-bloque-1">Bloque 1 · Personalizar Word · CE a · 10 puntos</a></li><li><a href="#apartado-bloque-2">Bloque 2 · La plantilla · CE b · 10 puntos</a></li><li><a href="#apartado-bloque-3">Bloque 3 · Tabla, imagen, captura y gráfico · CE c · 10 puntos</a></li><li><a href="#apartado-bloque-4">Bloque 4 · Importar, combinar y exportar · CE d · 10 puntos</a></li><li><a href="#apartado-bloque-5">Bloque 5 · Macros · CE e · 10 puntos</a></li><li><a href="#apartado-bloque-6">Bloque 6 · El manual · CE f · 10 puntos</a></li><li><a href="#apartado-preparar-el-zip">Preparar el zip</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1">
+
+  <header class="cab">
+    <p class="modulo">0223 · Aplicaciones ofimáticas · Tema 2</p>
+    <h1>Examen de repaso del Tema 2, con pistas y autocorrector</h1>
+    <p class="meta">1.º SMR · Curso 2026/2027 · 1.ª evaluación · Para practicar en casa · No cuenta para la nota</p>
+  </header>
+<nav class="subnav" aria-label="Apartados del tema 2"><a href="ut02.html">Portada del tema</a><a href="ut02.html#apartado-subtemas">Apuntes</a><a href="ut02-ejercicios.html">Ejercicios guiados</a><a href="ut02-ejercicios-reto-saboteado.html">Reto en equipo</a><a href="ut02-practicas.html">Prácticas de control</a><a href="ut02-examen-repaso.html" aria-current="page">Examen de repaso</a><a href="mapa-cinta.html">Mapa de Word</a></nav>
+
+  <div class="aviso">
+    <strong>Es igual que el examen, pero con otros datos.</strong> Mismos seis
+    bloques, mismos pasos y misma forma de corregir. Si lo sacas entero tú solo y
+    el autocorrector te da buena nota, vas preparado.
+  </div>
+
+  <section>
+    <h2 id="apartado-como-usarlo">Cómo usarlo</h2>
+    <ol class="pasos-repaso">
+      <li><strong>Descarga el material</strong> y descomprímelo en una carpeta <code>Examen_UT2</code>.</li>
+      <li><strong>Hazlo sin mirar las pistas</strong>, con el reloj en marcha: 2 h 30 min.</li>
+      <li>Si te atascas en un paso, abre la <strong>pista</strong> de ese bloque. Las pistas explican cómo se hace, qué errores son típicos y cómo comprobar que está bien.</li>
+      <li>Prepara el zip como en el examen y pásalo por el <strong>autocorrector</strong>: te dice, criterio a criterio, qué está bien y qué falta.</li>
+      <li>Corrige lo que falle y vuelve a pasarlo.</li>
+    </ol>
+    <p>
+      <a class="boton principal" href="../descargas/examen-repaso-ut2-material.zip">Material del examen de repaso (.zip)</a>
+      <a class="boton" href="../descargas/examen-repaso-ut2-enunciado.pdf">Enunciado en PDF, sin pistas</a>
+      <a class="boton" href="../herramientas/ut02-autocorrector.html">Autocorrector</a>
+    </p>
+    <p class="pie-fig"><em>El autocorrector funciona en tu navegador: tus archivos no se suben a ningún sitio. Hay cosas que no puede saber solo (por ejemplo, si la captura es de la ventana pedida): las marca con ⚑ y en el examen las revisa el profesor.</em></p>
+    <p class="pie-fig"><em>Necesitas Word en el ordenador: con Word en el navegador no se pueden grabar macros ni personalizar la cinta.</em></p>
+  </section>
+
+  <section>
+    <h2 id="apartado-hoja-de-ruta">Hoja de ruta</h2>
+<ol class="ruta">
+ <li>Bloque 1: pestaña, barra de acceso rápido y autocorrección (la exportación, al final).</li>
+ <li>Bloque 2: la plantilla y, desde ella, <code>manual.docx</code>.</li>
+ <li>Bloque 4, paso 1: importa el texto en <code>manual.docx</code>.</li>
+ <li>Bloque 3: tabla, imagen, captura y gráfico.</li>
+ <li>Bloque 6: títulos, portada, secciones, índice, pasos, referencias, nota al pie y autocorrección.</li>
+ <li>Bloque 5: las macros, y úsalas en el manual.</li>
+ <li>Bloque 4, resto: la carta combinada y el PDF.</li>
+ <li>Prepara el zip como en el examen (último apartado) y pásalo por el autocorrector.</li>
+</ol>
+    <div class="aviso">Guarda a menudo con <kbd>Ctrl</kbd>+<kbd>G</kbd>. Si un paso no te sale, sigue con el siguiente: cada bloque se puntúa por separado.</div>
+  </section>
+
+<section class="bloque-ex">
+
+<h2 id="apartado-bloque-1">Bloque 1 · Personalizar Word <span class="ce-etq">· CE a · 10 puntos</span></h2>
+<p>Todo se hace en <code>Archivo &gt; Opciones</code>.</p>
+<ol>
+  <li><strong>Pestaña.</strong> En <em>Personalizar cinta de opciones</em>, pulsa <strong>Nueva pestaña</strong>. Selecciona <em>Nueva pestaña (personalizada)</em>, pulsa <strong>Cambiar nombre</strong> y escribe <strong>tu nombre y tu primer apellido</strong> (por ejemplo, <em>Lucía Pérez</em>). Selecciona el <em>Nuevo grupo (personalizado)</em> que se ha creado dentro y cámbiale el nombre a <strong>Examen UT2</strong>.</li>
+  <li>Con ese grupo seleccionado, en <em>Comandos disponibles en</em> elige <strong>Todos los comandos</strong> y agrega estos tres: <strong>Insertar título</strong>, <strong>Insertar nota al pie</strong>, <strong>Referencia cruzada</strong>.</li>
+  <li><strong>Barra de acceso rápido.</strong> En <em>Barra de herramientas de acceso rápido</em>, con <em>Para todos los documentos (predeterminado)</em> arriba a la derecha, agrega <strong>Guardar como</strong> y <strong>Impresión rápida</strong> (búscalos también en <em>Todos los comandos</em>).</li>
+  <li><strong>Autocorrección.</strong> En <code>Revisión &gt; Opciones de Autocorrección</code>, pestaña <em>Autocorrección</em>: en <em>Reemplazar</em> escribe <code>cev</code>, en <em>Con</em> escribe <strong>Cerezo Eventos</strong> y pulsa <strong>Agregar</strong>. La usarás en el bloque 6.</li>
+  <li><strong>Exportar (al final del examen).</strong> En <em>Personalizar cinta de opciones</em>, abajo: <code>Importar o exportar &gt; Exportar todas las personalizaciones</code>. Guárdalo en <code>Examen_UT2</code> con el nombre <code>personalizacion.exportedUI</code> (Word propone otro nombre: cámbialo).</li>
+</ol>
+<div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="rub"><thead><tr><th>Se comprueba</th><th>Puntos</th><th>Obtenido</th></tr></thead><tbody><tr><td>Pestaña con tu nombre, el grupo y sus tres comandos</td><td class="n">3</td><td class="n"></td></tr><tr><td>Los dos comandos en la barra de acceso rápido</td><td class="n">2,5</td><td class="n"></td></tr><tr><td>Autocorrección usada en las tres marcas</td><td class="n">2</td><td class="n"></td></tr><tr><td>Personalización exportada en el archivo pedido</td><td class="n">2,5</td><td class="n"></td></tr></tbody></table></div>
+
+<details class="pista"><summary>Pistas del bloque 1 (ábrelas solo si te atascas)</summary>
+<h3>Cómo se hace</h3><ul><li>Los comandos solo se pueden agregar a un <strong>grupo personalizado</strong>, no directamente a la pestaña: selecciona el grupo antes de pulsar <em>Agregar</em>.</li><li>Si no encuentras un comando, en <em>Comandos disponibles en</em> elige <strong>Todos los comandos</strong>: salen por orden alfabético.</li></ul>
+<h3>Errores típicos</h3><ul><li>Exportar la personalización al principio y seguir cambiando cosas después: se exporta lo último.</li><li>Dejar el nombre que propone Word al exportar en vez de <code>personalizacion.exportedUI</code>.</li></ul>
+<h3>Comprueba</h3><ul><li>Cierra Opciones: la pestaña con tu nombre aparece en la cinta y sus tres botones funcionan.</li><li>En un documento cualquiera escribe la abreviatura de la autocorrección y un espacio: tiene que cambiar sola.</li></ul>
+</details>
+</section>
+<section class="bloque-ex">
+
+<h2 id="apartado-bloque-2">Bloque 2 · La plantilla <span class="ce-etq">· CE b · 10 puntos</span></h2>
+<p>Empieza con <code>Archivo &gt; Nuevo &gt; Documento en blanco</code>. Todo lo de este bloque se hace en ese documento, que después guardarás como plantilla.</p>
+<ol>
+  <li><strong>Márgenes</strong> (<code>Disposición &gt; Márgenes &gt; Márgenes personalizados</code>): superior e inferior <strong>2,5 cm</strong>; izquierdo y derecho <strong>3 cm</strong>. A4 vertical.</li>
+  <li><strong>Estilo Normal</strong> (clic derecho en <em>Normal</em>, en la galería de estilos &gt; <em>Modificar</em>): fuente <strong>Verdana</strong>, tamaño <strong>10</strong>. En <code>Formato &gt; Párrafo</code>: alineación <strong>Izquierda</strong>, interlineado <strong>Múltiple</strong> en <strong>1,15</strong>, espaciado <em>Posterior</em> <strong>6 pto</strong>. Deja marcado <em>Solo en este documento</em>.</li>
+  <li><strong>Título 1</strong> (<em>Modificar</em>): tamaño <strong>16</strong>, color <strong>RGB (112, 48, 160)</strong> (<code>Color de fuente &gt; Más colores &gt; Personalizado</code>, modelo RGB). En <code>Formato &gt; Párrafo &gt; Líneas y saltos de página</code>, marca <strong>Salto de página anterior</strong>. <strong>Título 2</strong>: tamaño <strong>13</strong>, color <strong>RGB (192, 0, 0)</strong>. El resto de su formato, como está.</li>
+  <li><strong>Estilo nuevo</strong> (panel <em>Estilos</em> con <kbd>Alt</kbd>+<kbd>Ctrl</kbd>+<kbd>Mayús</kbd>+<kbd>S</kbd> &gt; botón <em>Nuevo estilo</em>): nombre <strong>Nota de sala</strong>, tipo <em>Párrafo</em>, basado en <em>Normal</em>, estilo del párrafo siguiente <em>Normal</em>. En <code>Formato &gt; Borde</code>, elige primero el color y el ancho y después haz clic solo en el lado <strong>izquierdo</strong> de la vista previa: ancho <strong>3 pto</strong>, color <strong>RGB (112, 48, 160)</strong>; pestaña <em>Sombreado</em>, relleno <strong>RGB (242, 230, 249)</strong>, aplicar a <em>Párrafo</em>. En <code>Formato &gt; Párrafo</code>: sangría izquierda <strong>0,5 cm</strong>.</li>
+  <li><strong>Encabezado</strong> (<code>Insertar &gt; Encabezado &gt; En blanco</code>): escribe <strong>Cerezo Eventos - Manual de usuario</strong> y alinéalo a la derecha. <strong>Pie</strong>: <code>Insertar &gt; Número de página &gt; Final de página &gt; Página X de Y &gt; Números en negrita 2</code> (es el centrado).</li>
+  <li><strong>Guarda la plantilla</strong>: <code>Archivo &gt; Guardar como &gt; Examinar</code>, tipo <strong>Plantilla de Word habilitada para macros (*.dotm)</strong>, nombre <code>plantilla-manual.dotm</code>. Al cambiar el tipo, Word salta a otra carpeta: <strong>vuelve a tu carpeta <code>Examen_UT2</code></strong> y guárdala ahí. Cierra la plantilla.</li>
+  <li><strong>Crea el documento del examen</strong>: en el Explorador de archivos, entra en <code>Examen_UT2</code> y haz <strong>doble clic</strong> en <code>plantilla-manual.dotm</code>. Se abre un documento nuevo basado en ella (no la plantilla: en la barra de título pondrá <em>Documento1</em> o parecido). Guárdalo en <code>Examen_UT2</code> como <code>manual.docx</code> (tipo <em>Documento de Word</em>).</li>
+</ol>
+<div class="aviso"><strong>Si no consigues hacer la plantilla</strong>, haz doble clic en <code>plantilla-rescate.dotm</code> (está en la carpeta del material) y guarda el documento que se abre como <code>manual.docx</code>. Pierdes los puntos del bloque 2, pero puedes hacer el resto. En el bloque 5, guarda entonces las macros en <em>Documentos basados en plantilla-rescate.dotm</em>.</div>
+<div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="rub"><thead><tr><th>Se comprueba</th><th>Puntos</th><th>Obtenido</th></tr></thead><tbody><tr><td>Márgenes y estilo Normal con los valores pedidos</td><td class="n">2</td><td class="n"></td></tr><tr><td>Título 1 y Título 2 con los valores pedidos y el salto de página en el estilo</td><td class="n">2,5</td><td class="n"></td></tr><tr><td>Estilo nuevo con su nombre y su formato</td><td class="n">2</td><td class="n"></td></tr><tr><td>Encabezado y pie con Página X de Y</td><td class="n">2</td><td class="n"></td></tr><tr><td>manual.docx creado desde la plantilla</td><td class="n">1,5</td><td class="n"></td></tr></tbody></table></div>
+
+<details class="pista"><summary>Pistas del bloque 2 (ábrelas solo si te atascas)</summary>
+<h3>Cómo se hace</h3><ul><li>Al modificar un estilo, deja marcado <strong>Solo en este documento</strong>. Si marcas <em>Documentos nuevos basados en esta plantilla</em>, cambias el Normal de todos los documentos del ordenador.</li><li>Los colores RGB: <code>Más colores &gt; Personalizado</code>, <em>Modelo de color: RGB</em>, y escribes los tres números.</li><li><em>Salto de página anterior</em> va dentro del estilo (<code>Formato &gt; Párrafo &gt; Líneas y saltos de página</code>), no con <code>Insertar &gt; Salto de página</code>.</li></ul>
+<h3>Errores típicos</h3><ul><li>Poner el borde con el botón <em>Cuadro</em>: salen los cuatro lados. Hay que hacer clic solo en el lado izquierdo de la vista previa, después de elegir color y ancho.</li><li>Escribir «Página 1 de 5» a mano. Tienen que ser campos: al hacer clic se ponen grises.</li><li>Abrir la plantilla con clic derecho &gt; <em>Abrir</em>: eso edita la plantilla. Para crear un documento desde ella, <strong>doble clic</strong>.</li></ul>
+<h3>Comprueba</h3><ul><li>En <code>manual.docx</code> aparecen solos el encabezado, el pie y el estilo nuevo: eso es que se creó desde la plantilla.</li></ul>
+</details>
+</section>
+<section class="bloque-ex">
+
+<h2 id="apartado-bloque-3">Bloque 3 · Tabla, imagen, captura y gráfico <span class="ce-etq">· CE c · 10 puntos</span></h2>
+<p>En <code>manual.docx</code> hay cuatro marcas entre corchetes. Cada una se sustituye por lo que indica: <strong>borra la línea de la marca</strong> y pon en su lugar el elemento.</p>
+<ol>
+  <li><strong>Tabla</strong> <code>[TABLA: Salas disponibles]</code>. Debajo de la marca vienen los datos separados por tabulaciones (la primera línea son los nombres de columna).
+    <ul>
+      <li>Selecciona desde la línea de los nombres de columna hasta la última fila y usa <code>Insertar &gt; Tabla &gt; Convertir texto en tabla</code>, separando en <em>Tabulaciones</em>.</li>
+      
+      <li>Con el cursor en la fila de los nombres de columna: <code>Disposición</code> (pestaña de la tabla; en versiones antiguas, <em>Presentación</em>) <code>&gt; Datos &gt; Repetir filas de título</code>.</li>
+      <li><code>Disposición &gt; Datos &gt; Ordenar</code>: marca <strong>Con encabezado</strong> (abajo), ordena por <strong>Aforo</strong> (en <em>Tipo</em>, <strong>Número</strong>), <strong>ascendente</strong>.</li>
+      <li><code>Diseño de tabla</code>: elige un estilo de la galería (que no sea <em>Tabla con cuadrícula</em>) y deja marcada <strong>Filas con bandas</strong>.</li>
+    </ul></li>
+  <li><strong>Imagen</strong> <code>[IMAGEN: logo-cev.png]</code>. Hazlo en este orden:
+    <ul>
+      <li><code>Insertar &gt; Imágenes &gt; Este dispositivo</code> y elige <code>logo-cev.png</code> del material.</li>
+      <li><code>Formato de imagen &gt; Tamaño</code>: ancho <strong>6 cm</strong> (el alto cambia solo; si no, marca <em>Bloquear relación de aspecto</em> en el iniciador del grupo <em>Tamaño</em>).</li>
+      <li>Clic derecho &gt; <strong>Ver texto alternativo</strong> y escribe una frase que la describa.</li>
+      <li><code>Referencias &gt; Insertar título</code>: rótulo <strong>Figura</strong> (si no está en la lista, pulsa <em>Nuevo rótulo</em> y escríbelo), posición <em>Debajo de la selección</em>. Detrás de «Figura 1» escribe un texto, por ejemplo <em>: Logotipo de Cerezo Eventos</em>.</li>
+      <li>Al final, <code>Formato de imagen &gt; Ajustar texto &gt; Cuadrado</code>. (Si pones el ajuste antes del título, Word mete el título en un cuadro de texto).</li>
+    </ul></li>
+  <li><strong>Captura</strong> <code>[CAPTURA: …]</code>: una captura de la ventana Opciones de Word, apartado Personalizar cinta de opciones, con tu pestaña a la vista.
+    <ul>
+      <li>Abre esa ventana y haz la captura con <kbd>Windows</kbd>+<kbd>Mayús</kbd>+<kbd>S</kbd> (modo <em>Ventana</em>). Cierra la ventana y pégala en el lugar de la marca con <kbd>Ctrl</kbd>+<kbd>V</kbd>.</li>
+      <li><code>Formato de imagen &gt; Recortar</code>: recórtala en Word para que solo se vea la parte pedida.</li>
+      <li>Ponle título igual que a la imagen (rótulo <strong>Figura</strong>).</li>
+    </ul></li>
+  <li><strong>Gráfico</strong> <code>[GRÁFICO: Eventos celebrados en 2025]</code>. Debajo de la marca hay un párrafo que empieza por «Datos para el gráfico».
+    <ul>
+      <li><code>Insertar &gt; Gráfico &gt; Columna &gt; Columna agrupada</code>. En la hoja que se abre: categorías en la columna A, valores en la columna B y, en <strong>B1</strong>, el nombre de la serie: <strong>Eventos</strong>. Borra las columnas y filas de ejemplo que sobren y cierra la hoja.</li>
+      <li>Con el botón <strong>+</strong> del gráfico (<em>Elementos de gráfico</em>): <strong>Título del gráfico</strong> con el texto <em>Eventos celebrados en 2025</em>, <strong>Leyenda</strong> y <strong>Etiquetas de datos</strong>.</li>
+      <li>Borra el párrafo «Datos para el gráfico…».</li>
+    </ul></li>
+</ol>
+<div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="rub"><thead><tr><th>Se comprueba</th><th>Puntos</th><th>Obtenido</th></tr></thead><tbody><tr><td>Tabla convertida, encabezado repetido, ordenada y con estilo</td><td class="n">3,5</td><td class="n"></td></tr><tr><td>Imagen: ancho, ajuste, texto alternativo y título</td><td class="n">2,5</td><td class="n"></td></tr><tr><td>Captura recortada y con título</td><td class="n">1,5</td><td class="n"></td></tr><tr><td>Gráfico del tipo pedido, con sus datos, título, leyenda y etiquetas</td><td class="n">2,5</td><td class="n"></td></tr></tbody></table></div>
+
+<details class="pista"><summary>Pistas del bloque 3 (ábrelas solo si te atascas)</summary>
+<h3>Cómo se hace</h3><ul><li>Si al convertir el texto en tabla sale una sola columna, has elegido otro separador: tiene que ser <em>Tabulaciones</em>.</li><li>En <em>Ordenar</em>, si la columna tiene números, cambia el <em>Tipo</em> a <strong>Número</strong>: si no, Word ordena «120» delante de «45».</li><li>La hoja del gráfico trae datos de ejemplo con tres series. Borra las columnas C y D y ajusta el recuadro azul para que solo abarque tus datos.</li></ul>
+<h3>Errores típicos</h3><ul><li>Ordenar sin marcar <strong>Con encabezado</strong>: la fila de nombres de columna se mezcla con los datos.</li><li>Poner el ajuste <em>Cuadrado</em> antes del título de la imagen: el título acaba en un cuadro de texto.</li><li>Recortar la captura con Recortes antes de pegarla. Se tiene que <strong>recortar en Word</strong> (<code>Formato de imagen &gt; Recortar</code>): si no, Word no sabe que está recortada.</li></ul>
+<h3>Comprueba</h3><ul><li>El título de cada figura dice «Figura 1», «Figura 2»… y al hacer clic en el número se pone gris (es un campo).</li><li>Las etiquetas de datos son los números encima de cada barra o en cada porción.</li></ul>
+</details>
+</section>
+<section class="bloque-ex">
+
+<h2 id="apartado-bloque-4">Bloque 4 · Importar, combinar y exportar <span class="ce-etq">· CE d · 10 puntos</span></h2>
+<ol>
+  <li><strong>Importar.</strong> En <code>manual.docx</code>, con el cursor en el primer párrafo: <code>Insertar &gt; Objeto</code> (la flecha) <code>&gt; Texto de archivo</code> y elige <code>manual-sala-de-actos.odt</code>. Si no lo ves, cambia el tipo de archivo a <em>Todos los archivos</em>. No lo abras para copiar y pegar.</li>
+  <li><strong>Carta.</strong> Crea un documento en blanco y guárdalo en <code>Examen_UT2</code> como <code>carta.docx</code>. Escribe una carta corta de Cerezo Eventos que anuncie a sus clientes el nuevo manual.
+    <ul>
+      <li><code>Correspondencia &gt; Iniciar combinación de correspondencia &gt; Cartas</code>.</li>
+      <li><code>Seleccionar destinatarios &gt; Usar una lista existente</code>: <code>clientes.xlsx</code>, hoja <strong>Clientes</strong>, con <em>La primera fila de datos contiene encabezados de columna</em> marcado.</li>
+      <li><strong>Bloque de direcciones</strong> al principio. Pulsa <strong>Asignar campos</strong> y empareja: tratamiento → <code>Trato</code>, nombre → <code>Nombre</code>, apellido → <code>Apellidos</code>, compañía o empresa → <code>Empresa</code>, dirección 1 → <code>Calle</code>, ciudad → <code>Localidad</code>, provincia → <code>Provincia</code>, código postal → <code>CP</code>. Marca la opción de incluir el nombre de la compañía y comprueba en la vista previa que sale la dirección completa.</li>
+      <li><strong>Línea de saludo</strong> debajo (por ejemplo, <em>Estimado/a Sr. Pizarro:</em>).</li>
+      <li>En el texto, con <code>Insertar campo combinado</code>, los campos <code>Empresa</code> y <code>Equipos</code>. Por ejemplo: <em>Les enviamos el nuevo manual de la sala de actos para «Empresa». Recuerden que pueden traer hasta «Equipos» portátiles por evento.</em></li>
+    </ul></li>
+  <li><strong>Filtrar y ordenar.</strong> <code>Editar lista de destinatarios</code>, abajo <em>Filtrar</em>. En la pestaña <strong>Filtrar registros</strong>:
+    <ul><li>Campo <strong>Provincia</strong>, comparación <strong>Igual a</strong>, comparado con <strong>Cáceres</strong>.</li><li><strong>Y</strong> · Campo <strong>Email</strong>, comparación <strong>No está vacío</strong>.</li></ul>
+    En la pestaña <strong>Ordenar registros</strong>:
+    <ul><li><strong>Ordenar por</strong>: Sector, ascendente.</li><li><strong>Luego por</strong>: Empresa, ascendente.</li></ul>
+    No ordenes haciendo clic en las columnas de la lista: así solo se ordena por una.</li>
+  <li><code>Finalizar y combinar &gt; Editar documentos individuales &gt; Todos</code>. Guarda el documento nuevo que aparece como <code>cartas-combinadas.docx</code>. Guarda también <code>carta.docx</code>.</li>
+  <li><strong>Exportar.</strong> Al terminar el manual: <code>Archivo &gt; Guardar como</code>, tipo <strong>PDF</strong>, nombre <code>manual.pdf</code>. Antes de guardar, pulsa <strong>Opciones</strong> y marca <em>Crear marcadores usando: Títulos</em>.</li>
+</ol>
+<div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="rub"><thead><tr><th>Se comprueba</th><th>Puntos</th><th>Obtenido</th></tr></thead><tbody><tr><td>Contenido importado con Texto de archivo</td><td class="n">1</td><td class="n"></td></tr><tr><td>Asignar campos resuelto: bloque de direcciones completo y línea de saludo</td><td class="n">2</td><td class="n"></td></tr><tr><td>Los dos campos sueltos en el texto</td><td class="n">1,5</td><td class="n"></td></tr><tr><td>Filtro: salen exactamente las cartas que tocan</td><td class="n">2</td><td class="n"></td></tr><tr><td>Orden: las cartas salen en el orden pedido</td><td class="n">1,5</td><td class="n"></td></tr><tr><td>Documento combinado generado</td><td class="n">0,5</td><td class="n"></td></tr><tr><td>PDF del manual con marcadores</td><td class="n">1,5</td><td class="n"></td></tr></tbody></table></div>
+
+<details class="pista"><summary>Pistas del bloque 4 (ábrelas solo si te atascas)</summary>
+<h3>Cómo se hace</h3><ul><li><em>Texto de archivo</em> está en <code>Insertar</code>, grupo <em>Texto</em>, en la flechita del botón <em>Objeto</em>.</li><li>Si en la vista previa del bloque de direcciones falta la calle o la ciudad, vuelve a <em>Asignar campos</em>: hay alguno sin emparejar.</li><li>En el filtro, la comparación <em>No está vacío</em> no lleva valor: deja la casilla en blanco.</li></ul>
+<h3>Errores típicos</h3><ul><li>Abrir el .odt y copiar y pegar en vez de usar <em>Texto de archivo</em>.</li><li>Ordenar haciendo clic en las columnas de la lista de destinatarios: solo ordena por una columna.</li><li>Entregar solo <code>carta.docx</code>. <code>cartas-combinadas.docx</code> es el documento nuevo que aparece al finalizar la combinación; hay que guardarlo aparte.</li></ul>
+<h3>Comprueba</h3><ul><li>Con <code>Vista previa de resultados</code> recorre las cartas: ninguna es de fuera de la provincia ni de alguien sin correo, y salen en el orden pedido.</li><li>Abre <code>manual.pdf</code>: en el panel de marcadores del lector de PDF salen los títulos.</li></ul>
+</details>
+</section>
+<section class="bloque-ex">
+
+<h2 id="apartado-bloque-5">Bloque 5 · Macros <span class="ce-etq">· CE e · 10 puntos</span></h2>
+<p>Las dos macros se graban con <code>manual.docx</code> abierto: <code>Vista &gt; Macros &gt; Grabar macro</code>. En <em>Guardar macro en</em> elige siempre <strong>Documentos basados en plantilla-manual.dotm</strong>. Mientras grabas, el ratón no selecciona texto: usa el teclado.</p>
+<ol>
+  <li><strong><code>NotaSala</code></strong>. Pon el cursor en un párrafo vacío.
+    <ul>
+      <li>En <em>Grabar macro</em>, nombre <code>NotaSala</code>, pulsa <strong>Botón</strong>: selecciona la macro en la lista de la izquierda, <em>Agregar</em> y <em>Aceptar</em>. Empieza a grabar.</li>
+      <li>Graba: clic en el estilo <strong>Nota de sala</strong> de la galería, <kbd>Ctrl</kbd>+<kbd>N</kbd>, escribe <strong>Nota: </strong> (con el espacio final), <kbd>Ctrl</kbd>+<kbd>N</kbd> otra vez.</li>
+      <li><code>Vista &gt; Macros &gt; Detener grabación</code>. Después borra el párrafo de prueba que ha quedado escrito.</li>
+    </ul></li>
+  <li><strong><code>InsertarFechaCorta</code></strong>: inserta en la posición del cursor un campo con la fecha de hoy en formato corto (por ejemplo, 22/10/26) que se actualice solo.
+    <ul>
+      <li>En <em>Grabar macro</em>, nombre <code>InsertarFechaCorta</code>, pulsa <strong>Teclado</strong>. En <em>Guardar cambios en</em> elige <strong>plantilla-manual.dotm</strong>. Haz clic en <em>Nueva tecla de método abreviado</em>, pulsa la combinación (por ejemplo, <kbd>Alt</kbd>+<kbd>Ctrl</kbd>+<kbd>F</kbd>) y comprueba que debajo pone <em>Asignado actualmente a: [sin asignar]</em>; si no, prueba otra. <em>Asignar</em> y <em>Cerrar</em>.</li>
+      <li>Graba: <code>Insertar &gt; Fecha y hora</code>, idioma <em>Español (España)</em>, el formato pedido y <strong>Actualizar automáticamente</strong> marcado. <em>Aceptar</em> y detén la grabación.</li>
+    </ul></li>
+  <li><strong>Comentario.</strong> <kbd>Alt</kbd>+<kbd>F11</kbd>. A la izquierda, en el proyecto de la plantilla (<em>TemplateProject</em>), <code>Módulos &gt; NewMacros</code>. Justo debajo de cada línea <code>Sub …()</code> añade una línea que empiece por un apóstrofo con tu nombre y la fecha, por ejemplo <code>' Lucía Pérez - para casa</code>. Guarda con <kbd>Ctrl</kbd>+<kbd>G</kbd> y cierra el editor.</li>
+  <li><strong>Úsalas en el manual.</strong> En las dos marcas <code>[NOTA: …]</code>, borra solo el principio <code>[NOTA: </code> y el corchete final (el texto se queda), pon el cursor al principio del párrafo y pulsa el botón de <code>NotaSala</code>. En la portada, en el lugar de la fecha (borra antes el cuadro de fecha si lo trae), usa el atajo de <code>InsertarFechaCorta</code>.</li>
+  <li>En la <strong>última línea del manual</strong> escribe qué atajo has asignado, por ejemplo: <em>Atajo de InsertarFechaCorta: Alt+Ctrl+F</em>.</li>
+</ol>
+<div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="rub"><thead><tr><th>Se comprueba</th><th>Puntos</th><th>Obtenido</th></tr></thead><tbody><tr><td>NotaSala está en la plantilla, funciona y aplica el estilo</td><td class="n">3</td><td class="n"></td></tr><tr><td>InsertarFechaCorta está en la plantilla y funciona</td><td class="n">3</td><td class="n"></td></tr><tr><td>Botón de la macro en la barra de acceso rápido</td><td class="n">1,5</td><td class="n"></td></tr><tr><td>Atajo de teclado libre guardado en la plantilla</td><td class="n">1</td><td class="n"></td></tr><tr><td>Comentario con tu nombre en el código</td><td class="n">0,5</td><td class="n"></td></tr><tr><td>NotaSala usada en las dos marcas del manual</td><td class="n">1</td><td class="n"></td></tr></tbody></table></div>
+
+<details class="pista"><summary>Pistas del bloque 5 (ábrelas solo si te atascas)</summary>
+<h3>Cómo se hace</h3><ul><li>Si en <em>Guardar macro en</em> no aparece <em>Documentos basados en plantilla-manual.dotm</em>, es que <code>manual.docx</code> no se creó desde la plantilla (bloque 2).</li><li><kbd>Ctrl</kbd>+<kbd>N</kbd> activa y desactiva la negrita. Por eso se pulsa antes y después del texto.</li><li>Para el atajo, las combinaciones con <kbd>Alt</kbd>+<kbd>Ctrl</kbd>+letra suelen estar libres; las de <kbd>Ctrl</kbd>+letra casi nunca.</li></ul>
+<h3>Errores típicos</h3><ul><li>Olvidar el espacio detrás de los dos puntos en el texto de la macro.</li><li>Cerrar Word diciendo <em>No guardar</em> a la plantilla: las macros se pierden. Si Word no te pregunta, abre el editor de VBA, selecciona el proyecto de la plantilla y guarda con <kbd>Ctrl</kbd>+<kbd>G</kbd>.</li><li>Entregar solo el .docx: las macros no están en él, están en la plantilla. Por eso se entrega también el .dotm.</li></ul>
+<h3>Comprueba</h3><ul><li>En el editor de VBA, la línea del comentario sale en verde.</li><li>Pon el cursor en un párrafo nuevo y pulsa el botón de la macro: el párrafo cambia de estilo y aparece el texto en negrita.</li></ul>
+</details>
+</section>
+<section class="bloque-ex">
+
+<h2 id="apartado-bloque-6">Bloque 6 · El manual <span class="ce-etq">· CE f · 10 puntos</span></h2>
+<ol>
+  <li><strong>Títulos.</strong> Aplica <strong>Título 1</strong> a: <em>Introducción</em>, <em>Requisitos previos</em>, <em>Conectar el portátil al proyector</em>, <em>Evitar avisos durante la charla</em>, <em>Solución de problemas</em>, <em>Anexo: equipo del técnico</em>. Aplica <strong>Título 2</strong> a: <em>Salas disponibles</em>, <em>Qué necesitas</em>, <em>Problemas más frecuentes</em>, <em>Estadísticas de uso</em>. Después, con el cursor en un título: <code>Inicio &gt; Lista multinivel</code> y elige en la biblioteca la que muestra <em>1 Título 1, 1.1 Título 2</em> (la vinculada a los estilos).</li>
+  <li><strong>Portada.</strong> <code>Insertar &gt; Portada</code> y elige una. Escribe el título <em>Manual de usuario: proyector y presentaciones en la sala de actos</em> y tu nombre; la fecha la pondrás con la macro (bloque 5). Borra la línea del título que venía al principio del texto importado.</li>
+  <li><strong>Secciones y números de página.</strong> La portada tiene que ser la <strong>sección 1</strong>, sin número de página, y el resto la <strong>sección 2</strong>, numerada <strong>1, 2, 3…</strong> empezando en <strong>1</strong>.
+    <ul>
+      <li>Activa <code>Inicio &gt; Mostrar todo</code> (¶). Pon el cursor al principio de la página que va después de la portada y usa <code>Disposición &gt; Saltos &gt; Saltos de sección: Página siguiente</code>. Si queda una página en blanco, borra el <em>salto de página</em> que hay al final de la portada.</li>
+      <li>Doble clic en el pie de la primera página de la sección 2. En <em>Encabezado y pie de página</em>, desmarca <strong>Vincular al anterior</strong> y, si está marcada, <strong>Primera página diferente</strong>.</li>
+      <li><code>Número de página &gt; Formato del número de página</code>: formato <strong>1, 2, 3…</strong>, <em>Iniciar en</em> <strong>1</strong>.</li>
+      <li>Ve al pie de la portada y bórralo si tiene número (o marca allí <em>Primera página diferente</em>).</li>
+      <li>El pie dirá algo como <em>Página 1 de 9</em>: la Y cuenta todas las páginas, portada incluida. Es normal, no lo cambies.</li>
+    </ul></li>
+  <li><strong>Índice.</strong> Al principio de la sección 2, antes de <em>Introducción</em>: <code>Referencias &gt; Tabla de contenido &gt; Tabla automática 1</code>. Al final del examen: clic derecho en el índice &gt; <em>Actualizar campos &gt; Actualizar toda la tabla</em>.</li>
+  <li><strong>Pasos.</strong> Selecciona las líneas del procedimiento <em>Conectar el portátil al proyector</em> y pulsa <code>Inicio &gt; Numeración</code>. Haz lo mismo con las de <em>Evitar avisos durante la charla</em>; si siguen la cuenta anterior, clic derecho en el primer número &gt; <strong>Reiniciar en 1</strong>.</li>
+  <li><strong>Referencia a la figura.</strong> En <em>Introducción</em>, en la frase «En la figura puedes ver…», borra la palabra <em>figura</em> y en su lugar usa <code>Referencias &gt; Referencia cruzada</code>: tipo <em>Figura</em>, referencia a <strong>Solo rótulo y número</strong>, la figura del logotipo. Tiene que quedar: «En la Figura 1 puedes ver…».</li>
+  <li><strong>Referencia a la página.</strong> En la frase «…consulta el apartado Solución de problemas.», antes del punto escribe <em>(página </em>, inserta una referencia cruzada de tipo <em>Título</em>, referencia a <strong>Número de página</strong>, el título <em>Solución de problemas</em>, y cierra el paréntesis. Tiene que quedar, por ejemplo: «…consulta el apartado Solución de problemas (página 5).»</li>
+  <li><strong>Nota al pie.</strong> Pon el cursor justo detrás de «mando del proyector» y usa <code>Referencias &gt; Insertar nota al pie</code> con el texto: <em>Si el mando no funciona, cambia las pilas: hay de repuesto en recepción.</em></li>
+  <li><strong>Autocorrección.</strong> En las tres marcas <code>[cev]</code> (están en <em>Introducción</em>, en <em>Problemas más frecuentes</em> y en <em>Anexo: equipo del técnico</em>), borra la marca entera, corchetes incluidos, escribe <code>cev</code> y pulsa la barra espaciadora.</li>
+</ol>
+<div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="rub"><thead><tr><th>Se comprueba</th><th>Puntos</th><th>Obtenido</th></tr></thead><tbody><tr><td>Títulos con sus estilos y numeración multinivel</td><td class="n">2</td><td class="n"></td></tr><tr><td>Portada y secciones con la numeración pedida</td><td class="n">2</td><td class="n"></td></tr><tr><td>Tabla de contenido automática y actualizada</td><td class="n">1,5</td><td class="n"></td></tr><tr><td>Pasos con numeración automática que vuelve a 1</td><td class="n">1,5</td><td class="n"></td></tr><tr><td>Referencia cruzada a la figura y al número de página del apartado</td><td class="n">2</td><td class="n"></td></tr><tr><td>Nota al pie</td><td class="n">1</td><td class="n"></td></tr></tbody></table></div>
+
+<details class="pista"><summary>Pistas del bloque 6 (ábrelas solo si te atascas)</summary>
+<h3>Cómo se hace</h3><ul><li>La lista multinivel tiene que ser la de la biblioteca que muestra <em>Título 1</em> y <em>Título 2</em>. Si eliges otra, los títulos no se numeran.</li><li>Con <code>Mostrar todo</code> (¶) activado verás la línea <em>Salto de sección (página siguiente)</em>: así sabes dónde empieza la sección 2.</li><li>Referencias cruzadas, índice y números de página son <strong>campos</strong>: si cambias algo, clic derecho &gt; <em>Actualizar campos</em>.</li></ul>
+<h3>Errores típicos</h3><ul><li>No desmarcar <em>Vincular al anterior</em>: al cambiar el formato o borrar el pie de una sección, cambia también en la otra.</li><li>Numerar los pasos a mano («1.», «2.»…) en vez de con el botón <em>Numeración</em>.</li><li>Escribir «Figura 1» o «página 5» a mano en vez de insertar la referencia cruzada.</li></ul>
+<h3>Comprueba</h3><ul><li>El índice no dice «No se encontraron entradas»: si lo dice, los títulos no tienen sus estilos.</li><li>Con <kbd>Ctrl</kbd>+clic en una referencia cruzada, Word salta a la figura o al apartado.</li><li>La portada no tiene número y la página siguiente empieza en 1.</li></ul>
+</details>
+</section>
+
+  <section>
+    <h2 id="apartado-preparar-el-zip">Preparar el zip</h2>
+    
+<ol>
+ <li>Actualiza el índice, guarda <code>manual.docx</code> y exporta <code>manual.pdf</code> (bloque 4).</li>
+ <li>Exporta la personalización a <code>Examen_UT2</code> (bloque 1).</li>
+ <li><strong>Cierra Word del todo.</strong> Si pregunta si quieres guardar los cambios en <code>plantilla-manual.dotm</code>, responde <strong>Guardar</strong>: así las macros quedan dentro de la plantilla.</li>
+ <li>En <code>Examen_UT2</code>, selecciona estos archivos, clic derecho &gt; <code>Comprimir en &gt; Archivo ZIP</code> y llámalo <code>Apellido_Nombre_UT2.zip</code> (sin tildes, eñes ni espacios):
+  <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="rub"><tbody>
+   <tr><td><code>personalizacion.exportedUI</code></td><td>Bloque 1</td></tr>
+   <tr><td><code>plantilla-manual.dotm</code> (o <code>plantilla-rescate.dotm</code>, de la carpeta del material, si la usaste)</td><td>Bloques 2 y 5</td></tr>
+   <tr><td><code>manual.docx</code> y <code>manual.pdf</code></td><td>Bloques 3, 4, 5 y 6</td></tr>
+   <tr><td><code>carta.docx</code> y <code>cartas-combinadas.docx</code></td><td>Bloque 4</td></tr>
+  </tbody></table></div></li>
+ <li>Pásalo por el <a href="../herramientas/ut02-autocorrector.html">autocorrector</a>. En el examen, este zip es lo que subes a Moodle.</li>
+</ol>
+
+
+  </section>
+
+  <nav class="nav-temas">
+    <a href="ut02-practicas.html">&laquo; Prácticas de control</a>
+    <a href="ut02.html">Índice del Tema 2</a>
+    <a href="../herramientas/ut02-autocorrector.html">Autocorrector &raquo;</a>
+  </nav>
+
+  <footer class="pie">
+    <p>0223 Aplicaciones ofimáticas · Material de consulta del alumnado.
+    Currículo: Decreto 272/2009 (Extremadura).</p>
+  </footer>
+
+</main></div>
+</body>
+</html>
