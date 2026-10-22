@@ -61,10 +61,11 @@ Al crear o modificar un tema en `temario/` hay que: (1) generar/actualizar
   3.6) con GIMP 3 como editor y un **laboratorio de imagen** propio
   (`web/temas/laboratorio-imagen.html`) para los conceptos. Ejercicios guiados
   con el hilo de una banda o un estudio de videojuegos. Publicados: 3.1 a
-  3.3, laboratorio (6 herramientas: visor de metadatos EXIF e histograma y
-  niveles incluidos) y bloques 3.1 a 3.3 de ejercicios. Las fotos de práctica
-  son inventadas y se generan con `scripts/generar_fotos_retoque.py` y
-  `scripts/generar_documento_fotografiado.py`.
+  3.4, laboratorio (7 herramientas: metadatos EXIF, histograma y niveles, capas
+  y modos de fusión, entre otras) y bloques 3.1 a 3.4 de ejercicios. Las
+  imágenes de práctica son inventadas y se generan con
+  `scripts/generar_fotos_retoque.py`, `scripts/generar_documento_fotografiado.py`
+  y `scripts/generar_material_capas.py`.
 - Resto de temas (4 a 10): pendientes.
 
 ## Navegación del aula
