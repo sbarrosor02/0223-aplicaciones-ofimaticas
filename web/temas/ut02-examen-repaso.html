@@ -19,6 +19,43 @@
   .boton { display: inline-block; margin: 0.3rem 0.4rem 0.3rem 0; padding: 0.5rem 0.9rem; border: 1px solid var(--acento); border-radius: var(--radio); font-weight: 600; }
   .boton.principal { background: var(--acento); color: #fff; }
   code { overflow-wrap: anywhere; }
+  .comp { border: 1px dashed var(--acento); border-radius: var(--radio); padding: 0.5rem 0.9rem; margin: 0.8rem 0; }
+  .comp ul { list-style: none; padding-left: 0.2rem; margin: 0.3rem 0 0; }
+
+ .fig { border: 1px solid #b7c2ce; border-radius: 4px; background: #f7f9fb; padding: 3mm; margin: 2.5mm 0 3mm; break-inside: avoid; }
+ .fig > .fig-tit { font-size: 9pt; font-weight: 700; color: #1f3a5f; margin: 0 0 2mm; }
+ .fig > .fig-tit::before { content: "Así debe quedar · "; color: #b06d00; }
+ .fig .nota-fig { font-size: 8pt; color: #555; margin: 1.5mm 0 0; }
+ .fig-fila { display: flex; gap: 5mm 4mm; flex-wrap: wrap; align-items: flex-start; }
+ .fig-fila > .hoja { margin-top: 4mm; }
+ .hoja { box-sizing: border-box; background: #fff; border: 1px solid #9aa5b1; box-shadow: 1px 1px 0 #c9d1da; width: 62mm; min-height: 84mm; padding: 5mm 5mm 9mm; position: relative; font-size: 6.4pt; line-height: 1.35; color: #222; }
+ .hoja.ancha { width: 100%; min-height: 0; padding-bottom: 5mm; }
+ .hoja .cab-h { text-align: right; color: #777; font-size: 5.6pt; border-bottom: 1px dashed #ddd; padding-bottom: 1mm; margin-bottom: 2mm; }
+ .hoja .pie-h { position: absolute; left: 0; right: 0; bottom: 2.5mm; text-align: center; font-size: 5.6pt; color: #555; }
+ .hoja .pie-h b { color: #222; }
+ .hoja p { margin: 0 0 1.3mm; }
+ .hoja p, .hoja li, .hoja ol, .hoja td, .hoja th, .hoja div { font-size: inherit; line-height: inherit; max-width: none; }
+ .hoja .campo { background: #e3e3e3; }
+ .hoja .etq-h { position: absolute; top: -3.2mm; left: 0; font-size: 6pt; color: #1f3a5f; font-weight: 700; }
+ .cinta { background: #fff; border: 1px solid #9aa5b1; font-family: "Segoe UI", Arial, sans-serif; font-size: 7.5pt; }
+ .cinta .qat { background: #2b579a; color: #fff; padding: 1mm 2mm; display: flex; flex-wrap: wrap; gap: 1mm 2mm; align-items: center; }
+ .cinta .qat span { border: 1px solid rgba(255,255,255,.6); border-radius: 2px; padding: 0 1.5mm; }
+ .cinta .pest { display: flex; flex-wrap: wrap; gap: 0 3.5mm; padding: 1mm 2mm 0; border-bottom: 1px solid #ccc; }
+ .cinta .pest span { padding: 0.8mm 0; }
+ .cinta .pest .sel { border-bottom: 2px solid #2b579a; font-weight: 700; color: #2b579a; }
+ .cinta .grupos { display: flex; padding: 1.5mm 2mm; gap: 2mm; }
+ .cinta .grupo { border-right: 1px solid #ddd; padding: 0 3mm 0 0; text-align: center; }
+ .cinta .grupo .bots { display: flex; flex-wrap: wrap; gap: 2mm; }
+ .cinta .grupo .bot { border: 1px solid #c8d3e0; border-radius: 2px; padding: 1.5mm 2mm; background: #f3f6fa; }
+ .cinta .grupo .ng { font-size: 6.5pt; color: #555; margin-top: 1mm; }
+ .dlg { background: #fff; border: 1px solid #9aa5b1; font-family: "Segoe UI", Arial, sans-serif; font-size: 7.5pt; padding: 2mm 3mm; }
+ .dlg .t { font-weight: 700; margin-bottom: 1mm; }
+ .dlg table { width: auto; margin: 0; } .dlg td, .dlg th { border: 1px solid #ccd; padding: 0.6mm 2mm; font-size: 7.5pt; }
+ .vba { overflow-x: auto; background: #fff; border: 1px solid #9aa5b1; font-family: Consolas, "DejaVu Sans Mono", monospace; font-size: 7.5pt; padding: 2mm 3mm; white-space: pre; line-height: 1.4; }
+ .vba .c { color: #008000; } .vba .k { color: #00008b; } .vba .g { color: #888; font-style: italic; }
+ .carpeta { background: #fff; border: 1px solid #9aa5b1; font-family: "Segoe UI", Arial, sans-serif; font-size: 7.5pt; padding: 2mm 3mm; }
+ .carpeta div { padding: 0.4mm 0; }
+
 </style>
 <link rel="stylesheet" href="../assets/aula.css">
 <script defer src="../assets/aula.js"></script>
@@ -84,6 +121,14 @@
   <li><strong>Autocorrección.</strong> En <code>Revisión &gt; Opciones de Autocorrección</code>, pestaña <em>Autocorrección</em>: en <em>Reemplazar</em> escribe <code>cev</code>, en <em>Con</em> escribe <strong>Cerezo Eventos</strong> y pulsa <strong>Agregar</strong>. La usarás en el bloque 6.</li>
   <li><strong>Exportar (al final del examen).</strong> En <em>Personalizar cinta de opciones</em>, abajo: <code>Importar o exportar &gt; Exportar todas las personalizaciones</code>. Guárdalo en <code>Examen_UT2</code> con el nombre <code>personalizacion.exportedUI</code> (Word propone otro nombre: cámbialo).</li>
 </ol>
+<div class="fig"><p class="fig-tit">la cinta, la barra de acceso rápido y la autocorrección</p>
+<div class="cinta"><div class="qat">Barra de acceso rápido: <span>Guardar</span><span>Deshacer</span><span>Guardar como</span><span>Impresión rápida</span></div>
+<div class="pest"><span>Archivo</span><span>Inicio</span><span>Insertar</span><span>Disposición</span><span>Referencias</span><span>…</span><span class="sel">Lucía Pérez</span></div>
+<div class="grupos"><div class="grupo"><div class="bots"><div class="bot">Insertar título</div><div class="bot">Insertar nota al pie</div><div class="bot">Referencia cruzada</div></div><div class="ng">Examen UT2</div></div></div></div>
+<div class="fig-fila" style="margin-top:2mm"><div class="dlg"><div class="t">Autocorrección · Reemplazar texto mientras escribe</div>
+<table><tr><th>Reemplazar</th><th>Con</th></tr><tr><td><code>cev</code></td><td>Cerezo Eventos</td></tr></table></div></div>
+<p class="nota-fig">La pestaña lleva <strong>tu</strong> nombre y primer apellido; aquí, uno de ejemplo. Los botones pueden salir con icono y en otro orden.</p></div>
+<div class="comp"><strong>Comprueba antes de seguir:</strong><ul><li>☐ La pestaña con tu nombre aparece en la cinta y al pulsar sus tres botones se abre lo que toca.</li><li>☐ En la barra de acceso rápido (arriba del todo) están Guardar como y Impresión rápida.</li><li>☐ En un documento cualquiera, al escribir <code>cev</code> y un espacio sale <strong>Cerezo Eventos</strong>.</li></ul></div>
 <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="rub"><thead><tr><th>Se comprueba</th><th>Puntos</th><th>Obtenido</th></tr></thead><tbody><tr><td>Pestaña con tu nombre, el grupo y sus tres comandos</td><td class="n">3</td><td class="n"></td></tr><tr><td>Los dos comandos en la barra de acceso rápido</td><td class="n">2,5</td><td class="n"></td></tr><tr><td>Autocorrección usada en las tres marcas</td><td class="n">2</td><td class="n"></td></tr><tr><td>Personalización exportada en el archivo pedido</td><td class="n">2,5</td><td class="n"></td></tr></tbody></table></div>
 
 <details class="pista"><summary>Pistas del bloque 1 (ábrelas solo si te atascas)</summary>
@@ -106,6 +151,21 @@
   <li><strong>Crea el documento del examen</strong>: en el Explorador de archivos, entra en <code>Examen_UT2</code> y haz <strong>doble clic</strong> en <code>plantilla-manual.dotm</code>. Se abre un documento nuevo basado en ella (no la plantilla: en la barra de título pondrá <em>Documento1</em> o parecido). Guárdalo en <code>Examen_UT2</code> como <code>manual.docx</code> (tipo <em>Documento de Word</em>).</li>
 </ol>
 <div class="aviso"><strong>Si no consigues hacer la plantilla</strong>, haz doble clic en <code>plantilla-rescate.dotm</code> (está en la carpeta del material) y guarda el documento que se abre como <code>manual.docx</code>. Pierdes los puntos del bloque 2, pero puedes hacer el resto. En el bloque 5, guarda entonces las macros en <em>Documentos basados en plantilla-rescate.dotm</em>.</div>
+<div class="fig"><p class="fig-tit">una página de la plantilla con texto de prueba</p>
+<div class="fig-fila"><div class="hoja" style="font-family:Verdana, "DejaVu Sans", sans-serif">
+<div class="cab-h">Cerezo Eventos - Manual de usuario</div>
+<p style="font-size:9.3pt;color:#7030A0;font-weight:600;margin-top:2mm">Título 1 de prueba</p>
+<p style="font-size:7.6pt;color:#C00000;font-weight:600">Título 2 de prueba</p>
+<p style="font-size:5.8pt;text-align:left;line-height:1.38">Párrafo con el estilo Normal: Verdana 10, alineación a la izquierda, interlineado 1,15 y 6 pto de espacio detrás.</p>
+<p style="font-size:5.8pt;background:#F2E6F9;border-left:1.0mm solid #7030A0;margin-left:1.1mm;padding:0.6mm 1.2mm">Párrafo con el estilo Nota de sala.</p>
+<div class="pie-h">Página <b>1</b> de <b>1</b></div></div>
+<div style="flex:1;min-width:60mm;font-size:8.5pt">
+<p style="margin-top:0">Fíjate en:</p><ul>
+<li>El encabezado, a la derecha; el pie, centrado.</li>
+<li>Título 1 y Título 2 con su color y su tamaño.</li>
+<li>El estilo nuevo: fondo de color, borde <strong>solo a la izquierda</strong> y el párrafo algo metido hacia la derecha.</li>
+<li>Escribe estos textos de prueba para ver que todo funciona y <strong>bórralos</strong> antes de guardar la plantilla.</li></ul></div></div></div>
+<div class="comp"><strong>Comprueba antes de seguir:</strong><ul><li>☐ <code>plantilla-manual.dotm</code> está en <code>Examen_UT2</code>.</li><li>☐ En <code>manual.docx</code> salen solos el encabezado, el pie «Página 1 de 1» y el estilo nuevo en la galería de estilos.</li><li>☐ Si escribes un párrafo y le pones Título 1, salta solo a la página siguiente.</li></ul></div>
 <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="rub"><thead><tr><th>Se comprueba</th><th>Puntos</th><th>Obtenido</th></tr></thead><tbody><tr><td>Márgenes y estilo Normal con los valores pedidos</td><td class="n">2</td><td class="n"></td></tr><tr><td>Título 1 y Título 2 con los valores pedidos y el salto de página en el estilo</td><td class="n">2,5</td><td class="n"></td></tr><tr><td>Estilo nuevo con su nombre y su formato</td><td class="n">2</td><td class="n"></td></tr><tr><td>Encabezado y pie con Página X de Y</td><td class="n">2</td><td class="n"></td></tr><tr><td>manual.docx creado desde la plantilla</td><td class="n">1,5</td><td class="n"></td></tr></tbody></table></div>
 
 <details class="pista"><summary>Pistas del bloque 2 (ábrelas solo si te atascas)</summary>
@@ -148,6 +208,18 @@
       <li>Borra el párrafo «Datos para el gráfico…».</li>
     </ul></li>
 </ol>
+<div class="fig"><p class="fig-tit">la tabla, la imagen con su título y el gráfico</p>
+<div class="hoja ancha" style="font-family:Calibri, Carlito, sans-serif;font-size:7.5pt">
+<table style="font-size:7.5pt;width:auto"><tr><th style="background:#4472c4;color:#fff">Sala</th><th style="background:#4472c4;color:#fff">Aforo</th><th style="background:#4472c4;color:#fff">Proyector</th><th style="background:#4472c4;color:#fff">Altavoces</th></tr><tr><td style="background:#d9e2f3">Sala de reuniones</td><td style="background:#d9e2f3">12</td><td style="background:#d9e2f3">Pantalla 65&quot;</td><td style="background:#d9e2f3">No</td></tr><tr><td style="background:#fff">Aula 2</td><td style="background:#fff">25</td><td style="background:#fff">LED 3000 lm</td><td style="background:#fff">No</td></tr><tr><td style="background:#d9e2f3">Aula 3</td><td style="background:#d9e2f3">28</td><td style="background:#d9e2f3">LED 3000 lm</td><td style="background:#d9e2f3">No</td></tr><tr><td style="background:#fff">Aula 1</td><td style="background:#fff">30</td><td style="background:#fff">LED 3000 lm</td><td style="background:#fff">No</td></tr><tr><td style="color:#999">…</td><td style="color:#999">…</td><td style="color:#999">…</td><td style="color:#999">…</td></tr></table>
+<p style="color:#555;font-size:7pt">Primera fila con los nombres de columna (se repite si la tabla pasa de página), filas con bandas de color y datos ordenados por <strong>Aforo</strong>, ascendente. Los colores dependen del estilo que elijas.</p>
+<div style="overflow:hidden;margin-top:2mm">
+<div style="float:left;width:30mm;margin:0 3mm 1mm 0;text-align:center"><img src="../assets/img/examen-repaso/logo-cev.png" style="width:30mm;border:1px solid #ddd" alt="Logotipo de ejemplo"><div style="font-size:6.8pt;color:#1f3a5f;font-style:italic">Figura 1: Logotipo de Cerezo Eventos</div></div>
+<p>El texto del manual rodea la imagen por los lados (ajuste <em>Cuadrado</em>) y el título va justo debajo de ella, con el número de figura. Este párrafo sigue a la derecha del logotipo y, cuando la imagen termina, continúa por debajo ocupando todo el ancho. Así se ve cuando el ajuste es correcto.</p>
+</div>
+<div style="margin-top:2mm"><svg viewBox="0 0 300 170" width="78mm" style="background:#fff;border:1px solid #9aa5b1" font-family="Calibri, Carlito, Arial, sans-serif"><text x="150.0" y="14" text-anchor="middle" font-size="10" font-weight="700">Eventos celebrados en 2025</text><line x1="30" y1="135" x2="290" y2="135" stroke="#999"/><rect x="46.2" y="75.6" width="32.5" height="59.4" fill="#4472c4"/><text x="62.5" y="72.6" text-anchor="middle" font-size="8">18</text><text x="62.5" y="145.0" text-anchor="middle" font-size="7">1.er trimestre</text><rect x="111.2" y="55.8" width="32.5" height="79.2" fill="#4472c4"/><text x="127.5" y="52.8" text-anchor="middle" font-size="8">24</text><text x="127.5" y="145.0" text-anchor="middle" font-size="7">2.º trimestre</text><rect x="176.2" y="98.7" width="32.5" height="36.3" fill="#4472c4"/><text x="192.5" y="95.7" text-anchor="middle" font-size="8">11</text><text x="192.5" y="145.0" text-anchor="middle" font-size="7">3.er trimestre</text><rect x="241.2" y="39.3" width="32.5" height="95.7" fill="#4472c4"/><text x="257.5" y="36.3" text-anchor="middle" font-size="8">29</text><text x="257.5" y="145.0" text-anchor="middle" font-size="7">4.º trimestre</text><rect x="125.0" y="158" width="8" height="8" fill="#4472c4"/><text x="137.0" y="165" font-size="8">Eventos</text></svg></div>
+<p style="color:#555;font-size:7pt">Gráfico con su título, la leyenda y un número en cada barra (etiquetas de datos).</p>
+</div></div>
+<div class="comp"><strong>Comprueba antes de seguir:</strong><ul><li>☐ Al hacer clic dentro de la tabla aparecen las pestañas de tabla: es una tabla de verdad.</li><li>☐ Al hacer clic en el número de «Figura 1» se pone gris: es un campo, no texto escrito.</li><li>☐ Al hacer clic en el gráfico aparecen las pestañas de gráfico: no es una imagen pegada.</li><li>☐ Ya no queda ninguna marca <code>[TABLA</code>, <code>[IMAGEN</code>, <code>[CAPTURA</code> ni <code>[GRÁFICO</code>.</li></ul></div>
 <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="rub"><thead><tr><th>Se comprueba</th><th>Puntos</th><th>Obtenido</th></tr></thead><tbody><tr><td>Tabla convertida, encabezado repetido, ordenada y con estilo</td><td class="n">3,5</td><td class="n"></td></tr><tr><td>Imagen: ancho, ajuste, texto alternativo y título</td><td class="n">2,5</td><td class="n"></td></tr><tr><td>Captura recortada y con título</td><td class="n">1,5</td><td class="n"></td></tr><tr><td>Gráfico del tipo pedido, con sus datos, título, leyenda y etiquetas</td><td class="n">2,5</td><td class="n"></td></tr></tbody></table></div>
 
 <details class="pista"><summary>Pistas del bloque 3 (ábrelas solo si te atascas)</summary>
@@ -177,6 +249,16 @@
   <li><code>Finalizar y combinar &gt; Editar documentos individuales &gt; Todos</code>. Guarda el documento nuevo que aparece como <code>cartas-combinadas.docx</code>. Guarda también <code>carta.docx</code>.</li>
   <li><strong>Exportar.</strong> Al terminar el manual: <code>Archivo &gt; Guardar como</code>, tipo <strong>PDF</strong>, nombre <code>manual.pdf</code>. Antes de guardar, pulsa <strong>Opciones</strong> y marca <em>Crear marcadores usando: Títulos</em>.</li>
 </ol>
+<div class="fig"><p class="fig-tit">una de las cartas combinadas y el cuadro Filtrar y ordenar</p>
+<div class="fig-fila"><div class="hoja" style="font-family:Calibri, Carlito, sans-serif;min-height:60mm">
+<p>Sra. Laura Ejemplo Ficticia<br>Empresa de Ejemplo S.L.<br>C/ Mayor 1<br>10600 Plasencia<br>Cáceres</p>
+<p>Estimada Sra. Ejemplo Ficticia:</p>
+<p>Les enviamos el nuevo manual de la sala de actos para <span class="campo">Empresa de Ejemplo S.L.</span>. Recuerden que pueden traer hasta <span class="campo">7</span> portátiles por evento.</p><p>Atentamente,<br>Cerezo Eventos</p></div>
+<div style="display:flex;flex-direction:column;gap:2mm">
+<div class="dlg"><div class="t">Filtrar registros</div><table><tr><th></th><th>Campo</th><th>Comparación</th><th>Comparado con</th></tr><tr><td></td><td>Provincia</td><td>Igual a</td><td>Cáceres</td></tr><tr><td>Y</td><td>Email</td><td>No está vacío</td><td></td></tr></table></div>
+<div class="dlg"><div class="t">Ordenar registros</div><table><tr><td>Ordenar por</td><td>Sector</td><td>Ascendente</td></tr><tr><td>Luego por</td><td>Empresa</td><td>Ascendente</td></tr></table></div></div></div>
+<p class="nota-fig">La carta es un ejemplo con datos inventados: las tuyas salen de <code>clientes.xlsx</code>. En gris, lo que viene de los campos combinados. En <code>cartas-combinadas.docx</code> hay una carta por cliente, una detrás de otra.</p></div>
+<div class="comp"><strong>Comprueba antes de seguir:</strong><ul><li>☐ En <code>Vista previa de resultados</code>, las cartas tienen la dirección completa (calle, código postal y localidad).</li><li>☐ Recorriendo las cartas con las flechas, todas cumplen el filtro y están en el orden pedido.</li><li>☐ Al abrir <code>manual.pdf</code>, el lector de PDF muestra los marcadores con los títulos.</li></ul></div>
 <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="rub"><thead><tr><th>Se comprueba</th><th>Puntos</th><th>Obtenido</th></tr></thead><tbody><tr><td>Contenido importado con Texto de archivo</td><td class="n">1</td><td class="n"></td></tr><tr><td>Asignar campos resuelto: bloque de direcciones completo y línea de saludo</td><td class="n">2</td><td class="n"></td></tr><tr><td>Los dos campos sueltos en el texto</td><td class="n">1,5</td><td class="n"></td></tr><tr><td>Filtro: salen exactamente las cartas que tocan</td><td class="n">2</td><td class="n"></td></tr><tr><td>Orden: las cartas salen en el orden pedido</td><td class="n">1,5</td><td class="n"></td></tr><tr><td>Documento combinado generado</td><td class="n">0,5</td><td class="n"></td></tr><tr><td>PDF del manual con marcadores</td><td class="n">1,5</td><td class="n"></td></tr></tbody></table></div>
 
 <details class="pista"><summary>Pistas del bloque 4 (ábrelas solo si te atascas)</summary>
@@ -201,10 +283,23 @@
       <li>En <em>Grabar macro</em>, nombre <code>InsertarFechaCorta</code>, pulsa <strong>Teclado</strong>. En <em>Guardar cambios en</em> elige <strong>plantilla-manual.dotm</strong>. Haz clic en <em>Nueva tecla de método abreviado</em>, pulsa la combinación (por ejemplo, <kbd>Alt</kbd>+<kbd>Ctrl</kbd>+<kbd>F</kbd>) y comprueba que debajo pone <em>Asignado actualmente a: [sin asignar]</em>; si no, prueba otra. <em>Asignar</em> y <em>Cerrar</em>.</li>
       <li>Graba: <code>Insertar &gt; Fecha y hora</code>, idioma <em>Español (España)</em>, el formato pedido y <strong>Actualizar automáticamente</strong> marcado. <em>Aceptar</em> y detén la grabación.</li>
     </ul></li>
-  <li><strong>Comentario.</strong> <kbd>Alt</kbd>+<kbd>F11</kbd>. A la izquierda, en el proyecto de la plantilla (<em>TemplateProject</em>), <code>Módulos &gt; NewMacros</code>. Justo debajo de cada línea <code>Sub …()</code> añade una línea que empiece por un apóstrofo con tu nombre y la fecha, por ejemplo <code>' Lucía Pérez - para casa</code>. Guarda con <kbd>Ctrl</kbd>+<kbd>G</kbd> y cierra el editor.</li>
+  <li><strong>Comentario.</strong> <kbd>Alt</kbd>+<kbd>F11</kbd>. A la izquierda, en el proyecto de la plantilla (<em>TemplateProject</em>), <code>Módulos &gt; NewMacros</code>. Justo debajo de cada línea <code>Sub …()</code> añade una línea que empiece por un apóstrofo con tu nombre y la fecha, por ejemplo <code>' Lucía Pérez - dd/mm/aaaa</code>. Guarda con <kbd>Ctrl</kbd>+<kbd>G</kbd> y cierra el editor.</li>
   <li><strong>Úsalas en el manual.</strong> En las dos marcas <code>[NOTA: …]</code>, borra solo el principio <code>[NOTA: </code> y el corchete final (el texto se queda), pon el cursor al principio del párrafo y pulsa el botón de <code>NotaSala</code>. En la portada, en el lugar de la fecha (borra antes el cuadro de fecha si lo trae), usa el atajo de <code>InsertarFechaCorta</code>.</li>
   <li>En la <strong>última línea del manual</strong> escribe qué atajo has asignado, por ejemplo: <em>Atajo de InsertarFechaCorta: Alt+Ctrl+F</em>.</li>
 </ol>
+<div class="fig"><p class="fig-tit">una marca después de usar la macro, y el comentario en el editor de VBA</p>
+<div class="hoja ancha" style="font-family:Calibri, Carlito, sans-serif;font-size:7.5pt">
+<p style="color:#888">Antes: [NOTA: Si tu portátil no tiene salida HDMI, pide en recepción un adaptador USB-C a HDMI antes de la charla.]</p>
+<p style="background:#F2E6F9;border-left:1.0mm solid #7030A0;padding:0.8mm 1.5mm;margin-left:1.5mm"><strong>Nota: </strong>Si tu portátil no tiene salida HDMI, pide en recepción un adaptador USB-C a HDMI antes de la charla.</p></div>
+<div class="vba" style="margin-top:2mm"><span class="k">Sub</span> NotaSala()
+<span class="c">' Lucía Pérez - dd/mm/aaaa</span>          <span class="g">← la línea que añades tú</span>
+<span class="c">'</span>
+<span class="c">' NotaSala Macro</span>
+<span class="c">'</span>
+    <span class="g">(aquí, las líneas que ha grabado Word: no las toques)</span>
+<span class="k">End Sub</span></div>
+<p class="nota-fig">Lo mismo en la otra macro. Los comentarios salen en verde. Lo grabado no se cambia.</p></div>
+<div class="comp"><strong>Comprueba antes de seguir:</strong><ul><li>☐ En <code>Vista &gt; Macros &gt; Ver macros</code> salen las dos.</li><li>☐ El botón de la macro está en la barra de acceso rápido y el atajo inserta la fecha.</li><li>☐ Ya no queda ninguna marca <code>[NOTA</code>.</li></ul></div>
 <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="rub"><thead><tr><th>Se comprueba</th><th>Puntos</th><th>Obtenido</th></tr></thead><tbody><tr><td>NotaSala está en la plantilla, funciona y aplica el estilo</td><td class="n">3</td><td class="n"></td></tr><tr><td>InsertarFechaCorta está en la plantilla y funciona</td><td class="n">3</td><td class="n"></td></tr><tr><td>Botón de la macro en la barra de acceso rápido</td><td class="n">1,5</td><td class="n"></td></tr><tr><td>Atajo de teclado libre guardado en la plantilla</td><td class="n">1</td><td class="n"></td></tr><tr><td>Comentario con tu nombre en el código</td><td class="n">0,5</td><td class="n"></td></tr><tr><td>NotaSala usada en las dos marcas del manual</td><td class="n">1</td><td class="n"></td></tr></tbody></table></div>
 
 <details class="pista"><summary>Pistas del bloque 5 (ábrelas solo si te atascas)</summary>
@@ -234,6 +329,28 @@
   <li><strong>Nota al pie.</strong> Pon el cursor justo detrás de «mando del proyector» y usa <code>Referencias &gt; Insertar nota al pie</code> con el texto: <em>Si el mando no funciona, cambia las pilas: hay de repuesto en recepción.</em></li>
   <li><strong>Autocorrección.</strong> En las tres marcas <code>[cev]</code> (están en <em>Introducción</em>, en <em>Problemas más frecuentes</em> y en <em>Anexo: equipo del técnico</em>), borra la marca entera, corchetes incluidos, escribe <code>cev</code> y pulsa la barra espaciadora.</li>
 </ol>
+<div class="fig"><p class="fig-tit">la portada, el índice y dos páginas del manual</p>
+<div class="fig-fila">
+<div class="hoja" style="font-family:Calibri, Carlito, sans-serif"><span class="etq-h">Sección 1 · Portada</span>
+<div style="margin-top:18mm;font-size:10pt;font-weight:700;color:#1f3a5f">Manual de usuario: proyector y presentaciones en la sala de actos</div>
+<p style="margin-top:4mm">Lucía Pérez</p><p>dd/mm/aaaa <span style="color:#888">(fecha puesta con la macro)</span></p>
+<div class="pie-h" style="color:#aaa">(sin número de página)</div></div>
+<div class="hoja" style="font-family:Calibri, Carlito, sans-serif"><span class="etq-h">Sección 2 · Índice</span>
+<div class="cab-h">Cerezo Eventos - Manual de usuario</div>
+<p style="font-size:9pt;font-weight:600;color:#7030A0">Contenido</p><div style="display:flex;padding-left:0mm"><span>1 Introducción</span><span style="flex:1;border-bottom:1px dotted #999;margin:0 1mm 1mm"></span><span>2</span></div><div style="display:flex;padding-left:0mm"><span>2 Requisitos previos</span><span style="flex:1;border-bottom:1px dotted #999;margin:0 1mm 1mm"></span><span>3</span></div><div style="display:flex;padding-left:3mm"><span>2.1 Salas disponibles</span><span style="flex:1;border-bottom:1px dotted #999;margin:0 1mm 1mm"></span><span>3</span></div><div style="display:flex;padding-left:3mm"><span>2.2 Qué necesitas</span><span style="flex:1;border-bottom:1px dotted #999;margin:0 1mm 1mm"></span><span>3</span></div><div style="display:flex;padding-left:0mm"><span>3 Conectar el portátil al proyector</span><span style="flex:1;border-bottom:1px dotted #999;margin:0 1mm 1mm"></span><span>4</span></div><div style="display:flex;padding-left:0mm"><span>4 Evitar avisos durante la charla</span><span style="flex:1;border-bottom:1px dotted #999;margin:0 1mm 1mm"></span><span>5</span></div><div style="display:flex;padding-left:0mm"><span>5 Solución de problemas</span><span style="flex:1;border-bottom:1px dotted #999;margin:0 1mm 1mm"></span><span>6</span></div><div style="display:flex;padding-left:3mm"><span>5.1 Problemas más frecuentes</span><span style="flex:1;border-bottom:1px dotted #999;margin:0 1mm 1mm"></span><span>6</span></div><div style="display:flex;padding-left:3mm"><span>5.2 Estadísticas de uso</span><span style="flex:1;border-bottom:1px dotted #999;margin:0 1mm 1mm"></span><span>6</span></div><div style="display:flex;padding-left:0mm"><span>6 Anexo: equipo del técnico</span><span style="flex:1;border-bottom:1px dotted #999;margin:0 1mm 1mm"></span><span>7</span></div><div class="pie-h">Página <b>1</b> de <b>8</b></div></div>
+<div class="hoja" style="font-family:Calibri, Carlito, sans-serif"><span class="etq-h">Sección 2</span>
+<div class="cab-h">Cerezo Eventos - Manual de usuario</div>
+<p style="font-size:8pt;font-weight:600;color:#7030A0">1 Introducción</p><p>…</p><p>Cada procedimiento indica los pasos en orden. Si algo no funciona, consulta el apartado Solución de problemas (página <span class="campo">6</span>). En la <span class="campo">Figura 1</span> puedes ver el logotipo de la empresa, que aparece en todas las comunicaciones oficiales.</p><div class="pie-h">Página <b>2</b> de <b>8</b></div></div>
+<div class="hoja" style="font-family:Calibri, Carlito, sans-serif"><span class="etq-h">Sección 2</span>
+<div class="cab-h">Cerezo Eventos - Manual de usuario</div>
+<p style="font-size:8pt;font-weight:600;color:#7030A0">3 Conectar el portátil al proyector</p>
+<ol style="padding-left:4mm;margin:0"><li>Conecta el cable HDMI de la mesa al portátil.</li><li>Enciende el proyector con el mando y espera a que se vea la imagen de inicio.</li><li>En el portátil, pulsa Windows + P.</li><li>Elige Duplicar para ver lo mismo en la pantalla del portátil y en el proyector.</li><li>…</li></ol>
+<div style="position:absolute;bottom:8mm;left:5mm;right:5mm;border-top:1px solid #999;padding-top:0.8mm;font-size:5.6pt"><sup>1</sup> Si el mando no funciona, cambia las pilas: hay de repuesto en recepción.</div>
+<div class="pie-h">Página <b>4</b> de <b>8</b></div></div>
+</div>
+<p class="nota-fig">Los números de página son orientativos: dependen de cuánto ocupe cada parte. En gris, los <strong>campos</strong> (referencias cruzadas): al hacer clic en ellos se ponen grises en Word. La nota al pie no está en esta página en el manual real: va donde está la frase «mando del proyector». La numeración  empieza en la página del índice.</p>
+<p class="nota-fig">La frase de la nota al pie queda así: «…Trae tu portátil cargado y su cargador. El mando del proyector<sup>1</sup> está en el cajón de la mesa del ponente; devuélvelo allí al termi…»</p></div>
+<div class="comp"><strong>Comprueba antes de seguir:</strong><ul><li>☐ El índice muestra los títulos numerados (1, 1.1…) con sus páginas.</li><li>☐ La portada no tiene número y la página del índice tiene «1».</li><li>☐ Con <kbd>Ctrl</kbd>+clic en «Figura 1» o en el número de página de la referencia, Word salta a su destino.</li><li>☐ Ya no queda ninguna marca <code>[cev]</code>.</li></ul></div>
 <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="rub"><thead><tr><th>Se comprueba</th><th>Puntos</th><th>Obtenido</th></tr></thead><tbody><tr><td>Títulos con sus estilos y numeración multinivel</td><td class="n">2</td><td class="n"></td></tr><tr><td>Portada y secciones con la numeración pedida</td><td class="n">2</td><td class="n"></td></tr><tr><td>Tabla de contenido automática y actualizada</td><td class="n">1,5</td><td class="n"></td></tr><tr><td>Pasos con numeración automática que vuelve a 1</td><td class="n">1,5</td><td class="n"></td></tr><tr><td>Referencia cruzada a la figura y al número de página del apartado</td><td class="n">2</td><td class="n"></td></tr><tr><td>Nota al pie</td><td class="n">1</td><td class="n"></td></tr></tbody></table></div>
 
 <details class="pista"><summary>Pistas del bloque 6 (ábrelas solo si te atascas)</summary>
