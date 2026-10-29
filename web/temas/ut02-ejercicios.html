@@ -27,6 +27,8 @@
     <a href="ut02-practicas-taller.html">talleres T1 a T5</a>. Para aprobar el
     RA hay que entregarlos todos y superar al menos el 70 % de las tareas de
     trabajo diario.
+    Al final de cada bloque tienes un recuadro <em>Entrega</em> con los
+    archivos que tienes que entregar y cómo deben quedar.
   </div>
 
   <div class="tarjeta">
@@ -185,6 +187,43 @@
       partir del actual, dejando el original intacto: es como harás las copias
       <code>cv_v2</code>, la plantilla, etc. más adelante.</p>
     </div>
+
+    <section class="entrega" aria-labelledby="entrega-2-0">
+      <h3 id="entrega-2-0">Qué entregas del bloque 2.0</h3>
+      <p class="entrega-sub">Un archivo en tu carpeta <code>Tema2_CV</code>.</p>
+      <ul class="entrega-archivos"><li>cv_borrador.docx</li></ul>
+      <h4>Comprueba antes de entregar</h4>
+      <ul class="entrega-lista">
+        <li>Se llama exactamente <code>cv_borrador.docx</code> y está en <code>Tema2_CV</code> (no «Documento1» en Documentos).</li>
+        <li>Todo el texto está en estilo <em>Normal</em>, sin negritas, tamaños ni colores.</li>
+        <li>Con <kbd>Ctrl</kbd>+<kbd>(</kbd> ves un ¶ al final de cada apartado y una flecha ↵ entre las líneas de un mismo apartado.</li>
+        <li>Solo hay un bloque «Idiomas»: borraste las copias de prueba del 2.0.3 y la línea de prueba del 2.0.4.</li>
+      </ul>
+      <h4>Cómo debe quedar</h4>
+      <div class="entrega-ejemplos">
+        <figure class="bien">
+          <div class="hoja">
+            <p>Datos personales<span class="marca">¶</span></p>
+            <p>Nombre: Lucía Martín Sánchez<span class="marca">↵</span><br>Localidad: Cabezuela del Valle<span class="marca">↵</span><br>Contacto: lucia.martin@correo.es · 600 123 456<span class="marca">¶</span></p>
+            <p>Formación<span class="marca">¶</span></p>
+            <p>CFGM Sistemas Microinformáticos y Redes (en curso)<span class="marca">↵</span><br>ESO, IES Valle del Jerte<span class="marca">¶</span></p>
+            <p>Experiencia<span class="marca">¶</span></p>
+            <p>…</p>
+          </div>
+          <figcaption>con «Mostrar todo» activado: ¶ separa apartados y ↵ separa líneas dentro de un apartado.</figcaption>
+        </figure>
+        <figure class="mal">
+          <div class="hoja">
+            <p>Datos personales<span class="marca">¶</span></p>
+            <p>Nombre: Lucía Martín Sánchez<span class="marca">¶</span></p>
+            <p>Localidad: Cabezuela del Valle<span class="marca">¶</span></p>
+            <p>Contacto: lucia.martin@correo.es<span class="marca">¶</span></p>
+            <p><span class="marca">¶</span></p>
+          </div>
+          <figcaption>un Intro en cada línea y párrafos vacíos para separar. Así cada línea es un párrafo distinto.</figcaption>
+        </figure>
+      </div>
+    </section>
   </section>
 
   <section>
@@ -286,6 +325,40 @@
       pestaña) está activado y mueve el scroll: los dos se desplazan a la vez, y
       la diferencia de orden entre apartados salta a la vista.</li>
     </ol>
+
+    <section class="entrega" aria-labelledby="entrega-2-1">
+      <h3 id="entrega-2-1">Qué entregas del bloque 2.1</h3>
+      <p class="entrega-sub">Tu borrador corregido, la configuración exportada y la segunda versión.</p>
+      <ul class="entrega-archivos"><li>cv_borrador.docx</li><li>*.exportedUI</li><li>cv_v2.docx</li></ul>
+      <h4>Comprueba antes de entregar</h4>
+      <ul class="entrega-lista">
+        <li>En el borrador pone «Datos de contacto:», no «Contacto:».</li>
+        <li><kbd>F7</kbd> no encuentra ninguna falta: los nombres propios están agregados al diccionario.</li>
+        <li>Has cambiado al menos una palabra repetida de «Experiencia» por un sinónimo.</li>
+        <li>El archivo <code>.exportedUI</code> está en <code>Tema2_CV</code> y trae Ortografía y gramática, Sinónimos y Traducir en la barra de acceso rápido.</li>
+        <li><code>cv_v2.docx</code> tiene «Idiomas» delante de «Experiencia», con su contenido.</li>
+        <li>Has desmarcado «Usar caracteres comodín» al terminar.</li>
+      </ul>
+      <h4>Cómo debe quedar</h4>
+      <div class="entrega-ejemplos">
+        <figure>
+          <div class="hoja">
+            <p style="font-size:.85em;color:#555">Barra de acceso rápido</p>
+            <p>Guardar · Deshacer · Rehacer <b>│</b> <span class="campo">ABC✓</span> <span class="campo">Sinónimos</span> <span class="campo">Traducir</span></p>
+          </div>
+          <figcaption>los tres comandos nuevos a la derecha de Guardar, Deshacer y Rehacer. Los iconos exactos cambian según la versión de Word.</figcaption>
+        </figure>
+        <figure>
+          <div class="hoja">
+            <p><span class="marca">cv_borrador.docx</span></p>
+            <p>…</p><p>Experiencia<span class="marca">¶</span></p><p>…</p><p>Idiomas<span class="marca">¶</span></p>
+            <p style="margin-top:.4rem"><span class="marca">cv_v2.docx</span></p>
+            <p>…</p><p>Idiomas<span class="marca">¶</span></p><p>…</p><p>Experiencia<span class="marca">¶</span></p>
+          </div>
+          <figcaption>las dos versiones vistas en paralelo: solo cambia el orden de los apartados.</figcaption>
+        </figure>
+      </div>
+    </section>
   </section>
 
   <section>
@@ -464,6 +537,55 @@
         en <code>Párrafo &gt; Líneas y saltos de página</code>).</li>
       </ol>
     </div>
+
+    <section class="entrega" aria-labelledby="entrega-2-2">
+      <h3 id="entrega-2-2">Qué entregas del bloque 2.2</h3>
+      <p class="entrega-sub">El CV ya con formato y su versión en PDF.</p>
+      <ul class="entrega-archivos"><li>cv_v3.docx</li><li>cv.pdf</li></ul>
+      <h4>Comprueba antes de entregar</h4>
+      <ul class="entrega-lista">
+        <li>«Currículum vitae» tiene el estilo <em>Título</em> y los siete apartados el estilo <em>Título 1</em>. El panel de navegación los muestra todos.</li>
+        <li>Los apartados se numeran solos (1, 2, 3…) con la lista multinivel. Si haces clic en un número y se selecciona como texto, lo escribiste a mano.</li>
+        <li>Fuente legible a 11 pt; tu nombre en negrita, 16 pt y MAYÚSCULAS; la línea de contacto en cursiva; las fechas en negrita.</li>
+        <li>Objetivo profesional justificado, interlineado 1,15 y sangría en Formación y Experiencia.</li>
+        <li>Competencias con viñetas.</li>
+        <li>Idiomas alineados con <strong>una</strong> tabulación a 4 cm: con ¶ ves una sola flecha → entre idioma y nivel.</li>
+        <li>Tema aplicado, portada con título, autor y fecha, marca de agua BORRADOR y pie «Página X de Y».</li>
+        <li>La portada no lleva número de página.</li>
+      </ul>
+      <h4>Cómo debe quedar</h4>
+      <div class="entrega-ejemplos">
+        <figure class="bien">
+          <div class="panel-word">
+            <b>Navegación</b><br>1 Datos personales<br>2 Objetivo profesional<br>3 Formación<br>4 Experiencia<br>5 Competencias<br>6 Idiomas<br>7 Otros datos
+          </div>
+          <figcaption>el panel de navegación lista los apartados numerados.</figcaption>
+        </figure>
+        <figure class="mal">
+          <div class="panel-word">
+            <b>Navegación</b><br><i style="color:#666">Cree un panel de navegación interactivo para su documento…</i>
+          </div>
+          <figcaption>panel vacío: los títulos están en <em>Normal</em> con negrita puesta a mano.</figcaption>
+        </figure>
+        <figure>
+          <div class="hoja">
+            <p class="t1">6 Idiomas</p>
+            <div class="tabulada"><span>Español<span class="marca">→</span></span><span>nativo<span class="marca">↵</span></span><span>Inglés<span class="marca">→</span></span><span>B1<span class="marca">↵</span></span><span>Portugués<span class="marca">→</span></span><span>A2<span class="marca">¶</span></span></div>
+          </div>
+          <figcaption>idiomas con la tabulación a 4 cm, vistos con ¶ activado.</figcaption>
+        </figure>
+        <figure>
+          <div class="hoja">
+            <p><b>LUCÍA MARTÍN SÁNCHEZ</b></p>
+            <p><i style="color:#666">Datos de contacto: lucia.martin@correo.es · 600 123 456</i></p>
+            <p class="t1" style="margin-top:.4rem">4 Experiencia</p>
+            <p style="padding-left:1rem"><b>Julio 2025</b> Monitor de campamento, Ayto. de Cabezuela</p>
+            <p class="pie" style="margin-top:.5rem;font-style:normal;color:#666">Página 2 de 3</p>
+          </div>
+          <figcaption>cabecera, apartado con sangría y fecha en negrita, y pie con número de página.</figcaption>
+        </figure>
+      </div>
+    </section>
   </section>
 
   <section>
@@ -622,6 +744,48 @@
         texto</em>, de forma que tu nombre quede encima.</li>
       </ol>
     </div>
+
+    <section class="entrega" aria-labelledby="entrega-2-3">
+      <h3 id="entrega-2-3">Qué entregas del bloque 2.3</h3>
+      <p class="entrega-sub">El mismo <code>cv_v3.docx</code>, ahora con tabla, foto, captura y diagrama.</p>
+      <ul class="entrega-archivos"><li>cv_v3.docx</li></ul>
+      <h4>Comprueba antes de entregar</h4>
+      <ul class="entrega-lista">
+        <li>Competencias está en una tabla de 2 columnas y 5 filas, con fila de encabezado y un estilo de tabla, ordenada de la A a la Z. Ya no quedan las viñetas.</li>
+        <li>Tu foto mide unos 3 cm, no está deformada, lleva marco y ajuste <em>Cuadrado</em>, y está arriba a la derecha.</li>
+        <li>Hay un apartado «Proyectos» con estilo <em>Título 1</em>, una captura y una línea que explica qué se ve.</li>
+        <li>La foto y la captura tienen texto alternativo.</li>
+        <li>Debajo de la tabla hay un SmartArt de jerarquía con «Mis competencias» y tus tres áreas, sin cuadros vacíos.</li>
+        <li>Opcional: un gráfico de columnas con tu nivel del 1 al 10.</li>
+      </ul>
+      <h4>Cómo debe quedar</h4>
+      <div class="entrega-ejemplos">
+        <figure>
+          <div class="hoja" style="display:grid;grid-template-columns:1fr 3.6rem;gap:.6rem;align-items:start">
+            <div><p><b>LUCÍA MARTÍN SÁNCHEZ</b></p><p><i style="color:#666">Datos de contacto: lucia.martin@correo.es</i></p><p>Cabezuela del Valle</p></div>
+            <div style="height:4.5rem;border:3px solid white;outline:1px solid #ccc;background:linear-gradient(#cfd8e6,#9fb0c8)"></div>
+          </div>
+          <figcaption>foto con marco blanco y ajuste Cuadrado junto a tus datos.</figcaption>
+        </figure>
+        <figure>
+          <div class="hoja">
+            <table><tr><th>Competencia</th><th>Nivel</th></tr><tr><td>Atención al cliente</td><td>Medio</td></tr><tr><td>Montaje de equipos</td><td>Avanzado</td></tr><tr><td>Ofimática</td><td>Avanzado</td></tr><tr><td>Redes locales</td><td>Básico</td></tr></table>
+          </div>
+          <figcaption>tabla de competencias ordenada de la A a la Z por la primera columna.</figcaption>
+        </figure>
+        <figure>
+          <svg viewBox="0 0 300 110" width="100%" role="img" aria-label="Organigrama: Mis competencias con Hardware, Sistemas operativos y Ofimática debajo">
+            <rect x="100" y="6" width="100" height="30" rx="4" fill="#2f5496"/><text x="150" y="25" font-size="11" fill="#ffffff" text-anchor="middle" font-family="Calibri,sans-serif">Mis competencias</text>
+            <path d="M150 36 V52 M50 52 H250 M50 52 V68 M150 52 V68 M250 52 V68" stroke="#8a96a8" stroke-width="1.5" fill="none"/>
+            <rect x="8" y="68" width="84" height="30" rx="4" fill="#4472c4"/><text x="50" y="87" font-size="11" fill="#ffffff" text-anchor="middle" font-family="Calibri,sans-serif">Hardware</text>
+            <rect x="108" y="68" width="84" height="30" rx="4" fill="#4472c4"/><text x="150" y="82" font-size="10" fill="#ffffff" text-anchor="middle" font-family="Calibri,sans-serif">Sistemas</text><text x="150" y="93" font-size="10" fill="#ffffff" text-anchor="middle" font-family="Calibri,sans-serif">operativos</text>
+            <rect x="208" y="68" width="84" height="30" rx="4" fill="#4472c4"/><text x="250" y="87" font-size="11" fill="#ffffff" text-anchor="middle" font-family="Calibri,sans-serif">Ofimática</text>
+          </svg>
+          <figcaption>SmartArt de jerarquía: un nivel superior y tres subordinados.</figcaption>
+        </figure>
+      </div>
+      <p class="entrega-ojo"><strong>Fallo más común:</strong> la foto sigue «En línea con el texto» y no se deja mover, o la estiraste desde un tirador lateral y quedó deformada.</p>
+    </section>
   </section>
 
   <section>
@@ -838,6 +1002,63 @@
         aparece en el maestro.</li>
       </ol>
     </div>
+
+    <section class="entrega" aria-labelledby="entrega-2-4">
+      <h3 id="entrega-2-4">Qué entregas del bloque 2.4</h3>
+      <p class="entrega-sub">La plantilla, un CV creado con ella y el dossier con su índice.</p>
+      <ul class="entrega-archivos"><li>cv_plantilla.dotx</li><li>cv_v4.docx</li><li>dossier_v1.docx</li></ul>
+      <p class="entrega-ojo"><strong>La plantilla no está en tu carpeta.</strong> Word la guarda en la carpeta de plantillas personales. Para entregarla, en el Explorador abre <code>Documentos\Plantillas personalizadas de Office</code> y copia <code>cv_plantilla.dotx</code> a <code>Tema2_CV</code>. Cópiala, no la muevas: si la quitas de ahí, deja de salir en <em>Archivo › Nuevo › Personal</em>.</p>
+      <h4>Comprueba antes de entregar</h4>
+      <ul class="entrega-lista">
+        <li><code>cv_plantilla.dotx</code> es una plantilla de verdad (tipo .dotx al guardar) y lleva rótulos en lugar de tus datos.</li>
+        <li><code>cv_v4.docx</code> está creado desde la plantilla, con tus datos y con un apartado cambiado de sitio en la vista Esquema.</li>
+        <li>En el dossier, las secciones tienen <em>Título 1</em> y los subapartados <em>Título 2</em>. En Esquema a nivel 2 ves el índice del documento.</li>
+        <li>Cada sección empieza en página nueva gracias al estilo, no a saltos manuales.</li>
+        <li>La palabra «Índice» está en <em>Normal</em> y la tabla de contenido incluye el Proyecto 5 con sus números de página.</li>
+        <li>Hay al menos tres imágenes con título «Ilustración N», un índice de figuras, una referencia cruzada en Conclusiones y una nota al pie en el Proyecto 4.</li>
+        <li>Has actualizado la tabla de contenido al final.</li>
+      </ul>
+      <h4>Cómo debe quedar</h4>
+      <div class="entrega-ejemplos">
+        <figure>
+          <div class="hoja">
+            <p><b>NOMBRE Y APELLIDOS</b></p><p><i style="color:#666">Datos de contacto: Correo electrónico · Teléfono de contacto</i></p><p>Localidad</p>
+            <p class="t1" style="margin-top:.4rem">3 Formación</p><p style="padding-left:1rem"><b>Fecha</b> Titulación, centro</p>
+          </div>
+          <figcaption>la plantilla por dentro: mismo formato, rótulos en lugar de datos.</figcaption>
+        </figure>
+        <figure class="bien">
+          <div class="hoja indice">
+            <p>Índice</p>
+            <div>Presentación<span>2</span></div>
+            <div>Proyecto 1. Montaje de un equipo<span>3</span></div>
+            <div class="n2">Objetivo<span>3</span></div>
+            <div class="n2">Componentes utilizados<span>3</span></div>
+            <div>…<span></span></div>
+            <div>Proyecto 5. Mantenimiento preventivo<span>7</span></div>
+            <div>Conclusiones<span>8</span></div>
+            <div>Fuentes y recursos consultados<span>9</span></div>
+          </div>
+          <figcaption>tabla de contenido actualizada con el Proyecto 5. Tus números de página pueden ser otros.</figcaption>
+        </figure>
+        <figure class="mal">
+          <div class="hoja indice">
+            <div>Índice<span>1</span></div>
+            <div>Presentación<span>2</span></div>
+            <div>…<span></span></div>
+          </div>
+          <figcaption>el índice se incluye a sí mismo porque «Índice» tiene Título 1.</figcaption>
+        </figure>
+        <figure>
+          <div class="hoja">
+            <div class="imagen"></div>
+            <p class="pie">Ilustración 1. Placa base montada en la caja</p>
+            <p style="margin-top:.5rem">…el montaje descrito puede verse en la <span class="campo">Ilustración 1</span>.</p>
+          </div>
+          <figcaption>título insertado con Referencias y referencia cruzada (fondo gris al hacer clic: es un campo).</figcaption>
+        </figure>
+      </div>
+    </section>
   </section>
 
   <section>
@@ -1048,6 +1269,66 @@
         conviene cada opción.</li>
       </ol>
     </div>
+
+    <section class="entrega" aria-labelledby="entrega-2-5">
+      <h3 id="entrega-2-5">Qué entregas del bloque 2.5</h3>
+      <p class="entrega-sub">El CV en tres formatos, tu informe, la carta conectada y las cartas generadas.</p>
+      <ul class="entrega-archivos"><li>cv.pdf</li><li>cv.odt</li><li>cv.txt</li><li>informe_formatos.docx</li><li>carta_presentacion.docx</li><li>cartas_combinadas.docx</li><li>cartas_combinadas.pdf</li></ul>
+      <h4>Comprueba antes de entregar</h4>
+      <ul class="entrega-lista">
+        <li>El informe tiene la tabla de formatos y al menos tres diferencias del PDF abierto en Word.</li>
+        <li><code>carta_presentacion.docx</code> sigue conectada al Excel: al abrirla, Word pregunta si ejecuta la consulta SQL.</li>
+        <li>El bloque de direcciones muestra la dirección completa (calle, código postal, ciudad y provincia).</li>
+        <li>La carta lleva línea de saludo y los campos «Empresa» y «Puesto», y se lee bien con cualquier empresa.</li>
+        <li><code>cartas_combinadas.docx</code> tiene <strong>6 cartas</strong>, en el orden de la tabla de abajo, y ya no tiene campos.</li>
+        <li>Has apuntado cuántos destinatarios quedaban tras filtrar.</li>
+      </ul>
+      <h4>Cómo debe quedar</h4>
+      <div class="entrega-ejemplos">
+        <figure class="entrega-ancho">
+          <div class="hoja">
+            <table>
+              <tr><th>Formato</th><th>Se conserva</th><th>Se pierde</th></tr>
+              <tr><td>PDF</td><td>El aspecto exacto: foto, tabla, fuentes y pie</td><td>La edición cómoda</td></tr>
+              <tr><td>ODT</td><td>Texto, estilos, tabla y foto</td><td>Puede mover saltos, fuentes, SmartArt o la portada</td></tr>
+              <tr><td>TXT</td><td>Solo el texto</td><td>Foto, tabla, estilos, encabezado y numeración</td></tr>
+            </table>
+            <p style="margin-top:.4rem"><b>Al abrir el PDF en Word:</b> la foto cambia de posición · la tabla de competencias se convierte en cuadros o tabulaciones · los títulos pasan a texto normal con letra grande y el panel de navegación queda vacío.</p>
+          </div>
+          <figcaption>informe_formatos.docx: respuesta modelo.</figcaption>
+        </figure>
+        <figure>
+          <div class="hoja">
+            <table><tr><th>Campo de Word</th><th>Columna del Excel</th></tr>
+            <tr><td>Dirección 1</td><td>Via</td></tr><tr><td>Ciudad</td><td>Ciudad</td></tr><tr><td>Estado o provincia</td><td>Provincia</td></tr><tr><td>Código postal</td><td>CodPostal</td></tr><tr><td>Nombre de la compañía</td><td>Empresa</td></tr><tr><td>Tratamiento de cortesía</td><td>Trato</td></tr></table>
+          </div>
+          <figcaption>asignación de campos correcta.</figcaption>
+        </figure>
+        <figure>
+          <div class="hoja">
+            <p>Sr. Andrés Bermejo Cano<br>Microsistemas del Jerte S.L.<br>Avda. de la Vera 14<br>10600 Plasencia (Cáceres)</p>
+            <p style="margin-top:.4rem">Estimado Sr. Bermejo Cano:</p>
+            <p style="margin-top:.4rem">Me dirijo a <span class="campo">Microsistemas del Jerte S.L.</span> para presentar mi candidatura al puesto de <span class="campo">Técnico de microinformática</span>…</p>
+          </div>
+          <figcaption>vista previa del primer destinatario. El orden de código postal y ciudad depende del formato de país.</figcaption>
+        </figure>
+        <figure class="entrega-ancho">
+          <div class="hoja">
+            <table>
+              <tr><th>Carta</th><th>Destinatario</th><th>Empresa</th><th>Ciudad</th></tr>
+              <tr><td>1</td><td>Sr. Andrés Bermejo Cano</td><td>Microsistemas del Jerte S.L.</td><td>Plasencia</td></tr>
+              <tr><td>2</td><td>Sr. Hugo Bermejo Ortiz</td><td>Montajes PC Sierra</td><td>Plasencia</td></tr>
+              <tr><td>3</td><td>Sr. Rubén Castaño Lima</td><td>CloudTajo Hosting</td><td>Cáceres</td></tr>
+              <tr><td>4</td><td>Sra. Lucía Domínguez Gil</td><td>Redes Extremeñas S.A.</td><td>Cáceres</td></tr>
+              <tr><td>5</td><td>Sr. Daniel Iglesias Mora</td><td>Sistemas Ambroz S.L.</td><td>Hervás</td></tr>
+              <tr><td>6</td><td>Sr. Javier Mateos Prieto</td><td>InfoNorte Servicios</td><td>Navalmoral de la Mata</td></tr>
+            </table>
+          </div>
+          <figcaption>las cartas que salen al filtrar Cáceres con email y ordenar por apellidos y nombre. Talleres Informáticos Vetton es de Cáceres pero no tiene email, así que no sale.</figcaption>
+        </figure>
+      </div>
+      <p class="entrega-ojo"><strong>Si te salen 7 cartas,</strong> te falta la condición «Email no está vacío». <strong>Si te salen 12,</strong> no aplicaste el filtro.</p>
+    </section>
   </section>
 
   <section>
@@ -1208,6 +1489,38 @@
       de tu ordenador. Quítalo y escribe dos líneas explicando por qué conviene
       hacerlo antes de mandar un CV a una empresa.</p>
     </div>
+
+    <section class="entrega" aria-labelledby="entrega-2-6">
+      <h3 id="entrega-2-6">Qué entregas del bloque 2.6</h3>
+      <p class="entrega-sub">Tu CV comentado, la revisión que hiciste a tu pareja, tu CV final y la versión para comparar.</p>
+      <ul class="entrega-archivos"><li>cv_v5.docx</li><li>cv_v5_revisado_TUNOMBRE.docx</li><li>cv_final.docx</li><li>cv_v4_modificado.docx</li></ul>
+      <h4>Comprueba antes de entregar</h4>
+      <ul class="entrega-lista">
+        <li><code>cv_v5.docx</code> tiene dos frases resaltadas en amarillo, cada una con su comentario, y un tercer comentario en Competencias.</li>
+        <li>La revisión que hiciste a tu pareja tiene los cambios marcados (inserción, borrado, formato y una frase sustituida) y dos comentarios.</li>
+        <li><code>cv_final.docx</code> no tiene ni cambios ni comentarios: con <em>Todas las revisiones</em>, el panel de revisiones está vacío.</li>
+        <li><code>cv_final.docx</code> se abre sin contraseña: quitaste la protección y el cifrado al terminar.</li>
+        <li>Tienes apuntado qué cambio rechazaste y por qué.</li>
+      </ul>
+      <h4>Cómo debe quedar</h4>
+      <div class="entrega-ejemplos">
+        <figure>
+          <div class="hoja">
+            <p><span style="background:#ffff00">Me gusta mucho la informática.</span><span class="globo">Demasiado genérico: decir qué sé hacer</span></p>
+          </div>
+          <figcaption>cv_v5.docx: frase resaltada con su comentario.</figcaption>
+        </figure>
+        <figure>
+          <div class="hoja" style="border-left:2px solid #888">
+            <p>Técnico de <span class="ins">soporte y </span>microinformática <span class="del">en prácticas</span>.</p>
+            <p><b>Montaje</b> de equipos <span class="globo">Con formato: Negrita</span></p>
+            <p><span class="del">Me gusta mucho la informática.</span> <span class="ins">Instalo y configuro equipos y redes domésticas.</span></p>
+          </div>
+          <figcaption>la revisión de tu pareja en «Todas las revisiones»: insertado subrayado, borrado tachado y formato en el margen.</figcaption>
+        </figure>
+      </div>
+      <p class="entrega-ojo"><strong>La trampa:</strong> si guardas en <em>Ninguna revisión</em> sin aceptar ni rechazar, el documento parece limpio pero los cambios siguen dentro.</p>
+    </section>
   </section>
 
   <section>
@@ -1338,6 +1651,82 @@
       combinada y el manual para mantenerlo todo. Es material que puedes usar de
       verdad cuando busques las prácticas en empresa.</p>
     </div>
+
+    <section class="entrega" aria-labelledby="entrega-2-7">
+      <h3 id="entrega-2-7">Qué entregas del bloque 2.7</h3>
+      <p class="entrega-sub">La plantilla con la macro, un CV hecho con ella, tu configuración y el manual.</p>
+      <ul class="entrega-archivos"><li>cv_plantilla.dotm</li><li>cv_v6.docx</li><li>*.exportedUI</li><li>manual_cv.docx</li><li>manual_cv.pdf</li></ul>
+      <p class="entrega-ojo"><strong>Copia la plantilla a tu carpeta.</strong> Igual que en el bloque 2.4: <code>cv_plantilla.dotm</code> está en la carpeta de plantillas personales. Sin ella no se puede ver tu macro, porque la macro vive en la plantilla, no en el CV.</p>
+      <h4>Comprueba antes de entregar</h4>
+      <ul class="entrega-lista">
+        <li>Con <kbd>Alt</kbd>+<kbd>F11</kbd>, la macro <code>NuevaExperiencia</code> está en el proyecto de <code>cv_plantilla</code>, no en Normal.</li>
+        <li>La macro aplica estilos (Título 2, Normal y viñetas), no negrita a mano, y su último texto es «Describe aquí una tarea con un verbo…».</li>
+        <li>La plantilla no tiene escrito el bloque de prueba de la grabación.</li>
+        <li><code>cv_v6.docx</code> es .docx, tiene dos puestos con Título 2 bajo Experiencia y salen en el panel de navegación.</li>
+        <li>El <code>.exportedUI</code> nuevo incluye el botón «Nueva experiencia».</li>
+        <li>El manual tiene portada, control de versiones, introducción, de 4 a 6 pasos numerados, dos capturas con título y referencia cruzada, y el recuadro de aviso.</li>
+        <li>El PDF del manual tiene marcadores: se ven en el panel lateral del lector de PDF.</li>
+      </ul>
+      <h4>Cómo debe quedar</h4>
+      <div class="entrega-ejemplos">
+        <figure class="entrega-ancho">
+<pre class="codigo-vba"><span class="kw">Sub</span> NuevaExperiencia()
+<span class="cm">'
+' NuevaExperiencia Macro
+' Añade un bloque de experiencia con sus estilos.
+'</span>
+    Selection.Style = ActiveDocument.Styles(<span class="tx">"Título 2"</span>)
+    Selection.TypeText Text:=<span class="tx">"Puesto · Empresa"</span>
+    Selection.TypeParagraph
+    Selection.TypeText Text:=<span class="tx">"Desde – hasta · Localidad"</span>
+    Selection.TypeParagraph
+    Selection.Range.ListFormat.ApplyListTemplateWithLevel _
+        ListTemplate:=ListGalleries(wdBulletGallery).ListTemplates(1), …
+    Selection.TypeText Text:=<span class="tx">"Describe aquí una tarea con un verbo: instalé, configuré, atendí…"</span>
+<span class="kw">End Sub</span></pre>
+          <figcaption>la macro después del 2.7.4. Según tu versión de Word, el estilo puede aparecer como <code>wdStyleHeading2</code> y la línea de viñetas puede ser algo distinta.</figcaption>
+        </figure>
+        <figure>
+          <div class="panel-word">
+            <b>Navegación</b><br>…<br>4 Experiencia<br><span class="n2">4.1 Técnico en prácticas · Microsistemas del Jerte</span><br><span class="n2">4.2 Monitor de campamento · Ayto. de Cabezuela</span><br>5 Competencias
+          </div>
+          <figcaption>cv_v6.docx: los dos puestos añadidos con la macro salen en el panel.</figcaption>
+        </figure>
+        <figure>
+          <div class="hoja">
+            <p class="t1">2 Añadir una experiencia</p>
+            <p>1. Abre <b>Archivo › Nuevo › Personal</b> y elige <b>cv_plantilla</b>.<br>
+            2. Pulsa <b>Habilitar contenido</b> en la barra amarilla.<br>
+            3. Coloca el cursor en una línea vacía de <b>Experiencia</b>.<br>
+            4. Pulsa el botón <b>Nueva experiencia</b> (ver la <span class="campo">Ilustración 1</span>).<br>
+            5. Sustituye los textos de ejemplo por tus datos.<br>
+            6. Guarda con <b>Ctrl+G</b>.</p>
+            <p style="margin-top:.5rem;border:1px solid #c00000;background:#fff2f2;padding:.35rem .5rem"><b>Importante:</b> habilita el contenido solo si la plantilla es la tuya.</p>
+          </div>
+          <figcaption>procedimiento del manual: una acción por paso, verbo al principio y botones en negrita.</figcaption>
+        </figure>
+      </div>
+      <h4>Tu carpeta al terminar el tema</h4>
+<pre class="arbol">Tema2_CV/
+├── cv_borrador.docx              <span class="nota">2.0 – 2.1</span>
+├── *.exportedUI                  <span class="nota">2.1 (actualizado en 2.7)</span>
+├── cv_v2.docx                    <span class="nota">2.1</span>
+├── cv_v3.docx                    <span class="nota">2.2 – 2.3</span>
+├── cv_plantilla.dotx             <span class="nota">2.4 (copiada de Plantillas)</span>
+├── cv_v4.docx                    <span class="nota">2.4</span>
+├── dossier_v1.docx               <span class="nota">2.4</span>
+├── cv.pdf · cv.odt · cv.txt      <span class="nota">2.5</span>
+├── informe_formatos.docx         <span class="nota">2.5</span>
+├── carta_presentacion.docx       <span class="nota">2.5</span>
+├── cartas_combinadas.docx + .pdf <span class="nota">2.5</span>
+├── cv_v5.docx                    <span class="nota">2.6</span>
+├── cv_v5_revisado_TUNOMBRE.docx  <span class="nota">2.6</span>
+├── cv_final.docx                 <span class="nota">2.6</span>
+├── cv_v4_modificado.docx         <span class="nota">2.6</span>
+├── cv_plantilla.dotm             <span class="nota">2.7 (copiada de Plantillas)</span>
+├── cv_v6.docx                    <span class="nota">2.7</span>
+└── manual_cv.docx + .pdf         <span class="nota">2.7</span></pre>
+    </section>
   </section>
 
   <nav class="nav-temas">
