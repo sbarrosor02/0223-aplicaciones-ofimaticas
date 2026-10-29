@@ -40,8 +40,8 @@ def con_sombra(base, mascara, desplazamiento=(30, 40), radio=28, fuerza=110):
     return Image.composite(Image.new('RGB', (W, H), (30, 25, 20)), base, sombra)
 
 
-def guitarra():
-    base = fondo((232, 226, 214), (205, 198, 186), 3)
+def capa_guitarra():
+    """La guitarra sola, girada y con transparencia (la usa también generar_resultados_esperados.py)."""
     # Silueta: dos círculos y la cintura, girada luego
     capa = Image.new('RGBA', (W, H), (0, 0, 0, 0))
     m = Image.new('L', (W, H), 0)
@@ -82,7 +82,12 @@ def guitarra():
         x = cx - 30 + i * 12
         ds.line((x, cy - 1040, x, cy + 248), fill=(225, 225, 230, 255), width=2)          # cuerdas
     m = capa.getchannel('A')
-    gir = capa.rotate(-18, Image.BICUBIC, center=(cx, cy), translate=(160, 40))
+    return capa.rotate(-18, Image.BICUBIC, center=(cx, cy), translate=(160, 40))
+
+
+def guitarra():
+    base = fondo((232, 226, 214), (205, 198, 186), 3)
+    gir = capa_guitarra()
     base = con_sombra(base, gir.getchannel('A'))
     base.paste(gir, (0, 0), gir)
     return base.filter(ImageFilter.GaussianBlur(0.6))
