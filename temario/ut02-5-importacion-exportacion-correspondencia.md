@@ -87,14 +87,13 @@ propósito para que los ejercicios tengan sustancia:
 Si hay que cambiar los datos, se edita el script y se regenera; no se edita el
 .xlsx a mano, o se pierden estas propiedades.
 
-## Prácticas (CE d)
+## Trabajo diario (CE d)
 
-- **P2.5.1** Exportar el CV a `.pdf`, `.odt` y `.txt` y comparar qué se pierde.
-- **P2.5.2** Abrir el PDF con Word y señalar tres diferencias de maquetación.
-- **P2.5.3** Carta de presentación combinada, con bloque de direcciones, línea de
-  saludo y dos campos sueltos (obliga a *Asignar campos*).
-- **P2.5.4** Filtrar por provincia + descartar sin correo + ordenar por apellidos.
-- **P2.5.5** Hoja de etiquetas con modelo comercial y sin bordes.
+Lo que se entrega del subtema es el **boletín de ejercicios del bloque 2.5**
+(`temario/ut02-ejercicios.md`, `web/temas/ut02-ejercicios.html`), en Moodle.
+Cuenta como **trabajo diario** del RA2. Las prácticas P2.5.x se retiraron el
+29/10/2026: no se llegaron a hacer en clase.
+
 - **Reto (opcional)**: pegado vinculado desde Excel y romper el vínculo.
 
 ## Enlaces con el resto del tema

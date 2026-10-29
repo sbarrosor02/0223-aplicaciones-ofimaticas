@@ -20,7 +20,7 @@ actualizado: 2026-10-08
 
 ## Por qué esta práctica
 
-Las P2.6.1 a P2.6.5 son individuales y en Word: el documento va de mano en mano.
+El boletín 2.6 es individual y en Word: el documento va de mano en mano.
 Esta sale de Word a propósito, porque **el trabajo colaborativo real no se hace
 intercambiando archivos adjuntos**. El objetivo no es enseñar Google Docs, es que
 reconozcan los mismos conceptos en otra herramienta — que es lo que se les va a

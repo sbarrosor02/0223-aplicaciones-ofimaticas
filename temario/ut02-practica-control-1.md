@@ -18,7 +18,7 @@ evaluable: true
 ## Qué es (y qué no)
 
 - **No** es un ejercicio guiado (esos son formativos, paso a paso, sobre el CV).
-- **No** es una práctica de un solo criterio (P2.x.y).
+- **No** es un boletín de ejercicios de un solo bloque.
 - **Sí** es una prueba de progreso: mide si el alumno sabe **juntar** de forma
   autónoma lo aprendido en 2.0→2.3 en un documento profesional realista y
   distinto del CV.
