@@ -78,21 +78,19 @@ existen los estilos. Conviene dejar que ocurra y luego explicarla, no evitarla.
 | El automarcado del índice ignora términos | El texto de la columna 1 no coincide *carácter a carácter* (tildes, mayúsculas) |
 | Cambió el aspecto de todos los documentos nuevos | Se editó `Normal.dotm` |
 
-## Prácticas (CE b)
+## Trabajo diario (CE b)
 
-- **P2.4.1** CV como plantilla `.dotx` en PERSONAL, y crear un documento desde ella.
-- **P2.4.2** Estructurar un documento largo con niveles y **reordenar dos apartados
-  con las flechas de la vista Esquema** (sin cortar y pegar).
-- **P2.4.3** TDC automática + añadir apartado + actualizar toda la tabla.
-- **P2.4.4** `Insertar título` en imágenes y tablas + tabla de ilustraciones.
-- **P2.4.5** Un marcador, una referencia cruzada con número de página y una nota
-  al pie.
+Lo que se entrega del subtema es el **boletín de ejercicios del bloque 2.4**
+(`temario/ut02-ejercicios.md`, `web/temas/ut02-ejercicios.html`), en Moodle.
+Cuenta como **trabajo diario** del RA2. Las prácticas P2.4.x se retiraron el
+29/10/2026: no se llegaron a hacer en clase.
+
 - **Reto (opcional)**: documento maestro con tres subdocumentos y TDC común.
 
 Documento de partida: `web/descargas/dossier-proyectos-sin-estructurar.docx`,
 generado con `scripts/generar_dossier.js`. Seis páginas, 72 párrafos, **todo en
 estilo Normal** (cero `pStyle`, cero negritas) y con marcas `[FIGURA: …]` y
-`[TABLA: …]`. Lo usan tanto la P2.4.2 como los ejercicios 2.4.4 a 2.4.6.
+`[TABLA: …]`. Lo usan los ejercicios 2.4.4 a 2.4.6.
 Si hay que retocar el texto, se edita el script y se vuelve a generar: no se
 edita el .docx a mano.
 

@@ -99,21 +99,15 @@ Al seleccionar una imagen aparece *Herramientas de imagen > Formato*.
   circular…) y Word abre una minihoja de **Excel** con datos de ejemplo; al
   editarlos, el gráfico se redibuja solo.
 
-## 6. Prácticas del subtema (P2.3.x)
+## Trabajo diario (CE c)
 
-1. **P2.3.1** · Tabla de competencias en el CV (competencia | nivel): crearla,
-   darle estilo, alinear el contenido y ordenarla.
-2. **P2.3.2** · Tu fotografía **desde archivo** (móvil/cámara): recortar, marco,
-   colocarla en la cabecera con el **Ajuste de texto** correcto y **texto
-   alternativo**.
-3. **P2.3.3** · **Captura de pantalla**: mini-guía de un paso capturando una
-   ventana con `Insertar > Captura` y un pie explicativo.
-4. **P2.3.4** · **SmartArt**: un organigrama/diagrama sencillo con el panel de
-   texto.
-5. **P2.3.5** · (opcional) **Gráfico** de columnas con tu nivel en varias
-   competencias.
-6. **Reto de ampliación**: *Quitar fondo* de la foto, agrupar formas en un logo
-   propio y colocarlo *detrás del texto* de la cabecera.
+Lo que se entrega del subtema es el **boletín de ejercicios del bloque 2.3**
+(`temario/ut02-ejercicios.md`, `web/temas/ut02-ejercicios.html`), en Moodle.
+Cuenta como **trabajo diario** del RA2. Las prácticas P2.3.x se retiraron el
+29/10/2026: no se llegaron a hacer en clase.
+
+- **Reto de ampliación (opcional)**: *Quitar fondo* de la foto, agrupar formas en un logo
+  propio y colocarlo *detrás del texto* de la cabecera.
 
 ## Autocomprobación y checklist
 

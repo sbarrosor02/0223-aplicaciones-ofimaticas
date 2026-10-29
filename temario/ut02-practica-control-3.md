@@ -48,7 +48,7 @@ sobre 2,5, y la del CE f, el resto sobre 7,5.
   en un pequeño manual dentro del manual.
 - **Sin revisión cruzada.** Se quitó el 19/10/2026 (era la antigua parte C):
   el trabajo es individual de principio a fin y el control de cambios del 2.6
-  queda evaluado en las P2.6.x. Su punto de la rúbrica pasó a *Procedimientos*
+  queda evaluado en el boletín 2.6. Su punto de la rúbrica pasó a *Procedimientos*
   (+0,5, redacción) y a *Solución de problemas y glosario* (+0,5).
 
 ## Organización

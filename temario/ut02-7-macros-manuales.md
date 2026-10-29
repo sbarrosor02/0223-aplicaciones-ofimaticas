@@ -88,17 +88,12 @@ Regla que se repite en clase: **si haces lo mismo más de tres veces, grábalo**
 | Error de compilación al ejecutar | Se tocó el código y se borró una comilla o el `End Sub` |
 | Al cambiar el estilo, lo que insertó la macro no cambia | La macro se grabó con formato directo |
 
-## Prácticas (CE e y f)
+## Trabajo diario (CE e y f)
 
-- **P2.7.1** Macro *Aviso* en Normal.dotm con botón en la barra de acceso
-  rápido.
-- **P2.7.2** Macro *FormatoCaptura* con atajo de teclado libre.
-- **P2.7.3** Retocar el código de *Aviso* en el editor VBA y guardar un
-  documento de prueba como `.docm`.
-- **P2.7.4** Plantilla `manual.dotm`: estilos de manual + las dos macros dentro.
-- **P2.7.5** Manual breve (2 procedimientos, 4-6 páginas) hecho con la
-  plantilla, con revisión cruzada en control de cambios y entregado en PDF con
-  marcadores.
+Lo que se entrega del subtema es el **boletín de ejercicios del bloque 2.7**
+(`temario/ut02-ejercicios.md`, `web/temas/ut02-ejercicios.html`), en Moodle.
+Cuenta como **trabajo diario** del RA2. Las prácticas P2.7.x se retiraron el
+29/10/2026: no se llegaron a hacer en clase.
 
 El **proyecto final (PC3)** integra el tema completo: manual de usuario de
 tres procedimientos con una plantilla `.dotm` y tres macros, y entrega en
@@ -106,8 +101,8 @@ Moodle. Ver `temario/ut02-practica-control-3.md`.
 
 ## Nota de montaje
 
-- La práctica 2.1.1 exportó la personalización de la cinta (`.exportedUI`).
-  En la P2.7.1 se vuelve a exportar con el botón de la macro añadido, como se
+- El ejercicio 2.1.1 exportó la personalización de la cinta (`.exportedUI`).
+  En el boletín 2.7 se vuelve a exportar con el botón de la macro añadido, como se
   anunciaba en `ut02-1-entorno-edicion-personalizacion.md`.
 - Los equipos del aula tienen que permitir la ficha Programador y la
   grabación de macros. Comprobarlo **antes** de la primera sesión: algunas

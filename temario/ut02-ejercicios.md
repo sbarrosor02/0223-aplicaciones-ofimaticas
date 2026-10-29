@@ -10,12 +10,13 @@ evaluacion: 1
 
 # Tema 2 · Ejercicios guiados: tu currículum vitae paso a paso
 
-> Son el **trabajo diario** del Tema 2 (10 % de la nota del RA2, según la
-> programación): se entregan y se califican con rúbrica (entrega en plazo,
-> corrección técnica, procedimiento y documentación). Inspirados en el
-> planteamiento del PDF de ejercicios del curso 2025/26 (redactar un CV propio a
-> lo largo de todo el tema), pero redactados de cero: los pasos y el texto son
-> originales de este curso, no una copia del PDF.
+> Son el **trabajo diario** del RA2 (decisión del 29/10/2026): el boletín de
+> cada bloque se entrega en Moodle y se califica, junto con el taller T1–T5.
+> Sustituyen a las prácticas P2.x.y, que se retiraron sin llegar a hacerse.
+> Son ejercicios cortos que se hacen dentro de las horas de cada subtema. Inspirados en
+> el planteamiento del PDF de ejercicios del curso 2025/26 (redactar un CV
+> propio a lo largo de todo el tema), pero redactados de cero: los pasos y el
+> texto son originales de este curso, no una copia del PDF.
 
 ## Idea
 
