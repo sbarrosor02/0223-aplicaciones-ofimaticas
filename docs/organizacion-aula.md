@@ -159,3 +159,23 @@ módulo (`<usuario>` es el usuario del alumno):
 - El recuadro incluye una tabla «En tu carpeta → Nombre dentro del ZIP» y la lista de
   capturas que no pueden faltar en la memoria. Los boletines llevan además, antes del
   primer bloque, un apartado «Cómo se entrega cada bloque» con estas normas.
+
+### Numeración de las prácticas de 0223
+
+| Tema | Práctica | Código |
+|---|---|---|
+| 1 | P1.1 a P1.6 | `p11` a `p16` |
+| 2 | PC1 · PC2 · Carta del restaurante · PC3 · Taller T1–T5 · Práctica colaborativa | `p21` · `p22` · `p23` · `p24` · `p25` (T1–T5 son `a01`–`a05`) · `p26` (grupo) |
+| 3 | Prácticas de cada subtema (P3.1.x … P3.4.x) | `p31` a `p34`; cada P3.x.y es la actividad `a0y` |
+
+Las prácticas ya entregadas el 29/10/2026 (Tema 1, PC1, carta y taller) conservan los
+nombres con los que se entregaron; el código queda reservado. Las prácticas con
+memoria (las del Tema 3) llevan `<usuario>_pNN.pdf` en la raíz del ZIP; PC2 y PC3 no
+llevan memoria porque el propio documento es la evidencia.
+
+### Imágenes del resultado esperado
+
+Las imágenes de `web/assets/img/entregas/` se generan con
+`python scripts/generar_resultados_esperados.py` a partir del mismo material
+inventado que se da al alumnado (fotos de retoque, documento fotografiado y capas).
+Si se regenera ese material, hay que volver a ejecutar este script.
