@@ -43,9 +43,11 @@ Al crear o modificar un tema en `temario/` hay que: (1) generar/actualizar
   (`web/temas/ut02.html`). Delante hay un subtema 2.0 de repaso (primer
   documento, edición básica), no evaluable y con horas no oficiales, para
   quien no llegue con ese nivel. Subtemas 2.0 a 2.7 publicados, con
-  sus tres prácticas de control (PC3: proyecto final, manual con macros). Además hay una página de ejercicios guiados formativos
-  (`web/temas/ut02-ejercicios.html`), con un hilo conductor único (construir
-  el propio currículum vitae) para todo el tema.
+  sus tres prácticas de control (PC3: proyecto final, manual con macros). Los
+  boletines de ejercicios de cada bloque (`web/temas/ut02-ejercicios.html`),
+  con un hilo conductor único (construir el propio currículum vitae), son el
+  **trabajo diario** del RA2 junto con el taller T1–T5. Las prácticas P2.x.y de
+  cada subtema se retiraron el 29/10/2026 sin llegar a hacerse.
 - Taller de maquetación (T1–T5, trabajo diario) y caso práctico de la carta
   de un restaurante, con entrega en Moodle. Guía en
   `temario/ut02-taller-maquetacion.md`.

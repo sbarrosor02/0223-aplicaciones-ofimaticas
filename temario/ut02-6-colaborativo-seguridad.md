@@ -85,31 +85,26 @@ confianza (p. 189).
 | El documento cifrado no se abre | Se olvidó la contraseña: no hay recuperación posible |
 | Los comentarios no salen al imprimir | Es el comportamiento normal; hay que marcar *Imprimir documento con revisiones* |
 
-## Prácticas (transversales, apoyan f)
+## Trabajo diario (CE f)
 
-- **P2.6.1** Revisión cruzada con un compañero: 5 cambios con control de cambios
-  + 3 comentarios sobre el CV del otro.
-- **P2.6.2** Resolver la revisión recibida, con **al menos un rechazo
-  justificado**, y dejar el documento limpio de marcas.
-- **P2.6.3** Comparar dos versiones cuando no se usó control de cambios.
-- **P2.6.4** Dos versiones protegidas: una cifrada y otra restringida a solo
-  comentarios.
-- **P2.6.5** Parte de incidencias del aula como **formulario**: cuadro
-  combinado, selector de fecha, dos campos de texto y control de imagen;
-  protegido y guardado como plantilla.
+Lo que se entrega del subtema es el **boletín de ejercicios del bloque 2.6**
+(`temario/ut02-ejercicios.md`, `web/temas/ut02-ejercicios.html`), en Moodle.
+Cuenta como **trabajo diario** del RA2. Las prácticas P2.6.x se retiraron el
+29/10/2026: no se llegaron a hacer en clase. El subtema no tiene CE propio; como apoya a f, su boletín cuenta para ese criterio.
+
 - **Reto (opcional)**: *Inspeccionar documento* y explicar por qué conviene.
 
-Nota de organización: la **P2.6.1 y la P2.6.2 son la misma actividad vista
-desde los dos lados**, así que hay que emparejar al alumnado y reservar las dos
-sesiones seguidas. Si alguien falta, que revise el profesor su documento para
-que no se quede sin la P2.6.2.
+Nota de organización: los ejercicios de revisión cruzada del boletín (revisar el
+CV del compañero y resolver la revisión recibida) son la misma actividad vista
+desde los dos lados, así que hay que emparejar al alumnado y reservar las dos
+sesiones seguidas. Si alguien falta, que revise el profesor su documento.
 
 ## Enlaces con el resto del tema
 
 - **Viene de 2.4**: el formulario se guarda como plantilla `.dotx`.
 - **Va a 2.7**: la seguridad de macros se retoma al grabar macros propias, y el
-  parte de incidencias de la P2.6.5 es candidato natural a ser el documento del
+  formulario del subtema es candidato natural a ser el documento del
   proyecto final.
 - **PC3 / proyecto final**: el manual se entrega inspeccionado (sin comentarios
   ni revisiones). La revisión cruzada se quitó del PC3 el 19/10/2026: el
-  control de cambios se evalúa en las P2.6.x.
+  control de cambios se evalúa en el boletín 2.6.

@@ -76,8 +76,9 @@ funcionan.
 
 ## Ejercicios guiados
 
-Además de las prácticas evaluables de cada subtema, hay una serie de
-ejercicios formativos cortos con un hilo conductor único para todo el Tema 2:
+Cada subtema tiene su boletín de ejercicios, que es el **trabajo diario** del
+RA2 junto con el taller de maquetación (T1–T5). Las prácticas P2.x.y se
+retiraron el 29/10/2026 sin llegar a hacerse. Los boletines son ejercicios cortos con un hilo conductor único para todo el Tema 2:
 construir el propio currículum vitae. Basados en la idea del PDF de
 ejercicios del curso 2025/26, pero redactados de cero (pasos y texto
 originales, no copiados). Ver `temario/ut02-ejercicios.md` y

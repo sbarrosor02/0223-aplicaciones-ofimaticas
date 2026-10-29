@@ -220,6 +220,8 @@ for repo in REPOS:
         description = 'Material de consulta para seguir las sesiones.'
         if category == 'ejercicios':
             description = 'Practica y comprueba lo aprendido. Actividades formativas; no cuentan para la nota.'
+            if code == '0223' and name == 'ut02-ejercicios.html':
+                description = 'Boletines de ejercicios de cada bloque: se entregan en Moodle y cuentan como trabajo diario.'
         if category == 'practicas':
             description = 'Consulta el enunciado, las condiciones de entrega y la rúbrica.'
         search_terms = ' '.join(plain(sin_ce(text)) for text in re.findall(r'<h[23][^>]*>(.*?)</h[23]>', source, re.S))

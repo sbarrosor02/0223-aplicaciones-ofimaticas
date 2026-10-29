@@ -119,23 +119,12 @@ vez y que **etiqueta la función** del texto. Dos funciones:
   solo**, y una plantilla reutiliza esa estructura. Esto conecta directamente con
   2.4 (plantillas e índices) y 2.7 (manuales, proyecto final).
 
-## 7. Prácticas del subtema (P2.2.x)
+## Trabajo diario (CE b, e y f)
 
-1. **P2.2.1** · Formato de carácter y párrafo sobre un texto plano: fuente,
-   tamaño, efectos con atajo, alineación, sangría, interlineado, una lista con
-   viñetas y otra numerada, y una tabla de datos alineada con tabulaciones en la
-   regla.
-2. **P2.2.2** · Aplicar estilos (Título 1/2/3 y Normal) a un documento
-   estructurado y luego cambiar su aspecto completo con **dos temas** distintos,
-   comprobando que el cambio solo funciona porque los estilos están bien puestos.
-3. **P2.2.3** · Crear un estilo propio partiendo de Título 1, aplicarle una
-   **lista multinivel** para que numere solo, y usarlo en el documento.
-4. **P2.2.4** · Configurar página (márgenes y orientación), añadir **portada**,
-   **encabezado/pie** con número *Página X de Y* y **marca de agua** «BORRADOR».
-5. **P2.2.5** · Con un **salto de sección**, conseguir que la portada no lleve
-   número de página y que el resto empiece a numerar en 1.
-6. **P2.2.6** · Unificar con **Copiar formato** (brocha) el formato de varios
-   fragmentos desordenados de un mismo documento.
+Lo que se entrega del subtema es el **boletín de ejercicios del bloque 2.2**
+(`temario/ut02-ejercicios.md`, `web/temas/ut02-ejercicios.html`), en Moodle.
+Cuenta como **trabajo diario** del RA2. Las prácticas P2.2.x se retiraron el
+29/10/2026: no se llegaron a hacer en clase. El subtema no tiene CE propio; como es la base de b, e y f, su boletín cuenta para esos tres.
 
 ## Autocomprobación y checklist
 

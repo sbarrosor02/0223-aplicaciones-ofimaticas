@@ -25,7 +25,8 @@ guía de corrección en `temario/soluciones/ut02-taller-maquetacion-solucion.md`
 Parten de un paquete de prácticas heredado (P1 a P7, una portada y una
 práctica final), con enunciados de una o dos líneas y apoyados en imágenes de
 terceros. Se revisaron una a una frente a lo que ya cubrían los apuntes, los
-ejercicios guiados y las prácticas P2.x.y:
+ejercicios guiados y las prácticas P2.x.y (estas se retiraron el 29/10/2026
+sin llegar a hacerse; la tabla se conserva como registro de la decisión):
 
 | Original | Decisión | Por qué |
 |---|---|---|

@@ -70,30 +70,26 @@ opciones avanzadas de procesadores de textos.
 | 3 | 2 | Edición avanzada: buscar/reemplazar, vistas, varios documentos. Prácticas 2.1.3 y 2.1.4 |
 | 4 | 2 | Ortografía, gramática y traductor. Práctica 2.1.5. Cierre y autoevaluación |
 
-## Prácticas
+## Trabajo diario (CE a)
 
-| Código | Título | Se apoya en |
-|--------|--------|-------------|
-| P2.1.1 | Personalizar la cinta y la barra de acceso rápido para un perfil dado (técnico de soporte con macros y programador visibles) y exportar la personalización a `.exportedUI` | CE a |
-| P2.1.2 | Configurar las Opciones de Word según una política de centro: autoguardado cada 5 min, formato de guardado por defecto, ruta de guardado y ubicación de plantillas de confianza | CE a |
-| P2.1.3 | Buscar y reemplazar con formato y caracteres comodín sobre un documento con texto mal formateado, para dejarlo limpio | edición avanzada |
-| P2.1.4 | Dividir la ventana y ver en paralelo dos versiones de un mismo texto con desplazamiento sincronizado, señalando las diferencias | vistas |
-| P2.1.5 | Revisar ortografía y gramática de un documento con errores intencionados, añadir un término técnico al diccionario personalizado y traducir un párrafo con el traductor integrado | ortografía |
+Lo que se entrega del subtema es el **boletín de ejercicios del bloque 2.1**
+(`temario/ut02-ejercicios.md`, `web/temas/ut02-ejercicios.html`), en Moodle.
+Cuenta como **trabajo diario** del RA2. Las prácticas P2.1.x se retiraron el
+29/10/2026: no se llegaron a hacer en clase.
 
-## Evaluación (propuesta)
+## Evaluación
 
-- Prácticas 2.1.1 a 2.1.5: **70 %**
-- Autoevaluación y participación: **10 %**
-- Se integra en la prueba escrita conjunta del Tema 2 (subtemas 2.1 y 2.2): **20 %**
+La del RA2 de la programación (cap. 8): 50 % pruebas, 40 % casos prácticos y 10 %
+trabajo diario. No se califican actitud, participación ni asistencia.
 
 ## Recursos
 
 - `web/temas/ut02.html` — vista general del Tema 2 y enlaces a los siete subtemas.
 - `web/temas/ut02-1.html` — material del alumnado y autocomprobación de este subtema.
-- Documento de prueba con texto mal formateado, preparado para las prácticas 2.1.3 y 2.1.4.
+- Documento de prueba con texto mal formateado, preparado para los ejercicios de buscar y reemplazar y de comparar versiones.
 
 ## Nota de montaje
 
-El archivo `.exportedUI` de la práctica 2.1.1 se guarda en la carpeta personal
+El archivo `.exportedUI` del ejercicio 2.1.1 se guarda en la carpeta personal
 del alumnado y se reutiliza en el subtema 2.7 para comprobar que la
 personalización sigue intacta después de instalar macros propias.
