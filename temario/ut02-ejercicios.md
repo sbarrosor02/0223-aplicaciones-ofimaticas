@@ -10,12 +10,12 @@ evaluacion: 1
 
 # Tema 2 · Ejercicios guiados: tu currículum vitae paso a paso
 
-> No sustituyen a las prácticas evaluables (P2.x.y) de cada subtema: son
-> ejercicios formativos, cortos, que se hacen dentro de las horas de cada
-> subtema para fijar la técnica antes de la práctica evaluable. Inspirados en
-> el planteamiento del PDF de ejercicios del curso 2025/26 (redactar un CV
-> propio a lo largo de todo el tema), pero redactados de cero: los pasos y el
-> texto son originales de este curso, no una copia del PDF.
+> Son el **trabajo diario** del Tema 2 (10 % de la nota del RA2, según la
+> programación): se entregan y se califican con rúbrica (entrega en plazo,
+> corrección técnica, procedimiento y documentación). Inspirados en el
+> planteamiento del PDF de ejercicios del curso 2025/26 (redactar un CV propio a
+> lo largo de todo el tema), pero redactados de cero: los pasos y el texto son
+> originales de este curso, no una copia del PDF.
 
 ## Idea
 
@@ -42,13 +42,22 @@ con todas las técnicas del tema, no un archivo de pruebas desechable.
 Cada bloque deja el CV en un archivo con nombre distinto, para que el alumnado
 pueda volver atrás si estropea algo:
 
-`cv_borrador.docx` (2.0-2.1) → `cv_v2.docx` (2.2) → `cv_v3.docx` (2.3) →
-`cv_plantilla.dotx` + `cv_v4.docx` (2.4) → `cv.pdf` / `cv.odt` / `cv.txt` +
-`carta_presentacion.docx` + `cartas_combinadas.docx` (2.5) → `cv_v5.docx` +
-`cv_final.docx` (2.6) → `cv_plantilla.dotm` + `cv_v6.docx` + `manual_cv.pdf` (2.7).
+`cv_borrador.docx` (2.0-2.1) → `cv_v2.docx` (2.1.4) → `cv_v3.docx` (2.2-2.3) +
+`cv.pdf` → `cv_plantilla.dotx` + `cv_v4.docx` (2.4) → `cv.pdf` / `cv.odt` /
+`cv.txt` + `informe_formatos.docx` + `carta_presentacion.docx` +
+`cartas_combinadas.docx` (2.5) → `cv_v5.docx` + `cv_final.docx` (2.6) →
+`cv_plantilla.dotm` + `cv_v6.docx` + `manual_cv.pdf` (2.7).
 
 Aparte del CV, el bloque 2.4 trabaja sobre `dossier_v1.docx`, que es donde se
 hacen el esquema y la tabla de contenido: el CV es demasiado corto para eso.
+
+## Entrega de cada bloque
+
+Al final de cada bloque de la página hay un recuadro **Entrega** con los
+archivos que se entregan, una lista de comprobación y maquetas del resultado
+esperado (convención descrita en `docs/organizacion-aula.md`). Las dos
+plantillas (`.dotx` y `.dotm`) se guardan en la carpeta de plantillas
+personales: el recuadro indica que hay que copiarlas a `Tema2_CV`.
 
 El contenido completo está en `web/temas/ut02-ejercicios.html`.
 
