@@ -277,19 +277,20 @@
             "RA5.f"
           ],
           "horas": 3,
-          "estado": "borrador"
+          "estado": "publicado",
+          "actualizado": "2026-11-19"
         }
       ],
       "recursos": [
         {
           "titulo": "Laboratorio de imagen",
           "url": "temas/laboratorio-imagen.html",
-          "nota": "herramientas HTML sin dependencias: píxeles y vectores, resolución, color y profundidad, compresión y formatos, metadatos EXIF (ver, ubicación en mapa y quitar), histograma y niveles por canal con vista dividida; se amplía con cada subtema, capas con modos de fusión y máscara, conversor y optimizador de varias imágenes con descarga en ZIP"
+          "nota": "herramientas HTML sin dependencias: píxeles y vectores, resolución, color y profundidad, compresión y formatos, metadatos EXIF (ver, ubicación en mapa y quitar), histograma y niveles por canal con vista dividida; se amplía con cada subtema, capas con modos de fusión y máscara, conversor y optimizador de varias imágenes con descarga en ZIP, calculadora de tamaños para redes e impresión con zona segura, sangrado y recorte descargable"
         },
         {
           "titulo": "Ejercicios guiados: tu grupo o tu estudio, pieza a pieza",
           "url": "temas/ut03-ejercicios.html",
-          "nota": "formativo; hilo conductor banda de música o estudio de videojuegos; bloques 3.1 a 3.5 publicados"
+          "nota": "formativo; hilo conductor banda de música o estudio de videojuegos; bloques 3.1 a 3.6 publicados"
         },
         {
           "titulo": "Fotos para practicar el retoque",
@@ -305,6 +306,11 @@
           "titulo": "Material para importar y exportar",
           "url": "temas/ut03-5.html#apartado-material-para-practicar",
           "nota": "cartel PDF vectorial, logotipo SVG y PNG pequeño, logotipo transparente y foto; inventados, generados con scripts/generar_material_exportar.py"
+        },
+        {
+          "titulo": "Plantilla de página web para publicar imágenes",
+          "url": "temas/ut03-6.html#apartado-material-para-practicar",
+          "nota": "página con cabecera, logotipo, imagen principal, galería y créditos; cada hueco dice qué imagen va y de qué tamaño; generada con scripts/generar_plantilla_web.py"
         }
       ]
     }
