@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tema 3.6 · Publicar en web, redes e impresión · 0223 Aplicaciones ofimáticas</title>
+<link rel="stylesheet" href="../assets/estilo.css">
+<style>
+  .t36 { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 1rem 0; }
+  .t36 th, .t36 td { border: 1px solid var(--linea); padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+  .t36 th { background: var(--acento-claro); color: var(--acento); }
+  .lab-enlace { display: inline-block; margin: 0.3rem 0 0.6rem; padding: 0.45rem 0.8rem; border: 1px solid var(--acento); border-radius: var(--radio); font-weight: 600; }
+  .codigo { font-family: Consolas, "Courier New", monospace; font-size: 0.85rem; background: #fff; border: 1px solid var(--linea); border-radius: 4px; padding: 0.6rem 0.8rem; overflow-x: auto; white-space: pre; }
+  .fig-36 { margin: 1rem 0; }
+  .fig-36 img { display: block; max-width: 100%; height: auto; border: 1px solid var(--linea); border-radius: 4px; }
+  .cc { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 0.6rem; margin: 1rem 0; }
+  .cc div { border: 1px solid var(--linea); border-radius: 6px; padding: 0.5rem 0.7rem; background: #fff; }
+  .cc strong { display: block; font-family: Consolas, monospace; }
+</style>
+<link rel="stylesheet" href="../assets/aula.css">
+<script defer src="../assets/aula.js"></script>
+</head>
+<body data-modulo="0223">
+<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0223 / Aplicaciones ofimáticas</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><a class="indice-tema" href="ut03.html"><span>Tema 3</span>Imagen digital: captura, edición y publicación</a><a class="indice-material" href="../recursos.html?tema=3">Todo el material del tema 3</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-material-para-practicar">Material para practicar</a></li><li><a href="#apartado-1-cada-medio-pide-una-cosa">1. Cada medio pide una cosa</a></li><li><a href="#apartado-2-publicar-en-una-pagina-web">2. Publicar en una página web</a></li><li><a href="#apartado-3-redes-sociales">3. Redes sociales</a></li><li><a href="#apartado-4-imprimir-y-enviar-a-imprenta">4. Imprimir y enviar a imprenta</a></li><li><a href="#apartado-5-derechos-y-licencias">5. Derechos y licencias</a></li><li><a href="#apartado-6-practicas-del-subtema">6. Prácticas del subtema</a></li><li><a href="#apartado-7-comprueba-lo-que-has-entendido">7. Comprueba lo que has entendido</a></li><li><a href="#apartado-8-antes-del-punto-de-control">8. Antes del punto de control</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1"><nav class="aula-migas" aria-label="Estás en"><a href="../index.html">Inicio</a><span aria-hidden="true">›</span><a href="ut03.html">Tema 3 · Imagen digital: captura, edición y publicación</a><span aria-hidden="true">›</span><span aria-current="page">3.6 Publicar en web, redes e impresión</span></nav>
+
+  <header class="cab">
+    <p class="modulo">0223 · Aplicaciones ofimáticas · Tema 3 (6 de 6)</p>
+    <h1>Tema 3.6 — Publicar en web, redes e impresión</h1>
+    <p class="meta">1.º SMR · Curso 2026/2027 · 1.ª evaluación · Duración: 3 h</p>
+  </header>
+<nav class="subnav" aria-label="Apartados del tema 3"><a href="ut03.html">Portada del tema</a><a href="ut03.html#apartado-subtemas">Apuntes</a><a href="ut03-ejercicios.html">Ejercicios guiados</a><a href="laboratorio-imagen.html">Laboratorio de imagen</a></nav>
+<div class="aula-herramientas"><button type="button" data-imprimir hidden>Imprimir / guardar PDF</button></div>
+
+  <details class="ra-ce"><summary>Qué se evalúa · RA y criterios</summary>
+    <h2 id="apartado-resultado-de-aprendizaje">Resultado de aprendizaje</h2>
+    <p><strong>RA5.</strong> Manipula imágenes digitales analizando las
+    posibilidades de distintos programas y aplicando técnicas de captura y edición
+    básicas.</p>
+    <p>Criterio de evaluación que trabaja este subtema:</p>
+    <ul>
+      <li><strong>f)</strong> Se ha publicado imágenes en diferentes medios.</li>
+    </ul>
+  </details>
+
+  <div class="aviso">
+    <strong>Cada medio tiene sus reglas.</strong> Una web quiere imágenes ligeras
+    y bien descritas; una red social, una proporción exacta y el texto lejos de
+    los bordes; una imprenta, 300 ppp y fondo hasta más allá del corte. Y en los
+    tres, solo puedes publicar lo que es tuyo o tiene una licencia que te lo
+    permite.
+  </div>
+
+  <section>
+    <h2 id="apartado-material-para-practicar">Material para practicar</h2>
+    <p>Usarás lo que exportaste en el 3.5 (o el material de entonces:
+    <a href="../descargas/exportar-foto.jpg">la foto del paisaje</a> y
+    <a href="../descargas/exportar-logo-transparente.png">el logotipo con transparencia</a>)
+    y esta plantilla:</p>
+    <ul>
+      <li><a href="../descargas/plantilla-web-proyecto.zip"><strong>Plantilla de página web</strong></a>
+      (ZIP, 6 KB): una página con cabecera y logotipo, imagen principal, galería
+      de tres imágenes y créditos. Cada hueco dice qué imagen va y de qué tamaño.
+      Descomprímela en <code>Tema3_Proyecto/web</code>.</li>
+    </ul>
+    <p><a class="lab-enlace" href="laboratorio-imagen.html#apartado-9-tamanos-para-redes-e-impresion">Calculadora de tamaños para redes e impresión (laboratorio, apartado 9)</a></p>
+  </section>
+
+  <section>
+    <h2 id="apartado-1-cada-medio-pide-una-cosa">1. Cada medio pide una cosa</h2>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="t36">
+      <thead><tr><th></th><th>Web</th><th>Redes sociales</th><th>Impresión</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Se mide en</strong></td><td>Píxeles</td><td>Píxeles, con una proporción fija</td><td>Centímetros o milímetros y ppp</td></tr>
+        <tr><td><strong>Resolución</strong></td><td>Los píxeles del hueco (los ppp dan igual)</td><td>Los que pide cada red</td><td>300 ppp (un póster que se ve de lejos, 150)</td></tr>
+        <tr><td><strong>Color</strong></td><td>RGB</td><td>RGB</td><td>La imprenta trabaja en CMYK (tintas)</td></tr>
+        <tr><td><strong>Formato</strong></td><td>WebP, JPG, PNG, SVG</td><td>JPG o PNG</td><td>PDF o TIFF</td></tr>
+        <tr><td><strong>Lo que manda</strong></td><td>El peso: que cargue rápido</td><td>Que se vea bien en un móvil</td><td>La calidad: el peso da igual</td></tr>
+        <tr><td><strong>Cuidado con</strong></td><td>El texto alternativo y el tamaño</td><td>Los recortes y la zona segura</td><td>El sangrado y los márgenes</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section>
+    <h2 id="apartado-2-publicar-en-una-pagina-web">2. Publicar en una página web</h2>
+    <p>Una página web es un archivo de texto (<code>index.html</code>) que dice al
+    navegador qué imágenes cargar y dónde. Cada imagen se pone con una etiqueta
+    <code>&lt;img&gt;</code>:</p>
+    <div class="codigo">&lt;img src="img/picotas_portada_1200x1200.webp"
+     alt="Portada del single Noches de cerezo: dos cerezas sobre fondo oscuro"
+     width="1200" height="1200" loading="lazy"&gt;</div>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="t36">
+      <thead><tr><th>Atributo</th><th>Para qué sirve</th></tr></thead>
+      <tbody>
+        <tr><td><code>src</code></td><td>La ruta del archivo. Por eso los nombres sin espacios ni tildes del 3.5: <code>Foto Final.JPG</code> y <code>foto final.jpg</code> no son el mismo archivo en un servidor.</td></tr>
+        <tr><td><code>alt</code></td><td>El <strong>texto alternativo</strong>: lo lee en voz alta el lector de pantalla de una persona ciega, y aparece si la imagen no carga. Describe lo que se ve y lo que importa («Portada del single…»), no «imagen1».</td></tr>
+        <tr><td><code>width</code> y <code>height</code></td><td>Los píxeles de la imagen. El navegador reserva el hueco antes de descargarla y la página no da saltos mientras carga.</td></tr>
+        <tr><td><code>loading="lazy"</code></td><td>Carga diferida: la imagen no se descarga hasta que te acercas a ella. Úsalo en todas menos en las de arriba del todo.</td></tr>
+      </tbody>
+    </table></div>
+    <h3>Cómo se rellena la plantilla</h3>
+    <ol>
+      <li>Copia tus imágenes exportadas en la carpeta <code>img</code> de la plantilla.</li>
+      <li>Abre <code>index.html</code> con el Bloc de notas (clic derecho &gt; <em>Abrir con</em>). Los comentarios <code>&lt;!-- … --&gt;</code> te dicen qué cambiar en cada sitio.</li>
+      <li>En cada <code>&lt;img&gt;</code> cambia <code>src</code>, <code>alt</code>, <code>width</code> y <code>height</code>. Cambia también el nombre del proyecto y los créditos.</li>
+      <li>Sustituye <code>favicon.ico</code> por el tuyo del 3.5, con el mismo nombre.</li>
+      <li>Guarda y abre <code>index.html</code> con doble clic. Si una imagen no sale, revisa letra a letra el nombre en <code>src</code>.</li>
+    </ol>
+    <h3>Comprobar cómo se ve y cuánto pesa</h3>
+    <ul>
+      <li><strong>Peso</strong>: pulsa <kbd>F12</kbd>, pestaña <em>Red</em> y recarga con <kbd>F5</kbd>. Abajo sale lo que se ha transferido en total. Una página así debería pesar <strong>menos de 1 MB</strong>; si una imagen pesa más de 200 KB, vuelve al 3.5.</li>
+      <li><strong>Móvil</strong>: con <kbd>F12</kbd> abierto, pulsa <kbd>Ctrl</kbd>+<kbd>Mayús</kbd>+<kbd>M</kbd> (Chrome, Edge y Firefox) y elige un móvil o escribe 390 de ancho. La plantilla coloca la galería en una sola columna.</li>
+    </ul>
+    <p>Para que la vea todo el mundo, la carpeta se sube a un servidor web. Esta
+    misma web del módulo es una carpeta de archivos como la tuya, publicada con
+    GitHub Pages. En este subtema no hace falta subirla: basta con que funcione
+    en tu ordenador.</p>
+    <figure class="fig-36"><img src="../assets/img/entregas/p36-web.jpg" alt="La plantilla rellena con el material del festival Cerezo Rock, vista a 1280 píxeles de ancho y a 390 en un móvil" loading="lazy" width="1102" height="570">
+      <figcaption class="pie-fig">Figura 1: la plantilla rellena con el material del 3.5, en el ordenador y en el móvil.</figcaption></figure>
+  </section>
+
+  <section>
+    <h2 id="apartado-3-redes-sociales">3. Redes sociales</h2>
+    <p>Cada red tiene sus tamaños, y si subes otra proporción, la recorta ella
+    (normalmente por donde no quieres). Estos son los recomendados en noviembre
+    de 2026; cambian de vez en cuando, así que antes de un trabajo real mira la
+    ayuda de cada red.</p>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="t36">
+      <thead><tr><th>Red</th><th>Pieza</th><th>Píxeles</th><th>Proporción</th><th>Ojo con</th></tr></thead>
+      <tbody>
+        <tr><td rowspan="3">Instagram</td><td>Publicación</td><td>1080 × 1080 · 1080 × 1350 · 1080 × 1440</td><td>1:1 · 4:5 · 3:4</td><td>La cuadrícula del perfil enseña las publicaciones en 3:4: una cuadrada pierde los lados.</td></tr>
+        <tr><td>Historia o reel</td><td>1080 × 1920</td><td>9:16</td><td>Unos 250 px arriba y abajo los tapan el nombre y los botones.</td></tr>
+        <tr><td>Foto de perfil</td><td>320 × 320</td><td>1:1</td><td>Se ve en un círculo: las esquinas se pierden.</td></tr>
+        <tr><td rowspan="2">YouTube</td><td>Miniatura</td><td>1280 × 720</td><td>16:9</td><td>Máximo 2 MB. Abajo a la derecha va la duración del vídeo.</td></tr>
+        <tr><td>Banner del canal</td><td>2560 × 1440</td><td>16:9</td><td>Solo la franja central de 1546 × 423 se ve en todos los aparatos. Mínimo 2048 × 1152, máximo 6 MB.</td></tr>
+        <tr><td rowspan="2">X</td><td>Cabecera del perfil</td><td>1500 × 500</td><td>3:1</td><td>Abajo a la izquierda la tapa la foto de perfil.</td></tr>
+        <tr><td>Imagen de una publicación</td><td>1200 × 675</td><td>16:9</td><td>Hasta 5 MB.</td></tr>
+      </tbody>
+    </table></div>
+    <h3>La zona segura</h3>
+    <p>Es la parte de la imagen que se ve <strong>siempre</strong>, en cualquier
+    pantalla y con cualquier botón encima. El nombre, la fecha y el logotipo van
+    dentro; fuera, solo fondo. En GIMP se marca con <strong>guías</strong>:</p>
+    <ol>
+      <li><code>Imagen &gt; Guías &gt; Nueva guía…</code>: elige la dirección (horizontal o vertical) y escribe la posición en píxeles. Repite para cada borde de la zona segura.</li>
+      <li>Activa <code>Vista &gt; Ajustar a las guías</code>: las capas y las selecciones se pegan a ellas al acercarlas.</li>
+      <li>Las guías no se exportan: son solo una ayuda en pantalla.</li>
+    </ol>
+    <p>Por ejemplo, en una historia (1080 × 1920) pon guías horizontales en 250 y
+    1670; en un banner de YouTube (2560 × 1440), verticales en 507 y 2053 y
+    horizontales en 508 y 931.</p>
+    <figure class="fig-36"><img src="../assets/img/entregas/p36-redes.jpg" alt="La misma foto preparada como publicación 4:5, como historia y como banner de YouTube; en la historia y el banner, una línea discontinua amarilla marca la zona segura y todo el texto está dentro" loading="lazy" width="1664" height="564">
+      <figcaption class="pie-fig">Figura 2: una foto, tres piezas. La línea amarilla es la zona segura: el texto y el logotipo, siempre dentro.</figcaption></figure>
+    <h3>Antes de subir</h3>
+    <ul>
+      <li><strong>Las redes recomprimen</strong> lo que subes. Sube el tamaño exacto en JPG de calidad alta (85–90): si subes algo ya muy comprimido, se comprime dos veces y se nota.</li>
+      <li><strong>Quita los metadatos</strong> (subtema 3.2): algunas redes los borran, pero no todas, y una foto hecha en casa lleva tu ubicación.</li>
+      <li>Escribe el <strong>texto alternativo</strong>: Instagram y X tienen la opción al publicar (en Instagram, en <em>Configuración avanzada</em>; en X, <em>Añadir descripción</em>).</li>
+    </ul>
+    <p><a class="lab-enlace" href="laboratorio-imagen.html#apartado-9-tamanos-para-redes-e-impresion">Prueba tu imagen en cada destino con la calculadora del laboratorio</a></p>
+  </section>
+
+  <section>
+    <h2 id="apartado-4-imprimir-y-enviar-a-imprenta">4. Imprimir y enviar a imprenta</h2>
+    <h3>Resolución y color</h3>
+    <ul>
+      <li><strong>300 ppp</strong> al tamaño final (subtema 3.1): un A5 son 1748 × 2480 px; un A4, 2480 × 3508; un A3, 3508 × 4961.</li>
+      <li>La pantalla da color con <strong>luz</strong> (RGB) y la imprenta con <strong>tintas</strong> (CMYK). Los colores muy saturados de pantalla, como un verde o un azul eléctrico, salen más apagados en papel. En GIMP 3 puedes simularlo con la <em>prueba de color</em> (menú <code>Vista &gt; Gestión del color</code>). Pregunta a la imprenta: muchas aceptan el PDF en RGB y lo convierten ellas.</li>
+    </ul>
+    <h3>Sangrado y zona segura</h3>
+    <p>La imprenta imprime en un papel más grande y luego <strong>corta</strong>. La
+    cuchilla nunca cae exactamente en la línea: si el fondo acaba justo en el
+    borde, puede quedar un filo blanco. Por eso:</p>
+    <ul>
+      <li><strong>Sangrado</strong>: el fondo se alarga <strong>3 mm</strong> por cada lado, más allá del corte. Un A5 (148 × 210 mm) con sangrado mide <strong>154 × 216 mm</strong>: a 300 ppp, <strong>1819 × 2551 px</strong>.</li>
+      <li><strong>Zona segura</strong>: los textos y el logotipo, a <strong>5 mm</strong> por dentro del corte como mínimo (8 mm desde el borde del archivo), por si el corte se desvía hacia dentro.</li>
+    </ul>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="t36">
+      <thead><tr><th>Papel</th><th>Con sangrado (mm)</th><th>Archivo a 300 ppp</th><th>Guías de corte (px desde cada borde)</th><th>Guías de zona segura</th></tr></thead>
+      <tbody>
+        <tr><td>A5 · 148 × 210</td><td>154 × 216</td><td>1819 × 2551</td><td>35</td><td>94</td></tr>
+        <tr><td>A4 · 210 × 297</td><td>216 × 303</td><td>2551 × 3579</td><td>35</td><td>94</td></tr>
+        <tr><td>A3 · 297 × 420</td><td>303 × 426</td><td>3579 × 5031</td><td>35</td><td>94</td></tr>
+      </tbody>
+    </table></div>
+    <h3>En GIMP</h3>
+    <ol>
+      <li><code>Archivo &gt; Nueva…</code>: escribe el tamaño <strong>en píxeles</strong> de la tabla y, en <em>Opciones avanzadas</em>, resolución X e Y de <strong>300</strong>.</li>
+      <li>Pon las guías de corte (35 px desde cada borde) y las de zona segura (94 px). Para el borde derecho y el de abajo, resta: en un A5, verticales en 35, 94, 1725 y 1784, y horizontales en 35, 94, 2457 y 2516.</li>
+      <li>Diseña: el fondo y las fotos llegan hasta el borde del archivo; los textos, dentro de la zona segura.</li>
+      <li>Guarda el XCF y exporta con <code>Archivo &gt; Exportar como…</code> y extensión <code>.pdf</code>. Ese PDF es el que va a la imprenta.</li>
+    </ol>
+    <figure class="fig-36"><img src="../assets/img/entregas/p36-cartel.jpg" alt="A la izquierda, el flyer A5 con una línea roja que marca el corte y una discontinua amarilla con la zona segura; a la derecha, el mismo flyer ya cortado, sin bordes blancos" loading="lazy" width="932" height="688">
+      <figcaption class="pie-fig">Figura 3: el archivo, con el corte (rojo) y la zona segura (amarillo), y cómo queda cortado. El fondo pasa del corte; el texto no se acerca a él.</figcaption></figure>
+    <h3>En la impresora de casa o del aula</h3>
+    <p>Las impresoras de oficina no imprimen hasta el borde: dejan unos milímetros
+    en blanco, por eso no tiene sentido el sangrado. En <code>Archivo &gt;
+    Imprimir…</code>, en la pestaña de la imagen, comprueba que el tamaño sea el
+    real (14,8 × 21 cm para un A5) y no <em>Ajustar a la página</em>. Imprimir una
+    prueba a tamaño real es la mejor forma de ver si el texto se lee.</p>
+  </section>
+
+  <section>
+    <h2 id="apartado-5-derechos-y-licencias">5. Derechos y licencias</h2>
+    <p>Una foto, un dibujo o un logotipo tienen <strong>derechos de autor</strong>
+    desde que se crean, sin registrar nada ni poner ©. Que una imagen esté en
+    Internet <strong>no</strong> significa que la puedas usar: si no dice lo
+    contrario, necesitas permiso de su autor.</p>
+    <h3>Licencias Creative Commons</h3>
+    <p>Son permisos que el autor da por adelantado. Todas piden citar al autor
+    (BY), salvo CC0; las otras letras añaden condiciones:</p>
+    <div class="cc">
+      <div><strong>CC0</strong>Sin condiciones: es como el dominio público. No hace falta citar, aunque se agradece.</div>
+      <div><strong>BY</strong>Atribución: puedes usarla y modificarla, también para vender, citando al autor.</div>
+      <div><strong>SA</strong>Compartir igual: lo que hagas con ella tiene que llevar la misma licencia.</div>
+      <div><strong>NC</strong>No comercial: no se puede usar para ganar dinero (publicidad, productos a la venta).</div>
+      <div><strong>ND</strong>Sin obras derivadas: se usa tal cual. No se puede recortar, retocar ni montar.</div>
+    </div>
+    <p>Ejemplo: una foto <strong>CC BY-NC-ND</strong> se puede poner en el blog del
+    instituto citando al autor, pero no se le puede poner texto encima (ND) ni
+    usarla en el anuncio de unas camisetas (NC).</p>
+    <h3>Dónde encontrar imágenes que puedes usar</h3>
+    <ul>
+      <li><strong>Openverse</strong> (openverse.org) y <strong>Wikimedia Commons</strong>: buscadores de imágenes con licencia libre. Cada imagen dice su licencia; filtra por las que permiten modificar.</li>
+      <li><strong>Unsplash</strong> y <strong>Pexels</strong>: fotos con su propia licencia, muy permisiva (se pueden usar y modificar gratis, también en proyectos comerciales), aunque no dejan vender la foto tal cual. Citar no es obligatorio, pero es buena costumbre.</li>
+      <li>En Google Imágenes: <code>Herramientas &gt; Derechos de uso &gt; Licencias Creative Commons</code>. Comprueba siempre la licencia en la página original.</li>
+    </ul>
+    <h3>Cómo se cita</h3>
+    <p>Con cuatro datos: título, autor, licencia y fuente (con enlace). Por ejemplo, inventado:</p>
+    <div class="codigo">«Cerezos en flor en el valle» · Ana Pérez · CC BY 4.0 · Wikimedia Commons</div>
+    <p>Va en los créditos de la web (la plantilla tiene un hueco), en el texto de
+    la publicación en redes o en letra pequeña en el cartel. Si has modificado la
+    imagen, añade «recortada y retocada por …».</p>
+    <h3>Personas en las fotos</h3>
+    <p>Además del autor de la foto, cuenta el <strong>derecho a la propia
+    imagen</strong> de quien aparece: para publicar una foto en la que se reconoce
+    a alguien necesitas su permiso, y si es menor de 14 años, el de su familia. En
+    el instituto, nunca publiques fotos de compañeros sin preguntarles.</p>
+    <h3>Firmar tus imágenes</h3>
+    <ul>
+      <li><strong>Metadatos de autor</strong>: en GIMP, <code>Imagen &gt; Metadatos &gt; Editar metadatos</code>, y rellena el autor y el aviso de copyright (por ejemplo, <code>© 2026 Ana Pérez · CC BY-NC 4.0</code>). Al exportar, deja marcado <strong>XMP</strong> para que se guarden, y desmarca <strong>Exif</strong> si la foto tenía ubicación.</li>
+      <li><strong>Marca de agua</strong>: tu nombre o tu logotipo, pequeño y semitransparente (opacidad de la capa al 30–50 %), en una esquina. No impide que copien la imagen, pero se sabe de quién es.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 id="apartado-6-practicas-del-subtema">6. Prácticas del subtema</h2>
+    <p>Acreditan el criterio <em>f</em> (publicar imágenes en diferentes medios).
+    Entrega los archivos que se piden y una memoria en PDF con las capturas.</p>
+    <ul>
+      <li><strong>P3.6.1</strong> · <strong>Una página web con tus imágenes.</strong>
+      Rellena la plantilla con las exportaciones de la P3.5.3 y la P3.5.4 (el
+      logotipo en PNG, el icono, la foto para la web y la miniatura). En el hueco
+      de la portada pon una foto con licencia CC BY o CC0 que encuentres en
+      Openverse o Wikimedia Commons, preparada para la web (1200 px como mucho,
+      WebP). Cada imagen con su <code>alt</code>, su <code>width</code> y su
+      <code>height</code>. En los créditos, cita la foto con título, autor, licencia y fuente. Comprueba el
+      peso total con <kbd>F12</kbd> &gt; <em>Red</em> y captura la página en el
+      ordenador y en modo móvil.</li>
+      <li><strong>P3.6.2</strong> · <strong>Una foto, tres redes.</strong> Con
+      <code>exportar-foto.jpg</code> y <code>exportar-logo-transparente.png</code>,
+      prepara una publicación de Instagram de 1080 × 1350, una historia de 1080 ×
+      1920 y un banner de YouTube de 2560 × 1440. Las tres con el logotipo, el
+      texto «CEREZO ROCK» y otra línea (la fecha, «Entrada libre»…). Pon las guías
+      de la zona segura antes de colocar el texto. Exporta en JPG de calidad 85 y
+      comprueba cada una cargándola en la calculadora del laboratorio.</li>
+      <li><strong>P3.6.3</strong> · <strong>El flyer para la imprenta.</strong> Haz
+      un flyer A5 con sangrado (1819 × 2551 px a 300 ppp) con la foto, el
+      logotipo y estos textos: <em>CEREZO ROCK</em>, <em>Festival del valle ·
+      2027</em>, tres grupos inventados y <em>Sábado 17 de abril · Cabezuela del
+      Valle · Entrada libre</em>. Guías de corte y de zona segura; el fondo hasta
+      el borde y los textos dentro. Rellena los metadatos de autor y exporta en
+      PDF. Exporta también una versión de 1080 px de ancho en JPG para anunciarlo
+      en redes. Si puedes, imprime una prueba a tamaño real.</li>
+    </ul>
+
+    <section class="entrega" aria-labelledby="entrega-p36">
+      <h3 id="entrega-p36">Qué entregas de las prácticas del 3.6</h3>
+      <p class="entrega-sub">Las tres prácticas van juntas: la carpeta de la web, las piezas para redes, el flyer y una memoria con las capturas.</p>
+      <p class="entrega-zip">Sube a Moodle <code>&lt;usuario&gt;_p36.zip</code>. En su raíz:</p>
+      <div class="aula-tabla"><table class="entrega-nombres"><thead><tr><th>Qué es</th><th>Nombre dentro del ZIP</th><th>Parte</th></tr></thead><tbody>
+        <tr><td>Memoria con capturas</td><td><code>&lt;usuario&gt;_p36.pdf</code></td><td>Todas</td></tr>
+        <tr><td>La carpeta de la web entera (<code>index.html</code>, <code>estilo.css</code>, <code>favicon.ico</code> e <code>img</code>), sin renombrar nada dentro</td><td><code>&lt;usuario&gt;_a01/</code> (carpeta)</td><td>P3.6.1</td></tr>
+        <tr><td>Publicación, historia y banner</td><td><code>&lt;usuario&gt;_a02_1.jpg</code> · <code>&lt;usuario&gt;_a02_2.jpg</code> · <code>&lt;usuario&gt;_a02_3.jpg</code></td><td>P3.6.2</td></tr>
+        <tr><td>Flyer para la imprenta</td><td><code>&lt;usuario&gt;_a03.pdf</code></td><td>P3.6.3</td></tr>
+        <tr><td>Flyer para redes</td><td><code>&lt;usuario&gt;_a03.jpg</code></td><td>P3.6.3</td></tr>
+        <tr><td>El archivo de trabajo del flyer</td><td><code>&lt;usuario&gt;_a03.xcf</code></td><td>P3.6.3</td></tr>
+      </tbody></table></div>
+      <p class="entrega-sub">La carpeta de la web es la excepción a la norma de nombres:
+      se cambia el nombre de la carpeta, pero lo de dentro se queda como está, o la
+      página dejaría de encontrar sus imágenes. La memoria cumple las normas del
+      módulo: portada, índice con hiperenlaces, páginas numeradas, enunciado en
+      negrita y respuesta en normal, <code>Figura N: …</code> en cada imagen, sin
+      faltas y capturas de pantalla completa con la fecha y el archivo abierto.</p>
+      <h4>Capturas que no pueden faltar en la memoria</h4>
+      <ul class="entrega-lista">
+        <li>P3.6.1: la página en el navegador a pantalla completa, la misma en modo móvil y la pestaña <em>Red</em> con el peso total.</li>
+        <li>P3.6.1: la página de la foto en Openverse o Wikimedia Commons donde se ve su licencia.</li>
+        <li>P3.6.2: la historia y el banner en GIMP con las guías de la zona segura visibles.</li>
+        <li>P3.6.3: el flyer en GIMP con las guías, el cuadro <em>Editar metadatos</em> relleno y el PDF abierto en el navegador.</li>
+      </ul>
+      <h4>Comprueba antes de entregar</h4>
+      <ul class="entrega-lista">
+        <li>La web se abre con doble clic en <code>index.html</code> y se ven todas las imágenes y el icono en la pestaña.</li>
+        <li>Ninguna imagen de la web tiene <code>alt</code> vacío ni «imagen»; los <code>width</code> y <code>height</code> son los píxeles reales.</li>
+        <li>La página pesa menos de 1 MB en la pestaña <em>Red</em>, y los créditos citan la foto con título, autor, licencia y fuente.</li>
+        <li>Las tres piezas de la P3.6.2 tienen exactamente 1080 × 1350, 1080 × 1920 y 2560 × 1440 px, y todo el texto queda dentro de la zona segura de la calculadora.</li>
+        <li>El PDF del flyer, abierto en el navegador, mide 154 × 216 mm (en <em>Propiedades del documento</em>), el fondo llega al borde y ningún texto está a menos de 94 px del borde.</li>
+        <li>La versión del flyer para redes mide 1080 px de ancho y pesa menos de 500 KB.</li>
+      </ul>
+      <h4>Cómo debe quedar</h4>
+      <div class="entrega-ejemplos">
+        <figure class="entrega-ancho bien">
+          <img src="../assets/img/entregas/p36-web.jpg" alt="La plantilla rellena en el ordenador y en el móvil" loading="lazy">
+          <figcaption>P3.6.1: la página con todas las imágenes, en el ordenador y en el móvil. Pesa unos 300 KB.</figcaption>
+        </figure>
+        <figure class="entrega-ancho bien">
+          <img src="../assets/img/entregas/p36-redes.jpg" alt="Publicación 4:5, historia y banner con el texto dentro de la zona segura" loading="lazy">
+          <figcaption>P3.6.2: el texto y el logotipo dentro de la zona segura (amarillo) en las tres piezas.</figcaption>
+        </figure>
+        <figure class="bien">
+          <img src="../assets/img/entregas/p36-cartel.jpg" alt="El flyer con las guías de corte y de zona segura y el flyer cortado" loading="lazy">
+          <figcaption>P3.6.3: el fondo pasa la línea de corte (roja); los textos, dentro de la amarilla.</figcaption>
+        </figure>
+        <figure class="bien">
+          <div class="codigo" style="white-space:normal">Imágenes: «Cerezos en flor en el valle» · Ana Pérez · <a href="https://creativecommons.org/licenses/by/4.0/deed.es">CC BY 4.0</a> · Wikimedia Commons. Resto de imágenes: <em>tu nombre</em>, 2026.</div>
+          <figcaption>P3.6.1: los créditos del pie de la web, con título, autor, licencia y fuente, y el enlace a la licencia.</figcaption>
+        </figure>
+      </div>
+      <p class="entrega-ojo"><strong>Fallo más común:</strong> hacer el flyer de 1748 × 2480 (el A5 justo, sin sangrado) o poner el texto pegado al borde. En la imprenta sale con un filo blanco o con las letras cortadas.</p>
+    </section>
+  </section>
+
+  <section>
+    <h2 id="apartado-7-comprueba-lo-que-has-entendido">7. Comprueba lo que has entendido</h2>
+    <p>Ocho preguntas. No cuenta para la nota: es para que veas si puedes seguir.</p>
+    <form id="ei">
+      <div class="pregunta" data-correcta="c">
+        <p class="enunciado"><span class="num">1.</span> Preparas una historia de Instagram (1080 × 1920). ¿Dónde pones el título?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p1" value="a"> Arriba del todo, para que sea lo primero que se vea</label></li>
+          <li><label><input type="radio" name="p1" value="b"> Abajo del todo, junto al borde</label></li>
+          <li><label><input type="radio" name="p1" value="c"> En la zona central, dejando libres unos 250 px arriba y abajo</label></li>
+          <li><label><input type="radio" name="p1" value="d"> Da igual: Instagram la enseña entera</label></li>
+        </ul><span class="marca"></span>
+      </div>
+      <div class="pregunta" data-correcta="a">
+        <p class="enunciado"><span class="num">2.</span> La imprenta te pide un flyer A5 con 3 mm de sangrado a 300 ppp. ¿Qué tamaño tiene el archivo?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p2" value="a"> 154 × 216 mm: 1819 × 2551 px</label></li>
+          <li><label><input type="radio" name="p2" value="b"> 148 × 210 mm: 1748 × 2480 px</label></li>
+          <li><label><input type="radio" name="p2" value="c"> 151 × 213 mm: 1783 × 2516 px</label></li>
+          <li><label><input type="radio" name="p2" value="d"> 148 × 210 mm a 72 ppp</label></li>
+        </ul><span class="marca"></span>
+      </div>
+      <div class="pregunta" data-correcta="d">
+        <p class="enunciado"><span class="num">3.</span> ¿Qué es el sangrado?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p3" value="a"> El margen en blanco que deja la impresora de casa</label></li>
+          <li><label><input type="radio" name="p3" value="b"> El espacio entre las líneas de texto</label></li>
+          <li><label><input type="radio" name="p3" value="c"> La tinta que se corre en el papel</label></li>
+          <li><label><input type="radio" name="p3" value="d"> El fondo que se alarga unos milímetros más allá del corte para que no queden filos blancos</label></li>
+        </ul><span class="marca"></span>
+      </div>
+      <div class="pregunta" data-correcta="b">
+        <p class="enunciado"><span class="num">4.</span> ¿Para qué sirve el atributo <code>alt</code> de una imagen en una web?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p4" value="a"> Para indicar la altura de la imagen</label></li>
+          <li><label><input type="radio" name="p4" value="b"> Para describir la imagen: lo lee el lector de pantalla y aparece si no carga</label></li>
+          <li><label><input type="radio" name="p4" value="c"> Para poner una imagen alternativa en el móvil</label></li>
+          <li><label><input type="radio" name="p4" value="d"> Para que la imagen pese menos</label></li>
+        </ul><span class="marca"></span>
+      </div>
+      <div class="pregunta" data-correcta="a">
+        <p class="enunciado"><span class="num">5.</span> Encuentras una foto con licencia CC BY-NC. ¿Puedes usarla en el anuncio de las camisetas que vende tu grupo?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p5" value="a"> No: NC prohíbe el uso comercial</label></li>
+          <li><label><input type="radio" name="p5" value="b"> Sí, si cito al autor</label></li>
+          <li><label><input type="radio" name="p5" value="c"> Sí, si la recorto y la retoco</label></li>
+          <li><label><input type="radio" name="p5" value="d"> Sí, porque es Creative Commons</label></li>
+        </ul><span class="marca"></span>
+      </div>
+      <div class="pregunta" data-correcta="c">
+        <p class="enunciado"><span class="num">6.</span> Una foto aparece en Google Imágenes y no dice nada de su licencia. ¿Qué haces?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p6" value="a"> La uso: si está en Internet es pública</label></li>
+          <li><label><input type="radio" name="p6" value="b"> La uso si le quito la marca de agua</label></li>
+          <li><label><input type="radio" name="p6" value="c"> No la uso sin permiso del autor: tiene derechos aunque no ponga ©</label></li>
+          <li><label><input type="radio" name="p6" value="d"> La uso si la pongo pequeña</label></li>
+        </ul><span class="marca"></span>
+      </div>
+      <div class="pregunta" data-correcta="b">
+        <p class="enunciado"><span class="num">7.</span> El cartel tiene un verde eléctrico precioso en pantalla, pero en papel sale apagado. ¿Por qué?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p7" value="a"> Porque se exportó en JPG</label></li>
+          <li><label><input type="radio" name="p7" value="b"> Porque la pantalla da color con luz (RGB) y la imprenta con tintas (CMYK), que no llegan a esos colores</label></li>
+          <li><label><input type="radio" name="p7" value="c"> Porque tenía pocos ppp</label></li>
+          <li><label><input type="radio" name="p7" value="d"> Porque la impresora estaba sin tinta</label></li>
+        </ul><span class="marca"></span>
+      </div>
+      <div class="pregunta" data-correcta="d">
+        <p class="enunciado"><span class="num">8.</span> En el banner de YouTube (2560 × 1440), ¿dónde va el nombre del canal?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p8" value="a"> En la esquina de arriba a la izquierda</label></li>
+          <li><label><input type="radio" name="p8" value="b"> Repartido por toda la imagen</label></li>
+          <li><label><input type="radio" name="p8" value="c"> Abajo, a lo ancho</label></li>
+          <li><label><input type="radio" name="p8" value="d"> En la franja central de 1546 × 423 px, que se ve en todos los aparatos</label></li>
+        </ul><span class="marca"></span>
+      </div>
+      <div class="acciones">
+        <button type="button" id="corregir">Corregir</button>
+        <button type="button" id="reiniciar">Reiniciar</button>
+      </div>
+      <p class="resultado oculto" id="resultado"></p>
+    </form>
+  </section>
+
+  <section>
+    <h2 id="apartado-8-antes-del-punto-de-control">8. Antes del punto de control</h2>
+    <ul class="checklist">
+      <li><label><input type="checkbox"> Saber qué pide cada medio: píxeles y peso (web), proporción (redes), tamaño, ppp y sangrado (imprenta)</label></li>
+      <li><label><input type="checkbox"> Poner una imagen en una página web con <code>src</code>, <code>alt</code>, <code>width</code> y <code>height</code></label></li>
+      <li><label><input type="checkbox"> Medir el peso de una página con <kbd>F12</kbd> y verla en modo móvil</label></li>
+      <li><label><input type="checkbox"> Preparar una imagen al tamaño exacto de cada red y dejar el texto en la zona segura</label></li>
+      <li><label><input type="checkbox"> Crear guías en GIMP en una posición concreta</label></li>
+      <li><label><input type="checkbox"> Hacer un archivo para imprenta con sangrado y exportarlo en PDF</label></li>
+      <li><label><input type="checkbox"> Distinguir las licencias CC0, BY, SA, NC y ND, y citar una imagen con título, autor, licencia y fuente</label></li>
+      <li><label><input type="checkbox"> Rellenar los metadatos de autor de una imagen</label></li>
+    </ul>
+  </section>
+
+  <nav class="nav-temas">
+    <a href="ut03-5.html">&laquo; Tema 3.5</a>
+    <a href="ut03.html">Índice del Tema 3</a>
+    <a href="ut03-ejercicios.html#apartado-bloque-3-6-el-cartel-el-banner-y-la-web">Bloque 3.6 de los ejercicios &raquo;</a>
+  </nav>
+
+  <footer class="pie">
+    <p>0223 Aplicaciones ofimáticas · Material de consulta del alumnado.
+    Currículo: Decreto 272/2009 (Extremadura).</p>
+  </footer>
+
+<script>
+(function () {
+  var form = document.getElementById('ei');
+  var preguntas = form.querySelectorAll('.pregunta');
+  var salida = document.getElementById('resultado');
+  document.getElementById('corregir').addEventListener('click', function () {
+    var aciertos = 0, contestadas = 0;
+    preguntas.forEach(function (p) {
+      var correcta = p.getAttribute('data-correcta'), elegida = p.querySelector('input:checked'), marca = p.querySelector('.marca');
+      p.classList.remove('acierto', 'fallo');
+      if (!elegida) { marca.textContent = ''; return; }
+      contestadas++;
+      if (elegida.value === correcta) { aciertos++; p.classList.add('acierto'); marca.textContent = '✓ correcto'; }
+      else { p.classList.add('fallo'); marca.textContent = '✗ la correcta era la opción ' + correcta.toUpperCase(); }
+    });
+    var total = preguntas.length;
+    salida.classList.remove('oculto');
+    salida.textContent = 'Aciertos: ' + aciertos + ' de ' + total + '  ·  Contestadas: ' + contestadas + '/' + total +
+      '  ·  Nota orientativa: ' + (Math.round(aciertos / total * 100) / 10) + ' / 10   (recuerda: esta autocomprobación no cuenta para la evaluación)';
+    salida.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+  document.getElementById('reiniciar').addEventListener('click', function () {
+    form.reset();
+    preguntas.forEach(function (p) { p.classList.remove('acierto', 'fallo'); p.querySelector('.marca').textContent = ''; });
+    salida.classList.add('oculto'); salida.textContent = '';
+  });
+})();
+</script>
+
+</main></div>
+</body>
+</html>

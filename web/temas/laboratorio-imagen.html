@@ -44,7 +44,7 @@
 </head>
 <body data-modulo="0223">
 <a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0223 / Aplicaciones ofimáticas</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
-<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><a class="indice-tema" href="ut03.html"><span>Tema 3</span>Imagen digital: captura, edición y publicación</a><a class="indice-material" href="../recursos.html?tema=3">Todo el material del tema 3</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-1-pixeles-y-vectores">1. Píxeles y vectores</a></li><li><a href="#apartado-2-resolucion-y-tamano-de-impresion">2. Resolución y tamaño de impresión</a></li><li><a href="#apartado-3-color-y-profundidad-de-color">3. Color y profundidad de color</a></li><li><a href="#apartado-4-compresion-y-formatos">4. Compresión y formatos</a></li><li><a href="#apartado-5-metadatos-exif">5. Metadatos EXIF</a></li><li><a href="#apartado-6-histograma-y-niveles">6. Histograma y niveles</a></li><li><a href="#apartado-7-capas-modos-de-fusion-y-mascaras">7. Capas, modos de fusión y máscaras</a></li><li><a href="#apartado-8-convertir-y-optimizar-varias-imagenes">8. Convertir y optimizar varias imágenes</a></li><li><a href="#apartado-proximamente">Próximamente</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1"><nav class="aula-migas" aria-label="Estás en"><a href="../index.html">Inicio</a><span aria-hidden="true">›</span><a href="ut03.html">Tema 3 · Imagen digital: captura, edición y publicación</a><span aria-hidden="true">›</span><span aria-current="page">Laboratorio de imagen</span></nav>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><a class="indice-tema" href="ut03.html"><span>Tema 3</span>Imagen digital: captura, edición y publicación</a><a class="indice-material" href="../recursos.html?tema=3">Todo el material del tema 3</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-1-pixeles-y-vectores">1. Píxeles y vectores</a></li><li><a href="#apartado-2-resolucion-y-tamano-de-impresion">2. Resolución y tamaño de impresión</a></li><li><a href="#apartado-3-color-y-profundidad-de-color">3. Color y profundidad de color</a></li><li><a href="#apartado-4-compresion-y-formatos">4. Compresión y formatos</a></li><li><a href="#apartado-5-metadatos-exif">5. Metadatos EXIF</a></li><li><a href="#apartado-6-histograma-y-niveles">6. Histograma y niveles</a></li><li><a href="#apartado-7-capas-modos-de-fusion-y-mascaras">7. Capas, modos de fusión y máscaras</a></li><li><a href="#apartado-8-convertir-y-optimizar-varias-imagenes">8. Convertir y optimizar varias imágenes</a></li><li><a href="#apartado-9-tamanos-para-redes-e-impresion">9. Tamaños para redes e impresión</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1"><nav class="aula-migas" aria-label="Estás en"><a href="../index.html">Inicio</a><span aria-hidden="true">›</span><a href="ut03.html">Tema 3 · Imagen digital: captura, edición y publicación</a><span aria-hidden="true">›</span><span aria-current="page">Laboratorio de imagen</span></nav>
 
   <header class="cab">
     <p class="modulo">0223 · Aplicaciones ofimáticas · Tema 3</p>
@@ -342,10 +342,51 @@
   </section>
 
   <section>
-    <h2 id="apartado-proximamente">Próximamente</h2>
-    <p>Con el subtema 3.6 se añadirá una calculadora de <strong>tamaños para
-    redes e impresión</strong>.</p>
+    <h2 id="apartado-9-tamanos-para-redes-e-impresion">9. Tamaños para redes e impresión</h2>
+    <p>Elige dónde vas a publicar la imagen y el laboratorio la recorta a la
+    proporción justa, te enseña la <strong>zona segura</strong> (lo que se ve
+    siempre, en el móvil y en el ordenador) y te dice si tu imagen tiene píxeles
+    suficientes. Para imprenta añade el <strong>sangrado</strong>.</p>
+    <div class="lab">
+      <div class="rejilla">
+        <label class="campo">Destino
+          <select id="t-destino">
+            <optgroup label="Instagram">
+              <option value="ig-cuadrada">Publicación cuadrada · 1080 × 1080</option>
+              <option value="ig-34">Publicación vertical 3:4 · 1080 × 1440</option>
+              <option value="ig-45">Publicación vertical 4:5 · 1080 × 1350</option>
+              <option value="ig-historia">Historia o reel · 1080 × 1920</option>
+            </optgroup>
+            <optgroup label="YouTube">
+              <option value="yt-miniatura">Miniatura · 1280 × 720</option>
+              <option value="yt-banner">Banner del canal · 2560 × 1440</option>
+            </optgroup>
+            <optgroup label="X">
+              <option value="x-cabecera">Cabecera del perfil · 1500 × 500</option>
+              <option value="x-post">Imagen de una publicación · 1200 × 675</option>
+            </optgroup>
+            <optgroup label="Impresión a 300 ppp con 3 mm de sangrado">
+              <option value="p-a5">A5 · 148 × 210 mm</option>
+              <option value="p-a4">A4 · 210 × 297 mm</option>
+              <option value="p-a3">A3 · 297 × 420 mm</option>
+              <option value="p-10x15">Foto · 10 × 15 cm (sin sangrado)</option>
+            </optgroup>
+          </select>
+        </label>
+        <label class="campo">Tu imagen<input id="t-archivo" type="file" accept="image/*"></label>
+      </div>
+      <div class="ctrl"><label for="t-x">Mover el recorte ↔</label><input id="t-x" type="range" min="0" max="100" value="50"><output id="t-x-o" for="t-x">50 %</output></div>
+      <div class="ctrl"><label for="t-y">Mover el recorte ↕</label><input id="t-y" type="range" min="0" max="100" value="50"><output id="t-y-o" for="t-y">50 %</output></div>
+      <figure style="margin:.6rem 0 0"><canvas id="t-lienzo" width="640" height="360" aria-label="Vista previa del recorte con la zona segura" style="max-width:100%;height:auto;background:#fff"></canvas>
+        <figcaption class="pie-lab">Línea discontinua amarilla: zona segura (pon dentro el texto y el logotipo). En impresión, línea roja: corte del papel; lo que queda fuera es el sangrado.</figcaption></figure>
+      <div class="resultado-lab" id="t-res" aria-live="polite"></div>
+      <div class="botones"><button type="button" class="principal" id="t-descargar">Descargar la imagen recortada (JPG)</button></div>
+    </div>
+    <p class="pie-lab">Las redes cambian sus tamaños de vez en cuando: los de esta tabla
+    son los recomendados en noviembre de 2026. Antes de un trabajo real, compruébalos
+    en la ayuda de cada red.</p>
   </section>
+
 
   <nav class="nav-temas">
     <a href="ut03.html">&laquo; Tema 3</a>
@@ -925,6 +966,65 @@
     var a = document.createElement('a'); a.href = URL.createObjectURL(zipSinCompresion(arch)); a.download = 'imagenes-optimizadas.zip'; a.click();
     setTimeout(function () { URL.revokeObjectURL(a.href); }, 3000);
   });
+  // ---------------------------------------------------- 9. tamaños para redes e impresión
+  var MM = function (mm, ppp) { return Math.round(mm / 25.4 * ppp); };
+  var tDestinos = {
+    'ig-cuadrada': { w: 1080, h: 1080, segura: [1, 1], nota: 'En el perfil, Instagram la muestra recortada en 3:4: deja aire arriba y abajo.' },
+    'ig-34': { w: 1080, h: 1440, segura: [1, 1], nota: 'Es la proporción que usa ahora la cuadrícula del perfil: se ve entera en el perfil y en el feed.' },
+    'ig-45': { w: 1080, h: 1350, nota: 'En la cuadrícula del perfil (3:4) se ve casi entera.' },
+    'ig-historia': { w: 1080, h: 1920, seguraPx: [1080, 1420], nota: 'Deja libres unos 250 px arriba y abajo: ahí van tu nombre, la barra de respuesta y los botones.' },
+    'yt-miniatura': { w: 1280, h: 720, esquina: true, nota: 'Abajo a la derecha YouTube pone la duración del vídeo: no pongas nada importante ahí. Máximo 2 MB.' },
+    'yt-banner': { w: 2560, h: 1440, seguraPx: [1546, 423], nota: 'Solo la franja central (1546 × 423) se ve en todos los dispositivos: el nombre y el logo, ahí. Mínimo 2048 × 1152 y máximo 6 MB.' },
+    'x-cabecera': { w: 1500, h: 500, seguraPx: [1500, 360], foto: true, nota: 'Abajo a la izquierda la tapa tu foto de perfil, y arriba y abajo se recorta en algunos móviles.' },
+    'x-post': { w: 1200, h: 675, segura: [1, 1], nota: 'En el feed se ve entera si es 16:9.' },
+    'p-a5': { mm: [148, 210], sangrado: 3 }, 'p-a4': { mm: [210, 297], sangrado: 3 }, 'p-a3': { mm: [297, 420], sangrado: 3 },
+    'p-10x15': { mm: [150, 100], sangrado: 0 }
+  };
+  var tImg = null;
+  function tDestino() {
+    var d = tDestinos[$('t-destino').value];
+    if (d.mm) {
+      var s = d.sangrado, ppp = 300;
+      return { w: MM(d.mm[0] + 2 * s, ppp), h: MM(d.mm[1] + 2 * s, ppp), corte: [MM(s, ppp), MM(s, ppp), MM(d.mm[0], ppp), MM(d.mm[1], ppp)],
+        seguraRect: [MM(s + 5, ppp), MM(s + 5, ppp), MM(d.mm[0] - 10, ppp), MM(d.mm[1] - 10, ppp)], imprenta: d };
+    }
+    var r = { w: d.w, h: d.h, nota: d.nota, esquina: d.esquina, foto: d.foto };
+    if (d.seguraPx) r.seguraRect = [(d.w - d.seguraPx[0]) / 2, (d.h - d.seguraPx[1]) / 2, d.seguraPx[0], d.seguraPx[1]];
+    return r;
+  }
+  function tDibujar() {
+    var D = tDestino(), c = $('t-lienzo'), x = c.getContext('2d');
+    var esc = Math.min(640 / D.w, 480 / D.h); c.width = Math.round(D.w * esc); c.height = Math.round(D.h * esc);
+    var src = tImg || muestra, sw = src.width, sh = src.height, ar = D.w / D.h, cw, ch;
+    if (sw / sh > ar) { ch = sh; cw = sh * ar; } else { cw = sw; ch = sw / ar; }
+    var sx = (sw - cw) * $('t-x').value / 100, sy = (sh - ch) * $('t-y').value / 100;
+    x.drawImage(src, sx, sy, cw, ch, 0, 0, c.width, c.height);
+    x.lineWidth = 2;
+    if (D.corte) { x.strokeStyle = '#e53935'; x.setLineDash([]); x.strokeRect(D.corte[0] * esc, D.corte[1] * esc, D.corte[2] * esc, D.corte[3] * esc); }
+    if (D.seguraRect) { x.strokeStyle = '#ffd400'; x.setLineDash([8, 6]); x.strokeRect(D.seguraRect[0] * esc, D.seguraRect[1] * esc, D.seguraRect[2] * esc, D.seguraRect[3] * esc); }
+    if (D.esquina) { x.setLineDash([]); x.fillStyle = 'rgba(0,0,0,.75)'; x.fillRect(c.width - 70, c.height - 30, 60, 22); x.fillStyle = '#fff'; x.font = '12px Arial'; x.fillText('3:42', c.width - 52, c.height - 14); }
+    if (D.foto) { x.setLineDash([]); x.fillStyle = 'rgba(255,255,255,.85)'; x.beginPath(); x.arc(c.width * 0.1, c.height * 0.95, c.height * 0.3, 0, 7); x.fill(); }
+    x.setLineDash([]);
+    $('t-x-o').textContent = $('t-x').value + ' %'; $('t-y-o').textContent = $('t-y').value + ' %';
+    var amplia = D.w / cw;
+    var html = '<p>Tamaño final: <span class="dato">' + D.w + ' × ' + D.h + ' px</span>' + (D.imprenta ? ' (' + (D.imprenta.mm[0] + 2 * D.imprenta.sangrado) + ' × ' + (D.imprenta.mm[1] + 2 * D.imprenta.sangrado) + ' mm a 300 ppp)' : '') + '</p>';
+    html += '<p>De tu imagen se usan <span class="dato">' + Math.round(cw) + ' × ' + Math.round(ch) + ' px</span>. ' +
+      (amplia > 1.05 ? '<span class="n-aviso">Se ampliaría al ' + num(amplia * 100, 0) + ' %: perderá nitidez. Busca una imagen con más píxeles' + (D.imprenta ? ' o imprime más pequeño' : '') + '.</span>' : 'Tiene píxeles de sobra: se reduce sin perder calidad.') + '</p>';
+    if (D.imprenta) html += '<p>' + (D.imprenta.sangrado ? 'La imprenta corta por la línea roja. Lo de fuera (3 mm por lado) es el <strong>sangrado</strong>: el fondo tiene que llegar hasta el borde. Deja el texto a 5 mm del corte (línea amarilla).' : 'Una foto de 10 × 15 no lleva sangrado: se imprime tal cual.') + '</p>';
+    if (D.nota) html += '<p>' + D.nota + '</p>';
+    if (!tImg) html = '<p><em>Estás viendo la imagen de prueba, que es pequeña (640 × 400 px): carga una tuya para saber si tiene píxeles suficientes.</em></p>' + html;
+    $('t-res').innerHTML = html;
+    return { src: src, sx: sx, sy: sy, cw: cw, ch: ch, D: D };
+  }
+  ['t-destino'].forEach(function (id) { $(id).addEventListener('change', tDibujar); });
+  ['t-x', 't-y'].forEach(function (id) { $(id).addEventListener('input', tDibujar); });
+  $('t-archivo').addEventListener('change', async function () { var f = this.files[0]; if (!f) return; tImg = await createImageBitmap(f); tDibujar(); });
+  $('t-descargar').addEventListener('click', function () {
+    var r = tDibujar(), c = document.createElement('canvas'); c.width = r.D.w; c.height = r.D.h;
+    var x = c.getContext('2d'); x.imageSmoothingQuality = 'high'; x.drawImage(r.src, r.sx, r.sy, r.cw, r.ch, 0, 0, c.width, c.height);
+    c.toBlob(function (b) { var a = document.createElement('a'); a.href = URL.createObjectURL(b); a.download = $('t-destino').value + '_' + c.width + 'x' + c.height + '.jpg'; a.click(); setTimeout(function () { URL.revokeObjectURL(a.href); }, 3000); }, 'image/jpeg', 0.88);
+  });
+  tDibujar();
 })();
 </script>
 

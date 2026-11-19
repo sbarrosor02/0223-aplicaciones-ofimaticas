@@ -15,6 +15,9 @@ resultado esperado coincide con lo que sale si se hace bien la práctica:
   p34-miniatura.jpg          miniatura de 1280 × 720 con título y línea secundaria
   p35-importar.png           el logotipo abierto desde el SVG frente al PNG pequeño ampliado
   p35-transparencia.png      el logotipo exportado en PNG (transparente) y en JPG (fondo blanco)
+  p36-redes.jpg              la misma foto para un post 4:5, una historia y un banner de YouTube, con las zonas seguras
+  p36-cartel.jpg             el flyer A5 con sangrado: corte, zona segura y fondo hasta el borde
+  p36-web.jpg                la plantilla web rellena, vista en el ordenador y en el móvil (si está Playwright)
 
 Uso: python scripts/generar_resultados_esperados.py
 Salida: web/assets/img/entregas/
@@ -169,7 +172,173 @@ def main():
         t.paste(im, (x, 54))
     t.save(SALIDA / 'p35-transparencia.png', optimize=True)
 
+    publicar()
     print('Imágenes generadas en', SALIDA)
+
+
+# ------------------------------------------------------------------- Tema 3.6
+def recorte(im, w, h, cx=0.5, cy=0.5):
+    """Recorta la proporción w:h de im (centrado en cx, cy) y la escala a w × h."""
+    ar = w / h
+    if im.width / im.height > ar:
+        cw, ch = round(im.height * ar), im.height
+    else:
+        cw, ch = im.width, round(im.width / ar)
+    x = round((im.width - cw) * cx); y = round((im.height - ch) * cy)
+    return im.crop((x, y, x + cw, y + ch)).resize((w, h), Image.LANCZOS)
+
+
+def texto_centrado(d, cx, y, txt, tam, color=(255, 255, 255), negrita=True, sombra=True):
+    f = ImageFont.truetype(NEGRITA if negrita else NORMAL, tam)
+    if sombra:
+        d.text((cx + max(2, tam // 18), y + max(2, tam // 18)), txt, font=f, fill=(0, 0, 0), anchor='ma')
+    d.text((cx, y), txt, font=f, fill=color, anchor='ma')
+
+
+def discontinua(d, caja, color, ancho, trazo=24):
+    x0, y0, x1, y1 = caja
+    for x in range(int(x0), int(x1), trazo * 2):
+        d.line((x, y0, min(x + trazo, x1), y0), fill=color, width=ancho)
+        d.line((x, y1, min(x + trazo, x1), y1), fill=color, width=ancho)
+    for y in range(int(y0), int(y1), trazo * 2):
+        d.line((x0, y, x0, min(y + trazo, y1)), fill=color, width=ancho)
+        d.line((x1, y, x1, min(y + trazo, y1)), fill=color, width=ancho)
+
+
+def pieza_post(foto, logo):
+    im = recorte(foto, 1080, 1350, 0.5, 0.6)
+    d = ImageDraw.Draw(im)
+    im.paste(logo.resize((260, 260), Image.LANCZOS), (410, 70), logo.resize((260, 260), Image.LANCZOS))
+    texto_centrado(d, 540, 1020, 'CEREZO ROCK', 96)
+    texto_centrado(d, 540, 1140, 'Sábado 17 de abril', 52, negrita=False)
+    return im, (0, 0, 1080, 1350)
+
+
+def pieza_historia(foto, logo):
+    im = recorte(foto, 1080, 1920, 0.35, 0.5)
+    d = ImageDraw.Draw(im)
+    im.paste(logo.resize((300, 300), Image.LANCZOS), (390, 330), logo.resize((300, 300), Image.LANCZOS))
+    texto_centrado(d, 540, 700, 'CEREZO ROCK', 100)
+    texto_centrado(d, 540, 1450, 'Entrada libre', 64, negrita=False)
+    return im, (0, 250, 1080, 1670)
+
+
+def pieza_banner(foto, logo):
+    im = recorte(foto, 2560, 1440, 0.5, 0.5)
+    d = ImageDraw.Draw(im)
+    lg = logo.resize((300, 300), Image.LANCZOS)
+    im.paste(lg, (530, 570), lg)
+    d2 = ImageDraw.Draw(im)
+    f = ImageFont.truetype(NEGRITA, 120)
+    d2.text((864, 610), 'CEREZO ROCK', font=f, fill=(0, 0, 0)); d2.text((858, 604), 'CEREZO ROCK', font=f, fill=(255, 255, 255))
+    f2 = ImageFont.truetype(NORMAL, 56)
+    d2.text((864, 760), 'Festival del valle · 2027', font=f2, fill=(255, 255, 255))
+    return im, ((2560 - 1546) // 2, (1440 - 423) // 2, (2560 + 1546) // 2, (1440 + 423) // 2)
+
+
+def flyer_a5(foto, logo, guias=True):
+    """Flyer A5 con 3 mm de sangrado a 300 ppp: 1819 × 2551 px."""
+    W, H, S, Z = 1819, 2551, 35, 94   # sangrado 3 mm = 35 px; zona segura 8 mm del borde = 94 px
+    im = Image.new('RGB', (W, H), (30, 26, 36))
+    arriba = recorte(foto, W, 1500, 0.5, 0.55)
+    degr = Image.linear_gradient('L').resize((W, 1500))   # negro arriba, blanco abajo
+    im.paste(arriba, (0, 0), Image.eval(degr, lambda v: 255 - max(0, v - 120) * 255 // 135))
+    d = ImageDraw.Draw(im)
+    lg = logo.resize((420, 420), Image.LANCZOS)
+    im.paste(lg, ((W - 420) // 2, 1120), lg)
+    texto_centrado(d, W // 2, 1580, 'CEREZO ROCK', 190, sombra=False, color=(246, 239, 230))
+    texto_centrado(d, W // 2, 1800, 'FESTIVAL DEL VALLE · 2027', 70, negrita=False, sombra=False, color=(242, 140, 158))
+    for i, g in enumerate(['Los Picotas Eléctricas', 'Garganta Profunda', 'Niebla en Tornavacas']):
+        texto_centrado(d, W // 2, 1930 + i * 95, g, 66, negrita=False, sombra=False, color=(246, 239, 230))
+    texto_centrado(d, W // 2, H - Z - 70, 'Sábado 17 de abril · Cabezuela del Valle · Entrada libre', 46, negrita=False, sombra=False, color=(205, 198, 214))
+    if guias:
+        d.rectangle((S, S, W - S - 1, H - S - 1), outline=(229, 57, 53), width=6)
+        discontinua(d, (Z, Z, W - Z, H - Z), (255, 212, 0), 6)
+    return im
+
+
+def captura_plantilla(foto, logo, destino):
+    """Rellena la plantilla web con el material del 3.5 y la fotografía en 1280 y 390 px."""
+    try:
+        from playwright.sync_api import sync_playwright
+    except ImportError:
+        print('  (sin Playwright: no se genera p36-web.jpg)')
+        return
+    import tempfile, zipfile
+    zipf = RAIZ / 'web' / 'descargas' / 'plantilla-web-proyecto.zip'
+    with tempfile.TemporaryDirectory() as tmp:
+        tmp = Path(tmp)
+        zipfile.ZipFile(zipf).extractall(tmp)
+        base = tmp / 'plantilla-web-proyecto'
+        logo.resize((240, 240), Image.LANCZOS).save(base / 'img' / 'cerezo_logo.png')
+        portada = recorte(foto, 1200, 1200)
+        dp = ImageDraw.Draw(portada)
+        lg = logo.resize((360, 360), Image.LANCZOS); portada.paste(lg, (420, 330), lg)
+        texto_centrado(dp, 600, 760, 'CEREZO ROCK', 110)
+        portada.save(base / 'img' / 'cerezo_portada_1200x1200.webp', quality=80)
+        recorte(foto, 1200, 800, 0.2, 0.5).save(base / 'img' / 'cerezo_foto1_1200x800.webp', quality=80)
+        recorte(foto, 1200, 800, 0.9, 0.7).save(base / 'img' / 'cerezo_foto2_1200x800.webp', quality=80)
+        mini = recorte(foto, 1280, 720); texto_centrado(ImageDraw.Draw(mini), 640, 280, 'CEREZO ROCK', 130)
+        mini.save(base / 'img' / 'cerezo_miniatura_1280x720.jpg', quality=80)
+        html = (base / 'index.html').read_text(encoding='utf-8')
+        for a, b in (('img/logo.svg', 'img/cerezo_logo.png'), ('img/portada.svg', 'img/cerezo_portada_1200x1200.webp'),
+                     ('img/foto-1.svg', 'img/cerezo_foto1_1200x800.webp'), ('img/foto-2.svg', 'img/cerezo_foto2_1200x800.webp'),
+                     ('img/miniatura.svg', 'img/cerezo_miniatura_1280x720.jpg'),
+                     ('NOMBRE DEL PROYECTO', 'Cerezo Rock'), ('Una frase que diga qué sois: un grupo de música, un estudio de videojuegos…', 'Festival de rock del valle del Jerte'),
+                     ('TU NOMBRE', 'Ana Pérez')):
+            html = html.replace(a, b)
+        (base / 'index.html').write_text(html, encoding='utf-8')
+        tomas = []
+        with sync_playwright() as pw:
+            nav = pw.chromium.launch()
+            for ancho, alto in ((1280, 800), (390, 800)):
+                pg = nav.new_page(viewport={'width': ancho, 'height': alto})
+                pg.goto((base / 'index.html').as_uri()); pg.wait_for_timeout(300)
+                ruta = tmp / f'toma{ancho}.png'; pg.screenshot(path=str(ruta)); tomas.append(Image.open(ruta).convert('RGB'))
+            nav.close()
+    alto = 520
+    a = tomas[0].resize((round(1280 * alto / 800), alto), Image.LANCZOS)
+    b = tomas[1].resize((round(390 * alto / 800), alto), Image.LANCZOS)
+    lienzo = Image.new('RGB', (a.width + b.width + 16, alto + 50), (214, 222, 230))
+    lienzo.paste(rotulo(a, 'Ordenador · 1280 px'), (0, 50)); lienzo.paste(rotulo(b, 'Móvil · 390 px'), (a.width + 16, 50))
+    dl = ImageDraw.Draw(lienzo)
+    dl.text((10, 12), 'La misma página, dos pantallas', font=ImageFont.truetype(NEGRITA, 24), fill=(20, 24, 30))
+    lienzo.save(destino, quality=85)
+
+
+def publicar():
+    foto = Image.open(RAIZ / 'web' / 'descargas' / 'exportar-foto.jpg').convert('RGB')
+    logo = exportar.logo_png(600)
+    # Las tres piezas para redes, con la zona segura marcada
+    piezas = [pieza_post(foto, logo), pieza_historia(foto, logo), pieza_banner(foto, logo)]
+    nombres = ['Post 4:5 · 1080 × 1350', 'Historia · 1080 × 1920', 'Banner YouTube · 2560 × 1440']
+    alto = 520
+    vistas = []
+    for (im, zona), nombre in zip(piezas, nombres):
+        d = ImageDraw.Draw(im)
+        if zona != (0, 0, im.width, im.height):
+            discontinua(d, zona, (255, 212, 0), max(6, im.width // 300), trazo=max(24, im.width // 60))
+        v = im.resize((round(im.width * alto / im.height), alto), Image.LANCZOS)
+        vistas.append((v, nombre))
+    ancho = sum(v.width for v, _ in vistas) + 16 * (len(vistas) - 1)
+    lienzo = Image.new('RGB', (ancho, alto + 44), (214, 222, 230))
+    x = 0
+    f = ImageFont.truetype(NEGRITA, 20)
+    dl = ImageDraw.Draw(lienzo)
+    for v, nombre in vistas:
+        dl.text((x + 4, 10), nombre, font=f, fill=(20, 24, 30))
+        lienzo.paste(v, (x, 44)); x += v.width + 16
+    lienzo.save(SALIDA / 'p36-redes.jpg', quality=85)
+    # El flyer A5 con sangrado (con las guías dibujadas) y cómo queda cortado
+    con = flyer_a5(foto, logo).resize((455, 638), Image.LANCZOS)
+    cortado = flyer_a5(foto, logo, guias=False).crop((35, 35, 1819 - 35, 2551 - 35)).resize((437, 620), Image.LANCZOS)
+    t = Image.new('RGB', (455 + 437 + 40, 638 + 50), (214, 222, 230))
+    dt = ImageDraw.Draw(t)
+    dt.text((4, 12), 'Archivo: 154 × 216 mm', font=f, fill=(20, 24, 30))
+    dt.text((455 + 40, 12), 'Impreso y cortado: A5', font=f, fill=(20, 24, 30))
+    t.paste(con, (0, 50)); t.paste(cortado, (455 + 40, 59))
+    t.save(SALIDA / 'p36-cartel.jpg', quality=85)
+    captura_plantilla(foto, logo, SALIDA / 'p36-web.jpg')
 
 
 if __name__ == '__main__':
