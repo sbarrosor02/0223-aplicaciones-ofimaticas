@@ -13,6 +13,8 @@ resultado esperado coincide con lo que sale si se hace bien la práctica:
   p34-fusion.jpg             paisaje con la textura en Multiplicar y un degradado en Pantalla
   p34-fundido.jpg            paisaje que se convierte en la composición de la guitarra con una máscara
   p34-miniatura.jpg          miniatura de 1280 × 720 con título y línea secundaria
+  p35-importar.png           el logotipo abierto desde el SVG frente al PNG pequeño ampliado
+  p35-transparencia.png      el logotipo exportado en PNG (transparente) y en JPG (fondo blanco)
 
 Uso: python scripts/generar_resultados_esperados.py
 Salida: web/assets/img/entregas/
@@ -28,6 +30,7 @@ sys.path.insert(0, str(RAIZ / 'scripts'))
 import generar_fotos_retoque as retoque          # noqa: E402
 import generar_documento_fotografiado as docfoto  # noqa: E402
 import generar_material_capas as capas           # noqa: E402
+import generar_material_exportar as exportar     # noqa: E402
 
 SALIDA = RAIZ / 'web' / 'assets' / 'img' / 'entregas'
 NEGRITA = '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf'
@@ -136,6 +139,35 @@ def main():
     d.text((60, 490), 'MI PRIMER TEMA', font=titulo, fill=(255, 214, 90))
     d.text((64, 628), 'Grabado en el local de ensayo', font=sub, fill=(240, 240, 240))
     mini.save(SALIDA / 'p34-miniatura.jpg', quality=85)
+
+    # Tema 3.5: SVG frente a PNG pequeño, los dos a 2000 px; se muestra ampliada la misma zona
+    nitido = exportar.logo_png(2000, transparente=False).convert('RGB')
+    borroso = exportar.logo_png(120, transparente=False).convert('RGB').resize((2000, 2000), Image.BICUBIC)
+    zona = (380, 1000, 1380, 1600)
+    pareja_import = Image.new('RGB', (1012, 600), (255, 255, 255))
+    pareja_import.paste(rotulo(nitido.crop(zona).resize((500, 300)), 'Desde el SVG'), (0, 0))
+    pareja_import.paste(rotulo(borroso.crop(zona).resize((500, 300)), 'PNG de 120 px ampliado'), (512, 0))
+    pareja_import = pareja_import.crop((0, 0, 1012, 300))
+    pareja_import.save(SALIDA / 'p35-importar.png', optimize=True)
+
+    # Transparencia: el PNG deja ver el fondo de cuadros; el JPG lo rellena de blanco
+    logo = exportar.logo_png(400)
+    cuadros = Image.new('RGB', (400, 400), (255, 255, 255))
+    dc = ImageDraw.Draw(cuadros)
+    for i in range(0, 400, 20):
+        for j in range(0, 400, 20):
+            if (i // 20 + j // 20) % 2:
+                dc.rectangle((i, j, i + 19, j + 19), fill=(205, 205, 205))
+    con_png = cuadros.copy(); con_png.paste(logo, (0, 0), logo)
+    con_jpg = cuadros.copy(); blanco = Image.new('RGB', (400, 400), (255, 255, 255)); blanco.paste(logo, (0, 0), logo)
+    con_jpg.paste(blanco.crop((0, 0, 400, 400)), (0, 0))
+    t = Image.new('RGB', (848, 470), (214, 222, 230))   # gris alrededor: así se ve el blanco del JPG
+    dt = ImageDraw.Draw(t)
+    f = ImageFont.truetype(NEGRITA, 24)
+    for x, im, txt in ((16, con_png, 'PNG: transparente'), (432, con_jpg, 'JPG: fondo blanco')):
+        dt.text((x, 14), txt, font=f, fill=(20, 24, 30))
+        t.paste(im, (x, 54))
+    t.save(SALIDA / 'p35-transparencia.png', optimize=True)
 
     print('Imágenes generadas en', SALIDA)
 

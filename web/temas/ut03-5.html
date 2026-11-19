@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tema 3.5 · Importar, exportar y optimizar · 0223 Aplicaciones ofimáticas</title>
+<link rel="stylesheet" href="../assets/estilo.css">
+<style>
+  .t35 { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 1rem 0; }
+  .t35 th, .t35 td { border: 1px solid var(--linea); padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+  .t35 th { background: var(--acento-claro); color: var(--acento); }
+  .lab-enlace { display: inline-block; margin: 0.3rem 0 0.6rem; padding: 0.45rem 0.8rem; border: 1px solid var(--acento); border-radius: var(--radio); font-weight: 600; }
+  .fotos-practica { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 0.8rem; margin: 1rem 0; }
+  .fotos-practica figure { margin: 0; }
+  .fotos-practica img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border: 1px solid var(--linea); border-radius: 4px; }
+  .fotos-practica figcaption { font-size: 0.85rem; margin-top: 0.3rem; }
+  .fotos-practica img.entera { object-fit: contain; background: repeating-conic-gradient(#ddd 0 25%, #fff 0 50%) 0 0 / 16px 16px; }
+  .num-dcha { text-align: right; white-space: nowrap; }
+</style>
+<link rel="stylesheet" href="../assets/aula.css">
+<script defer src="../assets/aula.js"></script>
+</head>
+<body data-modulo="0223">
+<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0223 / Aplicaciones ofimáticas</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><a class="indice-tema" href="ut03.html"><span>Tema 3</span>Imagen digital: captura, edición y publicación</a><a class="indice-material" href="../recursos.html?tema=3">Todo el material del tema 3</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-material-para-practicar">Material para practicar</a></li><li><a href="#apartado-1-guardar-exportar-y-sobrescribir">1. Guardar, exportar y sobrescribir</a></li><li><a href="#apartado-2-importar-abrir-otros-formatos">2. Importar: abrir otros formatos</a></li><li><a href="#apartado-3-exportar-en-cada-formato">3. Exportar en cada formato</a></li><li><a href="#apartado-4-optimizar-el-peso">4. Optimizar el peso</a></li><li><a href="#apartado-5-las-imagenes-en-los-documentos">5. Las imágenes en los documentos</a></li><li><a href="#apartado-6-practicas-del-subtema">6. Prácticas del subtema</a></li><li><a href="#apartado-7-comprueba-lo-que-has-entendido">7. Comprueba lo que has entendido</a></li><li><a href="#apartado-8-antes-de-pasar-al-subtema-3-6">8. Antes de pasar al subtema 3.6</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1"><nav class="aula-migas" aria-label="Estás en"><a href="../index.html">Inicio</a><span aria-hidden="true">›</span><a href="ut03.html">Tema 3 · Imagen digital: captura, edición y publicación</a><span aria-hidden="true">›</span><span aria-current="page">3.5 Importar, exportar y optimizar</span></nav>
+
+  <header class="cab">
+    <p class="modulo">0223 · Aplicaciones ofimáticas · Tema 3 (5 de 6)</p>
+    <h1>Tema 3.5 — Importar, exportar y optimizar</h1>
+    <p class="meta">1.º SMR · Curso 2026/2027 · 1.ª evaluación · Duración: 4 h</p>
+  </header>
+<nav class="subnav" aria-label="Apartados del tema 3"><a href="ut03.html">Portada del tema</a><a href="ut03.html#apartado-subtemas">Apuntes</a><a href="ut03-ejercicios.html">Ejercicios guiados</a><a href="laboratorio-imagen.html">Laboratorio de imagen</a></nav>
+
+  <details class="ra-ce"><summary>Qué se evalúa · RA y criterios</summary>
+    <h2 id="apartado-resultado-de-aprendizaje">Resultado de aprendizaje</h2>
+    <p><strong>RA5.</strong> Manipula imágenes digitales analizando las
+    posibilidades de distintos programas y aplicando técnicas de captura y edición
+    básicas.</p>
+    <p>Criterio de evaluación que trabaja este subtema:</p>
+    <ul>
+      <li><strong>e)</strong> Se han importado y exportado imágenes en diversos formatos.</li>
+    </ul>
+  </details>
+
+  <div class="aviso">
+    <strong>Guardar no es exportar.</strong> En GIMP, <em>Guardar</em> solo crea
+    archivos <code>.xcf</code>, con todas sus capas, para seguir trabajando.
+    Para que la imagen se pueda usar fuera de GIMP (en una web, en Word, en
+    redes) hay que <strong>exportarla</strong> a JPG, PNG, WebP… Un mismo XCF da
+    tantas exportaciones como destinos tenga.
+  </div>
+
+  <section>
+    <h2 id="apartado-material-para-practicar">Material para practicar</h2>
+    <p>Todo inventado para este subtema. Guárdalo en
+    <code>Tema3_Proyecto/trabajo/originales</code>.</p>
+    <div class="fotos-practica">
+      <figure><a href="../descargas/importar-cartel.pdf"><img class="entera" src="../assets/img/entregas/p35-cartel.png" alt="Cartel del festival Cerezo Rock: dos cerezas sobre fondo oscuro y la lista de grupos" loading="lazy" width="420" height="595"></a>
+        <figcaption><strong>Cartel en PDF</strong>: vectorial, tamaño A5.</figcaption></figure>
+      <figure><a href="../descargas/importar-logo.svg"><img class="entera" src="../descargas/importar-logo.svg" alt="Logotipo vectorial: dos cerezas y el texto CEREZO ROCK" loading="lazy" width="200" height="200"></a>
+        <figcaption><strong>Logotipo en SVG</strong>: vectorial.</figcaption></figure>
+      <figure><a href="../descargas/importar-logo-pequeno.png"><img class="entera" src="../descargas/importar-logo-pequeno.png" alt="El mismo logotipo en un mapa de bits de 120 por 120 píxeles" loading="lazy" width="120" height="120" style="image-rendering:pixelated"></a>
+        <figcaption><strong>Logotipo pequeño</strong>: PNG de 120 × 120 px.</figcaption></figure>
+      <figure><a href="../descargas/exportar-logo-transparente.png"><img class="entera" src="../descargas/exportar-logo-transparente.png" alt="Logotipo con fondo transparente sobre un fondo de cuadros" loading="lazy" width="1000" height="1000"></a>
+        <figcaption><strong>Logotipo transparente</strong>: PNG de 1000 × 1000 px.</figcaption></figure>
+      <figure><a href="../descargas/exportar-foto.jpg"><img src="../descargas/exportar-foto.jpg" alt="Paisaje del valle con embalse y cerezos en flor" loading="lazy" width="2400" height="1600"></a>
+        <figcaption><strong>Foto</strong>: el paisaje del 3.3 sin defectos, 2400 × 1600 px.</figcaption></figure>
+    </div>
+    <p>Enlaces directos:
+    <a href="../descargas/importar-cartel.pdf">Cartel del festival en PDF</a> ·
+    <a href="../descargas/importar-logo.svg">Logotipo en SVG</a> ·
+    <a href="../descargas/importar-logo-pequeno.png">Logotipo pequeño en PNG</a> ·
+    <a href="../descargas/exportar-logo-transparente.png">Logotipo con transparencia</a> ·
+    <a href="../descargas/exportar-foto.jpg">Foto del paisaje para exportar</a>.</p>
+    <p class="pie-fig"><em>Para guardar el SVG y el PDF, clic derecho en el enlace &gt; <em>Guardar enlace como</em>: si haces clic sin más, el navegador los abre en vez de descargarlos.</em></p>
+  </section>
+
+  <section>
+    <h2 id="apartado-1-guardar-exportar-y-sobrescribir">1. Guardar, exportar y sobrescribir</h2>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="t35">
+      <thead><tr><th>Orden de GIMP</th><th>Atajo</th><th>Qué hace</th></tr></thead>
+      <tbody>
+        <tr><td><code>Archivo &gt; Guardar</code></td><td><kbd>Ctrl</kbd>+<kbd>S</kbd></td><td>Guarda el <strong>XCF</strong>: capas, máscaras, textos editables, guías. Es tu archivo de trabajo.</td></tr>
+        <tr><td><code>Archivo &gt; Exportar como…</code></td><td><kbd>Mayús</kbd>+<kbd>Ctrl</kbd>+<kbd>E</kbd></td><td>Crea una copia en otro formato. El formato lo decide la <strong>extensión</strong> que escribes en el nombre: <code>.jpg</code>, <code>.png</code>, <code>.webp</code>…</td></tr>
+        <tr><td><code>Archivo &gt; Exportar a nombre.jpg</code></td><td><kbd>Ctrl</kbd>+<kbd>E</kbd></td><td>Repite la última exportación con las mismas opciones, sin preguntar. Útil cuando retocas algo y quieres actualizar el JPG.</td></tr>
+        <tr><td><code>Archivo &gt; Sobrescribir nombre.jpg</code></td><td>—</td><td>Solo aparece si abriste un JPG o un PNG: lo reemplaza. <strong>Cuidado</strong>: pierdes el original.</td></tr>
+      </tbody>
+    </table></div>
+    <ul>
+      <li>Al exportar, las capas se <strong>combinan</strong> en la copia: el XCF no se toca. No hace falta aplanar antes.</li>
+      <li>Si cierras después de exportar, GIMP te avisa de que hay cambios sin guardar: se refiere al XCF. Guárdalo si quieres poder volver a editarlo.</li>
+      <li>Regla del proyecto: <strong>un XCF por pieza y tantas exportaciones como destinos</strong>. Si algo cambia, editas el XCF y vuelves a exportar.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 id="apartado-2-importar-abrir-otros-formatos">2. Importar: abrir otros formatos</h2>
+    <p>GIMP abre casi cualquier imagen con <code>Archivo &gt; Abrir</code>
+    (<kbd>Ctrl</kbd>+<kbd>O</kbd>) o arrastrándola a la ventana. Algunos formatos
+    necesitan que decidas algo al abrirlos:</p>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="t35">
+      <thead><tr><th>Qué abres</th><th>Qué te pregunta GIMP</th><th>Ten en cuenta</th></tr></thead>
+      <tbody>
+        <tr><td><strong>PDF</strong></td><td>Qué páginas (como capas o como imágenes) y la <strong>resolución</strong> en ppp</td><td>Un PDF vectorial se convierte en píxeles al abrirlo: tú eliges cuántos. Un A5 a 72 ppp da 420 × 595 px; a 300 ppp, 1748 × 2480 px.</td></tr>
+        <tr><td><strong>SVG</strong> (vectorial)</td><td>El <strong>tamaño</strong> en píxeles al que lo dibuja</td><td>Elige ya el tamaño grande que necesites: sale nítido a cualquier tamaño. Si lo abres pequeño y luego amplías, se pixela.</td></tr>
+        <tr><td><strong>PSD</strong> (Photoshop)</td><td>Nada</td><td>Abre las capas, pero los efectos de capa y algunos textos llegan convertidos en píxeles.</td></tr>
+        <tr><td><strong>HEIC</strong> (fotos del iPhone)</td><td>Nada, si GIMP tiene el soporte instalado</td><td>Si no lo abre, en el iPhone: <code>Ajustes &gt; Cámara &gt; Formatos &gt; Más compatible</code>, y las fotos nuevas se guardan en JPG.</td></tr>
+        <tr><td><strong>Una captura</strong> o algo copiado</td><td>Nada</td><td><code>Archivo &gt; Crear &gt; Desde el portapapeles</code> (<kbd>Mayús</kbd>+<kbd>Ctrl</kbd>+<kbd>V</kbd>) crea una imagen nueva con lo copiado.</td></tr>
+      </tbody>
+    </table></div>
+    <p>La clave: <strong>un vectorial se abre directamente al tamaño final</strong>.
+    Un mapa de bits pequeño no se puede ampliar sin perder calidad (subtema 3.1).</p>
+    <figure><img src="../assets/img/entregas/p35-importar.png" alt="A la izquierda, una cereza nítida abierta desde el SVG a 2000 píxeles; a la derecha, la misma cereza borrosa y escalonada del PNG de 120 píxeles ampliado" loading="lazy" style="max-width:100%;height:auto"><figcaption class="pie-fig">Figura 1: el mismo logotipo a 2000 × 2000 px. Abierto desde el SVG (izquierda) y desde el PNG de 120 px ampliado (derecha).</figcaption></figure>
+  </section>
+
+  <section>
+    <h2 id="apartado-3-exportar-en-cada-formato">3. Exportar en cada formato</h2>
+    <p>En <code>Exportar como</code>, escribe el nombre con su extensión y pulsa
+    <em>Exportar</em>. Después sale un cuadro con las opciones de ese formato. Las
+    importantes:</p>
+    <h3>JPG: fotos</h3>
+    <ul>
+      <li><strong>Calidad</strong> (0–100): cuanto más baja, menos pesa y más se nota la compresión. Para la web, entre 75 y 85.</li>
+      <li>Marca <strong>Mostrar la vista previa en la ventana de imagen</strong>: ves cómo queda y, debajo, <strong>cuánto pesará el archivo</strong>. Mueve la calidad mirando la imagen al 100 %.</li>
+      <li>En <em>Opciones avanzadas</em>, <strong>Progresivo</strong> hace que en la web se vea primero borrosa y luego nítida. <strong>Submuestreo 4:4:4</strong> conserva mejor el texto y los rojos intensos, pero pesa más.</li>
+      <li>Desmarca <strong>Exif</strong> y <strong>XMP</strong> si vas a publicar la foto: son los metadatos del subtema 3.2 (ubicación, cámara, fecha).</li>
+      <li>JPG <strong>no tiene transparencia</strong>: las zonas transparentes se rellenan con el color de fondo.</li>
+    </ul>
+    <h3>PNG: logotipos, capturas, transparencia</h3>
+    <ul>
+      <li>Es <strong>sin pérdida</strong>: el <em>Nivel de compresión</em> (0–9) no cambia la calidad, solo lo que tarda en guardarse y un poco el peso. Déjalo en 9.</li>
+      <li>Guarda la <strong>transparencia</strong>.</li>
+      <li>Para que un logotipo pese menos: <code>Imagen &gt; Modo &gt; Indexado</code>, <em>Generar paleta óptima</em> con 64 o 128 colores, y luego exporta. Pasa a usar una paleta de colores, como un GIF. Hazlo en una copia: el modo indexado no deja editar bien.</li>
+    </ul>
+    <h3>WebP: la web moderna</h3>
+    <ul>
+      <li>Hace lo de JPG (con pérdida, opción <em>Calidad de imagen</em>) y lo de PNG (marca <strong>Sin pérdida</strong>), y admite transparencia.</li>
+      <li>Con la misma calidad, una foto en WebP suele pesar bastante menos que en JPG. Todos los navegadores actuales lo abren; algunos programas antiguos, no.</li>
+    </ul>
+    <h3>Otros formatos</h3>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="t35">
+      <thead><tr><th>Formato</th><th>Para qué</th><th>Cómo se hace en GIMP</th></tr></thead>
+      <tbody>
+        <tr><td><strong>GIF</strong></td><td>Animaciones sencillas</td><td>Cada capa es un fotograma. Al exportar, marca <em>Como animación</em> y pon el retraso entre fotogramas. Máximo 256 colores.</td></tr>
+        <tr><td><strong>ICO</strong></td><td>El icono de una web en la pestaña del navegador (<em>favicon</em>)</td><td>Cada capa es un tamaño del icono: duplica la capa y escala cada copia a 16, 32 y 48 px. Exporta como <code>favicon.ico</code>.</td></tr>
+        <tr><td><strong>PDF</strong></td><td>Enviar a imprenta o adjuntar a un documento</td><td><code>Exportar como</code> con extensión <code>.pdf</code>. Con varias capas, puedes marcar que cada capa sea una página.</td></tr>
+        <tr><td><strong>TIFF</strong></td><td>Imprenta y archivo, sin pérdida</td><td>Al exportar, compresión <strong>LZW</strong> (sin pérdida). Pesa mucho: no es para la web.</td></tr>
+      </tbody>
+    </table></div>
+    <figure><img src="../assets/img/entregas/p35-transparencia.png" alt="El logotipo exportado en PNG deja ver el fondo de cuadros; exportado en JPG aparece sobre un cuadrado blanco" loading="lazy" style="max-width:100%;height:auto"><figcaption class="pie-fig">Figura 2: el logotipo transparente exportado en PNG y en JPG. El JPG ha rellenado la transparencia de blanco.</figcaption></figure>
+  </section>
+
+  <section>
+    <h2 id="apartado-4-optimizar-el-peso">4. Optimizar el peso</h2>
+    <p>Una imagen <strong>optimizada</strong> es la más ligera que se sigue viendo
+    bien en su destino. Se consigue en cuatro pasos, y en este orden:</p>
+    <ol>
+      <li><strong>Los píxeles justos.</strong> Escala al tamaño en que se va a ver (subtema 3.3). Una foto de 2400 px para un hueco de 1200 px pesa cuatro veces más para nada.</li>
+      <li><strong>El formato adecuado.</strong> Foto: JPG o WebP. Logotipo, captura o transparencia: PNG o WebP. Imprenta: PDF o TIFF.</li>
+      <li><strong>La calidad más baja que no se note.</strong> Baja la calidad mirando la vista previa al 100 % hasta que veas artefactos, y sube un poco.</li>
+      <li><strong>Sin metadatos</strong> si se va a publicar.</li>
+    </ol>
+    <p>Esto es lo que pesa la foto del material (2400 × 1600 px) según cómo la exportes. Son valores medidos; en tu ordenador pueden variar un poco:</p>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="t35">
+      <thead><tr><th>Exportación</th><th class="num-dcha">2400 × 1600</th><th class="num-dcha">1200 × 800</th></tr></thead>
+      <tbody>
+        <tr><td>JPG, calidad 90</td><td class="num-dcha">≈ 950 KB</td><td class="num-dcha">≈ 155 KB</td></tr>
+        <tr><td>JPG, calidad 80</td><td class="num-dcha">≈ 410 KB</td><td class="num-dcha">≈ 95 KB</td></tr>
+        <tr><td>JPG, calidad 60</td><td class="num-dcha">≈ 210 KB</td><td class="num-dcha">≈ 60 KB</td></tr>
+        <tr><td>WebP, calidad 80</td><td class="num-dcha">≈ 260 KB</td><td class="num-dcha">≈ 50 KB</td></tr>
+        <tr><td>PNG (sin pérdida)</td><td class="num-dcha">≈ 5,2 MB</td><td class="num-dcha">≈ 1,2 MB</td></tr>
+        <tr><td>TIFF con LZW (sin pérdida)</td><td class="num-dcha">≈ 8 MB</td><td class="num-dcha">—</td></tr>
+      </tbody>
+    </table></div>
+    <p>Fíjate: <strong>reducir a la mitad de ancho divide el peso entre cuatro</strong>
+    (hay la cuarta parte de píxeles), y pasar de PNG a JPG 80 lo divide entre doce.
+    Con el logotipo pasa al revés: en PNG pesa unos 15 KB y en JPG, unos 60 KB,
+    porque JPG no está pensado para colores planos y bordes nítidos.</p>
+    <h3>Para cada destino</h3>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="t35">
+      <thead><tr><th>Destino</th><th>Píxeles</th><th>Formato</th><th>Peso</th></tr></thead>
+      <tbody>
+        <tr><td>Miniatura de YouTube</td><td>1280 × 720</td><td>JPG o PNG</td><td>YouTube admite hasta 2 MB; con 100–300 KB basta</td></tr>
+        <tr><td>Foto para una web</td><td>1200 de ancho, como mucho</td><td>WebP o JPG</td><td>Menos de 200 KB</td></tr>
+        <tr><td>Post cuadrado en redes</td><td>1080 × 1080</td><td>JPG</td><td>Menos de 300 KB (la red la recomprime igualmente)</td></tr>
+        <tr><td>Logotipo para web y documentos</td><td>El necesario, o SVG</td><td>PNG con transparencia</td><td>Pocos KB</td></tr>
+        <tr><td>Icono de la web</td><td>16, 32 y 48 px</td><td>ICO</td><td>Muy poco</td></tr>
+        <tr><td>Imprenta</td><td>Tamaño de papel a 300 ppp</td><td>PDF o TIFF</td><td>Lo que ocupe: aquí manda la calidad</td></tr>
+      </tbody>
+    </table></div>
+    <h3>Nombres de archivo</h3>
+    <p>Nombres <strong>sin espacios, sin tildes ni eñes y en minúsculas</strong>, con
+    guiones, la pieza y el tamaño: <code>cerezo-rock_miniatura_1280x720.jpg</code>.
+    Así no se rompen en una web ni en un servidor, y se sabe qué es cada uno sin
+    abrirlo.</p>
+    <p><a class="lab-enlace" href="laboratorio-imagen.html#apartado-8-convertir-y-optimizar-varias-imagenes">Convierte y optimiza varias imágenes a la vez en el laboratorio</a></p>
+  </section>
+
+  <section>
+    <h2 id="apartado-5-las-imagenes-en-los-documentos">5. Las imágenes en los documentos</h2>
+    <p>Importar una imagen en Word o en un PDF también es importar. Y es la causa
+    número uno de documentos que no caben en un correo.</p>
+    <ul>
+      <li><code>Insertar &gt; Imágenes &gt; Este dispositivo</code> <strong>incrusta</strong> la imagen: va dentro del <code>.docx</code>. Una foto de 5 MB hace que el documento pese 5 MB más.</li>
+      <li>En el mismo cuadro, la flecha del botón <em>Insertar</em> ofrece <strong>Vincular al archivo</strong>: el documento solo guarda la ruta de la imagen. Pesa poco, pero si mueves o envías el documento sin la imagen, aparece un recuadro vacío.</li>
+      <li><strong>Comprimir</strong>: selecciona una imagen &gt; <code>Formato de imagen &gt; Comprimir imágenes</code>. Elige la resolución según el destino (<em>Impresión 220 ppp</em>, <em>Web 150 ppp</em>, <em>Correo electrónico 96 ppp</em>) y marca <em>Eliminar las áreas recortadas de las imágenes</em>. Si desmarcas <em>Aplicar solo a esta imagen</em>, comprime todas.</li>
+      <li>Word ya comprime al guardar según <code>Archivo &gt; Opciones &gt; Avanzadas &gt; Tamaño y calidad de imagen</code>. Si ahí está marcado <em>No comprimir las imágenes del archivo</em>, el documento conserva las fotos enteras.</li>
+    </ul>
+    <p>Lo mejor es lo del apartado 4: preparar la imagen en GIMP con los píxeles
+    justos <strong>antes</strong> de meterla en el documento.</p>
+  </section>
+
+  <section>
+    <h2 id="apartado-6-practicas-del-subtema">6. Prácticas del subtema</h2>
+    <p>Acreditan el criterio <em>e</em> (importar y exportar en diversos formatos).
+    Entrega los archivos que se piden y una memoria en PDF con las capturas y las
+    tablas.</p>
+    <ul>
+      <li><strong>P3.5.1</strong> · <strong>Importar.</strong> (1) Abre
+      <code>importar-cartel.pdf</code> en GIMP a 72 ppp y otra vez a 300 ppp, y apunta
+      los píxeles de cada una. (2) Abre <code>importar-logo.svg</code> a 2000 × 2000
+      px y expórtalo en PNG. Abre <code>importar-logo-pequeno.png</code>, escálalo a
+      2000 × 2000 y expórtalo en PNG. Compara los dos al 100 % con una captura y
+      explica la diferencia. (3) En un documento de Word nuevo, inserta
+      <code>exportar-foto.jpg</code> y guarda con <em>No comprimir las imágenes del
+      archivo</em> marcado; apunta el peso del <code>.docx</code>. Comprime la imagen
+      a <em>Web (150 ppp)</em>, guarda otra vez y apunta el peso nuevo.</li>
+      <li><strong>P3.5.2</strong> · <strong>Una foto, cuatro formatos.</strong>
+      Escala <code>exportar-foto.jpg</code> a 1200 × 800 y expórtala en JPG con
+      calidad 90, en JPG con calidad 60, en PNG y en WebP con calidad 80. Haz una
+      tabla con el peso de cada una y una captura de un detalle al 200 % de la JPG
+      60. ¿Cuál usarías para una web y por qué?</li>
+      <li><strong>P3.5.3</strong> · <strong>Un logotipo, tres salidas.</strong> Con
+      <code>exportar-logo-transparente.png</code>: (1) expórtalo en JPG y en PNG y
+      compara los dos sobre un fondo de color; (2) pásalo a modo indexado con 64
+      colores y expórtalo en PNG: ¿cuánto pesa ahora?; (3) crea un
+      <code>favicon.ico</code> con tres capas de 16, 32 y 48 px.</li>
+      <li><strong>P3.5.4</strong> · <strong>Cada destino, su archivo.</strong> A
+      partir de <code>exportar-foto.jpg</code>, prepara: una miniatura de YouTube
+      (1280 × 720, JPG, menos de 200 KB), una foto para una web (1200 px de ancho,
+      WebP, menos de 100 KB), un post cuadrado (1080 × 1080, JPG, menos de 150 KB)
+      y una copia para imprimir a 15 × 10 cm a 300 ppp (TIFF con LZW). Todas sin
+      metadatos y con nombres que sigan la norma del apartado 4. Haz una tabla con
+      los píxeles, la calidad elegida y el peso de cada una.</li>
+    </ul>
+
+    <section class="entrega" aria-labelledby="entrega-p35">
+      <h3 id="entrega-p35">Qué entregas de las prácticas del 3.5</h3>
+      <p class="entrega-sub">Las cuatro prácticas van juntas: los archivos exportados y una memoria con las capturas y las tablas de peso.</p>
+      <p class="entrega-zip">Sube a Moodle <code>&lt;usuario&gt;_p35.zip</code>. En su raíz:</p>
+      <div class="aula-tabla"><table class="entrega-nombres"><thead><tr><th>Qué es</th><th>Nombre dentro del ZIP</th><th>Parte</th></tr></thead><tbody>
+        <tr><td>Memoria con capturas y tablas</td><td><code>&lt;usuario&gt;_p35.pdf</code></td><td>Todas</td></tr>
+        <tr><td>Logotipo abierto desde el SVG, 2000 px</td><td><code>&lt;usuario&gt;_a01_1.png</code></td><td>P3.5.1</td></tr>
+        <tr><td>Logotipo pequeño ampliado, 2000 px</td><td><code>&lt;usuario&gt;_a01_2.png</code></td><td>P3.5.1</td></tr>
+        <tr><td>Documento con la foto comprimida</td><td><code>&lt;usuario&gt;_a01.docx</code></td><td>P3.5.1</td></tr>
+        <tr><td>Foto en JPG 90 y en JPG 60</td><td><code>&lt;usuario&gt;_a02_1.jpg</code> · <code>&lt;usuario&gt;_a02_2.jpg</code></td><td>P3.5.2</td></tr>
+        <tr><td>Foto en PNG y en WebP</td><td><code>&lt;usuario&gt;_a02.png</code> · <code>&lt;usuario&gt;_a02.webp</code></td><td>P3.5.2</td></tr>
+        <tr><td>Logotipo en JPG</td><td><code>&lt;usuario&gt;_a03.jpg</code></td><td>P3.5.3</td></tr>
+        <tr><td>Logotipo en PNG y en PNG indexado</td><td><code>&lt;usuario&gt;_a03_1.png</code> · <code>&lt;usuario&gt;_a03_2.png</code></td><td>P3.5.3</td></tr>
+        <tr><td>Icono</td><td><code>&lt;usuario&gt;_a03.ico</code></td><td>P3.5.3</td></tr>
+        <tr><td>Miniatura y post</td><td><code>&lt;usuario&gt;_a04_1.jpg</code> · <code>&lt;usuario&gt;_a04_2.jpg</code></td><td>P3.5.4</td></tr>
+        <tr><td>Foto para la web y copia para imprimir</td><td><code>&lt;usuario&gt;_a04.webp</code> · <code>&lt;usuario&gt;_a04.tif</code></td><td>P3.5.4</td></tr>
+      </tbody></table></div>
+      <p class="entrega-sub">Dentro del ZIP los archivos llevan estos nombres; en tu carpeta de
+      trabajo, los de la norma del apartado 4 (en la tabla de la P3.5.4 pon los dos).
+      La memoria cumple las normas del módulo: portada, índice con hiperenlaces,
+      páginas numeradas, enunciado en negrita y respuesta en normal,
+      <code>Figura N: …</code> en cada imagen, sin faltas y capturas de pantalla
+      completa con la fecha y el archivo abierto.</p>
+      <h4>Capturas que no pueden faltar en la memoria</h4>
+      <ul class="entrega-lista">
+        <li>P3.5.1: el cuadro de importar el PDF con 300 ppp, y los dos logotipos ampliados al 100 %.</li>
+        <li>P3.5.1: las propiedades del <code>.docx</code> (peso) antes y después de comprimir.</li>
+        <li>P3.5.2: el detalle de la JPG 60 al 200 %.</li>
+        <li>P3.5.4: el cuadro de exportar JPG con la vista previa y el peso, y los metadatos desmarcados.</li>
+      </ul>
+      <h4>Comprueba antes de entregar</h4>
+      <ul class="entrega-lista">
+        <li>El cartel a 72 ppp mide 420 × 595 px y a 300 ppp, 1748 × 2480 px.</li>
+        <li>Los dos logotipos de la P3.5.1 miden 2000 × 2000: el del SVG tiene los bordes nítidos y el del PNG pequeño, escalonados o borrosos.</li>
+        <li>Al comprimir a 150 ppp, el <code>.docx</code> pasa de algo más de 1 MB a unos 100–200 KB.</li>
+        <li>Las cuatro fotos de la P3.5.2 miden 1200 × 800. La PNG es con diferencia la que más pesa.</li>
+        <li>El JPG del logotipo tiene fondo blanco; los PNG, transparente. El indexado pesa menos que el PNG normal.</li>
+        <li>El ICO tiene tres tamaños: ábrelo en GIMP y verás tres capas.</li>
+        <li>En la P3.5.4 cada archivo cumple sus píxeles y su peso máximo, y ninguno tiene Exif (compruébalo con el visor del laboratorio).</li>
+      </ul>
+      <h4>Cómo debe quedar</h4>
+      <div class="entrega-ejemplos">
+        <figure class="entrega-ancho">
+          <img src="../assets/img/entregas/p35-importar.png" alt="Logotipo nítido abierto desde el SVG a la izquierda y logotipo pixelado del PNG pequeño a la derecha" loading="lazy">
+          <figcaption>P3.5.1: el SVG abierto a 2000 px (izquierda) frente al PNG de 120 px ampliado (derecha), al 100 %.</figcaption>
+        </figure>
+        <figure>
+          <div class="aula-tabla"><table class="t35"><thead><tr><th>P3.5.2 (1200 × 800)</th><th>Peso</th></tr></thead><tbody>
+            <tr><td>JPG 90</td><td>≈ 155 KB</td></tr><tr><td>JPG 60</td><td>≈ 60 KB</td></tr><tr><td>PNG</td><td>≈ 1,2 MB</td></tr><tr><td>WebP 80</td><td>≈ 50 KB</td></tr></tbody></table></div>
+          <figcaption>Para la web: WebP 80 (o JPG 80 si el sitio no admite WebP). La JPG 60 ya enseña artefactos en las nubes y el agua.</figcaption>
+        </figure>
+        <figure>
+          <img src="../assets/img/entregas/p35-transparencia.png" alt="Logotipo en PNG transparente y en JPG con fondo blanco" loading="lazy">
+          <figcaption>P3.5.3: PNG ≈ 15 KB y transparente; JPG ≈ 60 KB y con fondo blanco; PNG indexado a 64 colores ≈ 7 KB.</figcaption>
+        </figure>
+        <figure>
+          <div class="aula-tabla"><table class="t35"><thead><tr><th>P3.5.4</th><th>Píxeles</th><th>Peso</th></tr></thead><tbody>
+            <tr><td><code>cerezo_miniatura_1280x720.jpg</code> (calidad 80)</td><td>1280 × 720</td><td>≈ 90 KB</td></tr>
+            <tr><td><code>cerezo_web_1200x800.webp</code> (calidad 80)</td><td>1200 × 800</td><td>≈ 50 KB</td></tr>
+            <tr><td><code>cerezo_post_1080x1080.jpg</code> (calidad 80)</td><td>1080 × 1080</td><td>≈ 115 KB</td></tr>
+            <tr><td><code>cerezo_imprimir_15x10.tif</code> (LZW)</td><td>1772 × 1181</td><td>≈ 4,5 MB</td></tr></tbody></table></div>
+          <figcaption>Valores orientativos: pueden variar un 20 % según el programa y las opciones.</figcaption>
+        </figure>
+      </div>
+      <p class="entrega-ojo"><strong>Fallo más común:</strong> guardar con <kbd>Ctrl</kbd>+<kbd>S</kbd> y entregar el XCF, o escribir «foto.jpg» en <em>Guardar como</em>. Para JPG, PNG o WebP hay que <strong>exportar</strong>.</p>
+    </section>
+  </section>
+
+  <section>
+    <h2 id="apartado-7-comprueba-lo-que-has-entendido">7. Comprueba lo que has entendido</h2>
+    <p>Ocho preguntas. No cuenta para la nota: es para que veas si puedes seguir.</p>
+    <form id="ei">
+      <div class="pregunta" data-correcta="b">
+        <p class="enunciado"><span class="num">1.</span> Has terminado una portada en GIMP y quieres subirla a una web. ¿Qué haces?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p1" value="a"> <kbd>Ctrl</kbd>+<kbd>S</kbd> y subo el archivo</label></li>
+          <li><label><input type="radio" name="p1" value="b"> Guardo el XCF y la exporto con <code>Exportar como</code> en JPG o WebP</label></li>
+          <li><label><input type="radio" name="p1" value="c"> Aplano la imagen y la guardo como XCF</label></li>
+          <li><label><input type="radio" name="p1" value="d"> La subo en XCF, que tiene más calidad</label></li>
+        </ul><span class="marca"></span>
+      </div>
+      <div class="pregunta" data-correcta="c">
+        <p class="enunciado"><span class="num">2.</span> Quieres un logotipo a 3000 × 3000 px. Tienes el SVG y un PNG de 300 × 300. ¿Qué haces?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p2" value="a"> Abro el PNG y lo escalo a 3000</label></li>
+          <li><label><input type="radio" name="p2" value="b"> Abro el SVG a 300 px y lo escalo a 3000</label></li>
+          <li><label><input type="radio" name="p2" value="c"> Abro el SVG directamente a 3000 × 3000</label></li>
+          <li><label><input type="radio" name="p2" value="d"> Da igual: los dos quedan igual de nítidos</label></li>
+        </ul><span class="marca"></span>
+      </div>
+      <div class="pregunta" data-correcta="a">
+        <p class="enunciado"><span class="num">3.</span> Exportas en JPG un logotipo con fondo transparente. ¿Qué pasa?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p3" value="a"> El fondo se rellena con un color, porque JPG no tiene transparencia</label></li>
+          <li><label><input type="radio" name="p3" value="b"> Se mantiene transparente</label></li>
+          <li><label><input type="radio" name="p3" value="c"> GIMP no deja exportarlo</label></li>
+          <li><label><input type="radio" name="p3" value="d"> Solo se exporta la capa de arriba</label></li>
+        </ul><span class="marca"></span>
+      </div>
+      <div class="pregunta" data-correcta="d">
+        <p class="enunciado"><span class="num">4.</span> En PNG, ¿qué cambia el «Nivel de compresión»?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p4" value="a"> La calidad: con 9 se ve peor</label></li>
+          <li><label><input type="radio" name="p4" value="b"> El número de colores</label></li>
+          <li><label><input type="radio" name="p4" value="c"> Si guarda o no la transparencia</label></li>
+          <li><label><input type="radio" name="p4" value="d"> Solo el tiempo de guardado y un poco el peso: PNG es sin pérdida</label></li>
+        </ul><span class="marca"></span>
+      </div>
+      <div class="pregunta" data-correcta="b">
+        <p class="enunciado"><span class="num">5.</span> Una foto de 2400 × 1600 se escala a 1200 × 800. ¿Qué pasa con el peso, más o menos?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p5" value="a"> Se reduce a la mitad</label></li>
+          <li><label><input type="radio" name="p5" value="b"> Se reduce a la cuarta parte, porque hay la cuarta parte de píxeles</label></li>
+          <li><label><input type="radio" name="p5" value="c"> No cambia</label></li>
+          <li><label><input type="radio" name="p5" value="d"> Aumenta</label></li>
+        </ul><span class="marca"></span>
+      </div>
+      <div class="pregunta" data-correcta="c">
+        <p class="enunciado"><span class="num">6.</span> ¿Qué formato es el más adecuado para una foto en una web?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p6" value="a"> TIFF</label></li>
+          <li><label><input type="radio" name="p6" value="b"> PNG</label></li>
+          <li><label><input type="radio" name="p6" value="c"> WebP o JPG</label></li>
+          <li><label><input type="radio" name="p6" value="d"> XCF</label></li>
+        </ul><span class="marca"></span>
+      </div>
+      <div class="pregunta" data-correcta="a">
+        <p class="enunciado"><span class="num">7.</span> Un documento de Word con fotos pesa 40 MB y no se puede enviar por correo. ¿Qué es lo más rápido?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p7" value="a"> <code>Formato de imagen &gt; Comprimir imágenes</code> a 96 o 150 ppp, para todas las imágenes</label></li>
+          <li><label><input type="radio" name="p7" value="b"> Cambiar la fuente del texto</label></li>
+          <li><label><input type="radio" name="p7" value="c"> Guardarlo en .doc</label></li>
+          <li><label><input type="radio" name="p7" value="d"> Hacer las fotos más pequeñas arrastrando las esquinas</label></li>
+        </ul><span class="marca"></span>
+      </div>
+      <div class="pregunta" data-correcta="d">
+        <p class="enunciado"><span class="num">8.</span> ¿Qué nombre de archivo es el más adecuado para publicar?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="p8" value="a"> <code>Miniatura Final DEFINITIVA.jpg</code></label></li>
+          <li><label><input type="radio" name="p8" value="b"> <code>miniatura definitiva(2).JPG</code></label></li>
+          <li><label><input type="radio" name="p8" value="c"> <code>Canción nueva ñ.jpg</code></label></li>
+          <li><label><input type="radio" name="p8" value="d"> <code>cerezo-rock_miniatura_1280x720.jpg</code></label></li>
+        </ul><span class="marca"></span>
+      </div>
+      <div class="acciones">
+        <button type="button" id="corregir">Corregir</button>
+        <button type="button" id="reiniciar">Reiniciar</button>
+      </div>
+      <p class="resultado oculto" id="resultado"></p>
+    </form>
+  </section>
+
+  <section>
+    <h2 id="apartado-8-antes-de-pasar-al-subtema-3-6">8. Antes de pasar al subtema 3.6</h2>
+    <ul class="checklist">
+      <li><label><input type="checkbox"> Distinguir Guardar (XCF) de Exportar como (JPG, PNG, WebP…)</label></li>
+      <li><label><input type="checkbox"> Abrir un PDF o un SVG eligiendo la resolución o el tamaño adecuados</label></li>
+      <li><label><input type="checkbox"> Elegir el formato según el contenido: foto, logotipo, transparencia, animación, imprenta</label></li>
+      <li><label><input type="checkbox"> Ajustar la calidad de un JPG o WebP mirando la vista previa y el peso</label></li>
+      <li><label><input type="checkbox"> Quitar los metadatos al exportar</label></li>
+      <li><label><input type="checkbox"> Optimizar una imagen: píxeles justos, formato, calidad y metadatos</label></li>
+      <li><label><input type="checkbox"> Comprimir las imágenes de un documento de Word</label></li>
+      <li><label><input type="checkbox"> Poner nombres de archivo sin espacios ni tildes, con la pieza y el tamaño</label></li>
+    </ul>
+  </section>
+
+  <nav class="nav-temas">
+    <a href="ut03-4.html">&laquo; Tema 3.4</a>
+    <a href="ut03.html">Índice del Tema 3</a>
+    <span>Siguiente &raquo; (Tema 3.6, próximamente)</span>
+  </nav>
+
+  <footer class="pie">
+    <p>0223 Aplicaciones ofimáticas · Material de consulta del alumnado.
+    Currículo: Decreto 272/2009 (Extremadura).</p>
+  </footer>
+
+<script>
+(function () {
+  var form = document.getElementById('ei');
+  var preguntas = form.querySelectorAll('.pregunta');
+  var salida = document.getElementById('resultado');
+  document.getElementById('corregir').addEventListener('click', function () {
+    var aciertos = 0, contestadas = 0;
+    preguntas.forEach(function (p) {
+      var correcta = p.getAttribute('data-correcta'), elegida = p.querySelector('input:checked'), marca = p.querySelector('.marca');
+      p.classList.remove('acierto', 'fallo');
+      if (!elegida) { marca.textContent = ''; return; }
+      contestadas++;
+      if (elegida.value === correcta) { aciertos++; p.classList.add('acierto'); marca.textContent = '✓ correcto'; }
+      else { p.classList.add('fallo'); marca.textContent = '✗ la correcta era la opción ' + correcta.toUpperCase(); }
+    });
+    var total = preguntas.length;
+    salida.classList.remove('oculto');
+    salida.textContent = 'Aciertos: ' + aciertos + ' de ' + total + '  ·  Contestadas: ' + contestadas + '/' + total +
+      '  ·  Nota orientativa: ' + (Math.round(aciertos / total * 100) / 10) + ' / 10   (recuerda: esta autocomprobación no cuenta para la evaluación)';
+    salida.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+  document.getElementById('reiniciar').addEventListener('click', function () {
+    form.reset();
+    preguntas.forEach(function (p) { p.classList.remove('acierto', 'fallo'); p.querySelector('.marca').textContent = ''; });
+    salida.classList.add('oculto'); salida.textContent = '';
+  });
+})();
+</script>
+
+</main></div>
+</body>
+</html>
