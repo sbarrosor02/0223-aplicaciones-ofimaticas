@@ -59,5 +59,5 @@ programas y aplicando técnicas de captura y edición básicas.
 
 ## Estado
 
-- 3.1 a 3.4, laboratorio (7 herramientas) y bloques 3.1 a 3.4 de los ejercicios: publicados.
-- 3.5 y 3.6, punto de control e instrumentos de calificación: pendientes.
+- 3.1 a 3.5, laboratorio (8 herramientas) y bloques 3.1 a 3.5 de los ejercicios: publicados.
+- 3.6, punto de control e instrumentos de calificación: pendientes.

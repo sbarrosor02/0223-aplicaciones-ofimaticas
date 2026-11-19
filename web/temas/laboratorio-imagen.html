@@ -34,13 +34,17 @@
   .n-canales { display: flex; flex-wrap: wrap; gap: 0.3rem; margin: 0.4rem 0; }
   .n-canales button[aria-pressed="true"], .lab button[aria-pressed="true"] { background: var(--acento); color: #fff; }
   .n-aviso { color: #b3261e; font-weight: 600; }
+  .c-tabla { width: 100%; border-collapse: collapse; font-size: .9rem; }
+  .c-tabla th, .c-tabla td { border: 1px solid var(--linea); padding: .35rem .5rem; text-align: left; vertical-align: middle; }
+  .c-tabla img { width: 64px; height: 44px; object-fit: contain; background: repeating-conic-gradient(#ddd 0 25%, #fff 0 50%) 0 0 / 12px 12px; display: block; }
+  .c-ok { color: #1e7b34; font-weight: 700; } .c-mal { color: #b3261e; font-weight: 700; }
 </style>
 <link rel="stylesheet" href="../assets/aula.css">
 <script defer src="../assets/aula.js"></script>
 </head>
 <body data-modulo="0223">
 <a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0223 / Aplicaciones ofimáticas</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
-<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><a class="indice-tema" href="ut03.html"><span>Tema 3</span>Imagen digital: captura, edición y publicación</a><a class="indice-material" href="../recursos.html?tema=3">Todo el material del tema 3</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-1-pixeles-y-vectores">1. Píxeles y vectores</a></li><li><a href="#apartado-2-resolucion-y-tamano-de-impresion">2. Resolución y tamaño de impresión</a></li><li><a href="#apartado-3-color-y-profundidad-de-color">3. Color y profundidad de color</a></li><li><a href="#apartado-4-compresion-y-formatos">4. Compresión y formatos</a></li><li><a href="#apartado-5-metadatos-exif">5. Metadatos EXIF</a></li><li><a href="#apartado-6-histograma-y-niveles">6. Histograma y niveles</a></li><li><a href="#apartado-7-capas-modos-de-fusion-y-mascaras">7. Capas, modos de fusión y máscaras</a></li><li><a href="#apartado-proximamente">Próximamente</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1"><nav class="aula-migas" aria-label="Estás en"><a href="../index.html">Inicio</a><span aria-hidden="true">›</span><a href="ut03.html">Tema 3 · Imagen digital: captura, edición y publicación</a><span aria-hidden="true">›</span><span aria-current="page">Laboratorio de imagen</span></nav>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><a class="indice-tema" href="ut03.html"><span>Tema 3</span>Imagen digital: captura, edición y publicación</a><a class="indice-material" href="../recursos.html?tema=3">Todo el material del tema 3</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-1-pixeles-y-vectores">1. Píxeles y vectores</a></li><li><a href="#apartado-2-resolucion-y-tamano-de-impresion">2. Resolución y tamaño de impresión</a></li><li><a href="#apartado-3-color-y-profundidad-de-color">3. Color y profundidad de color</a></li><li><a href="#apartado-4-compresion-y-formatos">4. Compresión y formatos</a></li><li><a href="#apartado-5-metadatos-exif">5. Metadatos EXIF</a></li><li><a href="#apartado-6-histograma-y-niveles">6. Histograma y niveles</a></li><li><a href="#apartado-7-capas-modos-de-fusion-y-mascaras">7. Capas, modos de fusión y máscaras</a></li><li><a href="#apartado-8-convertir-y-optimizar-varias-imagenes">8. Convertir y optimizar varias imágenes</a></li><li><a href="#apartado-proximamente">Próximamente</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1"><nav class="aula-migas" aria-label="Estás en"><a href="../index.html">Inicio</a><span aria-hidden="true">›</span><a href="ut03.html">Tema 3 · Imagen digital: captura, edición y publicación</a><span aria-hidden="true">›</span><span aria-current="page">Laboratorio de imagen</span></nav>
 
   <header class="cab">
     <p class="modulo">0223 · Aplicaciones ofimáticas · Tema 3</p>
@@ -298,6 +302,43 @@
       </div>
       <div class="resultado-lab" id="f-res" aria-live="polite"></div>
     </div>
+  </section>
+
+  <section>
+    <h2 id="apartado-8-convertir-y-optimizar-varias-imagenes">8. Convertir y optimizar varias imágenes</h2>
+    <p>Carga varias imágenes a la vez, elige el tamaño máximo, el formato y la
+    calidad, y descárgalas todas juntas en un ZIP. Es lo mismo que harías en GIMP
+    con <code>Escalar la imagen</code> y <code>Exportar como</code>, pero de golpe.
+    La tabla te dice cuánto pesaba cada una y cuánto pesa ahora.</p>
+    <div class="lab">
+      <div class="rejilla">
+        <label class="campo">Imágenes (puedes elegir varias)<input id="c-archivos" type="file" accept="image/*" multiple></label>
+        <label class="campo">Lado más largo, como máximo (px)<input id="c-max" type="text" inputmode="numeric" value="1200" placeholder="vacío = no cambiar"></label>
+        <label class="campo">Formato de salida
+          <select id="c-formato">
+            <option value="image/jpeg">JPG (fotos)</option>
+            <option value="image/webp">WebP (web, más ligero)</option>
+            <option value="image/png">PNG (sin pérdida, transparencia)</option>
+          </select>
+        </label>
+        <label class="campo">Si la imagen tiene transparencia y eliges JPG, el fondo será
+          <select id="c-fondo"><option value="#ffffff">Blanco</option><option value="#000000">Negro</option></select>
+        </label>
+      </div>
+      <div class="ctrl"><label for="c-calidad">Calidad (JPG y WebP)</label><input id="c-calidad" type="range" min="10" max="100" value="80"><output id="c-calidad-o" for="c-calidad">80</output></div>
+      <div class="botones">
+        <button type="button" class="principal" id="c-convertir" disabled>Convertir</button>
+        <button type="button" id="c-prueba">Probar con imágenes de ejemplo</button>
+        <button type="button" id="c-zip" disabled>Descargar todas (ZIP)</button>
+      </div>
+      <div class="aula-tabla" role="region" aria-label="Resultado de la conversión; desplazamiento horizontal" tabindex="0">
+        <table class="c-tabla"><thead><tr><th>Archivo</th><th>Antes</th><th>Después</th><th>Ahorro</th><th></th></tr></thead><tbody id="c-filas"><tr><td colspan="5" class="pie-lab">Todavía no has convertido ninguna imagen.</td></tr></tbody></table>
+      </div>
+      <div class="resultado-lab" id="c-res" aria-live="polite"></div>
+    </div>
+    <p class="pie-lab">El navegador no copia los metadatos EXIF al convertir: las
+    imágenes que descargas ya van sin ubicación ni datos de la cámara. En GIMP, en
+    cambio, tienes que desmarcarlos tú al exportar.</p>
   </section>
 
   <section>
@@ -808,6 +849,82 @@
   ['f-capa', 'f-modo', 'f-mascara', 'f-visible'].forEach(function (id) { $(id).addEventListener('change', fusion); });
   $('f-opacidad').addEventListener('input', fusion);
   $('f-modo').value = 'multiply'; fusion();
+  // ---------------------------------------------------- 8. convertir y optimizar varias imágenes
+  var cEntradas = [], cSalidas = [];
+  var cTabla = (function () { var t = []; for (var n = 0; n < 256; n++) { var c = n; for (var k = 0; k < 8; k++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1; t[n] = c >>> 0; } return t; })();
+  function crc32(b) { var c = 0xFFFFFFFF; for (var i = 0; i < b.length; i++) c = cTabla[(c ^ b[i]) & 255] ^ (c >>> 8); return (c ^ 0xFFFFFFFF) >>> 0; }
+  function zipSinCompresion(archivos) {   // [{nombre, datos: Uint8Array}] -> Blob (ZIP «almacenado»)
+    var partes = [], central = [], desp = 0, enc = new TextEncoder(), hoy = new Date();
+    var fechaDos = ((hoy.getFullYear() - 1980) << 9) | ((hoy.getMonth() + 1) << 5) | hoy.getDate(), horaDos = (hoy.getHours() << 11) | (hoy.getMinutes() << 5);
+    archivos.forEach(function (a) {
+      var n = enc.encode(a.nombre), crc = crc32(a.datos), l = new DataView(new ArrayBuffer(30));
+      l.setUint32(0, 0x04034b50, true); l.setUint16(4, 20, true); l.setUint16(6, 0x0800, true); l.setUint16(8, 0, true); l.setUint16(10, horaDos, true); l.setUint16(12, fechaDos, true);
+      l.setUint32(14, crc, true); l.setUint32(18, a.datos.length, true); l.setUint32(22, a.datos.length, true); l.setUint16(26, n.length, true);
+      partes.push(new Uint8Array(l.buffer), n, a.datos);
+      var c = new DataView(new ArrayBuffer(46));
+      c.setUint32(0, 0x02014b50, true); c.setUint16(4, 20, true); c.setUint16(6, 20, true); c.setUint16(8, 0x0800, true); c.setUint16(12, horaDos, true); c.setUint16(14, fechaDos, true);
+      c.setUint32(16, crc, true); c.setUint32(20, a.datos.length, true); c.setUint32(24, a.datos.length, true); c.setUint16(28, n.length, true); c.setUint32(42, desp, true);
+      central.push(new Uint8Array(c.buffer), n);
+      desp += 30 + n.length + a.datos.length;
+    });
+    var tam = central.reduce(function (s, x) { return s + x.length; }, 0), f = new DataView(new ArrayBuffer(22));
+    f.setUint32(0, 0x06054b50, true); f.setUint16(8, archivos.length, true); f.setUint16(10, archivos.length, true); f.setUint32(12, tam, true); f.setUint32(16, desp, true);
+    return new Blob(partes.concat(central, [new Uint8Array(f.buffer)]), { type: 'application/zip' });
+  }
+  function kb(n) { return n < 1048576 ? num(n / 1024, 0) + ' KB' : num(n / 1048576, 1) + ' MB'; }
+  function cEstado() { $('c-convertir').disabled = cEntradas.length === 0; $('c-zip').disabled = cSalidas.length === 0; }
+  async function cEjemplos() {
+    // Dos imágenes generadas aquí: una «foto» (la imagen de prueba) y un logotipo con transparencia
+    var a = document.createElement('canvas'); a.width = 2400; a.height = 1600; a.getContext('2d').drawImage(muestra, 0, 0, 2400, 1600);
+    var x = a.getContext('2d'), d = x.getImageData(0, 0, 2400, 1600), p = d.data, s = 7;
+    for (var k = 0; k < p.length; k += 4) { s = (s * 16807) % 2147483647; var r = (s / 2147483647 - 0.5) * 18; p[k] += r; p[k + 1] += r; p[k + 2] += r; }
+    x.putImageData(d, 0, 0);
+    var b = document.createElement('canvas'); b.width = 1000; b.height = 1000; var y = b.getContext('2d');
+    y.fillStyle = '#b3123a'; y.beginPath(); y.arc(330, 640, 140, 0, 7); y.arc(670, 630, 150, 0, 7); y.fill();
+    y.fillStyle = '#5e9e3a'; y.beginPath(); y.ellipse(640, 230, 150, 50, -0.35, 0, 7); y.fill();
+    y.fillStyle = '#1e1a24'; y.font = '700 96px Arial, sans-serif'; y.textAlign = 'center'; y.fillText('CEREZO ROCK', 500, 940);
+    var png = function (c) { return new Promise(function (ok) { c.toBlob(ok, 'image/png'); }); };
+    cEntradas = [new File([await png(a)], 'foto-prueba.png', { type: 'image/png' }), new File([await png(b)], 'logo-transparente.png', { type: 'image/png' })];
+    cEstado(); cConvertir();
+  }
+  async function cConvertir() {
+    var max = parseInt($('c-max').value, 10), tipo = $('c-formato').value, cal = +$('c-calidad').value / 100;
+    var ext = { 'image/jpeg': 'jpg', 'image/webp': 'webp', 'image/png': 'png' }[tipo];
+    cSalidas.forEach(function (o) { URL.revokeObjectURL(o.url); }); cSalidas = [];
+    var filas = '', antesT = 0, despuesT = 0;
+    for (var f of cEntradas) {
+      var bmp = await createImageBitmap(f), e = (max > 0) ? Math.min(1, max / Math.max(bmp.width, bmp.height)) : 1;
+      var c = document.createElement('canvas'); c.width = Math.round(bmp.width * e); c.height = Math.round(bmp.height * e);
+      var x = c.getContext('2d');
+      if (tipo === 'image/jpeg') { x.fillStyle = $('c-fondo').value; x.fillRect(0, 0, c.width, c.height); }
+      x.imageSmoothingQuality = 'high'; x.drawImage(bmp, 0, 0, c.width, c.height);
+      var blob = await new Promise(function (ok) { c.toBlob(ok, tipo, cal); });
+      if (blob.type !== tipo) { $('c-res').innerHTML = '<p class="c-mal">Este navegador no sabe exportar a ' + ext.toUpperCase() + '. Prueba con otro formato o con Chrome, Edge o Firefox.</p>'; return; }
+      var nombre = f.name.replace(/\.[^.]+$/, '') + '_' + c.width + 'x' + c.height + '.' + ext;
+      var url = URL.createObjectURL(blob);
+      cSalidas.push({ nombre: nombre, blob: blob, url: url });
+      antesT += f.size; despuesT += blob.size;
+      var ahorro = 1 - blob.size / f.size;
+      filas += '<tr><td><img src="' + url + '" alt=""><span class="pie-lab">' + nombre + '</span></td><td>' + bmp.width + ' × ' + bmp.height + '<br>' + kb(f.size) + '</td><td>' + c.width + ' × ' + c.height + '<br>' + kb(blob.size) +
+        '</td><td class="' + (ahorro >= 0 ? 'c-ok' : 'c-mal') + '">' + (Math.abs(ahorro) < 0.005 ? 'igual' : ahorro > 0 ? '−' + num(ahorro * 100, 0) + ' %' : '+' + num(-ahorro * 100, 0) + ' %') + '</td><td><a href="' + url + '" download="' + nombre + '">Descargar</a></td></tr>';
+    }
+    $('c-filas').innerHTML = filas;
+    $('c-res').innerHTML = '<p>Total: de <span class="dato">' + kb(antesT) + '</span> a <span class="dato">' + kb(despuesT) + '</span>.</p>' +
+      (tipo === 'image/jpeg' && cEntradas.some(function (f) { return /png|webp|gif/i.test(f.type); }) ? '<p>Fíjate en el logotipo: en JPG la transparencia se ha rellenado con el color de fondo, porque JPG no tiene canal alfa.</p>' : '') +
+      (tipo === 'image/png' ? '<p>En PNG las fotos pesan mucho: es sin pérdida y guarda cada píxel tal cual. PNG es para logotipos, capturas e imágenes con transparencia.</p>' : '') +
+      (despuesT > antesT ? '<p class="c-mal">¡Ojo! Alguna imagen pesa más que antes: has elegido un formato o una calidad que no le convienen.</p>' : '');
+    cEstado();
+  }
+  $('c-archivos').addEventListener('change', function () { cEntradas = Array.from(this.files); cEstado(); if (cEntradas.length) cConvertir(); });
+  $('c-convertir').addEventListener('click', cConvertir);
+  $('c-prueba').addEventListener('click', cEjemplos);
+  $('c-calidad').addEventListener('input', function () { $('c-calidad-o').textContent = this.value; });
+  ['c-formato', 'c-fondo', 'c-calidad', 'c-max'].forEach(function (id) { $(id).addEventListener('change', function () { if (cEntradas.length) cConvertir(); }); });
+  $('c-zip').addEventListener('click', async function () {
+    var arch = []; for (var o of cSalidas) arch.push({ nombre: o.nombre, datos: new Uint8Array(await o.blob.arrayBuffer()) });
+    var a = document.createElement('a'); a.href = URL.createObjectURL(zipSinCompresion(arch)); a.download = 'imagenes-optimizadas.zip'; a.click();
+    setTimeout(function () { URL.revokeObjectURL(a.href); }, 3000);
+  });
 })();
 </script>
 

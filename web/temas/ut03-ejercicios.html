@@ -20,7 +20,7 @@
 </head>
 <body data-modulo="0223">
 <a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0223 / Aplicaciones ofimáticas</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
-<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><a class="indice-tema" href="ut03.html"><span>Tema 3</span>Imagen digital: captura, edición y publicación</a><a class="indice-material" href="../recursos.html?tema=3">Todo el material del tema 3</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-como-se-entrega-cada-bloque">Cómo se entrega cada bloque</a></li><li><a href="#apartado-bloque-3-1-tu-proyecto-y-su-ficha-tecnica">Bloque 3.1 — Tu proyecto y su ficha técnica</a></li><li><a href="#apartado-bloque-3-2-fotos-boceto-y-capturas">Bloque 3.2 — Fotos, boceto y capturas</a></li><li><a href="#apartado-bloque-3-3-retocar-el-material">Bloque 3.3 — Retocar el material</a></li><li><a href="#apartado-bloque-3-4-logotipo-portada-y-miniatura">Bloque 3.4 — Logotipo, portada y miniatura</a></li><li><a href="#apartado-proximos-bloques">Próximos bloques</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1"><nav class="aula-migas" aria-label="Estás en"><a href="../index.html">Inicio</a><span aria-hidden="true">›</span><a href="ut03.html">Tema 3 · Imagen digital: captura, edición y publicación</a><span aria-hidden="true">›</span><span aria-current="page">Ejercicios guiados</span></nav>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><a class="indice-tema" href="ut03.html"><span>Tema 3</span>Imagen digital: captura, edición y publicación</a><a class="indice-material" href="../recursos.html?tema=3">Todo el material del tema 3</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-como-se-entrega-cada-bloque">Cómo se entrega cada bloque</a></li><li><a href="#apartado-bloque-3-1-tu-proyecto-y-su-ficha-tecnica">Bloque 3.1 — Tu proyecto y su ficha técnica</a></li><li><a href="#apartado-bloque-3-2-fotos-boceto-y-capturas">Bloque 3.2 — Fotos, boceto y capturas</a></li><li><a href="#apartado-bloque-3-3-retocar-el-material">Bloque 3.3 — Retocar el material</a></li><li><a href="#apartado-bloque-3-4-logotipo-portada-y-miniatura">Bloque 3.4 — Logotipo, portada y miniatura</a></li><li><a href="#apartado-bloque-3-5-exportar-el-kit">Bloque 3.5 — Exportar el kit</a></li><li><a href="#apartado-proximos-bloques">Próximos bloques</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1"><nav class="aula-migas" aria-label="Estás en"><a href="../index.html">Inicio</a><span aria-hidden="true">›</span><a href="ut03.html">Tema 3 · Imagen digital: captura, edición y publicación</a><span aria-hidden="true">›</span><span aria-current="page">Ejercicios guiados</span></nav>
 
   <header class="cab">
     <p class="modulo">0223 · Aplicaciones ofimáticas · Tema 3</p>
@@ -514,11 +514,100 @@
   </section>
 
   <section>
+    <h2 id="apartado-bloque-3-5-exportar-el-kit">Bloque 3.5 — Exportar el kit</h2>
+    <p>Corresponde al <a href="ut03-5.html">subtema 3.5</a>. Tus piezas están en
+    XCF. Ahora sacas de cada una los archivos que de verdad se van a usar, cada
+    uno con su formato, sus píxeles y su peso. Los XCF no se tocan.</p>
+    <p>Crea la carpeta <code>Tema3_Proyecto/exportados</code> y pon ahí todo lo de
+    este bloque, con nombres sin espacios ni tildes:
+    <code>&lt;proyecto&gt;_&lt;pieza&gt;_&lt;píxeles&gt;.&lt;extensión&gt;</code>.
+    Por ejemplo, <code>picotas_logo_1000x1000.png</code>.</p>
+
+    <h3>Ejercicio 3.5.1 · El logotipo y el icono</h3>
+    <ol>
+      <li>Abre <code>logo.xcf</code>, oculta las capas de prueba y el boceto, y
+      exporta en <strong>PNG</strong> con la transparencia:
+      <code>&lt;proyecto&gt;_logo_1000x1000.png</code>.</li>
+      <li>Crea el icono para la web: duplica la imagen
+      (<code>Imagen &gt; Duplicar</code>), combina las capas visibles, escala a 48 ×
+      48, duplica la capa dos veces y escala las copias a 32 y 16 px. Exporta como
+      <code>&lt;proyecto&gt;_favicon.ico</code>.</li>
+      <li>Si el logotipo no se reconoce a 16 px, simplifícalo para el icono (solo
+      el símbolo, sin el nombre).</li>
+    </ol>
+
+    <h3>Ejercicio 3.5.2 · La portada, en dos versiones</h3>
+    <ul>
+      <li><strong>Para las plataformas</strong> (las de música y las tiendas de
+      juegos piden portadas cuadradas grandes): JPG de 3000 × 3000, calidad 90 y
+      sin metadatos: <code>&lt;proyecto&gt;_portada_3000x3000.jpg</code>.</li>
+      <li><strong>Para la web</strong>: escala una copia a 1200 × 1200 y exporta en
+      WebP con la calidad más baja que no se note, por debajo de 150 KB:
+      <code>&lt;proyecto&gt;_portada_1200x1200.webp</code>.</li>
+    </ul>
+
+    <h3>Ejercicio 3.5.3 · La miniatura</h3>
+    <p>Exporta <code>foto-miniatura.xcf</code> en JPG de 1280 × 720, con la vista
+    previa activada, buscando el peso más bajo sin artefactos visibles en el
+    título: <code>&lt;proyecto&gt;_miniatura_1280x720.jpg</code>. YouTube admite
+    hasta 2 MB, pero con unos cientos de KB basta.</p>
+
+    <h3>Ejercicio 3.5.4 · La tabla de exportaciones</h3>
+    <p>Añade a la ficha del proyecto una tabla con una fila por archivo exportado:
+    nombre, formato, píxeles, peso, calidad o compresión, destino y si lleva
+    metadatos. Es la hoja de entrega que daría un diseñador a su cliente.</p>
+
+    <section class="entrega" aria-labelledby="entrega-3-5">
+      <h3 id="entrega-3-5">Qué entregas del bloque 3.5</h3>
+      <p class="entrega-sub">Los archivos exportados del kit y la ficha con la tabla de exportaciones.</p>
+      <p class="entrega-zip">Sube a Moodle <code>&lt;usuario&gt;_E35.zip</code>. En su raíz:</p>
+      <div class="aula-tabla"><table class="entrega-nombres">
+        <thead><tr><th>En tu carpeta</th><th>Nombre dentro del ZIP</th><th>Ejercicio</th></tr></thead>
+        <tbody><tr><td>La memoria del bloque</td><td><code>&lt;usuario&gt;_E35.pdf</code></td><td>Todos</td></tr><tr><td><code>exportados/&lt;proyecto&gt;_logo_1000x1000.png</code></td><td><code>&lt;usuario&gt;_a01.png</code></td><td>3.5.1</td></tr><tr><td><code>exportados/&lt;proyecto&gt;_favicon.ico</code></td><td><code>&lt;usuario&gt;_a01.ico</code></td><td>3.5.1</td></tr><tr><td><code>exportados/&lt;proyecto&gt;_portada_3000x3000.jpg</code></td><td><code>&lt;usuario&gt;_a02.jpg</code></td><td>3.5.2</td></tr><tr><td><code>exportados/&lt;proyecto&gt;_portada_1200x1200.webp</code></td><td><code>&lt;usuario&gt;_a02.webp</code></td><td>3.5.2</td></tr><tr><td><code>exportados/&lt;proyecto&gt;_miniatura_1280x720.jpg</code></td><td><code>&lt;usuario&gt;_a03.jpg</code></td><td>3.5.3</td></tr><tr><td>La ficha del proyecto</td><td><code>&lt;usuario&gt;_a04.docx</code></td><td>3.5.4</td></tr></tbody>
+      </table></div>
+      <p class="entrega-sub">Cambia el nombre solo a las copias que metes en el ZIP: en tu carpeta de trabajo los archivos conservan su nombre.</p>
+      <h4>Capturas que no pueden faltar en la memoria</h4>
+      <ul class="entrega-lista"><li>3.5.1: el diálogo Capas del icono con las tres capas de 16, 32 y 48 px</li><li>3.5.2: el cuadro de exportar WebP con la calidad elegida</li><li>3.5.3: el cuadro de exportar JPG con la vista previa y el peso</li></ul>
+      <h4>Comprueba antes de entregar</h4>
+      <ul class="entrega-lista">
+        <li>El logotipo en PNG conserva la transparencia: ábrelo en GIMP y verás el fondo de cuadros.</li>
+        <li>El icono tiene tres tamaños y a 16 px todavía se reconoce el símbolo.</li>
+        <li>La portada grande mide 3000 × 3000 y la de la web 1200 × 1200 y pesa menos de 150 KB.</li>
+        <li>La miniatura mide 1280 × 720 y el título se lee sin manchas alrededor de las letras.</li>
+        <li>Ningún archivo lleva espacios, tildes ni eñes en el nombre, y ninguno lleva Exif.</li>
+        <li>La tabla tiene una fila por archivo, con su peso real (míralo en el Explorador).</li>
+      </ul>
+      <h4>Cómo debe quedar</h4>
+      <div class="entrega-ejemplos">
+        <figure>
+          <div class="arbol" style="font-family:Consolas,monospace;font-size:.85rem;line-height:1.5;background:#fff;border:1px solid var(--linea);padding:.6rem .8rem">
+            📁 Tema3_Proyecto/exportados<br>
+            &nbsp;&nbsp;📄 picotas_logo_1000x1000.png · 38 KB<br>
+            &nbsp;&nbsp;📄 picotas_favicon.ico · 15 KB<br>
+            &nbsp;&nbsp;📄 picotas_portada_3000x3000.jpg · 2,1 MB<br>
+            &nbsp;&nbsp;📄 picotas_portada_1200x1200.webp · 118 KB<br>
+            &nbsp;&nbsp;📄 picotas_miniatura_1280x720.jpg · 160 KB
+          </div>
+          <figcaption>La carpeta de exportados: nombres sin espacios, con la pieza y el tamaño. Los pesos dependen de tu diseño.</figcaption>
+        </figure>
+        <figure>
+          <div class="aula-tabla"><table class="entrega-nombres" style="font-size:.8rem"><thead><tr><th>Archivo</th><th>Formato</th><th>Píxeles</th><th>Peso</th><th>Destino</th></tr></thead><tbody>
+            <tr><td>picotas_logo…png</td><td>PNG</td><td>1000²</td><td>38 KB</td><td>Web y documentos</td></tr>
+            <tr><td>picotas_favicon.ico</td><td>ICO</td><td>16/32/48</td><td>15 KB</td><td>Pestaña de la web</td></tr>
+            <tr><td>picotas_portada…jpg</td><td>JPG 90</td><td>3000²</td><td>2,1 MB</td><td>Plataformas</td></tr>
+            <tr><td>picotas_portada…webp</td><td>WebP 80</td><td>1200²</td><td>118 KB</td><td>Web</td></tr>
+            <tr><td>picotas_miniatura…jpg</td><td>JPG 85</td><td>1280 × 720</td><td>160 KB</td><td>YouTube</td></tr></tbody></table></div>
+          <figcaption>La tabla de exportaciones de la ficha (aquí, sin las columnas de calidad y metadatos para que quepa).</figcaption>
+        </figure>
+      </div>
+      <p class="entrega-ojo"><strong>Fallo más común:</strong> exportar la portada de 3000 × 3000 para la web «porque se ve mejor». Pesa veinte veces más y en pantalla se ve igual.</p>
+    </section>
+  </section>
+
+  <section>
     <h2 id="apartado-proximos-bloques">Próximos bloques</h2>
     <p>Se publican junto con cada subtema:</p>
     <ul>
-      <li><strong>3.5</strong> · Exportar cada pieza con el formato y el peso
-      adecuados.</li>
       <li><strong>3.6</strong> · El cartel para la imprenta y el banner para
       redes.</li>
     </ul>
