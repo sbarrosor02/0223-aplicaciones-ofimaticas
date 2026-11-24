@@ -179,3 +179,50 @@ Las imágenes de `web/assets/img/entregas/` se generan con
 `python scripts/generar_resultados_esperados.py` a partir del mismo material
 inventado que se da al alumnado (fotos de retoque, documento fotografiado y capas).
 Si se regenera ese material, hay que volver a ejecutar este script.
+
+## Revisión del 24/11/2026 · una página por tema y cinco secciones (como 0221)
+
+Motivo: igual que en 0221, la portada y las páginas de tema acumulaban accesos
+(«Estudiar / Practicar / Entregar», listas de subtemas, recursos de consulta) y la
+barra del tema era distinta en cada tema. Se aplica la organización de 0221 del
+18/11/2026.
+
+- **Portada del módulo:** solo las tarjetas de los temas, con accesos a sus secciones
+  y a la teoría en PDF, y debajo el enlace a la calificación.
+- **Barra superior:** «Temas» y «Buscar material», como en 0221.
+- **Página del tema (`utNN.html`):** secciones con color e icono propios: Teoría
+  (azul), Ejercicios (verde), Prácticas (naranja), Preparar el examen (morado) y En
+  clase (rojo). Debajo, plegados, «Cómo se califica este tema» y «Qué se evalúa y cómo
+  se organiza el tema» (RA, criterios y, en el tema 3, los programas).
+- **Teoría:** los subtemas (Tema 2.0 a 2.7, 3.1 a 3.6). El mapa de la cinta va en la
+  Teoría del tema 2 como «Consulta» y no entra en el PDF.
+- **Ejercicios:** cada bloque es su página (`ut02-bloque-0.html` a `ut02-bloque-7.html`,
+  `ut03-bloque-1.html` a `ut03-bloque-6.html`). `utNN-ejercicios.html` queda como
+  índice con «Cómo se entrega cada bloque» y redirige los enlaces antiguos con ancla
+  (`ut02-ejercicios.html#apartado-bloque-2-3-…` → `ut02-bloque-3.html#…`), así que los
+  enlaces de Moodle siguen funcionando. El laboratorio de imagen va en Ejercicios del
+  tema 3, en el grupo «Herramientas interactivas» (`"grupo": "interactivo"`).
+- **Tema 1:** la teoría pasa a `ut01-teoria.html` y `ut01.html` es la portada; los
+  enlaces antiguos `ut01.html#apartado-…` se redirigen a la teoría.
+- **Prácticas:** PC1–PC3, caso práctico y taller (tema 2); prácticas de cada subtema
+  (enlace a su apartado), práctica guiada de GIMP y punto de control (tema 3).
+- **Preparar el examen (`utNN-examen.html`):** el examen de repaso con su autocorrector
+  y las autocomprobaciones de cada subtema.
+- **En clase:** el reto del documento saboteado y la práctica colaborativa (tema 2).
+- **Anterior / siguiente:** al pie de cada página, en el orden de las secciones.
+- **Teoría en PDF:** `python scripts/generar_pdf_teoria.py [N]` (necesita `playwright`
+  y `pypdf`). Reduce las fotos a 1200 px en JPG para que pese poco. Hay que
+  regenerarlo cuando cambia la teoría: `actualizar_aula.py` avisa («AVISO: la teoría
+  del tema N ha cambiado…») comparando con `web/descargas/teoria/huellas.json`.
+- **Estilos:** `assets/organizacion.css`, igual que el de 0221 (si cambias uno, cambia
+  el otro). No se han tocado `estilo.css`, `aula.css` ni `aula.js`.
+- La migración se hizo una vez con `scripts/migrar_organizacion.py` (se conserva como
+  registro; no hay que volver a ejecutarlo).
+
+### Dónde va cada material nuevo
+
+Añádelo en `temas.json` → tema → `secciones` → `teoria`, `ejercicios`, `practicas`,
+`examen` o `enclase` (`etiqueta`, `titulo`, `url`, `texto`) y ejecuta
+`python scripts/actualizar_aula.py`: crea la tarjeta, la barra del tema, el índice de
+la sección, las migas y el «anterior / siguiente». Un bloque nuevo de ejercicios es
+una página `utNN-bloque-K.html`.
