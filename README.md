@@ -78,9 +78,15 @@ Al crear o modificar un tema en `temario/` hay que: (1) generar/actualizar
 
 ## Navegación del aula
 
-La portada ofrece accesos a apuntes, ejercicios y prácticas. El catálogo
-`web/recursos.html` reúne el material y las descargas con filtros y búsqueda.
-Las lecciones incluyen un índice de apartados adaptable a móvil.
+La portada muestra solo los temas. Cada tema tiene su página (`web/temas/utNN.html`)
+con cinco secciones: **Teoría** (los subtemas), **Ejercicios** (una página por
+bloque, `utNN-bloque-K.html`, con el índice y las normas de entrega en
+`utNN-ejercicios.html`), **Prácticas**, **Preparar el examen** (`utNN-examen.html`)
+y **En clase** (retos y prácticas en equipo). Las secciones se definen en
+`web/datos/temas.json` → `secciones`. La teoría de cada tema se descarga en PDF
+(`web/descargas/teoria/utNN-teoria.pdf`, generado con `scripts/generar_pdf_teoria.py`).
+El catálogo `web/recursos.html` reúne el material y las descargas con filtros y búsqueda.
+Es la misma organización que la web de 0221 (revisión del 18/11/2026).
 
 Después de añadir o modificar páginas, ejecutar
 `python scripts/actualizar_aula.py` para actualizar portada, catálogo e índices.

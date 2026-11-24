@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bloque 2.7 · Macros y manuales · Ejercicios · 0223 Aplicaciones ofimáticas</title>
+<link rel="stylesheet" href="../assets/estilo.css">
+<link rel="stylesheet" href="../assets/aula.css">
+<script defer src="../assets/aula.js"></script>
+<link rel="stylesheet" href="../assets/organizacion.css">
+</head>
+<body data-modulo="0223">
+<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0223 / Aplicaciones ofimáticas</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html">Buscar material</a></nav></header>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><a class="indice-tema" href="ut02.html"><span>Tema 2</span>Procesadores de texto: documentos, plantillas y macros</a><a class="indice-material" href="../recursos.html?tema=2">Todo el material del tema 2</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-bloque-2-7-macros-y-manuales">Bloque 2.7 — Macros y manuales</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1"><nav class="aula-migas" aria-label="Estás en"><a href="../index.html">Inicio</a><span aria-hidden="true">›</span><a href="ut02.html">Tema 2 · Procesadores de texto: documentos, plantillas y macros</a><span aria-hidden="true">›</span><a href="ut02-ejercicios.html">Ejercicios</a><span aria-hidden="true">›</span><span aria-current="page">Bloque 2.7</span></nav>
+
+  <header class="cab">
+    <p class="modulo">0223 · Aplicaciones ofimáticas · Tema 2 · Ejercicios</p>
+    <h1>Bloque 2.7 — Macros y manuales</h1>
+    <p class="meta">1.º SMR · Curso 2026/2027 · 1.ª evaluación</p>
+  </header>
+<nav class="subnav" aria-label="Apartados del tema 2">
+    <a href="ut02.html" class="inicio-tema">Portada del tema</a>
+    <a href="ut02.html#seccion-teoria" class="sec-teoria">Teoría</a>
+    <a href="ut02-ejercicios.html" class="sec-ejercicios" aria-current="true">Ejercicios</a>
+    <a href="ut02.html#seccion-practicas" class="sec-practicas">Prácticas</a>
+    <a href="ut02-examen.html" class="sec-examen">Preparar el examen</a>
+    <a href="ut02.html#seccion-enclase" class="sec-enclase">En clase</a>
+  </nav>
+
+  <p class="aula-mas">Antes de entregar, repasa <a href="ut02-ejercicios.html#apartado-como-se-entrega-cada-bloque">cómo se entrega cada bloque</a>.</p>
+  <section>
+    <h2 id="apartado-bloque-2-7-macros-y-manuales">Bloque 2.7 — Macros y manuales</h2>
+    <p>Corresponde al <a href="ut02-7.html">subtema 2.7</a>. El último bloque: le
+    das a tu plantilla de CV una macro que añade experiencias en un clic y
+    escribes un manual corto para que tú mismo, dentro de un año, sepas
+    actualizarlo. Partes de <code>cv_plantilla.dotx</code> (bloque 2.4) y de
+    <code>cv_final.docx</code> (bloque 2.6).</p>
+
+    <div class="aviso">
+      <strong>Haz primero la macro Aviso de los apuntes.</strong> Está en el
+      apartado 3 del <a href="ut02-7.html">subtema 2.7</a> y la vas a usar en el
+      ejercicio 2.7.5.
+    </div>
+
+    <h3>Ejercicio 2.7.1 · Tu plantilla, ahora con macros</h3>
+    <p>Una plantilla <code>.dotx</code> no puede llevar macros. Hay que convertirla
+    antes de grabar nada.</p>
+    <ol>
+      <li>Abre <code>cv_plantilla.dotx</code> desde <code>Archivo &gt; Abrir</code>.
+      <strong>No hagas doble clic</strong> en el archivo: eso crearía un documento
+      nuevo basado en ella, no abriría la plantilla.</li>
+      <li><code>Archivo &gt; Guardar como</code> y en <em>Tipo</em> elige
+      <strong>Plantilla de Word habilitada para macros (*.dotm)</strong>. Guárdala
+      como <code>cv_plantilla.dotm</code> en la misma carpeta de plantillas.</li>
+      <li>Coloca el cursor en una <strong>línea vacía</strong> al final del apartado
+      Experiencia.</li>
+      <li><code>Programador &gt; Grabar macro</code>. Nombre:
+      <code>NuevaExperiencia</code>. En <em>Guardar macro en</em> elige
+      <strong>cv_plantilla.dotm</strong> (no Normal.dotm). Descripción:
+      <em>Añade un bloque de experiencia con sus estilos</em>. Aceptar.</li>
+      <li>En <code>Inicio &gt; Estilos</code> aplica <em>Título 2</em> y escribe
+      <code>Puesto · Empresa</code>.</li>
+      <li>Pulsa <kbd>Intro</kbd>. Word pasa solo a <em>Normal</em>. Escribe
+      <code>Desde – hasta · Localidad</code>.</li>
+      <li>Pulsa <kbd>Intro</kbd>, activa <code>Inicio &gt; Viñetas</code> y escribe
+      <code>Tarea principal</code>.</li>
+      <li><code>Programador &gt; Detener grabación</code>.</li>
+      <li>Borra el bloque de prueba que ha quedado escrito en la plantilla y
+      guárdala con <kbd>Ctrl</kbd>+<kbd>G</kbd>.</li>
+    </ol>
+    <div class="tarjeta">
+      <p><strong>Por qué <em>Título 2</em> y no negrita.</strong> Si el puesto se
+      escribe con un estilo de título, aparece en el panel de navegación, se numera
+      solo con la lista multinivel del 2.2.6 y cambia de aspecto cuando cambies el
+      tema. Una macro que pusiera negrita a mano fabricaría CV saboteados.</p>
+    </div>
+
+    <h3>Ejercicio 2.7.2 · Un botón para la macro</h3>
+    <ol>
+      <li>Con la plantilla abierta, ve a <code>Archivo &gt; Opciones &gt; Barra de
+      herramientas de acceso rápido</code>.</li>
+      <li>En <em>Comandos disponibles en</em> elige <em>Macros</em>, selecciona
+      <code>NuevaExperiencia</code> y pulsa <strong>Agregar</strong>.</li>
+      <li>Pulsa <strong>Modificar</strong>, elige un icono y escribe como nombre
+      visible <code>Nueva experiencia</code>. Aceptar.</li>
+      <li>Vuelve a exportar tu personalización como hiciste en el ejercicio 2.1.1
+      (<code>Personalizar cinta &gt; Importar o exportar</code>), para llevarte
+      también el botón nuevo.</li>
+      <li>Cierra la plantilla guardando los cambios.</li>
+    </ol>
+
+    <h3>Ejercicio 2.7.3 · Úsala en un CV nuevo</h3>
+    <ol>
+      <li><code>Archivo &gt; Nuevo &gt; Personal</code> y elige
+      <code>cv_plantilla</code>. Se abre un documento nuevo basado en ella.</li>
+      <li>Si aparece la barra amarilla de macros deshabilitadas, pulsa
+      <em>Habilitar contenido</em>: la plantilla es tuya y sabes lo que lleva.</li>
+      <li>Copia en él tus datos de <code>cv_final.docx</code>.</li>
+      <li>Coloca el cursor en una línea vacía del apartado Experiencia y pulsa tu
+      botón dos veces (en dos líneas distintas). Rellena los dos bloques con
+      experiencias reales o con las prácticas que harás en la empresa.</li>
+      <li>Abre <code>Vista &gt; Panel de navegación</code>: los dos puestos
+      aparecen bajo Experiencia, porque la macro les puso <em>Título 2</em>.</li>
+      <li>Guárdalo como <code>cv_v6.docx</code>.</li>
+    </ol>
+    <div class="aviso">
+      <strong>¿Por qué puedes guardar en .docx?</strong> Porque las macros no están
+      en tu CV, están en la plantilla. El CV solo «sabe» de qué plantilla viene. Si
+      se lo mandas a alguien, le llega un documento limpio, sin macros.
+    </div>
+
+    <h3>Ejercicio 2.7.4 · Lee el código y retócalo</h3>
+    <ol>
+      <li>Con <code>cv_v6.docx</code> abierto, pulsa <kbd>Alt</kbd>+<kbd>F11</kbd>.</li>
+      <li>En el explorador de proyectos de la izquierda busca el proyecto de tu
+      plantilla y abre <code>Módulos &gt; NewMacros</code>. Ahí está
+      <code>Sub NuevaExperiencia()</code>.</li>
+      <li>Localiza las tres líneas <code>Selection.TypeText</code>. Son los tres
+      textos que escribiste al grabar.</li>
+      <li>Cambia <code>"Tarea principal"</code> por
+      <code>"Describe aquí una tarea con un verbo: instalé, configuré, atendí…"</code>.
+      Respeta las comillas.</li>
+      <li>Guarda en el editor (icono del disquete), vuelve a Word y prueba la macro
+      en una línea vacía. Borra después el bloque de prueba.</li>
+    </ol>
+    <p class="pie-fig"><em>Al guardar en el editor se guarda la plantilla, no el
+    CV: por eso el cambio servirá para todos los CV que crees a partir de ahora.</em></p>
+
+    <h3>Ejercicio 2.7.5 · El manual de tu CV</h3>
+    <p>Un manual de verdad, aunque sea corto: <strong>cómo añadir una experiencia
+    nueva a tu CV</strong>, escrito para alguien que no ha hecho estos ejercicios
+    (por ejemplo, tú dentro de un año).</p>
+    <ol>
+      <li>Crea un documento nuevo y guárdalo como <code>manual_cv.docx</code>.</li>
+      <li><strong>Portada</strong>: título, «para quién» y tu nombre.</li>
+      <li><strong>Control de versiones</strong>: una tabla con versión, fecha, autor
+      y cambios. Rellena la fila de la versión 1.0.</li>
+      <li><strong>Introducción</strong> de dos o tres líneas: qué se consigue y qué
+      hace falta antes de empezar (la plantilla instalada).</li>
+      <li><strong>Procedimiento</strong> «Añadir una experiencia» con entre cuatro y
+      seis pasos numerados, escritos como en el apartado 8 de los apuntes: una
+      acción por paso, verbo al principio, botones en negrita.</li>
+      <li>Dos <strong>capturas</strong> recortadas, con su título
+      (<code>Referencias &gt; Insertar título</code>) y citadas en el texto con una
+      referencia cruzada.</li>
+      <li>Un recuadro insertado con tu macro <strong>Aviso</strong>: «Importante:
+      habilita el contenido solo si la plantilla es la tuya».</li>
+      <li>Pásale el manual a tu compañero de pareja del bloque 2.6: tiene que seguir
+      los pasos <strong>sin preguntarte nada</strong>. Cada duda es un paso que
+      falta. Corrígelo.</li>
+      <li>Exporta a <code>manual_cv.pdf</code> con marcadores.</li>
+    </ol>
+    <div class="tarjeta">
+      <p><strong>Final del recorrido.</strong> Tu carpeta <code>Tema2_CV</code> tiene
+      ahora un CV real, una plantilla con macros, una carta de presentación
+      combinada y el manual para mantenerlo todo. Es material que puedes usar de
+      verdad cuando busques las prácticas en empresa.</p>
+    </div>
+
+    <section class="entrega" aria-labelledby="entrega-2-7">
+      <h3 id="entrega-2-7">Qué entregas del bloque 2.7</h3>
+      <p class="entrega-sub">La plantilla con la macro, un CV hecho con ella, tu configuración y el manual.</p>
+      <p class="entrega-zip">Sube a Moodle <code>&lt;usuario&gt;_E27.zip</code>. En su raíz:</p>
+      <div class="aula-tabla"><table class="entrega-nombres">
+        <thead><tr><th>En tu carpeta</th><th>Nombre dentro del ZIP</th><th>Ejercicio</th></tr></thead>
+        <tbody><tr><td>La memoria del bloque</td><td><code>&lt;usuario&gt;_E27.pdf</code></td><td>Todos</td></tr><tr><td><code>*.exportedUI</code></td><td><code>&lt;usuario&gt;_a02.exportedUI</code></td><td>2.7.2</td></tr><tr><td><code>cv_v6.docx</code></td><td><code>&lt;usuario&gt;_a03.docx</code></td><td>2.7.3</td></tr><tr><td><code>cv_plantilla.dotm</code></td><td><code>&lt;usuario&gt;_a04.dotm</code></td><td>2.7.1 – 2.7.4</td></tr><tr><td><code>manual_cv.docx</code></td><td><code>&lt;usuario&gt;_a05.docx</code></td><td>2.7.5</td></tr><tr><td><code>manual_cv.pdf</code></td><td><code>&lt;usuario&gt;_a05.pdf</code></td><td>2.7.5</td></tr></tbody>
+      </table></div>
+      <p class="entrega-sub">Cambia el nombre solo a las copias que metes en el ZIP: en tu carpeta de trabajo los archivos conservan su nombre.</p>
+      <h4>Capturas que no pueden faltar en la memoria</h4>
+      <ul class="entrega-lista"><li>2.7.1: el cuadro Grabar macro con «Guardar macro en: cv_plantilla.dotm»</li><li>2.7.3: el panel de navegación con los dos puestos</li><li>2.7.4: el editor de VBA con tu macro modificada</li></ul>
+      <p class="entrega-ojo"><strong>Copia la plantilla a tu carpeta.</strong> Igual que en el bloque 2.4: <code>cv_plantilla.dotm</code> está en la carpeta de plantillas personales. Sin ella no se puede ver tu macro, porque la macro vive en la plantilla, no en el CV.</p>
+      <h4>Comprueba antes de entregar</h4>
+      <ul class="entrega-lista">
+        <li>Con <kbd>Alt</kbd>+<kbd>F11</kbd>, la macro <code>NuevaExperiencia</code> está en el proyecto de <code>cv_plantilla</code>, no en Normal.</li>
+        <li>La macro aplica estilos (Título 2, Normal y viñetas), no negrita a mano, y su último texto es «Describe aquí una tarea con un verbo…».</li>
+        <li>La plantilla no tiene escrito el bloque de prueba de la grabación.</li>
+        <li><code>cv_v6.docx</code> es .docx, tiene dos puestos con Título 2 bajo Experiencia y salen en el panel de navegación.</li>
+        <li>El <code>.exportedUI</code> nuevo incluye el botón «Nueva experiencia».</li>
+        <li>El manual tiene portada, control de versiones, introducción, de 4 a 6 pasos numerados, dos capturas con título y referencia cruzada, y el recuadro de aviso.</li>
+        <li>El PDF del manual tiene marcadores: se ven en el panel lateral del lector de PDF.</li>
+      </ul>
+      <h4>Cómo debe quedar</h4>
+      <div class="entrega-ejemplos">
+        <figure class="entrega-ancho">
+<pre class="codigo-vba"><span class="kw">Sub</span> NuevaExperiencia()
+<span class="cm">'
+' NuevaExperiencia Macro
+' Añade un bloque de experiencia con sus estilos.
+'</span>
+    Selection.Style = ActiveDocument.Styles(<span class="tx">"Título 2"</span>)
+    Selection.TypeText Text:=<span class="tx">"Puesto · Empresa"</span>
+    Selection.TypeParagraph
+    Selection.TypeText Text:=<span class="tx">"Desde – hasta · Localidad"</span>
+    Selection.TypeParagraph
+    Selection.Range.ListFormat.ApplyListTemplateWithLevel _
+        ListTemplate:=ListGalleries(wdBulletGallery).ListTemplates(1), …
+    Selection.TypeText Text:=<span class="tx">"Describe aquí una tarea con un verbo: instalé, configuré, atendí…"</span>
+<span class="kw">End Sub</span></pre>
+          <figcaption>la macro después del 2.7.4. Según tu versión de Word, el estilo puede aparecer como <code>wdStyleHeading2</code> y la línea de viñetas puede ser algo distinta.</figcaption>
+        </figure>
+        <figure>
+          <div class="panel-word">
+            <b>Navegación</b><br>…<br>4 Experiencia<br><span class="n2">4.1 Técnico en prácticas · Microsistemas del Jerte</span><br><span class="n2">4.2 Monitor de campamento · Ayto. de Cabezuela</span><br>5 Competencias
+          </div>
+          <figcaption>cv_v6.docx: los dos puestos añadidos con la macro salen en el panel.</figcaption>
+        </figure>
+        <figure>
+          <div class="hoja">
+            <p class="t1">2 Añadir una experiencia</p>
+            <p>1. Abre <b>Archivo › Nuevo › Personal</b> y elige <b>cv_plantilla</b>.<br>
+            2. Pulsa <b>Habilitar contenido</b> en la barra amarilla.<br>
+            3. Coloca el cursor en una línea vacía de <b>Experiencia</b>.<br>
+            4. Pulsa el botón <b>Nueva experiencia</b> (ver la <span class="campo">Ilustración 1</span>).<br>
+            5. Sustituye los textos de ejemplo por tus datos.<br>
+            6. Guarda con <b>Ctrl+G</b>.</p>
+            <p style="margin-top:.5rem;border:1px solid #c00000;background:#fff2f2;padding:.35rem .5rem"><b>Importante:</b> habilita el contenido solo si la plantilla es la tuya.</p>
+          </div>
+          <figcaption>procedimiento del manual: una acción por paso, verbo al principio y botones en negrita.</figcaption>
+        </figure>
+      </div>
+      <h4>Tu carpeta al terminar el tema</h4>
+<pre class="arbol">Tema2_CV/
+├── cv_borrador.docx              <span class="nota">2.0 – 2.1</span>
+├── *.exportedUI                  <span class="nota">2.1 (actualizado en 2.7)</span>
+├── cv_v2.docx                    <span class="nota">2.1</span>
+├── cv_v3.docx                    <span class="nota">2.2 – 2.3</span>
+├── cv_plantilla.dotx             <span class="nota">2.4 (copiada de Plantillas)</span>
+├── cv_v4.docx                    <span class="nota">2.4</span>
+├── dossier_v1.docx               <span class="nota">2.4</span>
+├── cv.pdf · cv.odt · cv.txt      <span class="nota">2.5</span>
+├── informe_formatos.docx         <span class="nota">2.5</span>
+├── carta_presentacion.docx       <span class="nota">2.5</span>
+├── cartas_combinadas.docx + .pdf <span class="nota">2.5</span>
+├── cv_v5.docx                    <span class="nota">2.6</span>
+├── cv_v5_revisado_TUNOMBRE.docx  <span class="nota">2.6</span>
+├── cv_final.docx                 <span class="nota">2.6</span>
+├── cv_v4_modificado.docx         <span class="nota">2.6</span>
+├── cv_plantilla.dotm             <span class="nota">2.7 (copiada de Plantillas)</span>
+├── cv_v6.docx                    <span class="nota">2.7</span>
+└── manual_cv.docx + .pdf         <span class="nota">2.7</span></pre>
+    </section>
+  </section>
+
+  <nav class="nav-temas" aria-label="Página anterior y siguiente del tema">
+    <a href="ut02-bloque-6.html">&laquo; Bloque 2.6</a>
+    <a href="ut02-practicas.html">PC1 &raquo;</a>
+  </nav>
+
+  <footer class="pie">
+    <p>0223 Aplicaciones ofimáticas · Material de consulta del alumnado.
+    Currículo: Decreto 272/2009 (Extremadura).</p>
+  </footer>
+
+</main></div>
+</body>
+</html>

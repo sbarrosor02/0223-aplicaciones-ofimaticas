@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bloque 3.4 · Logotipo, portada y miniatura · Ejercicios · 0223 Aplicaciones ofimáticas</title>
+<link rel="stylesheet" href="../assets/estilo.css">
+<style>
+  .te { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 1rem 0; }
+  .te th, .te td { border: 1px solid var(--linea); padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+  .te th { background: var(--acento-claro); color: var(--acento); }
+  .te td.vacia { background: #fffbe8; }
+  .dos { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+  .dos > div { border: 1px solid var(--linea); border-radius: var(--radio); padding: 0.6rem 0.9rem; background: #fff; }
+  .dos h3 { margin-top: 0.2rem; }
+  @media (max-width: 600px) { .dos { grid-template-columns: 1fr; } }
+</style>
+<link rel="stylesheet" href="../assets/aula.css">
+<script defer src="../assets/aula.js"></script>
+<link rel="stylesheet" href="../assets/organizacion.css">
+</head>
+<body data-modulo="0223">
+<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0223 / Aplicaciones ofimáticas</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html">Buscar material</a></nav></header>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><a class="indice-tema" href="ut03.html"><span>Tema 3</span>Imagen digital: captura, edición y publicación</a><a class="indice-material" href="../recursos.html?tema=3">Todo el material del tema 3</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-bloque-3-4-logotipo-portada-y-miniatura">Bloque 3.4 — Logotipo, portada y miniatura</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1"><nav class="aula-migas" aria-label="Estás en"><a href="../index.html">Inicio</a><span aria-hidden="true">›</span><a href="ut03.html">Tema 3 · Imagen digital: captura, edición y publicación</a><span aria-hidden="true">›</span><a href="ut03-ejercicios.html">Ejercicios</a><span aria-hidden="true">›</span><span aria-current="page">Bloque 3.4</span></nav>
+
+  <header class="cab">
+    <p class="modulo">0223 · Aplicaciones ofimáticas · Tema 3 · Ejercicios</p>
+    <h1>Bloque 3.4 — Logotipo, portada y miniatura</h1>
+    <p class="meta">1.º SMR · Curso 2026/2027 · 1.ª evaluación · Formativos: no cuentan para la nota</p>
+  </header>
+<nav class="subnav" aria-label="Apartados del tema 3">
+    <a href="ut03.html" class="inicio-tema">Portada del tema</a>
+    <a href="ut03.html#seccion-teoria" class="sec-teoria">Teoría</a>
+    <a href="ut03-ejercicios.html" class="sec-ejercicios" aria-current="true">Ejercicios</a>
+    <a href="ut03.html#seccion-practicas" class="sec-practicas">Prácticas</a>
+    <a href="ut03-examen.html" class="sec-examen">Preparar el examen</a>
+  </nav>
+
+  <p class="aula-mas">Antes de entregar, repasa <a href="ut03-ejercicios.html#apartado-como-se-entrega-cada-bloque">cómo se entrega cada bloque</a>.</p>
+  <section>
+    <h2 id="apartado-bloque-3-4-logotipo-portada-y-miniatura">Bloque 3.4 — Logotipo, portada y miniatura</h2>
+    <p>Corresponde al <a href="ut03-4.html">subtema 3.4</a>. Con todo el material
+    preparado, montas las tres piezas principales de tu proyecto. Trabaja siempre
+    en <code>.xcf</code> y con las capas bien nombradas.</p>
+
+    <h3>Ejercicio 3.4.1 · El logotipo</h3>
+    <ol>
+      <li>Crea una imagen de 1000 × 1000 con relleno transparente y guárdala como
+      <code>trabajo/logo.xcf</code>.</li>
+      <li>Abre como capa tu <code>boceto-limpio.xcf</code>, bájale la opacidad al
+      30 % y llámala «boceto».</li>
+      <li>Calca la idea en capas nuevas con selecciones y rellenos, usando los
+      colores de tu paleta. Añade el nombre del grupo o del estudio con la
+      herramienta Texto.</li>
+      <li>Oculta el boceto. El logotipo tiene que verse bien sobre fondo blanco y
+      sobre fondo oscuro: compruébalo poniendo debajo una capa de cada color.</li>
+    </ol>
+
+    <h3>Ejercicio 3.4.2 · La portada</h3>
+    <ol>
+      <li>Abre la <code>portada.xcf</code> del ejercicio 3.1.4 (3000 × 3000 a 300 ppp).</li>
+      <li>Añade como capas la foto preparada en el 3.3.3 y, si te encaja, la
+      guitarra o el mando recortados. Recuerda lo que decidiste: si la foto no llega
+      a 3000 px, úsala más pequeña o como fondo difuminado.</li>
+      <li>Usa al menos un <strong>modo de fusión</strong> (una textura, una luz) y una
+      <strong>máscara de capa</strong>.</li>
+      <li>Pon el nombre del proyecto y el título del single o del juego, con una
+      jerarquía clara, y abre tu logotipo como capa.</li>
+    </ol>
+
+    <h3>Ejercicio 3.4.3 · La miniatura</h3>
+    <ol>
+      <li>Abre <code>foto-miniatura.xcf</code> (1280 × 720, del 3.3.3).</li>
+      <li>Añade un título muy corto (tres o cuatro palabras), grande y con
+      contraste, y el logotipo pequeño en una esquina que no sea la inferior
+      derecha.</li>
+      <li>Aleja la vista hasta que la miniatura mida unos 6 cm en la pantalla: si el
+      título no se lee, agrándalo.</li>
+    </ol>
+    <div class="tarjeta">
+      <p><strong>No exportes todavía.</strong> En el bloque 3.5 sacarás de cada
+      <code>.xcf</code> el archivo final con el formato y el peso adecuados.</p>
+    </div>
+
+    <section class="entrega" aria-labelledby="entrega-3-4">
+      <h3 id="entrega-3-4">Qué entregas del bloque 3.4</h3>
+      <p class="entrega-sub">Las tres piezas principales en XCF, con las capas bien nombradas. Todavía sin exportar.</p>
+      <p class="entrega-zip">Sube a Moodle <code>&lt;usuario&gt;_E34.zip</code>. En su raíz:</p>
+      <div class="aula-tabla"><table class="entrega-nombres">
+        <thead><tr><th>En tu carpeta</th><th>Nombre dentro del ZIP</th><th>Ejercicio</th></tr></thead>
+        <tbody><tr><td>La memoria del bloque</td><td><code>&lt;usuario&gt;_E34.pdf</code></td><td>Todos</td></tr><tr><td><code>trabajo/logo.xcf</code></td><td><code>&lt;usuario&gt;_a01.xcf</code></td><td>3.4.1</td></tr><tr><td><code>trabajo/portada.xcf</code></td><td><code>&lt;usuario&gt;_a02.xcf</code></td><td>3.4.2</td></tr><tr><td><code>trabajo/foto-miniatura.xcf</code></td><td><code>&lt;usuario&gt;_a03.xcf</code></td><td>3.4.3</td></tr></tbody>
+      </table></div>
+      <p class="entrega-sub">Cambia el nombre solo a las copias que metes en el ZIP: en tu carpeta de trabajo los archivos conservan su nombre.</p>
+      <h4>Capturas que no pueden faltar en la memoria</h4>
+      <ul class="entrega-lista"><li>3.4.1: el logo sobre la capa de prueba oscura y sobre la blanca</li><li>3.4.2: el diálogo Capas de la portada</li><li>3.4.3: la miniatura alejada a unos 6 cm de pantalla</li></ul>
+      <h4>Comprueba antes de entregar</h4>
+      <ul class="entrega-lista">
+        <li>El logotipo mide 1000 × 1000 con fondo transparente, usa los colores de tu paleta y lleva el nombre en una capa de texto.</li>
+        <li>La capa «boceto» está al 30 % y oculta; las capas de prueba blanca y oscura están, y el logo se ve bien sobre las dos.</li>
+        <li>La portada sigue a 3000 × 3000 y 300 ppp, con al menos un modo de fusión distinto de Normal y una máscara de capa.</li>
+        <li>El nombre y el título de la portada tienen una jerarquía clara, y el logotipo está como capa.</li>
+        <li>La miniatura sigue a 1280 × 720, con un título de 3 o 4 palabras que se lee aunque la mires a 6 cm, y el logo en una esquina que no sea la de abajo a la derecha.</li>
+      </ul>
+      <h4>Cómo debe quedar</h4>
+      <div class="entrega-ejemplos">
+        <figure>
+          <div class="capas-gimp">
+            <div><b>●</b><i style="background:#f6efe6"></i>T  Los Picotas Eléctricas</div>
+            <div class="activa"><b>●</b><i style="background:#b3123a"></i>cereza</div>
+            <div><b>●</b><i style="background:#5e9e3a"></i>rabito</div>
+            <div><b> </b><i style="background:repeating-linear-gradient(45deg,#ccc 0 3px,#fff 3px 6px)"></i>boceto · 30 %</div>
+            <div><b> </b><i style="background:#1e1a24"></i>prueba fondo oscuro</div>
+            <div><b> </b><i style="background:#ffffff"></i>prueba fondo blanco</div>
+          </div>
+          <figcaption>logo.xcf: cada forma en su capa con nombre, boceto y fondos de prueba ocultos.</figcaption>
+        </figure>
+        <figure>
+          <div class="capas-gimp">
+            <div><b>●</b><i style="background:#b3123a"></i>logo</div>
+            <div><b>●</b><i style="background:#f6efe6"></i>T  Noches de cerezo</div>
+            <div><b>●</b><i style="background:#f6efe6"></i>T  LOS PICOTAS ELÉCTRICAS</div>
+            <div><b>●</b><i style="background:#c8b9a0"></i>textura · Multiplicar</div>
+            <div class="activa"><b>●</b><i style="background:linear-gradient(90deg,#8c7b55 50%,#000 50%,#fff)"></i>guitarra + máscara</div>
+            <div><b>●</b><i style="background:#b3123a"></i>fondo</div>
+          </div>
+          <figcaption>portada.xcf: un modo de fusión (Multiplicar) y una máscara de capa.</figcaption>
+        </figure>
+        <figure>
+          <svg viewBox="0 0 320 180" width="100%" role="img" aria-label="Miniatura 16:9 con título grande a la izquierda y logo arriba a la izquierda">
+            <rect width="320" height="180" fill="#1e1a24"/><rect x="170" y="20" width="130" height="150" rx="6" fill="#5e6b7a"/>
+            <circle cx="24" cy="24" r="12" fill="#b3123a"/>
+            <text x="18" y="100" font-size="30" font-weight="800" fill="#f6efe6" font-family="Arial,sans-serif">NUEVO</text>
+            <text x="18" y="134" font-size="30" font-weight="800" fill="#f6efe6" font-family="Arial,sans-serif">SINGLE</text>
+            <rect x="262" y="156" width="46" height="16" rx="3" fill="#000000" opacity=".75"/><text x="285" y="168" font-size="10" fill="#ffffff" text-anchor="middle" font-family="Arial,sans-serif">3:42</text>
+          </svg>
+          <figcaption>miniatura: título grande y con contraste, logo arriba. Abajo a la derecha YouTube pone la duración.</figcaption>
+        </figure>
+      </div>
+      <p class="entrega-ojo"><strong>Fallo más común:</strong> recortar con la goma en vez de con una máscara. Con la goma lo borrado se pierde; con la máscara puedes corregirlo.</p>
+    </section>
+  </section>
+
+  <nav class="nav-temas" aria-label="Página anterior y siguiente del tema">
+    <a href="ut03-bloque-3.html">&laquo; Bloque 3.3</a>
+    <a href="ut03-bloque-5.html">Bloque 3.5 &raquo;</a>
+  </nav>
+
+  <footer class="pie">
+    <p>0223 Aplicaciones ofimáticas · Material de consulta del alumnado.
+    Currículo: Decreto 272/2009 (Extremadura).</p>
+  </footer>
+
+</main></div>
+</body>
+</html>
