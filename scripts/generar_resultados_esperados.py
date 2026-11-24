@@ -18,6 +18,7 @@ resultado esperado coincide con lo que sale si se hace bien la práctica:
   p36-redes.jpg              la misma foto para un post 4:5, una historia y un banner de YouTube, con las zonas seguras
   p36-cartel.jpg             el flyer A5 con sangrado: corte, zona segura y fondo hasta el borde
   p36-web.jpg                la plantilla web rellena, vista en el ordenador y en el móvil (si está Playwright)
+  p37-*.jpg y p38-*.jpg      práctica guiada de GIMP y punto de control (scripts/generar_resultados_gimp.py)
 
 Uso: python scripts/generar_resultados_esperados.py
 Salida: web/assets/img/entregas/
@@ -173,6 +174,8 @@ def main():
     t.save(SALIDA / 'p35-transparencia.png', optimize=True)
 
     publicar()
+    import generar_resultados_gimp
+    generar_resultados_gimp.main()
     print('Imágenes generadas en', SALIDA)
 
 

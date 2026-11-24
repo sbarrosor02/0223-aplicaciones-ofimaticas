@@ -39,7 +39,8 @@ programas y aplicando técnicas de captura y edición básicas.
 | 3.4 | Capas, selecciones y texto | d | 6 |
 | 3.5 | Importar, exportar y optimizar | e | 4 |
 | 3.6 | Publicar en web, redes e impresión | f | 3 |
-| — | Punto de control | todos | 2 |
+| — | Práctica guiada de GIMP (repaso de 3.1 a 3.6) | c, d, e, f | 3 |
+| — | Punto de control (Jerte Gaming Cup) | c, d, e, f | 3 |
 
 ## Decisiones de diseño (19/10/2026)
 
@@ -60,4 +61,9 @@ programas y aplicando técnicas de captura y edición básicas.
 ## Estado
 
 - 3.1 a 3.6, laboratorio (9 herramientas) y bloques 3.1 a 3.6 de los ejercicios: publicados.
-- Punto de control e instrumentos de calificación: pendientes.
+- Práctica guiada de GIMP (`ut03-gimp-guiada.html`, p37) y punto de control
+  (`ut03-practica-control.html`, p38): publicados el 24/11/2026, a petición del
+  profesor, porque las explicaciones de GIMP repartidas en 3.3–3.6 costaban de
+  seguir. Suman 6 h frente a las 2 h previstas: el tema pasa de 28 a 32
+  sesiones (la programación da 28).
+- Instrumentos de calificación: pendientes.

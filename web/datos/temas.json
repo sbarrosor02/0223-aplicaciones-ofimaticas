@@ -293,6 +293,18 @@
           "nota": "formativo; hilo conductor banda de música o estudio de videojuegos; bloques 3.1 a 3.6 publicados"
         },
         {
+          "titulo": "Práctica guiada de GIMP: el cartel del concierto",
+          "url": "temas/ut03-gimp-guiada.html",
+          "evaluable": true,
+          "nota": "3 h; repaso paso a paso de todo GIMP (3.1 a 3.6): retocar una foto (Medir, Recortar, Niveles, cuentagotas gris, Clonar, Saneado), cartel A5 con sangrado (guías, máscara con degradado, selección difusa, Multiplicar, texto) y salidas PDF y 1080 × 1350; una imagen de resultado por paso; material gimp-guiada-material.zip (scripts/generar_material_gimp.py); entrega p37"
+        },
+        {
+          "titulo": "Punto de control del Tema 3: Jerte Gaming Cup",
+          "url": "temas/ut03-practica-control.html",
+          "evaluable": true,
+          "nota": "3 h, sin guía, pliego con valores exactos y rúbrica de 10 por CE (c, d, e, f): foto retocada 1920 × 1080, cartel A4 con sangrado (2551 × 3579, capas con máscara, Pantalla, recorte, SVG importado) y miniatura 1280 × 720; ejemplos y bien/mal; material gimp-control-material.zip; entrega p38"
+        },
+        {
           "titulo": "Fotos para practicar el retoque",
           "url": "temas/ut03-3.html#apartado-fotos-para-practicar",
           "nota": "paisaje inventado generado con scripts/generar_fotos_retoque.py: torcida y oscura, lavada y amarilla, manchas y cable"

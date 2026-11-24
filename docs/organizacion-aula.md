@@ -166,7 +166,7 @@ módulo (`<usuario>` es el usuario del alumno):
 |---|---|---|
 | 1 | P1.1 a P1.6 | `p11` a `p16` |
 | 2 | PC1 · PC2 · Carta del restaurante · PC3 · Taller T1–T5 · Práctica colaborativa | `p21` · `p22` · `p23` · `p24` · `p25` (T1–T5 son `a01`–`a05`) · `p26` (grupo) |
-| 3 | Prácticas de cada subtema (P3.1.x … P3.4.x) | `p31` a `p34`; cada P3.x.y es la actividad `a0y` |
+| 3 | Prácticas de cada subtema (P3.1.x … P3.6.x) · Práctica guiada de GIMP · Punto de control | `p31` a `p36`; cada P3.x.y es la actividad `a0y` · `p37` · `p38` (sin memoria: los XCF son la evidencia) |
 
 Las prácticas ya entregadas el 29/10/2026 (Tema 1, PC1, carta y taller) conservan los
 nombres con los que se entregaron; el código queda reservado. Las prácticas con

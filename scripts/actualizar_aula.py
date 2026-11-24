@@ -165,7 +165,7 @@ for repo in REPOS:
         source = path.read_text(encoding='utf-8')
         subnavs = {
             'ut02': [('Portada del tema', 'ut02.html'), ('Apuntes', 'ut02.html#apartado-subtemas'), ('Ejercicios guiados', 'ut02-ejercicios.html'), ('Reto en equipo', 'ut02-ejercicios-reto-saboteado.html'), ('Prácticas de control', 'ut02-practicas.html'), ('Examen de repaso', 'ut02-examen-repaso.html'), ('Mapa de Word', 'mapa-cinta.html')],
-            'ut03': [('Portada del tema', 'ut03.html'), ('Apuntes', 'ut03.html#apartado-subtemas'), ('Ejercicios guiados', 'ut03-ejercicios.html'), ('Laboratorio de imagen', 'laboratorio-imagen.html')],
+            'ut03': [('Portada del tema', 'ut03.html'), ('Apuntes', 'ut03.html#apartado-subtemas'), ('Ejercicios guiados', 'ut03-ejercicios.html'), ('Laboratorio de imagen', 'laboratorio-imagen.html'), ('Práctica guiada de GIMP', 'ut03-gimp-guiada.html'), ('Punto de control', 'ut03-practica-control.html')],
         }
         prefijo_tema = 'ut03' if path.name.startswith('laboratorio-imagen') else path.name[:4]
         if code == '0223' and prefijo_tema in subnavs and re.match(r'ut\d\d', prefijo_tema):
@@ -231,7 +231,7 @@ for repo in REPOS:
                 if 'prácticas del' in label.lower():
                     cards.append(card('practicas', title + ' · Prácticas del apartado', 'temas/' + name + '#' + target, 'Actividades incluidas en los apuntes. Consulta allí sus requisitos y criterios.', '', '', tema_de(name)))
         for target, label in re.findall(r'<a\b[^>]*href="([^"]+\.(?:docx|dotx|xlsx|pptx|odt|pdf|zip|png|jpg|svg))"[^>]*>(.*?)</a>', source, re.S):
-            if target.startswith('../'):
+            if target.startswith('../') and not target.startswith('../assets/'):
                 destination = target[3:]
                 if (web / destination).is_file():
                     downloads[destination] = (plain(label) or Path(destination).name, name)
