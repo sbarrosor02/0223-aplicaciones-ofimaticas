@@ -65,11 +65,15 @@ Al crear o modificar un tema en `temario/` hay que: (1) generar/actualizar
   con el hilo de una banda o un estudio de videojuegos. Publicados: 3.1 a
   3.6, laboratorio (9 herramientas: metadatos EXIF, histograma y niveles, capas
   y modos de fusión, conversor de formatos, tamaños para redes e impresión, entre
-  otras) y bloques 3.1 a 3.6 de ejercicios. Pendientes: punto de control e
-  instrumentos de calificación. Las imágenes de práctica son inventadas y se generan con
+  otras) y bloques 3.1 a 3.6 de ejercicios, práctica guiada de GIMP y punto de
+  control. Pendiente: instrumentos de calificación. Las imágenes de práctica
+  son inventadas y se generan con
   `scripts/generar_fotos_retoque.py`, `scripts/generar_documento_fotografiado.py`,
   `scripts/generar_material_capas.py` y `scripts/generar_material_exportar.py`;
-  la plantilla web del 3.6, con `scripts/generar_plantilla_web.py`.
+  la plantilla web del 3.6, con `scripts/generar_plantilla_web.py`; el material de
+  la práctica guiada de GIMP y del punto de control, con
+  `scripts/generar_material_gimp.py` (sus imágenes de resultado, con
+  `scripts/generar_resultados_gimp.py`).
 - Resto de temas (4 a 10): pendientes.
 
 ## Navegación del aula

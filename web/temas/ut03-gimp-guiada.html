@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Práctica guiada de GIMP · Tema 3 · 0223 Aplicaciones ofimáticas</title>
+<link rel="stylesheet" href="../assets/estilo.css">
+<style>
+  .paso { border: 1px solid var(--linea); border-radius: var(--radio); background: #fff; padding: 0.9rem 1.1rem; margin: 1.2rem 0; }
+  .paso > h3 { margin-top: 0; }
+  .paso > h3 .n { display: inline-block; min-width: 2rem; padding: 0.05rem 0.45rem; margin-right: 0.4rem; border-radius: 4px; background: var(--acento); color: #fff; text-align: center; }
+  .paso ol { margin: 0.4rem 0 0.6rem; }
+  .paso li { margin: 0.25rem 0; }
+  .paso figure { margin: 0.8rem 0 0.2rem; }
+  .paso figure img { display: block; max-width: 100%; height: auto; border: 1px solid var(--linea); border-radius: 4px; }
+  .paso figure.estrecha img { max-width: 340px; }
+  .comprueba { margin: 0.6rem 0 0; padding: 0.5rem 0.8rem; border-left: 4px solid #2e9d5b; background: #eef8f1; font-size: 0.95rem; }
+  .comprueba::before { content: "Comprueba: "; font-weight: 700; color: #1e7a43; }
+  .t37 { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 1rem 0; }
+  .t37 th, .t37 td { border: 1px solid var(--linea); padding: 0.4rem 0.6rem; text-align: left; vertical-align: top; }
+  .t37 th { background: var(--acento-claro); color: var(--acento); }
+  .valores { font-family: Consolas, "Courier New", monospace; font-size: 0.9rem; background: var(--acento-claro); padding: 0.05rem 0.35rem; border-radius: 4px; }
+</style>
+<link rel="stylesheet" href="../assets/aula.css">
+<script defer src="../assets/aula.js"></script>
+</head>
+<body data-modulo="0223">
+<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0223 / Aplicaciones ofimáticas</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><a class="indice-tema" href="ut03.html"><span>Tema 3</span>Imagen digital: captura, edición y publicación</a><a class="indice-material" href="../recursos.html?tema=3">Todo el material del tema 3</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-material-y-preparacion">Material y preparación</a></li><li><a href="#apartado-parte-a-retocar-la-foto">Parte A · Retocar la foto</a></li><li><a href="#apartado-parte-b-montar-el-cartel">Parte B · Montar el cartel A5</a></li><li><a href="#apartado-parte-c-exportar-y-publicar">Parte C · Exportar y publicar</a></li><li><a href="#apartado-entrega">Entrega</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1"><nav class="aula-migas" aria-label="Estás en"><a href="../index.html">Inicio</a><span aria-hidden="true">›</span><a href="ut03.html">Tema 3 · Imagen digital: captura, edición y publicación</a><span aria-hidden="true">›</span><span aria-current="page">Práctica guiada de GIMP</span></nav>
+
+  <header class="cab">
+    <p class="modulo">0223 · Aplicaciones ofimáticas · Tema 3 · Repaso</p>
+    <h1>Práctica guiada de GIMP — El cartel del concierto</h1>
+    <p class="meta">1.º SMR · Curso 2026/2027 · 1.ª evaluación · Duración: 3 h</p>
+  </header>
+<nav class="subnav" aria-label="Apartados del tema 3"><a href="ut03.html">Portada del tema</a><a href="ut03.html#apartado-subtemas">Apuntes</a><a href="ut03-ejercicios.html">Ejercicios guiados</a><a href="laboratorio-imagen.html">Laboratorio de imagen</a><a href="ut03-gimp-guiada.html" aria-current="page">Práctica guiada de GIMP</a><a href="ut03-practica-control.html">Punto de control</a></nav>
+<div class="aula-herramientas"><button type="button" data-imprimir hidden>Imprimir / guardar PDF</button></div>
+
+  <details class="ra-ce"><summary>Qué se evalúa · RA y criterios</summary>
+    <h2 id="apartado-resultado-de-aprendizaje">Resultado de aprendizaje</h2>
+    <p><strong>RA5.</strong> Manipula imágenes digitales analizando las
+    posibilidades de distintos programas y aplicando técnicas de captura y edición
+    básicas.</p>
+    <p>Criterios de evaluación que repasa esta práctica:</p>
+    <ul>
+      <li><strong>c)</strong> Se ha trabajado con imágenes a diferentes resoluciones, según su finalidad.</li>
+      <li><strong>d)</strong> Se han empleado herramientas para la edición de imagen digital.</li>
+      <li><strong>e)</strong> Se han importado y exportado imágenes en diversos formatos.</li>
+      <li><strong>f)</strong> Se ha publicado imágenes en diferentes medios.</li>
+    </ul>
+  </details>
+
+  <div class="aviso">
+    <strong>Una sola pieza, de principio a fin.</strong> Vas a hacer el cartel de
+    un concierto con todo lo que has visto de GIMP en el tema: retocar una foto,
+    montar un cartel con capas y exportarlo para la imprenta y para redes. Cada
+    paso dice el menú, los valores y cómo tiene que quedar. Haz los pasos en
+    orden y no pases al siguiente hasta que el tuyo se parezca a la imagen. En el móvil, toca una imagen para verla en grande. Después
+    vendrá el <a href="ut03-practica-control.html">punto de control</a>, que es
+    lo mismo, pero sin la guía.
+  </div>
+
+  <section>
+    <h2 id="apartado-material-y-preparacion">Material y preparación</h2>
+    <ul>
+      <li><a href="../descargas/gimp-guiada-material.zip"><strong>Material de la práctica guiada</strong></a>
+      (ZIP, 0,9 MB): la foto del escenario, la guitarra, la textura de papel y el
+      logotipo del festival. Descomprímelo en <code>Tema3_Proyecto/guiada</code>.</li>
+    </ul>
+    <p>Antes de empezar, en GIMP, deja a la vista el diálogo <strong>Capas</strong>
+    (<code>Ventanas &gt; Diálogos empotrables &gt; Capas</code>, <kbd>Ctrl</kbd>+<kbd>L</kbd>)
+    y el <strong>Histograma</strong> (<code>Ventanas &gt; Diálogos empotrables &gt;
+    Histograma</code>). Si en algún momento te pierdes, <code>Editar &gt; Historial
+    de deshacer</code> te deja volver atrás.</p>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="t37">
+      <thead><tr><th>Parte</th><th>Pasos</th><th>Qué repasas</th><th>Subtema</th><th>Tiempo</th></tr></thead>
+      <tbody>
+        <tr><td>A · Retocar la foto</td><td>1 a 7</td><td>Medir, Recortar, Niveles, cuentagotas gris, Clonar, Saneado, Enfocar, exportar JPG</td><td>3.3 y 3.5</td><td>1 h</td></tr>
+        <tr><td>B · Montar el cartel</td><td>8 a 13</td><td>Imagen nueva a 300 ppp, guías, sangrado, capas, máscara con degradado, selección difusa, modos de fusión, texto</td><td>3.1, 3.4 y 3.6</td><td>1 h 30 min</td></tr>
+        <tr><td>C · Exportar y publicar</td><td>14 y 15</td><td>Metadatos, PDF para la imprenta, versión de 1080 × 1350 para redes</td><td>3.5 y 3.6</td><td>30 min</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section>
+    <h2 id="apartado-parte-a-retocar-la-foto">Parte A · Retocar la foto</h2>
+
+    <div class="paso">
+      <h3><span class="n">1</span>Abrir la foto y guardar el archivo de trabajo</h3>
+      <ol>
+        <li><code>Archivo &gt; Abrir</code> y elige <code>guiada-escenario.jpg</code>. Mírala: está torcida, oscura, naranja, con motas de polvo y un letrero de SALIDA que sobra.</li>
+        <li><code>Archivo &gt; Guardar como</code> → <code>guiada-foto.xcf</code>. A partir de aquí, guarda con <kbd>Ctrl</kbd>+<kbd>S</kbd> cada pocos pasos.</li>
+        <li><code>Capa &gt; Duplicar capa</code>. Doble clic en el nombre de la copia y llámala <strong>retoque</strong>. Quita el ojo de la capa de abajo (el original): así no la tocas y puedes comparar al final.</li>
+      </ol>
+      <figure><a href="../assets/img/entregas/p37-01-material.jpg" title="Ver la imagen en grande"><img src="../assets/img/entregas/p37-01-material.jpg" alt="La foto del escenario tal como viene: torcida, oscura y anaranjada, con un letrero verde de salida a la izquierda" loading="lazy" width="780" height="560"></a></figure>
+      <p class="comprueba">en el diálogo Capas hay dos capas y la activa (resaltada) es <em>retoque</em>.</p>
+    </div>
+
+    <div class="paso">
+      <h3><span class="n">2</span>Enderezar con Medir</h3>
+      <ol>
+        <li>Herramienta <strong>Medir</strong> (<kbd>Mayús</kbd>+<kbd>M</kbd>).</li>
+        <li>Haz clic en el extremo izquierdo del <strong>canto blanco del escenario</strong> (la línea donde acaba la tarima) y arrastra hasta el extremo derecho. En la barra de estado, abajo, sale el ángulo: unos <span class="valores">3°</span>.</li>
+        <li>En las opciones de la herramienta, pulsa <strong>Enderezar</strong>. La foto gira y quedan esquinas vacías (el cuadriculado gris es transparencia).</li>
+      </ol>
+      <figure><a href="../assets/img/entregas/p37-02-enderezar.jpg" title="Ver la imagen en grande"><img src="../assets/img/entregas/p37-02-enderezar.jpg" alt="A la izquierda, la línea amarilla de la herramienta Medir sobre el canto del escenario y el ángulo de 3 grados; a la derecha, la foto enderezada con las esquinas transparentes" loading="lazy" width="1158" height="420"></a></figure>
+      <p class="comprueba">el canto del escenario y los amplificadores están rectos. Si ha girado al revés, deshaz (<kbd>Ctrl</kbd>+<kbd>Z</kbd>) y mide de izquierda a derecha.</p>
+    </div>
+
+    <div class="paso">
+      <h3><span class="n">3</span>Recortar a 3:2</h3>
+      <ol>
+        <li>Herramienta <strong>Recortar</strong> (<kbd>Mayús</kbd>+<kbd>C</kbd>). En sus opciones: marca <strong>Fijo</strong> y elige <strong>Relación de aspecto</strong> con <span class="valores">3:2</span>; en <strong>Guías</strong>, <em>Regla de los tercios</em>; deja marcado <strong>Borrar los píxeles recortados</strong>.</li>
+        <li>Dibuja el rectángulo lo más grande que puedas <strong>sin que entre ninguna esquina transparente</strong>. Pulsa <kbd>Intro</kbd>.</li>
+      </ol>
+      <figure><a href="../assets/img/entregas/p37-03-recortar.jpg" title="Ver la imagen en grande"><img src="../assets/img/entregas/p37-03-recortar.jpg" alt="El recuadro de recorte 3:2 con la rejilla de tercios sobre la foto enderezada, y el resultado recortado" loading="lazy" width="1158" height="420"></a></figure>
+      <p class="comprueba">la barra de título de GIMP dice unos <span class="valores">2200 × 1467</span> px (vale entre 2150 y 2250 de ancho) y no queda ningún trozo transparente.</p>
+    </div>
+
+    <div class="paso">
+      <h3><span class="n">4</span>La luz: Niveles</h3>
+      <ol>
+        <li>Mira el histograma: está todo amontonado a la izquierda y la mitad derecha, vacía. La foto está <strong>oscura</strong>.</li>
+        <li><code>Colores &gt; Niveles</code>, canal <strong>Valor</strong>. En los niveles de entrada escribe <span class="valores">5</span> (negro), <span class="valores">1,50</span> (gris) y <span class="valores">145</span> (blanco). También puedes arrastrar los triángulos negro y blanco hasta donde empieza y acaba el histograma.</li>
+        <li><strong>Aceptar</strong>.</li>
+      </ol>
+      <figure><a href="../assets/img/entregas/p37-04-niveles.jpg" title="Ver la imagen en grande"><img src="../assets/img/entregas/p37-04-niveles.jpg" alt="Antes y después de Niveles con sus histogramas: antes, todo a la izquierda; después, repartido de un extremo a otro" loading="lazy" width="1202" height="560"></a></figure>
+      <p class="comprueba">el histograma va ahora de un extremo a otro. La foto sigue naranja: eso se arregla en el paso siguiente.</p>
+    </div>
+
+    <div class="paso">
+      <h3><span class="n">5</span>El color: quitar la dominante naranja</h3>
+      <ol>
+        <li>Vuelve a <code>Colores &gt; Niveles</code>.</li>
+        <li>Coge el <strong>cuentagotas gris</strong> (el del centro, <em>Elegir el punto gris</em>) y haz clic en la <strong>rejilla de uno de los amplificadores</strong>: en la realidad es gris neutro.</li>
+        <li>Si queda raro, prueba en otro punto de la rejilla. <strong>Aceptar</strong>.</li>
+      </ol>
+      <p>Otra forma: <code>Colores &gt; Automático &gt; Balance de blancos</code>.
+      Es más rápida, pero a veces exagera: compara las dos.</p>
+      <figure><a href="../assets/img/entregas/p37-05-color.jpg" title="Ver la imagen en grande"><img src="../assets/img/entregas/p37-05-color.jpg" alt="El cuentagotas sobre la rejilla del amplificador y la foto ya sin dominante, con la rejilla y la pared en gris" loading="lazy" width="1158" height="420"></a></figure>
+      <p class="comprueba">la rejilla de los amplificadores y la pared de la izquierda son grises, sin tono naranja; las luces de colores de los focos siguen ahí.</p>
+    </div>
+
+    <div class="paso">
+      <h3><span class="n">6</span>Limpiar: Clonar y Saneado</h3>
+      <ol>
+        <li>Pulsa <kbd>1</kbd> para ver la imagen al 100 % y ve a la esquina de arriba a la izquierda.</li>
+        <li>Herramienta <strong>Clonar</strong> (<kbd>C</kbd>), pincel un poco más grande que el letrero (cambia el tamaño con <kbd>[</kbd> y <kbd>]</kbd>). <kbd>Ctrl</kbd>+clic en la <strong>pared gris</strong> justo debajo del letrero y pinta encima del letrero y del cable que lo cuelga. Cambia el origen varias veces para que no se vean trozos repetidos.</li>
+        <li>Herramienta <strong>Saneado</strong> (<kbd>H</kbd>), pincel de unos 50 px. Hay <span class="valores">10 motas</span> oscuras: en la pared gris y en los dos conos de luz de la izquierda y del centro. Para cada una: <kbd>Ctrl</kbd>+clic al lado, en una zona con la misma luz, y un clic encima.</li>
+      </ol>
+      <figure><a href="../assets/img/entregas/p37-06-limpiar.jpg" title="Ver la imagen en grande"><img src="../assets/img/entregas/p37-06-limpiar.jpg" alt="Detalle al 100 por cien antes y después: el letrero y las motas desaparecen y la pared y los conos de luz quedan limpios" loading="lazy" width="1430" height="420"></a></figure>
+      <p class="comprueba">al 100 % no se ve el letrero ni su cable ni ninguna mota, ni manchas repetidas donde estaban.</p>
+    </div>
+
+    <div class="paso">
+      <h3><span class="n">7</span>Enfocar, guardar y exportar la foto</h3>
+      <ol>
+        <li><code>Filtros &gt; Realzar &gt; Enfocar (máscara de desenfoque)</code>: radio <span class="valores">1,5</span>, cantidad <span class="valores">0,5</span>. Poco: si aparece un halo claro en los bordes, te has pasado.</li>
+        <li><kbd>Ctrl</kbd>+<kbd>S</kbd> para guardar el <code>.xcf</code>.</li>
+        <li><code>Archivo &gt; Exportar como</code> → <code>guiada-foto.jpg</code>, calidad <span class="valores">85</span>, y desmarca <em>Guardar datos Exif</em> y <em>XMP</em>.</li>
+      </ol>
+      <figure><a href="../assets/img/entregas/p37-07-foto.jpg" title="Ver la imagen en grande"><img src="../assets/img/entregas/p37-07-foto.jpg" alt="La foto original estropeada al lado de la foto terminada: recta, con buena luz, sin dominante y limpia" loading="lazy" width="1158" height="420"></a></figure>
+      <p class="comprueba">tienes <code>guiada-foto.xcf</code> (dos capas) y <code>guiada-foto.jpg</code> (unos 2200 × 1467 px, menos de 1 MB).</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 id="apartado-parte-b-montar-el-cartel">Parte B · Montar el cartel A5</h2>
+    <p>El cartel es un <strong>A5 para la imprenta</strong>: 148 × 210 mm más 3 mm
+    de sangrado por cada lado, a 300 ppp (subtema 3.6).</p>
+
+    <div class="paso">
+      <h3><span class="n">8</span>Imagen nueva con sangrado y guías</h3>
+      <ol>
+        <li>Haz clic en el <strong>color de frente</strong> (el cuadrado de arriba, en la caja de herramientas) y escribe en <em>Notación HTML</em> <span class="valores">1e1a24</span> (un morado casi negro).</li>
+        <li><code>Archivo &gt; Nueva…</code>: anchura <span class="valores">1819</span>, altura <span class="valores">2551</span> píxeles. Abre <em>Opciones avanzadas</em>: resolución X e Y <span class="valores">300</span>; <em>Rellenar con</em>: <strong>Color de frente</strong>.</li>
+        <li><code>Archivo &gt; Guardar como</code> → <code>guiada-cartel.xcf</code>. Llama a la capa <strong>fondo</strong>.</li>
+        <li><code>Imagen &gt; Guías &gt; Guía nueva…</code>, una vez por guía:
+          <ul>
+            <li>Verticales en <span class="valores">35</span>, <span class="valores">94</span>, <span class="valores">1725</span> y <span class="valores">1784</span>.</li>
+            <li>Horizontales en <span class="valores">35</span>, <span class="valores">94</span>, <span class="valores">2457</span> y <span class="valores">2516</span>.</li>
+          </ul>
+          Las de 35 marcan el <strong>corte</strong>; las de 94, la <strong>zona segura</strong>: ningún texto fuera de ellas.</li>
+        <li>Activa <code>Vista &gt; Ajustar a las guías</code>.</li>
+      </ol>
+      <figure class="estrecha"><a href="../assets/img/entregas/p37-08-lienzo.jpg" title="Ver la imagen en grande"><img src="../assets/img/entregas/p37-08-lienzo.jpg" alt="El lienzo morado oscuro de 1819 por 2551 píxeles con las ocho guías azules discontinuas, dos cerca de cada borde" loading="lazy" width="456" height="680"></a></figure>
+      <p class="comprueba"><code>Imagen &gt; Tamaño de impresión</code> dice 154 × 216 mm y 300 ppp, y hay dos guías cerca de cada borde.</p>
+    </div>
+
+    <div class="paso">
+      <h3><span class="n">9</span>La foto como capa, fundida con el fondo</h3>
+      <ol>
+        <li><code>Archivo &gt; Abrir como capas</code> (<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>O</kbd>) → <code>guiada-foto.jpg</code>. Llama a la capa <strong>foto</strong>.</li>
+        <li><code>Capa &gt; Escalar capa</code>: con la cadena cerrada, anchura <span class="valores">1819</span>. La altura se pone sola (unos 1213 px).</li>
+        <li>Súbela arriba del todo: doble clic en la miniatura de la capa para abrir sus atributos y pon <strong>Desplazamiento X</strong> <span class="valores">0</span> e <strong>Y</strong> <span class="valores">0</span>. (También vale arrastrarla con <strong>Mover</strong>, <kbd>M</kbd>, hasta que se pegue a las esquinas de arriba.)</li>
+        <li><code>Capa &gt; Máscara &gt; Añadir máscara de capa</code> → <strong>Blanco (opacidad total)</strong>.</li>
+        <li>Herramienta <strong>Degradado</strong> (<kbd>G</kbd>). Pulsa <kbd>D</kbd> (negro y blanco) y luego <kbd>X</kbd> (blanco al frente). Con la <strong>máscara</strong> activa (borde blanco en su miniatura), arrastra en vertical (con <kbd>Ctrl</kbd>) desde y ≈ <span class="valores">750</span> hasta el borde de abajo de la foto (y ≈ 1213). Mira la posición del puntero abajo a la izquierda. Pulsa <kbd>Intro</kbd>.</li>
+      </ol>
+      <figure><a href="../assets/img/entregas/p37-09-foto-mascara.jpg" title="Ver la imagen en grande"><img src="../assets/img/entregas/p37-09-foto-mascara.jpg" alt="El cartel con la foto arriba fundiéndose poco a poco con el fondo oscuro, y la máscara: blanca arriba y con un degradado a negro abajo" loading="lazy" width="1169" height="560"></a></figure>
+      <p class="comprueba">la foto no acaba en una línea recta: se va oscureciendo hasta desaparecer en el fondo. Si ha quedado al revés (fundida arriba), repite el degradado de abajo arriba o pulsa <kbd>X</kbd>.</p>
+    </div>
+
+    <div class="paso">
+      <h3><span class="n">10</span>Recortar la guitarra y traerla al cartel</h3>
+      <ol>
+        <li><code>Archivo &gt; Abrir</code> → <code>guiada-guitarra.jpg</code> (se abre en otra pestaña).</li>
+        <li><strong>Selección difusa</strong> (<kbd>U</kbd>), umbral <span class="valores">30</span>. Clic en la pared. Con <kbd>Mayús</kbd>+clic añade las zonas de pared y sombra que se hayan quedado fuera, hasta que las hormigas rodeen solo la guitarra.</li>
+        <li><code>Seleccionar &gt; Invertir</code> (<kbd>Ctrl</kbd>+<kbd>I</kbd>): ahora está seleccionada la guitarra.</li>
+        <li><code>Seleccionar &gt; Encoger</code> <span class="valores">1</span> px y <code>Seleccionar &gt; Difuminar</code> <span class="valores">2</span> px: así no se lleva un borde de pared.</li>
+        <li><kbd>Ctrl</kbd>+<kbd>C</kbd>. Vuelve a la pestaña del cartel y <code>Editar &gt; Pegar como &gt; Capa nueva</code>. Llámala <strong>guitarra</strong>.</li>
+        <li><code>Capa &gt; Escalar capa</code>: altura <span class="valores">1000</span> px, cadena cerrada.</li>
+        <li>Con <strong>Mover</strong> (<kbd>M</kbd>, con <em>Mover la capa activa</em> marcado) llévala a la derecha, apoyada en el escenario, dentro de las guías de la zona segura.</li>
+        <li><code>Filtros &gt; Luz y sombra &gt; Sombra arrojada</code>: X <span class="valores">14</span>, Y <span class="valores">18</span>, radio de desenfoque <span class="valores">16</span>, opacidad <span class="valores">0,6</span>.</li>
+      </ol>
+      <figure><a href="../assets/img/entregas/p37-10-guitarra.jpg" title="Ver la imagen en grande"><img src="../assets/img/entregas/p37-10-guitarra.jpg" alt="La guitarra recortada sobre cuadriculado transparente, y colocada en el cartel a la derecha con una sombra suave" loading="lazy" width="693" height="560"></a></figure>
+      <p class="comprueba">alrededor de la guitarra no queda ni un filo de la pared clara (mira con <kbd>1</kbd>, al 100 %). Si queda, deshaz hasta la selección y encoge 1 px más.</p>
+    </div>
+
+    <div class="paso">
+      <h3><span class="n">11</span>La textura en modo Multiplicar</h3>
+      <ol>
+        <li><code>Archivo &gt; Abrir como capas</code> → <code>guiada-textura.jpg</code>. Llámala <strong>textura</strong>.</li>
+        <li><code>Capa &gt; Escalar capa</code>: altura <span class="valores">2551</span>, cadena cerrada (la anchura se queda en 3401). En sus atributos, Desplazamiento X <span class="valores">−791</span>, Y <span class="valores">0</span>, para que quede centrada.</li>
+        <li>Arriba del diálogo Capas: modo <strong>Multiplicar</strong> y opacidad <span class="valores">60</span>.</li>
+        <li>Debe estar encima de <em>guitarra</em> y <em>foto</em>, y debajo de los textos que pondrás ahora.</li>
+      </ol>
+      <figure><a href="../assets/img/entregas/p37-11-textura.jpg" title="Ver la imagen en grande"><img src="../assets/img/entregas/p37-11-textura.jpg" alt="El cartel sin textura y con la textura de papel en Multiplicar: más oscuro, envejecido y con los bordes sombreados" loading="lazy" width="760" height="560"></a></figure>
+      <p class="comprueba">el cartel parece impreso en papel viejo y los bordes están algo más oscuros. Si se ve la textura amarilla tapándolo todo, el modo sigue en Normal.</p>
+    </div>
+
+    <div class="paso">
+      <h3><span class="n">12</span>Textos, franja y logotipo</h3>
+      <ol>
+        <li>Para centrar: <code>Imagen &gt; Guías &gt; Guía nueva (en porcentaje)</code>, vertical, al <span class="valores">50 %</span>.</li>
+        <li><strong>Título</strong>. Herramienta <strong>Texto</strong> (<kbd>T</kbd>): tipografía <em>Sans-serif Bold</em>, tamaño <span class="valores">170</span> px, color <span class="valores">f6efe6</span>, justificación centrada. Escribe <strong>LOS PICOTAS</strong>, <kbd>Intro</kbd>, <strong>ELÉCTRICAS</strong>. Colócalo centrado sobre la guía del 50 %, hacia la mitad del cartel (su parte de arriba en y ≈ 1290). Sombra arrojada: X <span class="valores">8</span>, Y <span class="valores">8</span>, radio <span class="valores">6</span>, opacidad <span class="valores">0,8</span>.</li>
+        <li><strong>Concierto acústico</strong>: <em>Sans-serif</em> (sin Bold), <span class="valores">84</span> px, color <span class="valores">f28c9e</span>, centrado debajo del título.</li>
+        <li><strong>Franja</strong>: <code>Capa &gt; Capa nueva</code> llamada <em>franja</em>, relleno <em>Transparencia</em>. <strong>Selección rectangular</strong> (<kbd>R</kbd>): en sus opciones escribe posición <span class="valores">0, 2110</span> y tamaño <span class="valores">1819 × 220</span>. Pon el color de frente en negro y <code>Editar &gt; Rellenar con el color de frente</code>. <code>Seleccionar &gt; Ninguno</code> y opacidad de la capa <span class="valores">50</span>.</li>
+        <li><strong>Datos</strong> encima de la franja, centrados: <em>Sábado 12 de diciembre · 21:00</em> (<em>Sans-serif Bold</em>, <span class="valores">54</span> px, crema) y debajo <em>Plaza Mayor de Cabezuela del Valle · Entrada libre</em> (<em>Sans-serif</em>, <span class="valores">44</span> px).</li>
+        <li><strong>Logotipo</strong>: <code>Archivo &gt; Abrir como capas</code> → <code>guiada-logo.png</code>; <code>Capa &gt; Escalar capa</code> a <span class="valores">280 × 280</span>; Desplazamiento X <span class="valores">1405</span>, Y <span class="valores">230</span> (arriba a la derecha, dentro de la zona segura).</li>
+      </ol>
+      <figure class="estrecha"><a href="../assets/img/entregas/p37-12-textos.jpg" title="Ver la imagen en grande"><img src="../assets/img/entregas/p37-12-textos.jpg" alt="El cartel con el título Los Picotas Eléctricas en grande, Concierto acústico en rosa, la franja oscura con la fecha y el lugar, y el logotipo arriba a la derecha" loading="lazy" width="456" height="680"></a></figure>
+      <p class="comprueba">todos los textos y el logotipo están entre las guías de 94 px, y el título se lee bien encima de la guitarra gracias a la sombra.</p>
+    </div>
+
+    <div class="paso">
+      <h3><span class="n">13</span>Ordenar y nombrar las capas</h3>
+      <p>El diálogo Capas tiene que quedar así, de arriba abajo, con un nombre claro en cada una:</p>
+      <div class="capas-gimp" style="max-width:26rem">
+        <div class="activa"><b>●</b><i style="background:radial-gradient(#b3123a 40%,transparent 42%)"></i>logo</div>
+        <div><b>●</b><i style="background:#2b2533;color:#fff"></i>Plaza Mayor de Cabezuela… (texto)</div>
+        <div><b>●</b><i style="background:#2b2533"></i>Sábado 12 de diciembre… (texto)</div>
+        <div><b>●</b><i style="background:#000;opacity:.6"></i>franja · opacidad 50</div>
+        <div><b>●</b><i style="background:#2b2533"></i>Concierto acústico (texto)</div>
+        <div><b>●</b><i style="background:#2b2533"></i>LOS PICOTAS ELÉCTRICAS (texto, con sombra)</div>
+        <div><b>●</b><i style="background:#d9c89f"></i>textura · Multiplicar · 60</div>
+        <div><b>●</b><i style="background:linear-gradient(135deg,#d98b3a,#5a1e0f)"></i>guitarra (con sombra)</div>
+        <div><b>●</b><i style="background:linear-gradient(#a0522d,#1e1a24)"></i>foto + máscara</div>
+        <div><b>●</b><i style="background:#1e1a24"></i>fondo</div>
+      </div>
+      <p>En GIMP 3, la sombra arrojada aparece como un filtro dentro de la capa (un
+      icono a su derecha): se puede cambiar después con doble clic.</p>
+      <p class="comprueba">guarda (<kbd>Ctrl</kbd>+<kbd>S</kbd>). Si cierras y abres <code>guiada-cartel.xcf</code>, siguen las capas, los textos se pueden editar y las guías están en su sitio.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 id="apartado-parte-c-exportar-y-publicar">Parte C · Exportar y publicar</h2>
+
+    <div class="paso">
+      <h3><span class="n">14</span>Metadatos y PDF para la imprenta</h3>
+      <ol>
+        <li><code>Imagen &gt; Metadatos &gt; Editar metadatos</code>: rellena el autor con tu nombre y el aviso de copyright con <span class="valores">© 2026 Tu nombre</span>. <strong>Escribir metadatos</strong>.</li>
+        <li><code>Archivo &gt; Exportar como</code> → <code>guiada-cartel.pdf</code>. En las opciones deja <em>Capas como páginas</em> desmarcado. <strong>Exportar</strong>.</li>
+        <li>Abre el PDF con el navegador: en <em>Propiedades del documento</em>, el tamaño de página es <strong>154 × 216 mm</strong>.</li>
+      </ol>
+      <figure><a href="../assets/img/entregas/p37-13-cartel.jpg" title="Ver la imagen en grande"><img src="../assets/img/entregas/p37-13-cartel.jpg" alt="El cartel terminado con las guías a la vista y, al lado, cómo queda impreso y cortado en A5, sin bordes blancos" loading="lazy" width="812" height="600"></a></figure>
+      <p class="comprueba">el fondo y la foto llegan hasta el borde del archivo y, en la versión cortada, no se pierde ningún texto.</p>
+    </div>
+
+    <div class="paso">
+      <h3><span class="n">15</span>Versión para redes: 1080 × 1350</h3>
+      <ol>
+        <li><code>Imagen &gt; Duplicar</code> (<kbd>Ctrl</kbd>+<kbd>D</kbd>): trabaja en la copia, que se abre en otra pestaña.</li>
+        <li><code>Imagen &gt; Aplanar imagen</code>.</li>
+        <li><strong>Recortar</strong> (<kbd>Mayús</kbd>+<kbd>C</kbd>): dibuja un rectángulo cualquiera y, en las opciones, escribe posición <span class="valores">35, 182</span> y tamaño <span class="valores">1749 × 2186</span> (es la proporción 4:5, sin el sangrado). <kbd>Intro</kbd>.</li>
+        <li><code>Imagen &gt; Escalar la imagen</code>: <span class="valores">1080 × 1350</span>, cadena cerrada.</li>
+        <li><code>Archivo &gt; Exportar como</code> → <code>guiada-redes.jpg</code>, calidad <span class="valores">85</span>. Cierra la copia <strong>sin guardar</strong>.</li>
+      </ol>
+      <figure><a href="../assets/img/entregas/p37-14-redes.jpg" title="Ver la imagen en grande"><img src="../assets/img/entregas/p37-14-redes.jpg" alt="El recuadro 4:5 marcado sobre el cartel y la versión para redes de 1080 por 1350 con todos los textos dentro" loading="lazy" width="865" height="600"></a></figure>
+      <p class="comprueba">mide exactamente 1080 × 1350, pesa menos de 500 KB y se ven el logotipo, el título y la franja con los datos. Cárgala en la <a href="laboratorio-imagen.html#apartado-9-tamanos-para-redes-e-impresion">calculadora del laboratorio</a> con el destino «Publicación vertical 4:5».</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 id="apartado-entrega">Entrega</h2>
+    <section class="entrega" aria-labelledby="entrega-p37">
+      <h3 id="entrega-p37">Qué entregas de la práctica guiada</h3>
+      <p class="entrega-sub">La foto retocada, el cartel y su versión para redes, con los archivos de trabajo y una memoria corta.</p>
+      <p class="entrega-zip">Sube a Moodle <code>&lt;usuario&gt;_p37.zip</code>. En su raíz:</p>
+      <div class="aula-tabla"><table class="entrega-nombres"><thead><tr><th>En tu carpeta</th><th>Nombre dentro del ZIP</th><th>Parte</th></tr></thead><tbody>
+        <tr><td>La memoria</td><td><code>&lt;usuario&gt;_p37.pdf</code></td><td>Todas</td></tr>
+        <tr><td><code>guiada-foto.xcf</code></td><td><code>&lt;usuario&gt;_a01.xcf</code></td><td>A</td></tr>
+        <tr><td><code>guiada-foto.jpg</code></td><td><code>&lt;usuario&gt;_a01.jpg</code></td><td>A</td></tr>
+        <tr><td><code>guiada-cartel.xcf</code></td><td><code>&lt;usuario&gt;_a02.xcf</code></td><td>B</td></tr>
+        <tr><td><code>guiada-cartel.pdf</code></td><td><code>&lt;usuario&gt;_a03.pdf</code></td><td>C</td></tr>
+        <tr><td><code>guiada-redes.jpg</code></td><td><code>&lt;usuario&gt;_a03.jpg</code></td><td>C</td></tr>
+      </tbody></table></div>
+      <p class="entrega-sub">Cambia el nombre solo a las copias que metes en el ZIP. La memoria cumple las normas del módulo: portada, índice con hiperenlaces, páginas numeradas, <code>Figura N: …</code> en cada imagen y capturas de pantalla completa con la fecha y el archivo abierto.</p>
+      <h4>Capturas que no pueden faltar en la memoria</h4>
+      <ul class="entrega-lista">
+        <li>Paso 2: la barra de estado con el ángulo medido.</li>
+        <li>Paso 4: el cuadro Niveles con tus valores y el histograma.</li>
+        <li>Paso 6: un detalle al 100 % antes y después de limpiar.</li>
+        <li>Paso 13: el diálogo Capas completo del cartel, con los nombres y el modo de la textura.</li>
+        <li>Paso 14: el PDF abierto en el navegador con las propiedades del documento (154 × 216 mm).</li>
+      </ul>
+      <h4>Comprueba antes de entregar</h4>
+      <ul class="entrega-lista">
+        <li>La foto está recta, sin esquinas transparentes, con el histograma de un extremo a otro, la rejilla gris y sin letrero ni motas.</li>
+        <li>El XCF del cartel mide 1819 × 2551 px a 300 ppp y tiene las capas con nombre (no «Capa copia #2»).</li>
+        <li>Ningún texto ni el logotipo pasan las guías de 94 px.</li>
+        <li>El PDF mide 154 × 216 mm y la versión para redes, 1080 × 1350 px.</li>
+      </ul>
+      <h4>Cómo debe quedar</h4>
+      <div class="entrega-ejemplos">
+        <figure class="entrega-ancho bien">
+          <a href="../assets/img/entregas/p37-07-foto.jpg" title="Ver la imagen en grande"><img src="../assets/img/entregas/p37-07-foto.jpg" alt="Antes y después de la foto del escenario" loading="lazy"></a>
+          <figcaption>Parte A: recta, luminosa, sin dominante y limpia.</figcaption>
+        </figure>
+        <figure class="entrega-ancho bien">
+          <a href="../assets/img/entregas/p37-14-redes.jpg" title="Ver la imagen en grande"><img src="../assets/img/entregas/p37-14-redes.jpg" alt="El cartel y su versión para redes" loading="lazy"></a>
+          <figcaption>Partes B y C: el cartel A5 y su versión 4:5 para redes.</figcaption>
+        </figure>
+      </div>
+      <p class="entrega-ojo"><strong>Fallo más común:</strong> pintar el degradado sobre la foto en vez de sobre su máscara. Si la foto se vuelve blanca y negra, deshaz y haz clic en la miniatura de la máscara antes de repetir.</p>
+    </section>
+  </section>
+
+  <nav class="nav-temas">
+    <a href="ut03-6.html">&laquo; Tema 3.6</a>
+    <a href="ut03.html">Índice del Tema 3</a>
+    <a href="ut03-practica-control.html">Punto de control &raquo;</a>
+  </nav>
+
+  <footer class="pie">
+    <p>0223 Aplicaciones ofimáticas · Material de consulta del alumnado.
+    Currículo: Decreto 272/2009 (Extremadura).</p>
+  </footer>
+
+</main></div>
+</body>
+</html>

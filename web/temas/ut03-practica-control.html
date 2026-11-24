@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Punto de control del Tema 3 · 0223 Aplicaciones ofimáticas</title>
+<link rel="stylesheet" href="../assets/estilo.css">
+<style>
+  .t38 { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 1rem 0; }
+  .t38 th, .t38 td { border: 1px solid var(--linea); padding: 0.4rem 0.6rem; text-align: left; vertical-align: top; }
+  .t38 th { background: var(--acento-claro); color: var(--acento); }
+  .t38 td.pt { text-align: right; white-space: nowrap; font-weight: 600; }
+  .t38 tr.ce td { background: #f4f6f9; font-weight: 600; }
+  .fig-38 { margin: 1rem 0; }
+  .fig-38 img { display: block; max-width: 100%; height: auto; border: 1px solid var(--linea); border-radius: 4px; }
+  .valores { font-family: Consolas, "Courier New", monospace; font-size: 0.9rem; background: var(--acento-claro); padding: 0.05rem 0.35rem; border-radius: 4px; }
+</style>
+<link rel="stylesheet" href="../assets/aula.css">
+<script defer src="../assets/aula.js"></script>
+</head>
+<body data-modulo="0223">
+<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0223 / Aplicaciones ofimáticas</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><a class="indice-tema" href="ut03.html"><span>Tema 3</span>Imagen digital: captura, edición y publicación</a><a class="indice-material" href="../recursos.html?tema=3">Todo el material del tema 3</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-el-encargo">El encargo</a></li><li><a href="#apartado-parte-a-la-foto-de-la-sala">Parte A · La foto de la sala</a></li><li><a href="#apartado-parte-b-el-cartel-a4">Parte B · El cartel A4 para la imprenta</a></li><li><a href="#apartado-parte-c-la-miniatura-de-youtube">Parte C · La miniatura de YouTube</a></li><li><a href="#apartado-como-se-evalua">Cómo se evalúa (rúbrica, 10 puntos)</a></li><li><a href="#apartado-entrega">Entrega</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1"><nav class="aula-migas" aria-label="Estás en"><a href="../index.html">Inicio</a><span aria-hidden="true">›</span><a href="ut03.html">Tema 3 · Imagen digital: captura, edición y publicación</a><span aria-hidden="true">›</span><span aria-current="page">Punto de control</span></nav>
+
+  <header class="cab">
+    <p class="modulo">0223 · Aplicaciones ofimáticas · Tema 3 · Punto de control</p>
+    <h1>Punto de control del Tema 3 — Jerte Gaming Cup</h1>
+    <p class="meta">1.º SMR · Curso 2026/2027 · 1.ª evaluación · Duración: 3 h · Evaluable</p>
+  </header>
+<nav class="subnav" aria-label="Apartados del tema 3"><a href="ut03.html">Portada del tema</a><a href="ut03.html#apartado-subtemas">Apuntes</a><a href="ut03-ejercicios.html">Ejercicios guiados</a><a href="laboratorio-imagen.html">Laboratorio de imagen</a><a href="ut03-gimp-guiada.html">Práctica guiada de GIMP</a><a href="ut03-practica-control.html" aria-current="page">Punto de control</a></nav>
+<div class="aula-herramientas"><button type="button" data-imprimir hidden>Imprimir / guardar PDF</button></div>
+
+  <details class="ra-ce"><summary>Qué se evalúa · RA y criterios</summary>
+    <h2 id="apartado-resultado-de-aprendizaje">Resultado de aprendizaje</h2>
+    <p><strong>RA5.</strong> Manipula imágenes digitales analizando las
+    posibilidades de distintos programas y aplicando técnicas de captura y edición
+    básicas.</p>
+    <p>Criterios de evaluación que acredita:</p>
+    <ul>
+      <li><strong>c)</strong> Se ha trabajado con imágenes a diferentes resoluciones, según su finalidad.</li>
+      <li><strong>d)</strong> Se han empleado herramientas para la edición de imagen digital.</li>
+      <li><strong>e)</strong> Se han importado y exportado imágenes en diversos formatos.</li>
+      <li><strong>f)</strong> Se ha publicado imágenes en diferentes medios.</li>
+    </ul>
+  </details>
+
+  <div class="aviso">
+    <strong>Ahora sin guía.</strong> Es el mismo recorrido que la
+    <a href="ut03-gimp-guiada.html">práctica guiada</a>, con otro encargo y otro
+    material. Aquí no se dice qué herramienta usar ni dónde está cada opción: se
+    dice qué tiene que tener cada archivo, con valores exactos. Lo que no cumpla
+    un valor, no puntúa.
+  </div>
+
+  <section>
+    <h2 id="apartado-el-encargo">El encargo</h2>
+    <p>El instituto organiza la <strong>Jerte Gaming Cup</strong>, un torneo de
+    videojuegos, y te encarga la imagen: una foto de la sala retocada, el cartel
+    para la imprenta y la miniatura del vídeo de la final en YouTube.</p>
+    <ul>
+      <li><a href="../descargas/gimp-control-material.zip"><strong>Material del punto de control</strong></a>
+      (ZIP, 0,6 MB): <code>pc-sala.jpg</code> (la foto de la sala),
+      <code>pc-auriculares.jpg</code> (para recortar), <code>pc-luces.jpg</code>
+      (luces desenfocadas sobre negro) y <code>pc-logo.svg</code> (el logotipo,
+      vectorial). Descomprímelo en <code>Tema3_Proyecto/control</code>.</li>
+    </ul>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="t38">
+      <thead><tr><th>Parte</th><th>Qué haces</th><th>Tiempo orientativo</th></tr></thead>
+      <tbody>
+        <tr><td>A</td><td>Retocar la foto de la sala</td><td>45 min</td></tr>
+        <tr><td>B</td><td>El cartel A4 para la imprenta</td><td>1 h 30 min</td></tr>
+        <tr><td>C</td><td>La miniatura de YouTube</td><td>30 min</td></tr>
+        <tr><td>—</td><td>Revisar con la lista y entregar</td><td>15 min</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section>
+    <h2 id="apartado-parte-a-la-foto-de-la-sala">Parte A · La foto de la sala</h2>
+    <p>La foto <code>pc-sala.jpg</code> está torcida, lavada (sin negros ni
+    blancos), azulada, con motas de polvo en los paneles de la pared y una lata
+    encima de la mesa.</p>
+    <ul>
+      <li>Archivo de trabajo <code>control-foto.xcf</code>, con el original en una capa oculta debajo.</li>
+      <li><strong>Recta</strong>: el borde de la mesa, horizontal.</li>
+      <li>Recortada a <strong>16:9</strong>, sin esquinas transparentes, y escalada a <span class="valores">1920 × 1080</span> px.</li>
+      <li><strong>Luz</strong>: el histograma va de un extremo a otro, sin quemar ni empastar.</li>
+      <li><strong>Color</strong>: sin dominante azul. Los paneles acústicos de la pared son grises.</li>
+      <li><strong>Limpia</strong>: sin la lata y sin ninguna mota, y sin manchas repetidas donde estaban.</li>
+      <li>Enfocada un poco, después de escalar.</li>
+      <li>Exportada como <code>control-foto.jpg</code>, calidad <span class="valores">85</span>, sin datos Exif.</li>
+    </ul>
+    <figure class="fig-38"><a href="../assets/img/entregas/p38-ejemplo-foto.jpg" title="Ver la imagen en grande"><img src="../assets/img/entregas/p38-ejemplo-foto.jpg" alt="La foto de la sala tal como viene, torcida, lavada y azulada con una lata en la mesa, y la misma foto retocada: recta, con contraste, paneles grises y sin la lata" loading="lazy" width="1198" height="400"></a>
+      <figcaption class="pie-fig">Figura 1: la foto antes y después. El tuyo puede tener un recorte algo distinto; los valores no.</figcaption></figure>
+  </section>
+
+  <section>
+    <h2 id="apartado-parte-b-el-cartel-a4">Parte B · El cartel A4 para la imprenta</h2>
+    <h3>El archivo</h3>
+    <ul>
+      <li><code>control-cartel.xcf</code>: <strong>A4 con 3 mm de sangrado a 300 ppp</strong>, es decir, <span class="valores">2551 × 3579</span> px (216 × 303 mm).</li>
+      <li>Guías de <strong>corte</strong> a 35 px de cada borde y de <strong>zona segura</strong> a 94 px. Tú calculas sus posiciones.</li>
+      <li>El fondo llega hasta los cuatro bordes del archivo.</li>
+    </ul>
+    <h3>Las capas (como mínimo, todas con nombre)</h3>
+    <ul>
+      <li><strong>fondo</strong>: un color oscuro.</li>
+      <li><strong>foto</strong>: tu <code>control-foto.jpg</code>, a todo el ancho, arriba, con <strong>máscara de capa</strong> en degradado para que se funda con el fondo.</li>
+      <li><strong>luces</strong>: <code>pc-luces.jpg</code> cubriendo el cartel, en modo <strong>Pantalla</strong> (el negro desaparece y quedan las luces).</li>
+      <li><strong>auriculares</strong>: recortados de <code>pc-auriculares.jpg</code>, <strong>sin ningún borde del fondo</strong>, de al menos <span class="valores">1200</span> px de ancho y con sombra arrojada.</li>
+      <li><strong>logo</strong>: importado desde <code>pc-logo.svg</code> a <span class="valores">600 × 600</span> px (no lo abras pequeño y lo amplíes).</li>
+      <li>Cuatro capas de <strong>texto</strong>, con estas frases exactas y sin faltas:
+        <ol>
+          <li><strong>JERTE GAMING CUP</strong> (el título: al menos <span class="valores">150</span> px)</li>
+          <li><strong>Torneo de videojuegos del IES Valle del Jerte</strong></li>
+          <li><strong>Viernes 19 de febrero · 16:30 · Salón de actos</strong></li>
+          <li><strong>Inscripciones en la biblioteca hasta el 12 de febrero</strong></li>
+        </ol>
+        Como mucho, <strong>dos tipografías</strong>. Todos los textos y el logotipo, <strong>dentro de la zona segura</strong>, y que se lean bien sobre lo que tengan detrás.</li>
+    </ul>
+    <h3>Las salidas</h3>
+    <ul>
+      <li>Metadatos: autor (tu nombre) y aviso de copyright.</li>
+      <li><code>control-cartel.pdf</code>: una sola página de 216 × 303 mm.</li>
+    </ul>
+    <figure class="fig-38"><a href="../assets/img/entregas/p38-ejemplo-cartel.jpg" title="Ver la imagen en grande"><img src="../assets/img/entregas/p38-ejemplo-cartel.jpg" alt="Ejemplo de cartel de la Jerte Gaming Cup con las guías: la foto de la sala arriba fundida con el fondo, luces de colores, los auriculares en el centro, el logotipo arriba y los cuatro textos abajo; al lado, el mismo cartel cortado" loading="lazy" width="870" height="640"></a>
+      <figcaption class="pie-fig">Figura 2: un cartel que cumple el pliego. La composición es libre (dónde va cada cosa y los colores); el tamaño, las capas, los textos y la zona segura, no.</figcaption></figure>
+  </section>
+
+  <section>
+    <h2 id="apartado-parte-c-la-miniatura-de-youtube">Parte C · La miniatura de YouTube</h2>
+    <ul>
+      <li><code>control-miniatura.xcf</code> de <span class="valores">1280 × 720</span> px, para el vídeo de la final.</li>
+      <li>Con la foto de la sala, los auriculares, el logotipo y el texto <strong>LA FINAL</strong> en grande, que se lea con la miniatura al tamaño del móvil.</li>
+      <li><strong>Nada importante en la esquina inferior derecha</strong>: ahí YouTube pone la duración del vídeo.</li>
+      <li>Exportada como <code>control-miniatura.jpg</code>, calidad <span class="valores">85</span>, de menos de <span class="valores">2 MB</span>.</li>
+    </ul>
+    <figure class="fig-38"><a href="../assets/img/entregas/p38-ejemplo-miniatura.jpg" title="Ver la imagen en grande"><img src="../assets/img/entregas/p38-ejemplo-miniatura.jpg" alt="Ejemplo de miniatura con LA FINAL en grande a la izquierda, los auriculares a la derecha y el logotipo abajo a la izquierda; al lado, cómo se ve en YouTube con la duración del vídeo en la esquina inferior derecha" loading="lazy" width="1192" height="370"></a>
+      <figcaption class="pie-fig">Figura 3: la miniatura y cómo se ve en YouTube.</figcaption></figure>
+  </section>
+
+  <section>
+    <h2 id="apartado-como-se-evalua">Cómo se evalúa (rúbrica, 10 puntos)</h2>
+    <p>Se comprueba sobre tus archivos: cada punto se aplica o no. Las
+    puntuaciones se agrupan por criterio de evaluación.</p>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="t38">
+      <thead><tr><th>Qué se comprueba</th><th>Puntos</th></tr></thead>
+      <tbody>
+        <tr class="ce"><td>d) Se han empleado herramientas para la edición de imagen digital.</td><td class="pt">5,0</td></tr>
+        <tr><td>Foto recta y recortada a 16:9 sin esquinas transparentes</td><td class="pt">0,5</td></tr>
+        <tr><td>Luz corregida: histograma de extremo a extremo, sin quemar</td><td class="pt">0,5</td></tr>
+        <tr><td>Sin dominante: los paneles de la pared son grises</td><td class="pt">0,5</td></tr>
+        <tr><td>Sin lata ni motas, y sin manchas repetidas</td><td class="pt">0,5</td></tr>
+        <tr><td>Auriculares recortados sin borde del fondo, con sombra</td><td class="pt">1,0</td></tr>
+        <tr><td>Foto con máscara de capa en degradado</td><td class="pt">0,5</td></tr>
+        <tr><td>Luces en modo Pantalla</td><td class="pt">0,5</td></tr>
+        <tr><td>Los cuatro textos exactos, sin faltas, legibles y con dos tipografías como mucho</td><td class="pt">0,5</td></tr>
+        <tr><td>XCF con todas las capas con nombre y los textos editables</td><td class="pt">0,5</td></tr>
+        <tr class="ce"><td>c) Se ha trabajado con imágenes a diferentes resoluciones, según su finalidad.</td><td class="pt">1,5</td></tr>
+        <tr><td>Cartel de 2551 × 3579 px a 300 ppp</td><td class="pt">0,5</td></tr>
+        <tr><td>Foto de 1920 × 1080 px</td><td class="pt">0,5</td></tr>
+        <tr><td>Miniatura de 1280 × 720 px</td><td class="pt">0,5</td></tr>
+        <tr class="ce"><td>e) Se han importado y exportado imágenes en diversos formatos.</td><td class="pt">1,5</td></tr>
+        <tr><td>Logotipo importado desde el SVG a 600 × 600, nítido</td><td class="pt">0,5</td></tr>
+        <tr><td>PDF de una página y JPG de calidad 85 sin datos Exif</td><td class="pt">0,5</td></tr>
+        <tr><td>Entrega completa con los nombres correctos</td><td class="pt">0,5</td></tr>
+        <tr class="ce"><td>f) Se ha publicado imágenes en diferentes medios.</td><td class="pt">2,0</td></tr>
+        <tr><td>Cartel con guías: fondo hasta el borde y todos los textos y el logotipo dentro de la zona segura</td><td class="pt">1,0</td></tr>
+        <tr><td>Miniatura legible en pequeño y sin nada en la esquina inferior derecha</td><td class="pt">0,5</td></tr>
+        <tr><td>Metadatos de autor y copyright en el cartel</td><td class="pt">0,5</td></tr>
+      </tbody>
+    </table></div>
+    <div class="tarjeta">
+      <p><strong>Consejo de método.</strong> Hazlo en el orden de la práctica
+      guiada: primero la foto entera (sin ella no puedes montar nada), después el
+      lienzo y las guías, luego las capas de abajo arriba y los textos al final.
+      Guarda el XCF cada pocos pasos. Si te atascas en un recorte, sigue con lo
+      demás y vuelve después: no te quedes media hora en un solo punto.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 id="apartado-entrega">Entrega</h2>
+    <section class="entrega" aria-labelledby="entrega-p38">
+      <h3 id="entrega-p38">Qué entregas del punto de control</h3>
+      <p class="entrega-sub">Los tres archivos de trabajo y sus salidas. No lleva memoria: los XCF son la prueba de cómo lo has hecho.</p>
+      <p class="entrega-zip">Sube a Moodle <code>&lt;usuario&gt;_p38.zip</code>. En su raíz:</p>
+      <div class="aula-tabla"><table class="entrega-nombres"><thead><tr><th>En tu carpeta</th><th>Nombre dentro del ZIP</th><th>Parte</th></tr></thead><tbody>
+        <tr><td><code>control-foto.xcf</code></td><td><code>&lt;usuario&gt;_a01.xcf</code></td><td>A</td></tr>
+        <tr><td><code>control-foto.jpg</code></td><td><code>&lt;usuario&gt;_a01.jpg</code></td><td>A</td></tr>
+        <tr><td><code>control-cartel.xcf</code></td><td><code>&lt;usuario&gt;_a02.xcf</code></td><td>B</td></tr>
+        <tr><td><code>control-cartel.pdf</code></td><td><code>&lt;usuario&gt;_a02.pdf</code></td><td>B</td></tr>
+        <tr><td><code>control-miniatura.xcf</code></td><td><code>&lt;usuario&gt;_a03.xcf</code></td><td>C</td></tr>
+        <tr><td><code>control-miniatura.jpg</code></td><td><code>&lt;usuario&gt;_a03.jpg</code></td><td>C</td></tr>
+      </tbody></table></div>
+      <p class="entrega-sub">Cambia el nombre solo a las copias que metes en el ZIP. Si un XCF pesa mucho, comprueba que no has dejado capas de prueba duplicadas.</p>
+      <h4>Comprueba antes de entregar</h4>
+      <ul class="entrega-lista">
+        <li>La foto mide 1920 × 1080, está recta, sin la lata ni motas, y los paneles de la pared son grises.</li>
+        <li>El cartel mide 2551 × 3579 px a 300 ppp, tiene las ocho guías y ningún texto ni el logotipo pasan las de 94 px.</li>
+        <li>En el diálogo Capas del cartel están <em>fondo</em>, <em>foto</em> (con máscara), <em>luces</em> (Pantalla), <em>auriculares</em>, <em>logo</em> y los cuatro textos.</li>
+        <li>Al 100 %, alrededor de los auriculares no hay ningún filo claro.</li>
+        <li>El logotipo se ve nítido al 100 % (lo importaste a 600 px).</li>
+        <li>El PDF tiene una página de 216 × 303 mm; la miniatura mide 1280 × 720 y no tiene nada en la esquina de abajo a la derecha.</li>
+        <li>Los seis archivos están en la raíz del ZIP con su nombre.</li>
+      </ul>
+      <h4>Cómo debe quedar (y cómo no)</h4>
+      <div class="entrega-ejemplos">
+        <figure class="entrega-ancho">
+          <a href="../assets/img/entregas/p38-bien-mal-recorte.jpg" title="Ver la imagen en grande"><img src="../assets/img/entregas/p38-bien-mal-recorte.jpg" alt="Un casco de los auriculares recortado con un borde claro del fondo, y el mismo recortado limpio" loading="lazy"></a>
+          <figcaption>El recorte: sin filo del fondo. Encoge la selección 1 px y difumínala 2 px antes de copiar.</figcaption>
+        </figure>
+        <figure class="entrega-ancho">
+          <a href="../assets/img/entregas/p38-bien-mal-logo.jpg" title="Ver la imagen en grande"><img src="../assets/img/entregas/p38-bien-mal-logo.jpg" alt="El texto del logotipo pixelado por haberlo ampliado, y nítido por haberlo importado a su tamaño" loading="lazy"></a>
+          <figcaption>El logotipo: al abrir el SVG, GIMP pregunta el tamaño. Escribe 600 × 600 ahí, no lo amplíes después.</figcaption>
+        </figure>
+        <figure class="entrega-ancho">
+          <a href="../assets/img/entregas/p38-bien-mal-zona.jpg" title="Ver la imagen en grande"><img src="../assets/img/entregas/p38-bien-mal-zona.jpg" alt="La parte de abajo del cartel con una línea de texto que pisa las guías de corte, y la misma parte con los textos dentro de la zona segura" loading="lazy"></a>
+          <figcaption>La zona segura: un texto que pisa las guías puede salir cortado de la imprenta.</figcaption>
+        </figure>
+      </div>
+      <p class="entrega-ojo"><strong>Fallo más común:</strong> poner las luces en modo Normal y bajarles la opacidad. Se ve un velo negro encima de todo; en Pantalla, el negro desaparece.</p>
+    </section>
+  </section>
+
+  <nav class="nav-temas">
+    <a href="ut03-gimp-guiada.html">&laquo; Práctica guiada de GIMP</a>
+    <a href="ut03.html">Índice del Tema 3</a>
+    <span></span>
+  </nav>
+
+  <footer class="pie">
+    <p>0223 Aplicaciones ofimáticas · Material de consulta del alumnado.
+    Currículo: Decreto 272/2009 (Extremadura).</p>
+  </footer>
+
+</main></div>
+</body>
+</html>
